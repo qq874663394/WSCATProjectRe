@@ -342,3 +342,6 @@ D:\项目\2016年8月4日164955\WSCATProject\bin\Debug\WSCATProject.exe.config
 D:\项目\2016年8月4日164955\WSCATProject\obj\Debug\WSCATProject.exe
 D:\项目\2016年8月4日164955\WSCATProject\obj\Debug\WSCATProject.pdb
 >>>>>>> 10eb6a1ddbc963ccc131bc8ab8f453474447154d
+C:\Users\Administrator.USER-20160704SV\项目\WSCATProject\bin\Debug\WSCATProject.exe.config
+C:\Users\Administrator.USER-20160704SV\项目\WSCATProject\obj\Debug\WSCATProject.exe
+C:\Users\Administrator.USER-20160704SV\项目\WSCATProject\obj\Debug\WSCATProject.pdb
