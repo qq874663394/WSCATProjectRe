@@ -20,7 +20,7 @@ namespace WSCATProject.Base
         {
             InitializeComponent();
         }
-        string lin = "sj";
+        string lin = "sj12222222222";
         private void buttonXLogin_Click(object sender, EventArgs e)
         {
             User u = new User();
