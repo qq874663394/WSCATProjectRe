@@ -20,6 +20,7 @@ namespace WSCATProject.Base
         {
             InitializeComponent();
         }
+        public string ss { get; set; }
 
         private void buttonXLogin_Click(object sender, EventArgs e)
         {
