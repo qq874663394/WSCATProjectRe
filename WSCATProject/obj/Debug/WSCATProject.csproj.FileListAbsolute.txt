@@ -345,3 +345,6 @@ D:\项目\2016年8月4日164955\WSCATProject\obj\Debug\WSCATProject.pdb
 C:\Users\Administrator.USER-20160704SV\项目\WSCATProject\bin\Debug\WSCATProject.exe.config
 C:\Users\Administrator.USER-20160704SV\项目\WSCATProject\obj\Debug\WSCATProject.exe
 C:\Users\Administrator.USER-20160704SV\项目\WSCATProject\obj\Debug\WSCATProject.pdb
+C:\Users\Administrator.USER-20160704SV\Source\Repos\WSCATProject\WSCATProject\bin\Debug\WSCATProject.exe.config
+C:\Users\Administrator.USER-20160704SV\Source\Repos\WSCATProject\WSCATProject\obj\Debug\WSCATProject.exe
+C:\Users\Administrator.USER-20160704SV\Source\Repos\WSCATProject\WSCATProject\obj\Debug\WSCATProject.pdb
