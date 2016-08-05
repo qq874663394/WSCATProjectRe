@@ -59,6 +59,19 @@ namespace WSCATProject
         /// </summary>
         private decimal _MaterialMoney = 0.00m;
 
+        public string BuyOdd
+        {
+            get
+            {
+                return _BuyOdd;
+            }
+
+            set
+            {
+                _BuyOdd = value;
+            }
+        }
+
         #region 初始化操作
         protected override void InitTopLab()
         {
@@ -144,8 +157,8 @@ namespace WSCATProject
             dataGridViewFujia.CellDoubleClick += DataGridViewFujia_CellDoubleClick;
             
             //采购单单号
-            _BuyOdd = BuildCode.ModuleCode("BA");
-            textBoxOddNumbers.Text = _BuyOdd;
+            BuyOdd = BuildCode.ModuleCode("BA");
+            textBoxOddNumbers.Text = BuyOdd;
             labtextboxTop3.Text = "0";
             textBoxX3.Text = "0";
             textBoxX2.Text = "0";
@@ -552,10 +565,10 @@ namespace WSCATProject
             Buy buy = new Buy();
             if (grs.Count > 1)
             {
-                buy.Buy_Code = _BuyOdd;
+                buy.Buy_Code = BuyOdd;
                 buy.Buy_Date = dateTimePicker1.Value;
-                buy.Buy_suppliercode = _ProfeCode;
-                buy.Buy_suppliername = labtextboxTop2.Text.Trim();
+                buy.Buy_SupplierCode = _ProfeCode;
+                buy.Buy_SupplierName = labtextboxTop2.Text.Trim();
                 buy.Buy_PurchaseStatus = 1;
                 buy.Buy_AuditStatus = 0;
                 buy.Buy_PurchaserID = "0";
@@ -567,7 +580,7 @@ namespace WSCATProject
                 buy.Buy_IsPay = 0;
                 buy.Buy_PayMethod = 0;
                 buy.Buy_IsPutSto = 0;
-                buy.Buy_class = "采购申请单";
+                buy.Buy_Class = "采购申请单";
                 //buy.Buy_PayMethod = 
                 //buy.Buy_PayMethod = 
                 foreach (GridRow gr in grs)
@@ -595,10 +608,10 @@ namespace WSCATProject
                         return;
                     }
 
-                    buyDetail.Buy_LineCode = _BuyOdd;
+                    buyDetail.Buy_LineCode = BuyOdd;
                     buyDetail.Buy_StockCode = gr["gridColumnStockCode"].Value.ToString();
                     buyDetail.Buy_StockName = gr["gridColumnStock"].Value.ToString();
-                    buyDetail.Buy_Code = _BuyOdd;
+                    buyDetail.Buy_Code = BuyOdd;
                     buyDetail.Buy_MaID = gr["gridColumnMaID"].Value.ToString();
                     buyDetail.Buy_MaName = gr["gridColumnName"].Value.ToString();
                     buyDetail.Buy_Model = gr["gridColumnModel"].Value.ToString();
