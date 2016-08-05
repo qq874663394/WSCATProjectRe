@@ -457,6 +457,24 @@
     <Compile Include="SellForm\ReturnedSellForm.Designer.cs">
       <DependentUpon>ReturnedSellForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sell\InsSellGathering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sell\InsSellGathering.designer.cs">
+      <DependentUpon>InsSellGathering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sell\SellHistoricaldiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sell\SellHistoricaldiscount.Designer.cs">
+      <DependentUpon>SellHistoricaldiscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sell\SellPriceEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sell\SellPriceEntry.Designer.cs">
+      <DependentUpon>SellPriceEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="StockSystemForm\StockAdjustPriceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -697,6 +715,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SellForm\InSellForm.resx">
       <DependentUpon>InSellForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sell\InsSellGathering.resx">
+      <DependentUpon>InsSellGathering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sell\SellHistoricaldiscount.resx">
+      <DependentUpon>SellHistoricaldiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sell\SellPriceEntry.resx">
+      <DependentUpon>SellPriceEntry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockSystemForm\StockOtherInvoiceForm.resx">
       <DependentUpon>StockOtherInvoiceForm.cs</DependentUpon>
@@ -1051,9 +1078,7 @@
   <ItemGroup>
     <None Include="Resources\xitongweihu.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Sell\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

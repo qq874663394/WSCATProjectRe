@@ -79,3 +79,15 @@ D:\项目\整合\2016年8月1日170812我修改好了，你可以在这个上面
 D:\项目\整合\2016年8月1日170812我修改好了，你可以在这个上面改\2016年8月1日170812好了的\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\项目\整合\2016年8月1日170812我修改好了，你可以在这个上面改\2016年8月1日170812好了的\DAL\obj\Debug\DAL.dll
 D:\项目\整合\2016年8月1日170812我修改好了，你可以在这个上面改\2016年8月1日170812好了的\DAL\obj\Debug\DAL.pdb
+C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\bin\Debug\DAL.dll
+C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\bin\Debug\DAL.pdb
+C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\bin\Debug\DevComponents.DotNetBar2.dll
+C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\bin\Debug\HelperUtility.dll
+C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\bin\Debug\Model.dll
+C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\bin\Debug\NPOI.dll
+C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\bin\Debug\HelperUtility.pdb
+C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\bin\Debug\Model.pdb
+C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\bin\Debug\DevComponents.DotNetBar2.xml
+C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\obj\Debug\DAL.dll
+C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\obj\Debug\DAL.pdb
