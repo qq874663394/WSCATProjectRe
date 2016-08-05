@@ -1,5 +1,0 @@
-D:\项目\2016年7月14日092342\Model\bin\Release\Model.dll
-D:\项目\2016年7月14日092342\Model\bin\Release\Model.pdb
-D:\项目\2016年7月14日092342\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
-D:\项目\2016年7月14日092342\Model\obj\Release\Model.dll
-D:\项目\2016年7月14日092342\Model\obj\Release\Model.pdb
