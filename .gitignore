@@ -3,3 +3,18 @@
 ################################################################################
 
 /BLL/bin
+/BLL/obj/Debug
+/DAL/bin
+/DAL/obj/Debug/TempPE
+/DAL/obj/Debug
+/DAL/obj/Release/TempPE
+/DAL/obj/Release
+/HelperUtility/bin
+/HelperUtility/obj/Debug
+/HelperUtility/obj/Release
+/Model/bin
+/Model/obj
+/WSCATProject/bin
+/WSCATProject/obj
+/BLL/obj/Release
+/.vs
