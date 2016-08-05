@@ -12,6 +12,7 @@ using BLL;
 using Model;
 using HelperUtility;
 using System.Text.RegularExpressions;
+using DevComponents.DotNetBar.Controls;
 
 namespace WSCATProject
 {
@@ -52,13 +53,11 @@ namespace WSCATProject
         /// <summary>
         /// 用户选择的商品总数
         /// </summary>
-        private decimal _MaterialNumber = 0;
+        private decimal _MaterialNumber = 0m;
         /// <summary>
         /// 用户选择的商品总值
         /// </summary>
         private decimal _MaterialMoney = 0.00m;
-
-        public string BuyOdd { get; set; }
 
         #region 初始化操作
         protected override void InitTopLab()
@@ -127,7 +126,6 @@ namespace WSCATProject
             MaterialManager mm = new MaterialManager();
             StorageManager sm = new StorageManager();
             SupplierManager sum = new SupplierManager();
-            BuyManager bm = new BuyManager();
             _AllMaterial = mm.GetList("");
             _AllStorage = sm.GetList("");
             _AllSupplier = sum.SelSupplierTable();
@@ -146,15 +144,39 @@ namespace WSCATProject
             dataGridViewFujia.CellDoubleClick += DataGridViewFujia_CellDoubleClick;
             
             //采购单单号
-            BuyOdd = BuildCode.ModuleCode("BA");
-            textBoxOddNumbers.Text = BuyOdd;
+            _BuyOdd = BuildCode.ModuleCode("BA");
+            textBoxOddNumbers.Text = _BuyOdd;
+            labtextboxTop3.Text = "0";
+            textBoxX3.Text = "0";
+            textBoxX2.Text = "0";
+            labtextboxTop5.Text = "0";
+
             InitSupplier();
+
+            //使控件只能输入正确的数字和小数点
+            textBoxX2.CommandKeyDown += textBox_CommandKeyDown;
+            textBoxX3.CommandKeyDown += textBox_CommandKeyDown;
+            labtextboxTop3.CommandKeyDown += textBox_CommandKeyDown;
+            labtextboxTop4.CommandKeyDown += textBox_CommandKeyDown;
+            labtextboxTop5.CommandKeyDown += textBox_CommandKeyDown;
+
+            //labtextboxTop3.Text = (Convert.ToDecimal(textBoxX3.Text) *
+            //    (Convert.ToDecimal(textBoxX2.Text) / 100)).ToString();
+            labtextboxTop5.Text = (Convert.ToDecimal(textBoxX3.Text) -
+                Convert.ToDecimal(labtextboxTop3.Text)).ToString();
         }
 
-        //双击物料信息填充到申请单里并隐藏列表 
+        //双击物料信息填充到申请单里并隐藏列表
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //是否要新增一行的标记
+            bool newAdd = false;
             GridRow gr = (GridRow)superGridControl1.PrimaryGrid.Rows[ClickRowIndex];
+            //id字段为空 说明是没有数据的行 不是修改而是新增
+            if (gr.Cells["gridColumnid"].Value == null)
+            {
+                newAdd = true;
+            }
             gr.Cells["gridColumnid"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_ID"].Value;
             gr.Cells["gridColumnpic"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_PicName"].Value;
             gr.Cells["gridColumnRfid"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_RFID"].Value;
@@ -175,20 +197,27 @@ namespace WSCATProject
             gr.Cells["gridColumnMoney"].Value = price;
             //gr.Cells["gridColumnRemark"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_Unit"].Value;
             resizablePanelData.Visible = false;
-            //新增一行
-            superGridControl1.PrimaryGrid.NewRow(superGridControl1.PrimaryGrid.Rows.Count);
+            
             //当上一次有选择仓库时 默认本次也为上次选择仓库
             if (!string.IsNullOrEmpty(_ClickStorage.Value) && !string.IsNullOrEmpty(_ClickStorage.Key))
             {
                 gr.Cells["gridColumnStockCode"].Value = _ClickStorage.Key;
                 gr.Cells["gridColumnStock"].Value = _ClickStorage.Value;
             }
-            //递增数量和金额 默认为1和单价
-            gr = (GridRow)superGridControl1.PrimaryGrid.LastSelectableRow;
-            _MaterialNumber += 1;
-            _MaterialMoney += price;
-            gr.Cells["gridColumnNumber"].Value = _MaterialNumber;
-            gr.Cells["gridColumnMoney"].Value = _MaterialMoney;
+            if (newAdd)
+            {
+                //新增一行
+                superGridControl1.PrimaryGrid.NewRow(superGridControl1.PrimaryGrid.Rows.Count);
+                //递增数量和金额 默认为1和单价
+                gr = (GridRow)superGridControl1.PrimaryGrid.LastSelectableRow;
+                _MaterialNumber += 1;
+                _MaterialMoney += price;
+                gr.Cells["gridColumnNumber"].Value = _MaterialNumber;
+                gr.Cells["gridColumnMoney"].Value = _MaterialMoney;
+                textBoxX3.Text = _MaterialMoney.ToString();
+                textBoxX2.Text = 100.ToString();
+                labtextboxTop5.Text = _MaterialMoney.ToString();
+            }
         }
 
         //双击填充到供应商或是仓库列 
@@ -493,7 +522,7 @@ namespace WSCATProject
             }
         }
 
-        //点击superGridControl隐藏下拉列表 
+        //点击superGridControl隐藏下拉列表
         private void superGridControl1_Click(object sender, EventArgs e)
         {
             resizablePanelData.Visible = false;
@@ -523,10 +552,10 @@ namespace WSCATProject
             Buy buy = new Buy();
             if (grs.Count > 1)
             {
-                buy.Buy_Code = BuyOdd;
+                buy.Buy_Code = _BuyOdd;
                 buy.Buy_Date = dateTimePicker1.Value;
-                buy.Buy_SupplierCode = _ProfeCode;
-                buy.Buy_SupplierName = labtextboxTop2.Text.Trim();
+                buy.Buy_suppliercode = _ProfeCode;
+                buy.Buy_suppliername = labtextboxTop2.Text.Trim();
                 buy.Buy_PurchaseStatus = 1;
                 buy.Buy_AuditStatus = 0;
                 buy.Buy_PurchaserID = "0";
@@ -538,7 +567,9 @@ namespace WSCATProject
                 buy.Buy_IsPay = 0;
                 buy.Buy_PayMethod = 0;
                 buy.Buy_IsPutSto = 0;
-                buy.Buy_Class = "采购申请单";
+                buy.Buy_class = "采购申请单";
+                //buy.Buy_PayMethod = 
+                //buy.Buy_PayMethod = 
                 foreach (GridRow gr in grs)
                 {
                     BuyDetail buyDetail = new BuyDetail();
@@ -564,10 +595,10 @@ namespace WSCATProject
                         return;
                     }
 
-                    buyDetail.Buy_LineCode = BuyOdd;
+                    buyDetail.Buy_LineCode = _BuyOdd;
                     buyDetail.Buy_StockCode = gr["gridColumnStockCode"].Value.ToString();
                     buyDetail.Buy_StockName = gr["gridColumnStock"].Value.ToString();
-                    buyDetail.Buy_Code = BuyOdd;
+                    buyDetail.Buy_Code = _BuyOdd;
                     buyDetail.Buy_MaID = gr["gridColumnMaID"].Value.ToString();
                     buyDetail.Buy_MaName = gr["gridColumnName"].Value.ToString();
                     buyDetail.Buy_Model = gr["gridColumnModel"].Value.ToString();
@@ -609,7 +640,7 @@ namespace WSCATProject
         //点击绑定仓库
         private void superGridControl1_BeginEdit(object sender, GridEditEventArgs e)
         {
-            if (e.GridCell.GridColumn.Name == "gridColumnStock" && !resizablePanel1.Visible)
+            if (e.GridCell.GridColumn.Name == "gridColumnStock")
             {
                 //绑定仓库列表
                 InitStorageList();
@@ -619,17 +650,103 @@ namespace WSCATProject
         //验证完全后,统计单元格数据
         private void superGridControl1_CellValidated(object sender, GridCellValidatedEventArgs e)
         {
-            
+            GridRow gr = e.GridPanel.Rows[e.GridCell.RowIndex] as GridRow;
+            //若是没数据的行则不做处理
+            if (gr.Cells["gridColumnid"].Value == null)
+            {
+                return;
+            }
+            if (e.GridCell.GridColumn.Name == "gridColumnNumber" ||
+                e.GridCell.GridColumn.Name == "gridColumnPrice" ||
+                e.GridCell.GridColumn.Name == "gridColumnDis")
+            {
+                //添加对应的单价和总价
+                if (e.GridCell.GridColumn.Name == "gridColumnNumber" &&
+                    !string.IsNullOrEmpty(e.GridCell.FormattedValue))
+                {
+                    _MaterialNumber += decimal.Parse(e.GridCell.FormattedValue);
+                }
+                if (e.GridCell.GridColumn.Name == "gridColumnPrice" &&
+                    !string.IsNullOrEmpty(e.GridCell.FormattedValue))
+                {
+                    _MaterialMoney += decimal.Parse(e.GridCell.FormattedValue);
+                }
+                //计算金额
+                decimal number = Convert.ToDecimal(gr.Cells["gridColumnNumber"].FormattedValue);
+                decimal dis = Convert.ToDecimal(gr.Cells["gridColumnDis"].FormattedValue) / 100;
+                decimal price = Convert.ToDecimal(gr.Cells["gridColumnPrice"].FormattedValue);
+                decimal disPrice = price * dis;
+                decimal allPrice = number * disPrice;
+                gr.Cells["gridColumnDisPrice"].Value = disPrice;
+                gr.Cells["gridColumnMoney"].Value = allPrice;
+                //逐行统计数据总数
+                decimal tempAllNumber = 0;
+                decimal tempAllMoney = 0;
+                for (int i=0; i < superGridControl1.PrimaryGrid.Rows.Count - 1; i++)
+                {
+                    GridRow tempGR = superGridControl1.PrimaryGrid.Rows[i] as GridRow;
+                    tempAllNumber += Convert.ToDecimal(tempGR["gridColumnNumber"].FormattedValue);
+                    tempAllMoney += Convert.ToDecimal(tempGR["gridColumnMoney"].FormattedValue);
+                }
+                _MaterialMoney = tempAllMoney;
+                _MaterialNumber = tempAllNumber;
+                gr = (GridRow)superGridControl1.PrimaryGrid.LastSelectableRow;
+                gr["gridColumnNumber"].Value = _MaterialNumber.ToString();
+                gr["gridColumnMoney"].Value = _MaterialMoney.ToString();
+                textBoxX3.Text = _MaterialMoney.ToString();
+                labtextboxTop5.Text = _MaterialMoney.ToString();
+
+                //labtextboxTop3.Text = (Convert.ToDecimal(textBoxX3.Text) *
+                //(Convert.ToDecimal(textBoxX2.Text) / 100)).ToString();
+                labtextboxTop5.Text = (Convert.ToDecimal(textBoxX3.Text) -
+                    Convert.ToDecimal(labtextboxTop3.Text)).ToString();
+            }
         }
 
-        private void superGridControl1_CellValidating(object sender, GridCellValidatingEventArgs e)
+        //只允许输入数字/小数点/删除键
+        private void textBox_CommandKeyDown(object sender, KeyEventArgs e)
         {
-            
+            TextBoxX tbx = sender as TextBoxX;
+            if ((e.KeyValue < 48 || e.KeyValue > 57) &&
+                e.KeyValue != 8 &&
+                (e.KeyValue < 96 || e.KeyValue > 105) &&
+                e.KeyValue != 110 &&
+                e.KeyValue != 13)
+            {
+                e.Handled = true;
+            }
+            if (e.KeyValue == 110) //小数点
+            {
+                if (tbx.Text.Length <= 0)
+                    e.Handled = true;//小数点不能在第一位
+                else
+                {
+                    bool b1 = false;
+                    b1 = tbx.Text.Contains(".");
+                    if (b1)
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+            if (e.KeyValue == 13)
+            {
+                superGridControl1.Focus();
+            }
         }
 
-        private void superGridControl1_EditorValueChanged(object sender, GridEditEventArgs e)
+        private void textBoxX2_Validated(object sender, EventArgs e)
         {
-            
+            labtextboxTop3.Text = (Convert.ToDecimal(textBoxX3.Text) *
+                (Convert.ToDecimal(textBoxX2.Text) / 100)).ToString();
+            labtextboxTop5.Text = (Convert.ToDecimal(textBoxX3.Text) -
+                Convert.ToDecimal(labtextboxTop3.Text)).ToString();
+        }
+
+        private void labtextboxTop3_Validated(object sender, EventArgs e)
+        {
+            labtextboxTop5.Text = (Convert.ToDecimal(textBoxX3.Text) -
+                Convert.ToDecimal(labtextboxTop3.Text)).ToString();
         }
     }
 }
