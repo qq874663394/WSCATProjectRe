@@ -9,14 +9,21 @@ namespace Model
 	{
 		public SellDetail()
 		{}
-		#region Model
-		private string _sell_code;
-		private int _sell_lineno;
+        #region Model
+        private int _sell_lineno;
+        private string _sell_code;
+        private string _sell_stockCode;
+        private string _sell_stockName;
+        private string _sell_lineCode;
 		private string _sell_maid;
 		private string _sell_maname;
 		private string _sell_model;
 		private string _sell_unit;
 		private string _sell_curnumber;
+        private decimal _sell_discountAPrice;
+        private decimal _sell_discount;
+        private decimal _sell_discountBPrice;
+        private decimal _sell_money;
 		private int? _sell_clear=1;
 		private string _sell_safetyone;
 		private string _sell_safetytwo;
@@ -109,8 +116,99 @@ namespace Model
 			set{ _sell_remark=value;}
 			get{return _sell_remark;}
 		}
-		#endregion Model
 
-	}
+        public string Sell_StockCode
+        {
+            get
+            {
+                return _sell_stockCode;
+            }
+
+            set
+            {
+                _sell_stockCode = value;
+            }
+        }
+
+        public string Sell_StockName
+        {
+            get
+            {
+                return _sell_stockName;
+            }
+
+            set
+            {
+                _sell_stockName = value;
+            }
+        }
+
+        public string Sell_LineCode
+        {
+            get
+            {
+                return _sell_lineCode;
+            }
+
+            set
+            {
+                _sell_lineCode = value;
+            }
+        }
+
+        public decimal Sell_DiscountAPrice
+        {
+            get
+            {
+                return _sell_discountAPrice;
+            }
+
+            set
+            {
+                _sell_discountAPrice = value;
+            }
+        }
+
+        public decimal Sell_Discount
+        {
+            get
+            {
+                return _sell_discount;
+            }
+
+            set
+            {
+                _sell_discount = value;
+            }
+        }
+
+        public decimal Sell_DiscountBPrice
+        {
+            get
+            {
+                return _sell_discountBPrice;
+            }
+
+            set
+            {
+                _sell_discountBPrice = value;
+            }
+        }
+
+        public decimal Sell_Money
+        {
+            get
+            {
+                return _sell_money;
+            }
+
+            set
+            {
+                _sell_money = value;
+            }
+        }
+        #endregion Model
+
+    }
 }
 
