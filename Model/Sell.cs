@@ -23,6 +23,14 @@ namespace Model
 		private string _sell_satetyone;
 		private string _sell_satetytwo;
 		private int? _sell_clear=1;
+
+        private int? _sell_isPay;
+        private int? _sell_isPutSto;
+        private int? _sell_payMathod;
+        private DateTime _sell_getDate;
+        private string _sell_logistics;
+        private string _sell_logCode;
+        private string _sell_logPhone;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -127,8 +135,99 @@ namespace Model
 			set{ _sell_clear=value;}
 			get{return _sell_clear;}
 		}
-		#endregion Model
 
-	}
+        public int? Sell_IsPay
+        {
+            get
+            {
+                return _sell_isPay;
+            }
+
+            set
+            {
+                _sell_isPay = value;
+            }
+        }
+
+        public int? Sell_IsPutSto
+        {
+            get
+            {
+                return _sell_isPutSto;
+            }
+
+            set
+            {
+                _sell_isPutSto = value;
+            }
+        }
+
+        public int? Sell_PayMathod
+        {
+            get
+            {
+                return _sell_payMathod;
+            }
+
+            set
+            {
+                _sell_payMathod = value;
+            }
+        }
+
+        public DateTime Sell_GetDate
+        {
+            get
+            {
+                return _sell_getDate;
+            }
+
+            set
+            {
+                _sell_getDate = value;
+            }
+        }
+
+        public string Sell_Logistics
+        {
+            get
+            {
+                return _sell_logistics;
+            }
+
+            set
+            {
+                _sell_logistics = value;
+            }
+        }
+
+        public string Sell_LogCode
+        {
+            get
+            {
+                return _sell_logCode;
+            }
+
+            set
+            {
+                _sell_logCode = value;
+            }
+        }
+
+        public string Sell_LogPhone
+        {
+            get
+            {
+                return _sell_logPhone;
+            }
+
+            set
+            {
+                _sell_logPhone = value;
+            }
+        }
+        #endregion Model
+
+    }
 }
 
