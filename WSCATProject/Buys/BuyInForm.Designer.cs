@@ -633,7 +633,7 @@
             this.comboBoxEx1.Items.AddRange(new object[] {
             this.comboItem1,
             this.comboItem2});
-            this.comboBoxEx1.Location = new System.Drawing.Point(85, 79);
+            this.comboBoxEx1.Location = new System.Drawing.Point(84, 79);
             this.comboBoxEx1.Name = "comboBoxEx1";
             this.comboBoxEx1.Size = new System.Drawing.Size(105, 21);
             this.comboBoxEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
