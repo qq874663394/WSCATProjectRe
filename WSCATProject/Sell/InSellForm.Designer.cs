@@ -485,6 +485,7 @@
             // 
             this.gridColumn4.HeaderText = "条码";
             this.gridColumn4.Name = "gridColumnBarcode";
+            this.gridColumn4.Visible = false;
             // 
             // gridColumn5
             // 
