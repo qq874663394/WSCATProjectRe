@@ -418,3 +418,6 @@ D:\项目\2016年8月4日164955\WSCATProject\obj\Debug\WSCATProject.WarehouseFor
 D:\项目\2016年8月4日164955\WSCATProject\obj\Debug\WSCATProject.csproj.GenerateResource.Cache
 D:\项目\2016年8月4日164955\WSCATProject\obj\Debug\WSCATProject.exe
 D:\项目\2016年8月4日164955\WSCATProject\obj\Debug\WSCATProject.pdb
+E:\2016年8月5日094014\WSCATProject\bin\Debug\WSCATProject.exe.config
+E:\2016年8月5日094014\WSCATProject\obj\Debug\WSCATProject.exe
+E:\2016年8月5日094014\WSCATProject\obj\Debug\WSCATProject.pdb
