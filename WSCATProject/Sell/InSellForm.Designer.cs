@@ -60,6 +60,10 @@
             this.labelTitle.Size = new System.Drawing.Size(124, 28);
             this.labelTitle.Text = "销售开单";
             // 
+            // textBoxOddNumbers
+            // 
+            this.textBoxOddNumbers.ReadOnly = true;
+            // 
             // panel7
             // 
             this.panel7.Size = new System.Drawing.Size(1202, 240);
@@ -146,6 +150,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(432, 19);
+            this.pictureBox2.Click += new System.EventHandler(this.ClickPicBox);
             // 
             // labtextboxTop6
             // 
@@ -426,6 +431,7 @@
             this.ClientSize = new System.Drawing.Size(1204, 538);
             this.Name = "InSellForm";
             this.Text = "销售开单";
+            this.Load += new System.EventHandler(this.InSellForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel7.ResumeLayout(false);

@@ -1,0 +1,12 @@
+D:\项目\2016年7月14日092342\BLL\bin\Release\BLL.dll
+D:\项目\2016年7月14日092342\BLL\bin\Release\BLL.pdb
+D:\项目\2016年7月14日092342\BLL\bin\Release\DAL.dll
+D:\项目\2016年7月14日092342\BLL\bin\Release\HelperUtility.dll
+D:\项目\2016年7月14日092342\BLL\bin\Release\Model.dll
+D:\项目\2016年7月14日092342\BLL\bin\Release\NPOI.dll
+D:\项目\2016年7月14日092342\BLL\bin\Release\DAL.pdb
+D:\项目\2016年7月14日092342\BLL\bin\Release\HelperUtility.pdb
+D:\项目\2016年7月14日092342\BLL\bin\Release\Model.pdb
+D:\项目\2016年7月14日092342\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+D:\项目\2016年7月14日092342\BLL\obj\Release\BLL.dll
+D:\项目\2016年7月14日092342\BLL\obj\Release\BLL.pdb
