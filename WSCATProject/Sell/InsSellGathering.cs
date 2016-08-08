@@ -19,8 +19,8 @@ namespace WSCATProject.Sell
         BankAccountManager bam = new BankAccountManager();
         EmpolyeeManager em = new EmpolyeeManager();
         CodingHelper ch = new CodingHelper();
-
         public string pbName;//根据图片Name对应相应的datagridview
+
         public InsSellGathering()
         {
             InitializeComponent();
@@ -28,6 +28,8 @@ namespace WSCATProject.Sell
 
         private void InsSellGathering_Load(object sender, EventArgs e)
         {
+            textBoxOddNumbers.Text = BuildCode.ModuleCode("AC");//收款单单号
+            //制单人
             LoginInfomation l = LoginInfomation.getInstance();
             l.UserName = "sss";
             ltxt_operation.Text = l.UserName;
@@ -95,8 +97,8 @@ namespace WSCATProject.Sell
             switch (pbName)
             {
                 case "pictureBox1":
-                    ltxt_kehu.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    ltxt_yingshou.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    //ltxt_kehu.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    //ltxt_yingshou.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[2].Value.ToString();
                     break;
                 case "pictureBox2":
                     ltxt_AccountName.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[1].Value.ToString();
@@ -122,5 +124,186 @@ namespace WSCATProject.Sell
         }
         #endregion
 
+        #region 验证金额
+        /// <summary>
+        /// 验证应收金额
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ltxt_yingshou_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 只允许输入数字和Del
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+            if (ltxt_yingshou.MaxLength < 12)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private string skipComma(string str)
+        {
+            string[] ss = null;
+            string strnew = "";
+            if (str == "")
+            {
+                strnew = "0";
+            }
+            else
+            {
+                ss = str.Split(',');
+                for (int i = 0; i < ss.Length; i++)
+                {
+                    strnew += ss[i];
+                }
+            }
+            return strnew;
+        }
+
+        private void ltxt_yingshou_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(ltxt_yingshou.Text))
+                return;
+
+            // 按千分位逗号格式显示！
+            double d = Convert.ToDouble(skipComma(ltxt_yingshou.Text));
+            ltxt_yingshou.Text = string.Format("{0:#,#}", d);
+
+            // 确保输入光标在最右侧
+            ltxt_yingshou.Select(ltxt_yingshou.Text.Length, 0);
+        }
+
+        /// <summary>
+        /// 验证收款金额
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ltxt_shoukuan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 只允许输入数字和Del
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+            if (ltxt_shoukuan.MaxLength < 12)
+            {
+                e.Handled = true;
+            }
+           
+
+        }
+
+        private void ltxt_shoukuan_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(ltxt_shoukuan.Text))
+                return;
+
+            // 按千分位逗号格式显示！
+            double d = Convert.ToDouble(skipComma(ltxt_shoukuan.Text));
+            ltxt_shoukuan.Text = string.Format("{0:#,#}", d);
+
+            // 确保输入光标在最右侧
+            ltxt_shoukuan.Select(ltxt_shoukuan.Text.Length, 0);
+        }
+
+        /// <summary>
+        /// 验证实收金额
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ltxt_shishou_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 只允许输入数字和Del
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+            if (ltxt_shishou.MaxLength < 12)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ltxt_shishou_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(ltxt_shishou.Text))
+                return;
+
+            // 按千分位逗号格式显示！
+            double d = Convert.ToDouble(skipComma(ltxt_shishou.Text));
+            ltxt_shishou.Text = string.Format("{0:#,#}", d);
+
+            // 确保输入光标在最右侧
+            ltxt_shishou.Select(ltxt_shishou.Text.Length, 0);
+        }
+
+        /// <summary>
+        /// 验证未收金额
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ltxt_weishou_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 只允许输入数字和Del
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+            if (ltxt_weishou.MaxLength < 12)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ltxt_weishou_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(ltxt_weishou.Text))
+                return;
+
+            // 按千分位逗号格式显示！
+            double d = Convert.ToDouble(skipComma(ltxt_weishou.Text));
+            ltxt_weishou.Text = string.Format("{0:#,#}", d);
+
+            // 确保输入光标在最右侧
+            ltxt_weishou.Select(ltxt_weishou.Text.Length, 0);
+        }
+        #endregion
+
+        #region 非空验证
+        /// <summary>
+        /// 非空验证
+        /// </summary>
+        private bool IsNotNull()
+        {
+            if (this.ltxt_kehu.Text == "")
+            {
+                MessageBox.Show("【客户】不能为空！");
+                return false;
+            }
+            if (this.ltxt_AccountName.Text == "")
+            {
+                MessageBox.Show("【收款账户】不能为空！");
+                return false;
+            }
+            if (this.ltxt_saleman.Text == "")
+            {
+                MessageBox.Show("【业务员】不能为空！");
+                return false;
+            }
+            return true;
+        }
+        #endregion
+
+        /// <summary>
+        /// 确认金额的打钩按钮操作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
