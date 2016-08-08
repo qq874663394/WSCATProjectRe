@@ -54,6 +54,8 @@
             this.gridColumn16 = new DevComponents.DotNetBar.SuperGrid.GridColumn();
             this.gridColumn17 = new DevComponents.DotNetBar.SuperGrid.GridColumn();
             this.gridColumn18 = new DevComponents.DotNetBar.SuperGrid.GridColumn();
+            this.gridColumn19 = new DevComponents.DotNetBar.SuperGrid.GridColumn();
+            this.gridColumn20 = new DevComponents.DotNetBar.SuperGrid.GridColumn();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -352,13 +354,17 @@
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn10);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn11);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn12);
-            this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn13);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn14);
+            this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn13);
+            this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn19);
+            this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn20);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn15);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn16);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn17);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn18);
+            this.superGridControl1.PrimaryGrid.ShowInsertRow = true;
             this.superGridControl1.Size = new System.Drawing.Size(1200, 238);
+            this.superGridControl1.CellValidated += new System.EventHandler<DevComponents.DotNetBar.SuperGrid.GridCellValidatedEventArgs>(this.superGridControl1_CellValidated);
             // 
             // panel2
             // 
@@ -514,6 +520,7 @@
             // 
             this.gridColumn9.HeaderText = "助记码、型号、名称";
             this.gridColumn9.Name = "material";
+            this.gridColumn9.Width = 130;
             // 
             // gridColumn10
             // 
@@ -533,11 +540,12 @@
             // 
             // gridColumn13
             // 
-            this.gridColumn13.HeaderText = "数量";
+            this.gridColumn13.HeaderText = "需求数量";
             this.gridColumn13.Name = "gridColumnNumber";
             // 
             // gridColumn14
             // 
+            this.gridColumn14.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn14.HeaderText = "单价";
             this.gridColumn14.Name = "gridColumnPrice";
             // 
@@ -548,11 +556,13 @@
             // 
             // gridColumn16
             // 
+            this.gridColumn16.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn16.HeaderText = "折后价格";
             this.gridColumn16.Name = "gridColumnDisPrice";
             // 
             // gridColumn17
             // 
+            this.gridColumn17.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn17.HeaderText = "总金额";
             this.gridColumn17.Name = "gridColumnMoney";
             // 
@@ -560,6 +570,17 @@
             // 
             this.gridColumn18.HeaderText = "备注";
             this.gridColumn18.Name = "gridColumnRemark";
+            // 
+            // gridColumn19
+            // 
+            this.gridColumn19.HeaderText = "实发数量";
+            this.gridColumn19.Name = "gridColumnshifashu";
+            // 
+            // gridColumn20
+            // 
+            this.gridColumn20.HeaderText = "缺少数量";
+            this.gridColumn20.Name = "gridColumnqueshao";
+            this.gridColumn20.ReadOnly = true;
             // 
             // InSellForm
             // 
@@ -620,5 +641,7 @@
         private DevComponents.DotNetBar.SuperGrid.GridColumn gridColumn16;
         private DevComponents.DotNetBar.SuperGrid.GridColumn gridColumn17;
         private DevComponents.DotNetBar.SuperGrid.GridColumn gridColumn18;
+        private DevComponents.DotNetBar.SuperGrid.GridColumn gridColumn19;
+        private DevComponents.DotNetBar.SuperGrid.GridColumn gridColumn20;
     }
 }

@@ -457,11 +457,23 @@
     <Compile Include="SellForm\ReturnedSellForm.Designer.cs">
       <DependentUpon>ReturnedSellForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sell\InSellForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sell\InSellForm.Designer.cs">
+      <DependentUpon>InSellForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sell\InsSellGathering.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sell\InsSellGathering.designer.cs">
       <DependentUpon>InsSellGathering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sell\SelectStockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sell\SelectStockForm.Designer.cs">
+      <DependentUpon>SelectStockForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Sell\SellHistoricaldiscount.cs">
       <SubType>Form</SubType>
@@ -716,8 +728,14 @@
     <EmbeddedResource Include="SellForm\InSellForm.resx">
       <DependentUpon>InSellForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sell\InSellForm.resx">
+      <DependentUpon>InSellForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sell\InsSellGathering.resx">
       <DependentUpon>InsSellGathering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sell\SelectStockForm.resx">
+      <DependentUpon>SelectStockForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sell\SellHistoricaldiscount.resx">
       <DependentUpon>SellHistoricaldiscount.cs</DependentUpon>

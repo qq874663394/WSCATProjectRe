@@ -91,3 +91,15 @@ C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\bin\Debug\DevCo
 C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\obj\Debug\DAL.dll
 C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\DAL\obj\Debug\DAL.pdb
+E:\2016年8月5日094014\DAL\bin\Debug\DAL.dll
+E:\2016年8月5日094014\DAL\bin\Debug\DAL.pdb
+E:\2016年8月5日094014\DAL\bin\Debug\DevComponents.DotNetBar2.dll
+E:\2016年8月5日094014\DAL\bin\Debug\HelperUtility.dll
+E:\2016年8月5日094014\DAL\bin\Debug\Model.dll
+E:\2016年8月5日094014\DAL\bin\Debug\NPOI.dll
+E:\2016年8月5日094014\DAL\bin\Debug\HelperUtility.pdb
+E:\2016年8月5日094014\DAL\bin\Debug\Model.pdb
+E:\2016年8月5日094014\DAL\bin\Debug\DevComponents.DotNetBar2.xml
+E:\2016年8月5日094014\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\2016年8月5日094014\DAL\obj\Debug\DAL.dll
+E:\2016年8月5日094014\DAL\obj\Debug\DAL.pdb

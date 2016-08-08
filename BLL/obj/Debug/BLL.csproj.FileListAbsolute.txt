@@ -94,3 +94,15 @@ C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\BLL\bin\Debug\Model
 C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\BLL\obj\Debug\BLL.dll
 C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\BLL\obj\Debug\BLL.pdb
+E:\2016年8月5日094014\BLL\bin\Debug\BLL.dll
+E:\2016年8月5日094014\BLL\bin\Debug\BLL.pdb
+E:\2016年8月5日094014\BLL\bin\Debug\DAL.dll
+E:\2016年8月5日094014\BLL\bin\Debug\HelperUtility.dll
+E:\2016年8月5日094014\BLL\bin\Debug\Model.dll
+E:\2016年8月5日094014\BLL\bin\Debug\NPOI.dll
+E:\2016年8月5日094014\BLL\bin\Debug\DAL.pdb
+E:\2016年8月5日094014\BLL\bin\Debug\HelperUtility.pdb
+E:\2016年8月5日094014\BLL\bin\Debug\Model.pdb
+E:\2016年8月5日094014\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\2016年8月5日094014\BLL\obj\Debug\BLL.dll
+E:\2016年8月5日094014\BLL\obj\Debug\BLL.pdb
