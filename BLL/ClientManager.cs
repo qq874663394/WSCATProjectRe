@@ -14,12 +14,19 @@ namespace BLL
     {
         private readonly ClientService dal = new ClientService();
         CodingHelper ch = new CodingHelper();
-
+        /// <summary>
+        /// 选择下拉框查询内容
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelClientToTable()
+        {
+            return dal.SelClientToTable();
+        }
         #region  BasicMethod
 
-        /// <summary>
-        /// 得到最大ID
-        /// </summary>
+            /// <summary>
+            /// 得到最大ID
+            /// </summary>
         public int GetMaxId()
         {
             return dal.GetMaxId();

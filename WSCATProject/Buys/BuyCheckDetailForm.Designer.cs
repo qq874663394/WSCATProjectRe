@@ -107,6 +107,10 @@
             // 
             this.buttonExamine.Click += new System.EventHandler(this.buttonExamine_Click);
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // labtextboxTop6
             // 
             // 

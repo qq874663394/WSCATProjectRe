@@ -36,27 +36,34 @@ namespace WSCATProject.Buys
         /// <param name="e"></param>
         private void buttonX1_Click(object sender, EventArgs e)
         {
-            string wuliudanhao = this.textBoxXdanhao.Text.Trim();//单号
-            string wuliumingc = this.textBoxXname.Text.Trim();//名称
-            string wuliuTel = this.textBoxXTel.Text.Trim();//电话
-            DateTime daohrq = this.dateTimeInput1.Value;//预计到货日期
-            Buy b = new Buy();
-            b.Buy_LogCode = XYEEncoding.strCodeHex(wuliudanhao);
-            b.Buy_Logistics = XYEEncoding.strCodeHex(wuliumingc);
-            b.Buy_LogPhone = XYEEncoding.strCodeHex(wuliuTel);
-            b.Buy_GetDate = daohrq;
-            b.Buy_Code =XYEEncoding.strCodeHex(danhao);
-            bool result = bm.LogisticalUpdate(b);
-            if (result)
+            try
             {
-                MessageBox.Show("物流信息添加成功！");
-                this.Close();
-                return;
+                string wuliudanhao = this.textBoxXdanhao.Text.Trim();//单号
+                string wuliumingc = this.textBoxXname.Text.Trim();//名称
+                string wuliuTel = this.textBoxXTel.Text.Trim();//电话
+                DateTime daohrq = this.dateTimeInput1.Value;//预计到货日期
+                Buy b = new Buy();
+                b.Buy_LogCode = XYEEncoding.strCodeHex(wuliudanhao);
+                b.Buy_Logistics = XYEEncoding.strCodeHex(wuliumingc);
+                b.Buy_LogPhone = XYEEncoding.strCodeHex(wuliuTel);
+                b.Buy_GetDate = daohrq;
+                b.Buy_Code = XYEEncoding.strCodeHex(danhao);
+                bool result = bm.LogisticalUpdate(b);
+                if (result)
+                {
+                    MessageBox.Show("物流信息添加成功！");
+                    this.Close();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("物流信息添加失败!");
+                    return;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("物流信息添加失败!");
-                return;
+                MessageBox.Show("错误代码:3214-新增物流信息时保存异常，异常信息：" + ex.Message);
             }
         }
         /// <summary>

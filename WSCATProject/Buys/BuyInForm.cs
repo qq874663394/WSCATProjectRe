@@ -56,9 +56,24 @@ namespace WSCATProject
         private decimal _MaterialNumber = 0m;
         /// <summary>
         /// 用户选择的商品总值
-        /// </summary>
+        /// </summary>pictureBox2
         private decimal _MaterialMoney = 0.00m;
+        /// <summary>
+        /// 审核状态
+        /// </summary>
+        private int _AuditStatus=0;
+        public int AuditStatus
+        {
+            get
+            {
+                return _AuditStatus;
+            }
 
+            set
+            {
+                _AuditStatus = value;
+            }
+        }
         public string BuyOdd
         {
             get
@@ -142,7 +157,11 @@ namespace WSCATProject
             _AllMaterial = mm.GetList("");
             _AllStorage = sm.GetList("");
             _AllSupplier = sum.SelSupplierTable();
-            
+
+            if (AuditStatus==0)
+            {
+                buttonExamine.Visible = true;
+            }
             //禁用自动创建列
             dataGridView1.AutoGenerateColumns = false;
             dataGridViewFujia.AutoGenerateColumns = false;
@@ -510,7 +529,7 @@ namespace WSCATProject
                 dgvc.Name = "Su_Name";
                 dgvc.Visible = true;
                 dgvc.HeaderText = "供应商名称";
-                dgvc.DataPropertyName = "供应商名称";
+                dgvc.DataPropertyName = "单位名称";
                 dataGridViewFujia.Columns.Add(dgvc);
 
                 dgvc = new DataGridViewTextBoxColumn();
@@ -531,7 +550,7 @@ namespace WSCATProject
             if (e.GridCell.GridColumn.Name == "gridColumnName" ||
                 e.GridCell.GridColumn.Name == "gridColumnModel")
             {
-                MessageBox.Show("Test");
+                return;
             }
         }
 
@@ -760,6 +779,11 @@ namespace WSCATProject
         {
             labtextboxTop5.Text = (Convert.ToDecimal(textBoxX3.Text) -
                 Convert.ToDecimal(labtextboxTop3.Text)).ToString();
+        }
+
+        private void buttonExamine_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

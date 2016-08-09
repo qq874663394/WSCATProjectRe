@@ -797,6 +797,7 @@ namespace WSCATProject
         private void picbox_inSelect_Click(object sender, EventArgs e)
         {
             BuyInForm bif = new BuyInForm();
+            bif.AuditStatus = 1;
             bif.ShowDialog();
         }
 

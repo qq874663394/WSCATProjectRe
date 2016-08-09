@@ -57,16 +57,23 @@ namespace WSCATProject.Buys
             string q = AppDomain.CurrentDomain.GetData("q").ToString();
             if (q != "")
             {
-                switch (q)
+                try
                 {
-                    case "已付款":
-                        bankj();
-                        IsOnlyread();
-                        break;
-                    case "未付款":
-                        bankj();
-                        ClearReadOnly();
-                        break;
+                    switch (q)
+                    {
+                        case "已付款":
+                            bankj();
+                            IsOnlyread();
+                            break;
+                        case "未付款":
+                            bankj();
+                            ClearReadOnly();
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("错误代码:3208-采购付款单初始化异常，异常信息：" + ex.Message);
                 }
             }
 
@@ -81,22 +88,29 @@ namespace WSCATProject.Buys
         {
             PictureBox pb = sender as PictureBox;
             pbName = pb.Name;
-            switch (pb.Name)
+            try
             {
-                case "pictureBox1":
-                    resizablePanel1.Location = new Point(180, 110);
-                    dataGridViewFujia.DataSource = sm.SelSupplierTable2();
-                    dataGridViewFujia.Columns[2].Visible = false;
-                    break;
-                case "pictureBox4":
-                    resizablePanel1.Location = new Point(180, 140);
-                    dataGridViewFujia.DataSource = bam.SelBankAccount2();
-                    break;
-                case "pictureBox5":
-                    resizablePanel1.Location = new Point(190, 260);
-                    DataTable dt = ch.DataTableReCoding(em.SelEmp2("").Tables[0]);
-                    dataGridViewFujia.DataSource = dt;
-                    break;
+                switch (pb.Name)
+                {
+                    case "pictureBox1":
+                        resizablePanel1.Location = new Point(180, 110);
+                        dataGridViewFujia.DataSource = sm.SelSupplierTable2();
+                        dataGridViewFujia.Columns[2].Visible = false;
+                        break;
+                    case "pictureBox4":
+                        resizablePanel1.Location = new Point(180, 140);
+                        dataGridViewFujia.DataSource = bam.SelBankAccount2();
+                        break;
+                    case "pictureBox5":
+                        resizablePanel1.Location = new Point(190, 260);
+                        DataTable dt = ch.DataTableReCoding(em.SelEmp2("").Tables[0]);
+                        dataGridViewFujia.DataSource = dt;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误代码:3209-采购付款单选择框异常，异常信息：" + ex.Message);
             }
             if (!_btnAdd)
             {
@@ -211,9 +225,9 @@ namespace WSCATProject.Buys
                     this.button1.Enabled = true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("请输入【实付金额】！");
+                MessageBox.Show("错误代码:3210-采购付款单输入异常，异常信息：" + ex.Message);
             }
         }
 
@@ -305,8 +319,7 @@ namespace WSCATProject.Buys
             }
             catch (Exception ex)
             {
-                MessageBox.Show("错误:" + ex.Message);
-                throw;
+                MessageBox.Show("错误代码:3211-采购付款单保存异常，异常信息：" + ex.Message);
             }
 
 
