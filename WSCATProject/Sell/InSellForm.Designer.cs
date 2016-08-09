@@ -139,7 +139,7 @@
             // 
             // labTop3
             // 
-            this.labTop3.Location = new System.Drawing.Point(738, 51);
+            this.labTop3.Location = new System.Drawing.Point(771, 51);
             this.labTop3.Text = "本次收款：";
             // 
             // labTop2
@@ -147,13 +147,21 @@
             this.labTop2.Location = new System.Drawing.Point(270, 23);
             this.labTop2.Text = "客    户：";
             // 
+            // labTop9
+            // 
+            this.labTop9.Location = new System.Drawing.Point(771, 84);
+            // 
+            // labTop8
+            // 
+            this.labTop8.Location = new System.Drawing.Point(540, 84);
+            // 
             // labTop7
             // 
             this.labTop7.Location = new System.Drawing.Point(270, 84);
             // 
             // checkBox1
             // 
-            this.checkBox1.Location = new System.Drawing.Point(903, 52);
+            this.checkBox1.Location = new System.Drawing.Point(937, 52);
             // 
             // pictureBox1
             // 
@@ -170,7 +178,18 @@
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(432, 19);
-            this.pictureBox2.Click += new System.EventHandler(this.ClickPicBox);
+            // 
+            // buttonExamine
+            // 
+            this.buttonExamine.Click += new System.EventHandler(this.buttonExamine_Click);
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // labtextboxTop6
             // 
@@ -196,7 +215,7 @@
             this.labtextboxTop3.Border.BorderGradientAngle = 0;
             this.labtextboxTop3.Border.Class = "SideNavStrip";
             this.labtextboxTop3.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labtextboxTop3.Location = new System.Drawing.Point(795, 49);
+            this.labtextboxTop3.Location = new System.Drawing.Point(829, 49);
             // 
             // labtextboxTop7
             // 
@@ -262,6 +281,7 @@
             this.labtextboxTop8.Border.BorderGradientAngle = 0;
             this.labtextboxTop8.Border.Class = "SideNavStrip";
             this.labtextboxTop8.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labtextboxTop8.Location = new System.Drawing.Point(602, 82);
             // 
             // labtextboxTop5
             // 
@@ -287,6 +307,7 @@
             this.labtextboxTop9.Border.BorderGradientAngle = 0;
             this.labtextboxTop9.Border.Class = "SideNavStrip";
             this.labtextboxTop9.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labtextboxTop9.Location = new System.Drawing.Point(830, 82);
             // 
             // labtextboxBotton4
             // 
@@ -365,6 +386,8 @@
             this.superGridControl1.PrimaryGrid.ShowInsertRow = true;
             this.superGridControl1.Size = new System.Drawing.Size(1200, 238);
             this.superGridControl1.CellValidated += new System.EventHandler<DevComponents.DotNetBar.SuperGrid.GridCellValidatedEventArgs>(this.superGridControl1_CellValidated);
+            this.superGridControl1.BeginEdit += new System.EventHandler<DevComponents.DotNetBar.SuperGrid.GridEditEventArgs>(this.superGridControl1_BeginEdit);
+            this.superGridControl1.Click += new System.EventHandler(this.superGridControl1_Click);
             // 
             // panel2
             // 
@@ -420,7 +443,7 @@
             this.textBoxX2.Border.BorderGradientAngle = 0;
             this.textBoxX2.Border.Class = "SideNavStrip";
             this.textBoxX2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX2.Location = new System.Drawing.Point(574, 49);
+            this.textBoxX2.Location = new System.Drawing.Point(609, 49);
             this.textBoxX2.MaxLength = 3;
             this.textBoxX2.Name = "textBoxX2";
             this.textBoxX2.PreventEnterBeep = true;
@@ -431,7 +454,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(687, 51);
+            this.label6.Location = new System.Drawing.Point(722, 51);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(11, 12);
             this.label6.TabIndex = 44;
@@ -440,7 +463,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(505, 52);
+            this.label5.Location = new System.Drawing.Point(540, 52);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 43;
@@ -537,34 +560,42 @@
             // 
             this.gridColumn12.HeaderText = "单位";
             this.gridColumn12.Name = "gridColumnUnit";
+            this.gridColumn12.Width = 80;
             // 
             // gridColumn13
             // 
+            this.gridColumn13.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn13.HeaderText = "需求数量";
             this.gridColumn13.Name = "gridColumnNumber";
+            this.gridColumn13.Width = 80;
             // 
             // gridColumn14
             // 
             this.gridColumn14.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn14.HeaderText = "单价";
             this.gridColumn14.Name = "gridColumnPrice";
+            this.gridColumn14.Width = 80;
             // 
             // gridColumn15
             // 
+            this.gridColumn15.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn15.HeaderText = "折扣率";
             this.gridColumn15.Name = "gridColumnDis";
+            this.gridColumn15.Width = 80;
             // 
             // gridColumn16
             // 
             this.gridColumn16.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn16.HeaderText = "折后价格";
             this.gridColumn16.Name = "gridColumnDisPrice";
+            this.gridColumn16.Width = 80;
             // 
             // gridColumn17
             // 
             this.gridColumn17.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn17.HeaderText = "总金额";
             this.gridColumn17.Name = "gridColumnMoney";
+            this.gridColumn17.Width = 80;
             // 
             // gridColumn18
             // 
@@ -573,14 +604,18 @@
             // 
             // gridColumn19
             // 
+            this.gridColumn19.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn19.HeaderText = "实发数量";
             this.gridColumn19.Name = "gridColumnshifashu";
+            this.gridColumn19.Width = 80;
             // 
             // gridColumn20
             // 
+            this.gridColumn20.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn20.HeaderText = "缺少数量";
             this.gridColumn20.Name = "gridColumnqueshao";
             this.gridColumn20.ReadOnly = true;
+            this.gridColumn20.Width = 80;
             // 
             // InSellForm
             // 

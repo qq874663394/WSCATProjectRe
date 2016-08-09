@@ -40,6 +40,5 @@ C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\Model\obj\Debug\Mod
 C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\Model\obj\Debug\Model.pdb
 E:\2016年8月5日094014\Model\bin\Debug\Model.dll
 E:\2016年8月5日094014\Model\bin\Debug\Model.pdb
-E:\2016年8月5日094014\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 E:\2016年8月5日094014\Model\obj\Debug\Model.dll
 E:\2016年8月5日094014\Model\obj\Debug\Model.pdb
