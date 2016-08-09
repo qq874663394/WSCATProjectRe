@@ -505,6 +505,10 @@ C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\WSCATProject\obj\De
 C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\WSCATProject\obj\Debug\WSCATProject.TemplateForm.resources
 C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\WSCATProject\obj\Debug\WSCATProject.WarehouseForm.resources
 C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\WSCATProject\obj\Debug\WSCATProject.csproj.GenerateResource.Cache
+<<<<<<< HEAD
+C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\WSCATProject\obj\Debug\WSCATProject.Sell.InSellForm.resources
+C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\WSCATProject\obj\Debug\WSCATProject.Sell.SellHistoricaldiscount.resources
+=======
 E:\2016年8月5日094014\WSCATProject\bin\Debug\WSCATProject.exe.config
 E:\2016年8月5日094014\WSCATProject\obj\Debug\WSCATProject.exe
 E:\2016年8月5日094014\WSCATProject\obj\Debug\WSCATProject.pdb
@@ -595,3 +599,4 @@ E:\2016年8月5日094014\WSCATProject\obj\Debug\WSCATProject.TemplateForm.resour
 E:\2016年8月5日094014\WSCATProject\obj\Debug\WSCATProject.WarehouseForm.resources
 E:\2016年8月5日094014\WSCATProject\obj\Debug\WSCATProject.csproj.GenerateResource.Cache
 E:\2016年8月5日094014\WSCATProject\obj\Debug\WSCATProject.Sell.SelectStockForm.resources
+>>>>>>> 41084c8a0f3734d2c90ef32fa6eeec4e378c4367

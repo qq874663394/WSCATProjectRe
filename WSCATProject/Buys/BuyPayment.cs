@@ -213,7 +213,6 @@ namespace WSCATProject.Buys
             }
             catch (Exception)
             {
-
                 MessageBox.Show("请输入【实付金额】！");
             }
         }
