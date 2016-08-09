@@ -52,9 +52,16 @@ namespace WSCATProject.Buys
 
         private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            string startDate = dateTimePicker1.Value.ToString();
-            string stopDate = dateTimePicker2.Value.ToString();
-            superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, startDate, stopDate, orderField);
+            try
+            {
+                string startDate = dateTimePicker1.Value.ToString();
+                string stopDate = dateTimePicker2.Value.ToString();
+                superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, startDate, stopDate, orderField);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误代码:3215-业务查找：采购单数据加载时异常，异常信息：" + ex.Message);
+            }
         }
         #region 日期范围查询公用函数
         /// <summary>
@@ -94,51 +101,58 @@ namespace WSCATProject.Buys
             int dayofweek = Convert.ToInt32(DateTime.Now.DayOfWeek);
             string stratWeek;
             string stopWeek;
-            switch (tsmi.Text)
+            try
             {
-                case "今天":
-                    stratWeek = DateTime.Now.AddDays(dayofweek - 2).ToShortDateString();
-                    stopWeek = DateTime.Now.AddDays(dayofweek).ToShortDateString();
-                    superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, stratWeek, stopWeek, orderField);
-                    break;
-                case "本周":
-                    //本周开始日期
-                    stratWeek = DateTime.Now.AddDays(1 - dayofweek).ToShortDateString();
-                    //结束日期
-                    stopWeek = DateTime.Now.AddDays(6 - dayofweek + 1).ToShortDateString();
-                    superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, stratWeek, stopWeek, orderField);
-                    break;
-                case "上周":
-                    stratWeek = DateTime.Now.AddDays(1 - dayofweek - 7).ToShortDateString();
-                    stopWeek = DateTime.Now.AddDays(1 - dayofweek - 7).AddDays(6).ToShortDateString();
-                    superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, stratWeek, stopWeek, orderField);
-                    break;
-                case "本月":
-                    stratWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddMonths(0).ToShortDateString();
-                    stopWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddMonths(1).AddDays(-1).ToShortDateString();
-                    superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, stratWeek, stopWeek, orderField);
-                    break;
-                case "上月":
-                    stratWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddMonths(-1).ToShortDateString();
-                    stopWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddDays(-1).ToShortDateString();
-                    superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, stratWeek, stopWeek, orderField);
-                    break;
-                case "本年":
-                    stratWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01")).ToShortDateString();
-                    stopWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01")).AddYears(1).AddDays(-1).ToShortDateString();
-                    superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, stratWeek, stopWeek, orderField);
-                    break;
-                case "上年":
-                    stratWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01")).AddYears(-1).ToShortDateString();
-                    stopWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01")).AddDays(-1).ToShortDateString();
-                    superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, stratWeek, stopWeek, orderField);
-                    break;
-                case "全部":
-                    superGridControl1.PrimaryGrid.DataSource = dt;
-                    break;
-                default:
-                    MessageBox.Show("选择错误！");
-                    break;
+                switch (tsmi.Text)
+                {
+                    case "今天":
+                        stratWeek = DateTime.Now.AddDays(dayofweek - 2).ToShortDateString();
+                        stopWeek = DateTime.Now.AddDays(dayofweek).ToShortDateString();
+                        superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, stratWeek, stopWeek, orderField);
+                        break;
+                    case "本周":
+                        //本周开始日期
+                        stratWeek = DateTime.Now.AddDays(1 - dayofweek).ToShortDateString();
+                        //结束日期
+                        stopWeek = DateTime.Now.AddDays(6 - dayofweek + 1).ToShortDateString();
+                        superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, stratWeek, stopWeek, orderField);
+                        break;
+                    case "上周":
+                        stratWeek = DateTime.Now.AddDays(1 - dayofweek - 7).ToShortDateString();
+                        stopWeek = DateTime.Now.AddDays(1 - dayofweek - 7).AddDays(6).ToShortDateString();
+                        superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, stratWeek, stopWeek, orderField);
+                        break;
+                    case "本月":
+                        stratWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddMonths(0).ToShortDateString();
+                        stopWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddMonths(1).AddDays(-1).ToShortDateString();
+                        superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, stratWeek, stopWeek, orderField);
+                        break;
+                    case "上月":
+                        stratWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddMonths(-1).ToShortDateString();
+                        stopWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-01")).AddDays(-1).ToShortDateString();
+                        superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, stratWeek, stopWeek, orderField);
+                        break;
+                    case "本年":
+                        stratWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01")).ToShortDateString();
+                        stopWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01")).AddYears(1).AddDays(-1).ToShortDateString();
+                        superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, stratWeek, stopWeek, orderField);
+                        break;
+                    case "上年":
+                        stratWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01")).AddYears(-1).ToShortDateString();
+                        stopWeek = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01")).AddDays(-1).ToShortDateString();
+                        superGridControl1.PrimaryGrid.DataSource = WhereDateBetween(dt, whereField, stratWeek, stopWeek, orderField);
+                        break;
+                    case "全部":
+                        superGridControl1.PrimaryGrid.DataSource = dt;
+                        break;
+                    default:
+                        MessageBox.Show("选择错误！");
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误代码:3216-业务查找：采购单日期筛选异常，异常信息：" + ex.Message);
             }
         }
         /// <summary>
@@ -163,36 +177,43 @@ namespace WSCATProject.Buys
         /// <param name="e"></param>
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(toolStripTextBox1.Text))
+            try
             {
-                return;
+                if (string.IsNullOrWhiteSpace(toolStripTextBox1.Text))
+                {
+                    return;
+                }
+                string typeName = toolStripComboBox1.Text;
+                string searchTxt = toolStripTextBox1.Text.Trim();
+                string sql = "";
+                switch (typeName)
+                {
+                    case "货品编号":
+                        sql = "Buy_Code='{0}'";
+                        break;
+                    case "货品名称":
+                        sql = "Sell_MaName='{0}'";
+                        break;
+                    case "规格型号":
+                        sql = "Sell_Model='{0}'";
+                        break;
+                    default:
+                        MessageBox.Show("类型错误！请重新选择。");
+                        break;
+                }
+                DataRow[] dr = dt.Select(string.Format(sql, searchTxt), "Buy_ID");
+                DataTable dtNew = dt.Clone();
+                foreach (DataRow item in dr)
+                {
+                    dtNew.ImportRow(item);
+                }
+                dt = dtNew;
+                superGridControl1.PrimaryGrid.DataSource = dt;
             }
-            string typeName = toolStripComboBox1.Text;
-            string searchTxt = toolStripTextBox1.Text.Trim();
-            string sql = "";
-            switch (typeName)
+            catch (Exception ex)
             {
-                case "货品编号":
-                    sql = "Buy_Code='{0}'";
-                    break;
-                case "货品名称":
-                    sql = "Sell_MaName='{0}'";
-                    break;
-                case "规格型号":
-                    sql = "Sell_Model='{0}'";
-                    break;
-                default:
-                    MessageBox.Show("类型错误！请重新选择。");
-                    break;
+                MessageBox.Show("错误代码:3217-业务查找：采购单快捷搜索异常，异常信息：" + ex.Message);
             }
-            DataRow[] dr = dt.Select(string.Format(sql, searchTxt), "Buy_ID");
-            DataTable dtNew = dt.Clone();
-            foreach (DataRow item in dr)
-            {
-                dtNew.ImportRow(item);
-            }
-            dt = dtNew;
-            superGridControl1.PrimaryGrid.DataSource = dt;
         }
 
         /// <summary>
@@ -241,83 +262,85 @@ namespace WSCATProject.Buys
                 EmbezzleColumns
             };
             #endregion
-
-            superGridControl1.PrimaryGrid.Columns.Clear();
+            //superGridControl1.PrimaryGrid.DataSource = null;
+            //superGridControl1.PrimaryGrid.Columns.Clear();
             switch (cb2)
             {
                 case "采购开单":
-                    gc = new GridColumn();
-                    gc.DataPropertyName = "ID";
-                    gc.Name = "ColumnsID";
-                    gc.HeaderText = "ID";
-                    superGridControl1.PrimaryGrid.Columns.Add(gc);
+                    superGridControl1.PrimaryGrid.Columns.Clear();
+                    try
+                    {
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "ID";
+                        gc.Name = "ColumnsID";
+                        gc.HeaderText = "ID";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
 
-                    gc = new GridColumn();
-                    gc.DataPropertyName = "编号";
-                    gc.Name = "ColumnsCode";
-                    gc.HeaderText = "编号";
-                    superGridControl1.PrimaryGrid.Columns.Add(gc);
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "编号";
+                        gc.Name = "ColumnsCode";
+                        gc.HeaderText = "编号";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
 
-                    gc = new GridColumn();
-                    gc.DataPropertyName = "单据日期";
-                    gc.Name = "ColumnsDate";
-                    gc.HeaderText = "单据日期";
-                    superGridControl1.PrimaryGrid.Columns.Add(gc);
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "单据日期";
+                        gc.Name = "ColumnsDate";
+                        gc.HeaderText = "单据日期";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
 
-                    gc = new GridColumn();
-                    gc.DataPropertyName = "审核状态";
-                    gc.Name = "ColumnsAuditStatus";
-                    gc.HeaderText = "审核状态";
-                    superGridControl1.PrimaryGrid.Columns.Add(gc);
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "审核状态";
+                        gc.Name = "ColumnsAuditStatus";
+                        gc.HeaderText = "审核状态";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
 
-                    gc = new GridColumn();
-                    gc.DataPropertyName = "单据状态";
-                    gc.Name = "ColumnsPurchaseStatus";
-                    gc.HeaderText = "单据状态";
-                    superGridControl1.PrimaryGrid.Columns.Add(gc);
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "单据状态";
+                        gc.Name = "ColumnsPurchaseStatus";
+                        gc.HeaderText = "单据状态";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
 
-                    gc = new GridColumn();
-                    gc.DataPropertyName = "供应商";
-                    gc.Name = "ColumnsSuName";
-                    gc.HeaderText = "供应商";
-                    superGridControl1.PrimaryGrid.Columns.Add(gc);
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "供应商";
+                        gc.Name = "ColumnsSuName";
+                        gc.HeaderText = "供应商";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
 
-                    gc = new GridColumn();
-                    gc.DataPropertyName = "结算账户";
-                    gc.Name = "ColumnsBank";
-                    gc.HeaderText = "结算账户";
-                    superGridControl1.PrimaryGrid.Columns.Add(gc);
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "结算账户";
+                        gc.Name = "ColumnsBank";
+                        gc.HeaderText = "结算账户";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
 
-                    gc = new GridColumn();
-                    gc.DataPropertyName = "总金额";
-                    gc.Name = "ColumnsAmountMone";
-                    gc.HeaderText = "总金额";
-                    superGridControl1.PrimaryGrid.Columns.Add(gc);
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "总金额";
+                        gc.Name = "ColumnsAmountMone";
+                        gc.HeaderText = "总金额";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
 
-                    gc = new GridColumn();
-                    gc.DataPropertyName = "业务员";
-                    gc.Name = "ColumnsSalesMan";
-                    gc.HeaderText = "业务员";
-                    superGridControl1.PrimaryGrid.Columns.Add(gc);
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "业务员";
+                        gc.Name = "ColumnsSalesMan";
+                        gc.HeaderText = "业务员";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
 
-                    gc = new GridColumn();
-                    gc.DataPropertyName = "备注";
-                    gc.Name = "ColumnsRemark";
-                    gc.HeaderText = "备注";
-                    superGridControl1.PrimaryGrid.Columns.Add(gc);
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "备注";
+                        gc.Name = "ColumnsRemark";
+                        gc.HeaderText = "备注";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
 
-                    dt = bm.SelBuyDataTableToCheck();
-                    superGridControl1.PrimaryGrid.DataSource = dt;
-                    whereField = "单据日期";
-                    orderField = "ID";
+                        dt = bm.SelBuyDataTableToCheck();
+                        superGridControl1.PrimaryGrid.DataSource = dt;
+                        whereField = "单据日期";
+                        orderField = "ID";
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("错误代码:3218-业务查找：采购单加载全部数据异常，异常信息：" + ex.Message);
+                    }
                     break;
                 case "销售开单":
-                    for (int i = 0; i < ColumnsHeaderText[0].Length; i++)
-                    {
-                        gc = new GridColumn(ColumnsHeaderText[0][i]);
-                        gc.Name = "";
-                        superGridControl1.PrimaryGrid.Columns.Add(gc);
-                    }
                     break;
                 case "其他收货单":
                     break;
@@ -338,6 +361,7 @@ namespace WSCATProject.Buys
                 case "其他收入":
                     break;
                 case "应付款单":
+                    superGridControl1.PrimaryGrid.Columns.Clear();
                     Band();
                     break;
                 case "银行存取款":
@@ -353,8 +377,117 @@ namespace WSCATProject.Buys
 
         private void 刷新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            superGridControl1.PrimaryGrid.ClearAll();
-            superGridControl1.PrimaryGrid.DataSource = dt;
+            GridColumn gc = null;
+            string cb2 = toolStripComboBox2.Text;
+            switch (cb2)
+            {
+                case "采购开单":
+                    superGridControl1.PrimaryGrid.Columns.Clear();
+                    try
+                    {
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "ID";
+                        gc.Name = "ColumnsID";
+                        gc.HeaderText = "ID";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "编号";
+                        gc.Name = "ColumnsCode";
+                        gc.HeaderText = "编号";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "单据日期";
+                        gc.Name = "ColumnsDate";
+                        gc.HeaderText = "单据日期";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "审核状态";
+                        gc.Name = "ColumnsAuditStatus";
+                        gc.HeaderText = "审核状态";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "单据状态";
+                        gc.Name = "ColumnsPurchaseStatus";
+                        gc.HeaderText = "单据状态";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "供应商";
+                        gc.Name = "ColumnsSuName";
+                        gc.HeaderText = "供应商";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "结算账户";
+                        gc.Name = "ColumnsBank";
+                        gc.HeaderText = "结算账户";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "总金额";
+                        gc.Name = "ColumnsAmountMone";
+                        gc.HeaderText = "总金额";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "业务员";
+                        gc.Name = "ColumnsSalesMan";
+                        gc.HeaderText = "业务员";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "备注";
+                        gc.Name = "ColumnsRemark";
+                        gc.HeaderText = "备注";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        dt = bm.SelBuyDataTableToCheck();
+                        superGridControl1.PrimaryGrid.DataSource = dt;
+                        whereField = "单据日期";
+                        orderField = "ID";
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("错误代码:3218-业务查找：采购单加载全部数据异常，异常信息：" + ex.Message);
+                    }
+                    break;
+                case "销售开单":
+                    break;
+                case "其他收货单":
+                    break;
+                case "其他发货单":
+                    break;
+                case "领料单":
+                    break;
+                case "调拨单":
+                    break;
+                case "报损单":
+                    break;
+                case "盘点单":
+                    break;
+                case "调价单":
+                    break;
+                case "费用开支":
+                    break;
+                case "其他收入":
+                    break;
+                case "应付款单":
+                    superGridControl1.PrimaryGrid.Columns.Clear();
+                    Band();
+                    break;
+                case "银行存取款":
+                    break;
+                case "资金拆借":
+                    break;
+                case "欠货发货单":
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void 去付款ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -372,7 +505,7 @@ namespace WSCATProject.Buys
                             AppDomain.CurrentDomain.SetData("s", row.Cells[1].Value);
                             AppDomain.CurrentDomain.SetData("q", row.Cells[2].Value);
                             BuyPayment buy = new BuyPayment(this);
-                            buy.Weifujine = Convert.ToDouble(row.Cells[8].Value); 
+                            buy.Weifujine = Convert.ToDouble(row.Cells[8].Value);
                             buy.Show();
                             break;
                         case "已付款":
@@ -399,10 +532,8 @@ namespace WSCATProject.Buys
         /// </summary>
         public void Band()
         {
-            dt = bm.GetYinFuList();
-            superGridControl1.PrimaryGrid.DataSource = dt;
-          
-        }
+			dt = bm.GetYinFuList();
+            superGridControl1.PrimaryGrid.DataSource = dt;        }
 
         private void superGridControl1_DoubleClick(object sender, EventArgs e)
         {
@@ -545,6 +676,7 @@ namespace WSCATProject.Buys
                 string code = row.Cells["ColumnsCode"].Value.ToString();
                 BuyInForm bif = new BuyInForm();
                 bif.BuyOdd = code;
+                bif.AuditStatus = 0;
                 bif.ShowDialog(this);
             }
             else
@@ -569,14 +701,26 @@ namespace WSCATProject.Buys
             switch (cb2)
             {
                 case "采购开单":
-                    SelectedElementCollection col = superGridControl1.PrimaryGrid.GetSelectedRows(); GridRow row = col[0] as GridRow;
+                    SelectedElementCollection col = superGridControl1.PrimaryGrid.GetSelectedRows();
+                    GridRow row = col[0] as GridRow;
                     string shenghestate = row.Cells["ColumnsAuditStatus"].Value.ToString();
                     string danjustate = row.Cells["ColumnsPurchaseStatus"].Value.ToString();
+                    if (shenghestate == "未审核" && danjustate == "已提交")
+                    {
+                        审核过账ToolStripMenuItem.Visible = true;
+                    }
                     if (shenghestate == "已审核" && danjustate == "进行中")
                     {
                         申请付款ToolStripMenuItem.Visible = true;
                     }
-                    审核过账ToolStripMenuItem.Visible = true;
+                    if (shenghestate == "已审核" && danjustate == "待付款")
+                    {
+                        去付款ToolStripMenuItem.Visible = true;
+                    }
+                    if (shenghestate == "已审核" && danjustate == "已付款" || danjustate == "部分付款")
+                    {
+                        查看物流ToolStripMenuItem.Visible = true;
+                    }
                     break;
                 case "销售开单":
                     break;

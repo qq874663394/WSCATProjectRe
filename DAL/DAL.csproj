@@ -54,6 +54,7 @@
     <Compile Include="CityService.cs" />
     <Compile Include="ClientService.cs" />
     <Compile Include="ClientTypeService.cs" />
+    <Compile Include="ConllectionWaitService.cs" />
     <Compile Include="DbHelperSQL.cs" />
     <Compile Include="DepartmentService.cs" />
     <Compile Include="DiscountService.cs" />

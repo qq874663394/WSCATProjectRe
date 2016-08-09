@@ -222,6 +222,7 @@
             // buttonExamine
             // 
             this.buttonExamine.Visible = false;
+            this.buttonExamine.Click += new System.EventHandler(this.buttonExamine_Click);
             // 
             // buttonSave
             // 

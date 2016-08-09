@@ -551,7 +551,7 @@ namespace WSCATProject.Buys
             this.Controls.Add(this.superGridControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "PayBuySelect";
-            this.Text = "PayBuySelect";
+            this.Text = "业务查找";
             this.Load += new System.EventHandler(this.PayBuySelect_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

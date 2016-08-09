@@ -25,7 +25,6 @@ namespace WSCATProject.Sell
             //设置为整行被选中
             this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         #region 原始单价和折扣率只允许输入数字，小数和Del
