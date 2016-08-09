@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DevComponents.DotNetBar.Controls;
 using HelperUtility;
 using HelperUtility.Encrypt;
 using System;
@@ -19,6 +20,7 @@ namespace WSCATProject.Sell
         BankAccountManager bam = new BankAccountManager();
         EmpolyeeManager em = new EmpolyeeManager();
         CodingHelper ch = new CodingHelper();
+
         public string pbName;//根据图片Name对应相应的datagridview
 
         public InsSellGathering()
@@ -29,6 +31,8 @@ namespace WSCATProject.Sell
         private void InsSellGathering_Load(object sender, EventArgs e)
         {
             textBoxOddNumbers.Text = BuildCode.ModuleCode("AC");//收款单单号
+            ltxt_shoukuan.Text = "0";
+            ltxt_shishou.Text = "0";
             //制单人
             LoginInfomation l = LoginInfomation.getInstance();
             l.UserName = "sss";
@@ -47,7 +51,7 @@ namespace WSCATProject.Sell
             switch (pb.Name)
             {
                 case "pictureBox1":
-                    resizablePanel1.Location = new Point(190, 115);                   
+                    resizablePanel1.Location = new Point(190, 115);
                     break;
                 case "pictureBox2":
                     resizablePanel1.Location = new Point(190, 150);
@@ -111,9 +115,20 @@ namespace WSCATProject.Sell
         }
         #endregion
 
+        //保存
         private void buttonSave_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (IsNotNull() == false)
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误信息：保存销售收款单失败，异常：" + ex.Message);
+            }
         }
 
         #region 退出
@@ -191,8 +206,6 @@ namespace WSCATProject.Sell
             {
                 e.Handled = true;
             }
-           
-
         }
 
         private void ltxt_shoukuan_TextChanged(object sender, EventArgs e)
@@ -202,7 +215,7 @@ namespace WSCATProject.Sell
 
             // 按千分位逗号格式显示！
             double d = Convert.ToDouble(skipComma(ltxt_shoukuan.Text));
-            ltxt_shoukuan.Text = string.Format("{0:#,#}", d);
+            ltxt_shoukuan.Text = string.Format("{0:N0}", d);
 
             // 确保输入光标在最右侧
             ltxt_shoukuan.Select(ltxt_shoukuan.Text.Length, 0);
@@ -233,7 +246,7 @@ namespace WSCATProject.Sell
 
             // 按千分位逗号格式显示！
             double d = Convert.ToDouble(skipComma(ltxt_shishou.Text));
-            ltxt_shishou.Text = string.Format("{0:#,#}", d);
+            ltxt_shishou.Text = string.Format("{0:N0}", d);
 
             // 确保输入光标在最右侧
             ltxt_shishou.Select(ltxt_shishou.Text.Length, 0);
@@ -264,10 +277,22 @@ namespace WSCATProject.Sell
 
             // 按千分位逗号格式显示！
             double d = Convert.ToDouble(skipComma(ltxt_weishou.Text));
-            ltxt_weishou.Text = string.Format("{0:#,#}", d);
+            ltxt_weishou.Text = string.Format("{0:N0}", d);
 
             // 确保输入光标在最右侧
             ltxt_weishou.Select(ltxt_weishou.Text.Length, 0);
+        }
+
+
+        private void ltxt_shoukuan_Validated(object sender, EventArgs e)
+        {
+            if (ltxt_shoukuan.Text == "" || ltxt_shishou.Text == "" || ltxt_weishou.Text == "")
+            {
+                return;
+            }
+            decimal shoukuan = Convert.ToDecimal(ltxt_shoukuan.Text.Trim());
+            ltxt_shishou.Text = shoukuan.ToString();
+            ltxt_weishou.Text = (Convert.ToDecimal(ltxt_yingshou.Text.Trim()) - Convert.ToDecimal(ltxt_shishou.Text.Trim())).ToString();//未收金额
         }
         #endregion
 
@@ -295,7 +320,8 @@ namespace WSCATProject.Sell
             return true;
         }
         #endregion
-
+        
+        #region 打钩按钮操作
         /// <summary>
         /// 确认金额的打钩按钮操作
         /// </summary>
@@ -303,7 +329,43 @@ namespace WSCATProject.Sell
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string yingshou = ltxt_yingshou.Text.Trim();
+                string shoukuan = ltxt_shoukuan.Text.Trim();
+                string shishou = ltxt_shishou.Text.Trim();
+                string weishou = ltxt_weishou.Text.Trim();
+                ltxt_shoukuan.Text = yingshou.ToString();
+                ltxt_shishou.Text = yingshou.ToString();
+                if (this.button1.Text == "√")
+                {
+                    string weishouTemp = Convert.ToString((Convert.ToDecimal(ltxt_yingshou.Text.Trim()) - Convert.ToDecimal(ltxt_shishou.Text.Trim())));
+                    if (weishouTemp=="")
+                    {
+                        ltxt_weishou.WatermarkText = "0";
+                    }
+                    else
+                    {
+                        ltxt_weishou.Text = weishouTemp;
+                    }
+                    this.button1.Text = "×";
+                    return;
+                }
+                if (this.button1.Text == "×")
+                {
+                    ltxt_shoukuan.Text = "0";
+                    ltxt_shishou.Text = "0";
+                    ltxt_weishou.Text = ltxt_yingshou.Text;
+                    this.button1.Text = "√";
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+        #endregion
+
     }
 }
