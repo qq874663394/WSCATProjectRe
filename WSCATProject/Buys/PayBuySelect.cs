@@ -57,7 +57,7 @@ namespace WSCATProject.Buys
         }
         #region 日期范围查询公用函数
         /// <summary>
-        /// 日期范围查询公用函数
+        /// 日期范围查询公用函数   
         /// </summary>
         /// <param name="dt">筛选数据源</param>
         /// <param name="stratWeek">开始日期</param>
@@ -83,7 +83,7 @@ namespace WSCATProject.Buys
         }
         #endregion
         /// <summary>
-        /// 日期范围筛选公用事件
+        /// 日期范围筛选公用事件  
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -343,6 +343,8 @@ namespace WSCATProject.Buys
                     break;
                 case "资金拆借":
                     break;
+                case "欠货发货单":
+                    break;
                 default:
                     break;
             }
@@ -598,6 +600,8 @@ namespace WSCATProject.Buys
                 case "银行存取款":
                     break;
                 case "资金拆借":
+                    break;
+                case "欠货发货单":
                     break;
                 default:
                     break;
