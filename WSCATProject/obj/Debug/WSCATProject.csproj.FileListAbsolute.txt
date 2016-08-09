@@ -505,3 +505,7 @@ C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\WSCATProject\obj\De
 C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\WSCATProject\obj\Debug\WSCATProject.TemplateForm.resources
 C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\WSCATProject\obj\Debug\WSCATProject.WarehouseForm.resources
 C:\Users\Administrator.USER-20160704SV\2016年8月5日094755\WSCATProject\obj\Debug\WSCATProject.csproj.GenerateResource.Cache
+D:\项目\2016年8月4日164955\WSCATProject\obj\Debug\WSCATProject.Sell.InSellForm.resources
+D:\项目\2016年8月4日164955\WSCATProject\obj\Debug\WSCATProject.Sell.InsSellGathering.resources
+D:\项目\2016年8月4日164955\WSCATProject\obj\Debug\WSCATProject.Sell.SellHistoricaldiscount.resources
+D:\项目\2016年8月4日164955\WSCATProject\obj\Debug\WSCATProject.Sell.SellPriceEntry.resources

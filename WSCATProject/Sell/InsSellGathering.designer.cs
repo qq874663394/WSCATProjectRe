@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsSellGathering));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -210,24 +210,24 @@
             this.dataGridViewFujia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewFujia.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewFujia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFujia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewFujia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewFujia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFujia.Cursor = System.Windows.Forms.Cursors.Arrow;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewFujia.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewFujia.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewFujia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFujia.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dataGridViewFujia.Location = new System.Drawing.Point(0, 0);
@@ -285,6 +285,7 @@
             this.ltxt_sellcode.ReadOnly = true;
             this.ltxt_sellcode.Size = new System.Drawing.Size(148, 16);
             this.ltxt_sellcode.TabIndex = 34;
+            this.ltxt_sellcode.Visible = false;
             this.ltxt_sellcode.WatermarkColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // label2
@@ -295,6 +296,7 @@
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 33;
             this.label2.Text = "销售单号：";
+            this.label2.Visible = false;
             // 
             // ltxt_AccountName
             // 
@@ -307,7 +309,7 @@
             this.ltxt_AccountName.Border.BorderGradientAngle = 0;
             this.ltxt_AccountName.Border.Class = "SideNavStrip";
             this.ltxt_AccountName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ltxt_AccountName.Location = new System.Drawing.Point(85, 51);
+            this.ltxt_AccountName.Location = new System.Drawing.Point(85, 56);
             this.ltxt_AccountName.Name = "ltxt_AccountName";
             this.ltxt_AccountName.PreventEnterBeep = true;
             this.ltxt_AccountName.Size = new System.Drawing.Size(105, 16);
@@ -345,11 +347,11 @@
             this.ltxt_shoukuan.Border.BorderGradientAngle = 0;
             this.ltxt_shoukuan.Border.Class = "SideNavStrip";
             this.ltxt_shoukuan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ltxt_shoukuan.Location = new System.Drawing.Point(579, 22);
+            this.ltxt_shoukuan.Location = new System.Drawing.Point(319, 56);
             this.ltxt_shoukuan.MaxLength = 123;
             this.ltxt_shoukuan.Name = "ltxt_shoukuan";
             this.ltxt_shoukuan.PreventEnterBeep = true;
-            this.ltxt_shoukuan.Size = new System.Drawing.Size(153, 16);
+            this.ltxt_shoukuan.Size = new System.Drawing.Size(148, 16);
             this.ltxt_shoukuan.TabIndex = 29;
             this.ltxt_shoukuan.Text = "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
             this.ltxt_shoukuan.WordWrap = false;
@@ -368,7 +370,7 @@
             this.ltxt_yingshou.Border.Class = "SideNavStrip";
             this.ltxt_yingshou.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ltxt_yingshou.ForeColor = System.Drawing.Color.DimGray;
-            this.ltxt_yingshou.Location = new System.Drawing.Point(324, 53);
+            this.ltxt_yingshou.Location = new System.Drawing.Point(324, 21);
             this.ltxt_yingshou.Name = "ltxt_yingshou";
             this.ltxt_yingshou.PreventEnterBeep = true;
             this.ltxt_yingshou.ReadOnly = true;
@@ -458,7 +460,7 @@
             this.ltxt_operation.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ltxt_operation.DisabledBackColor = System.Drawing.Color.White;
             this.ltxt_operation.ForeColor = System.Drawing.Color.DimGray;
-            this.ltxt_operation.Location = new System.Drawing.Point(365, 19);
+            this.ltxt_operation.Location = new System.Drawing.Point(322, 19);
             this.ltxt_operation.Name = "ltxt_operation";
             this.ltxt_operation.PreventEnterBeep = true;
             this.ltxt_operation.ReadOnly = true;
@@ -523,7 +525,7 @@
             // 
             this.labBotton3.AutoSize = true;
             this.labBotton3.ForeColor = System.Drawing.Color.Black;
-            this.labBotton3.Location = new System.Drawing.Point(320, 21);
+            this.labBotton3.Location = new System.Drawing.Point(277, 21);
             this.labBotton3.Name = "labBotton3";
             this.labBotton3.Size = new System.Drawing.Size(53, 12);
             this.labBotton3.TabIndex = 26;
@@ -577,8 +579,6 @@
             this.panel6.Controls.Add(this.ltxt_shishou);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.button1);
-            this.panel6.Controls.Add(this.ltxt_sellcode);
-            this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.pictureBox2);
             this.panel6.Controls.Add(this.ltxt_AccountName);
             this.panel6.Controls.Add(this.ltxt_weishou);
@@ -591,6 +591,8 @@
             this.panel6.Controls.Add(this.labTop3);
             this.panel6.Controls.Add(this.labTop2);
             this.panel6.Controls.Add(this.labTop1);
+            this.panel6.Controls.Add(this.ltxt_sellcode);
+            this.panel6.Controls.Add(this.label2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
@@ -615,14 +617,14 @@
             this.ltxt_shishou.Name = "ltxt_shishou";
             this.ltxt_shishou.PreventEnterBeep = true;
             this.ltxt_shishou.ReadOnly = true;
-            this.ltxt_shishou.Size = new System.Drawing.Size(153, 16);
+            this.ltxt_shishou.Size = new System.Drawing.Size(148, 16);
             this.ltxt_shishou.TabIndex = 37;
             this.ltxt_shishou.WatermarkColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(507, 56);
+            this.label3.Location = new System.Drawing.Point(507, 58);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 36;
@@ -630,7 +632,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(738, 20);
+            this.button1.Location = new System.Drawing.Point(484, 54);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(20, 20);
             this.button1.TabIndex = 35;
@@ -652,7 +654,7 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::WSCATProject.Properties.Resources.checkMore;
-            this.pictureBox1.Location = new System.Drawing.Point(190, 19);
+            this.pictureBox1.Location = new System.Drawing.Point(190, 16);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 26);
             this.pictureBox1.TabIndex = 24;
@@ -671,7 +673,7 @@
             // labTop4
             // 
             this.labTop4.AutoSize = true;
-            this.labTop4.Location = new System.Drawing.Point(506, 26);
+            this.labTop4.Location = new System.Drawing.Point(252, 58);
             this.labTop4.Name = "labTop4";
             this.labTop4.Size = new System.Drawing.Size(65, 12);
             this.labTop4.TabIndex = 6;
@@ -680,7 +682,7 @@
             // labTop3
             // 
             this.labTop3.AutoSize = true;
-            this.labTop3.Location = new System.Drawing.Point(28, 53);
+            this.labTop3.Location = new System.Drawing.Point(28, 58);
             this.labTop3.Name = "labTop3";
             this.labTop3.Size = new System.Drawing.Size(65, 12);
             this.labTop3.TabIndex = 4;
@@ -690,7 +692,7 @@
             // 
             this.labTop2.AutoSize = true;
             this.labTop2.ForeColor = System.Drawing.Color.Black;
-            this.labTop2.Location = new System.Drawing.Point(251, 55);
+            this.labTop2.Location = new System.Drawing.Point(251, 23);
             this.labTop2.Name = "labTop2";
             this.labTop2.Size = new System.Drawing.Size(65, 12);
             this.labTop2.TabIndex = 2;
