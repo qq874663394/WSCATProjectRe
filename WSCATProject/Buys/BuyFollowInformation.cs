@@ -62,7 +62,7 @@ namespace WSCATProject.Base.Buys
             }
             catch (Exception ex)
             {
-                MessageBox.Show("保存数据失败,请检查服务器连接并尝试重新保存.错误:" + ex.Message);
+                MessageBox.Show("错误代码:3205-审核采购单加载时异常，异常信息：" + ex.Message);
             }
         }
 

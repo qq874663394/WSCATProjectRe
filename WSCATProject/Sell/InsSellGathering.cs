@@ -30,15 +30,14 @@ namespace WSCATProject.Sell
 
         private void InsSellGathering_Load(object sender, EventArgs e)
         {
-            textBoxOddNumbers.Text = BuildCode.ModuleCode("AC");//收款单单号
-            //制单人
-            LoginInfomation l = LoginInfomation.getInstance();
-            l.UserName = "sss";
-            ltxt_operation.Text = l.UserName;
             if (string.IsNullOrWhiteSpace(textBoxOddNumbers.Text))
             {
                 textBoxOddNumbers.Text = BuildCode.ModuleCode("AC");
             }
+            //制单人
+            LoginInfomation l = LoginInfomation.getInstance();
+            l.UserName = "sss";
+            ltxt_operation.Text = l.UserName;
             dataGridViewFujia.ReadOnly = true;
             dataGridViewFujia.AllowUserToResizeColumns = false;//是否可以调整列的大小
             dataGridViewFujia.AllowUserToResizeRows = false;//是否可以调整行的大小  
@@ -150,8 +149,10 @@ namespace WSCATProject.Sell
             switch (pbName)
             {
                 case "pictureBox1":
-                    ltxt_kehu.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    ltxt_yingshou.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    ltxt_kehu.Text = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();
+                    //ltxt_yingshou.Text = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();
+                    cw.CW_ClientName = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();
+                    cw.CW_ClientCode = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsValue"].Value.ToString();
                     break;
                 case "pictureBox2":
                     ltxt_AccountName.Text = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();
@@ -170,7 +171,17 @@ namespace WSCATProject.Sell
         {
             ConllectionWaitManager cwm = new ConllectionWaitManager();
             cw.CW_Code = BuildCode.ModuleCode("CW");
+            cw.CW_Operation = ltxt_operation.Text.Trim();
+            cw.CW_Remark = ltxt_remark.Text.Trim();
             int result = cwm.InsConllectionWait(cw);
+            if (result>0)
+            {
+                MessageBox.Show("保存成功！");
+            }
+            else
+            {
+                MessageBox.Show("保存失败！");
+            }
         }
 
         #region 退出
@@ -248,7 +259,7 @@ namespace WSCATProject.Sell
             {
                 e.Handled = true;
             }
-           
+
 
         }
 

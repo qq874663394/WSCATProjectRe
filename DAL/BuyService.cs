@@ -17,7 +17,7 @@ namespace DAL
         {
             string sql = @"select 
             Distinct buy.Buy_ID as ID,
-            Buy_Code as 编号,
+            buy.Buy_Code as 编号,
             Buy_Date as 单据日期,
             (case 
             when Buy_AuditStatus=1 then '36352D175E2F'
@@ -40,7 +40,7 @@ namespace DAL
             Buy_SalesMan as 业务员,
             buy.Buy_Remark as 备注
             from T_Buy buy
-            left join T_BuyDetail tbd on buy.Buy_Code=tbd.Buy_ID
+            left join T_BuyDetail tbd on buy.Buy_Code=tbd.Buy_Code
             left join T_Supplier su on buy.Buy_SupplierCode=su.Su_Code where buy.Buy_Clear=1";
             // and buy.Buy_PurchaseStatus=0 and buy.Buy_AuditStatus=0
             SqlDataAdapter dapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);

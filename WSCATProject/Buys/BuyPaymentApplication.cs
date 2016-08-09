@@ -37,26 +37,33 @@ namespace WSCATProject
 
         private void BuyPaymentForm_Load(object sender, EventArgs e)
         {
-            //绑定采购明细
-            DataTable dt = ch.DataTableReCoding(bpm.SelEmp(" buy.Buy_Code='" + XYEEncoding.strCodeHex(_buycode) + "'").Tables[0]);
-            superGridControl1.PrimaryGrid.DataSource = dt;
-            superGridControl1.PrimaryGrid.AllowEdit = false;
+            try
+            {
+                //绑定采购明细
+                DataTable dt = ch.DataTableReCoding(bpm.SelEmp(" buy.Buy_Code='" + XYEEncoding.strCodeHex(_buycode) + "'").Tables[0]);
+                superGridControl1.PrimaryGrid.DataSource = dt;
+                superGridControl1.PrimaryGrid.AllowEdit = false;
 
-            LoginInfomation l = LoginInfomation.getInstance();
-            l.UserName = "sss";
-            ltxt_operation.Text = l.UserName;
+                LoginInfomation l = LoginInfomation.getInstance();
+                l.UserName = "sss";
+                ltxt_operation.Text = l.UserName;
 
-            txt_yifu.Visible = false;
-            ltxt_weipay.ReadOnly = true;
-            dataGridViewFujia.ReadOnly = true;
-            dataGridViewFujia.AllowUserToResizeColumns = false;//是否可以调整列的大小
-            dataGridViewFujia.AllowUserToResizeRows = false;//是否可以调整行的大小     
+                txt_yifu.Visible = false;
+                ltxt_weipay.ReadOnly = true;
+                dataGridViewFujia.ReadOnly = true;
+                dataGridViewFujia.AllowUserToResizeColumns = false;//是否可以调整列的大小
+                dataGridViewFujia.AllowUserToResizeRows = false;//是否可以调整行的大小     
 
-            txt_caigoucode.Text = _buycode;
-            ltxt_suname.Text = _suname;
-            ltxt_AccountName.Text = _acountname;
-            txt_shif.Text = _fukuan;
-            ltxt_saleman.Text = _saleman;
+                txt_caigoucode.Text = _buycode;
+                ltxt_suname.Text = _suname;
+                ltxt_AccountName.Text = _acountname;
+                txt_shif.Text = _fukuan;
+                ltxt_saleman.Text = _saleman;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误代码:3205-创建采购付款单异常，异常信息：" + ex.Message);
+            }
             
             textBoxOddNumbers.Text = BuildCode.ModuleCode("AP");
         }
@@ -90,7 +97,7 @@ namespace WSCATProject
             }
             catch (Exception ex)
             {
-                MessageBox.Show("保存数据失败,请检查服务器连接并尝试重新保存.错误:" + ex.Message);
+                MessageBox.Show("错误代码:3206-保存采购付款单异常，异常信息：" + ex.Message);
             }
         }
 
@@ -211,12 +218,19 @@ namespace WSCATProject
             switch (pbName)
             {
                 case "pictureBox1":
-                    ltxt_suname.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    txt_shif.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    txt_caigoucode.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    ltxt_AccountName.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    DataTable dt = ch.DataTableReCoding(bpm.SelEmp(" buy.Buy_Code='" + XYEEncoding.strCodeHex(txt_caigoucode.Text) + "'").Tables[0]);
-                    superGridControl1.PrimaryGrid.DataSource = dt;
+                    try
+                    {
+                        ltxt_suname.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        txt_shif.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        txt_caigoucode.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[3].Value.ToString();
+                        ltxt_AccountName.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[4].Value.ToString();
+                        DataTable dt = ch.DataTableReCoding(bpm.SelEmp(" buy.Buy_Code='" + XYEEncoding.strCodeHex(txt_caigoucode.Text) + "'").Tables[0]);
+                        superGridControl1.PrimaryGrid.DataSource = dt;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("错误代码:3207-审核申请单选择框异常，异常信息：" + ex.Message);
+                    }
                     break;
                 case "pictureBox2":
                     ltxt_AccountName.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[1].Value.ToString();
