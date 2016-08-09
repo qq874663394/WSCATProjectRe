@@ -62,6 +62,8 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.ltxt_salecode = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label2 = new System.Windows.Forms.Label();
             this.ltxt_shishou = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -76,8 +78,6 @@
             this.panelDataView = new System.Windows.Forms.Panel();
             this.dataGridViewFujia = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ltxt_salecode = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -500,6 +500,36 @@
             this.panel6.TabIndex = 0;
             this.panel6.Click += new System.EventHandler(this.panel6_Click);
             // 
+            // ltxt_salecode
+            // 
+            this.ltxt_salecode.AcceptsReturn = true;
+            this.ltxt_salecode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            // 
+            // 
+            // 
+            this.ltxt_salecode.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ltxt_salecode.Border.BorderBottomColor = System.Drawing.Color.Black;
+            this.ltxt_salecode.Border.BorderBottomWidth = 1;
+            this.ltxt_salecode.Border.BorderGradientAngle = 0;
+            this.ltxt_salecode.Border.Class = "SideNavStrip";
+            this.ltxt_salecode.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ltxt_salecode.ForeColor = System.Drawing.Color.DimGray;
+            this.ltxt_salecode.Location = new System.Drawing.Point(322, 21);
+            this.ltxt_salecode.Name = "ltxt_salecode";
+            this.ltxt_salecode.PreventEnterBeep = true;
+            this.ltxt_salecode.Size = new System.Drawing.Size(143, 16);
+            this.ltxt_salecode.TabIndex = 39;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(251, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "销售单号：";
+            // 
             // ltxt_shishou
             // 
             this.ltxt_shishou.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -682,36 +712,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(251, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 38;
-            this.label2.Text = "销售单号：";
-            // 
-            // ltxt_salecode
-            // 
-            this.ltxt_salecode.AcceptsReturn = true;
-            this.ltxt_salecode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            // 
-            // 
-            // 
-            this.ltxt_salecode.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ltxt_salecode.Border.BorderBottomColor = System.Drawing.Color.Black;
-            this.ltxt_salecode.Border.BorderBottomWidth = 1;
-            this.ltxt_salecode.Border.BorderGradientAngle = 0;
-            this.ltxt_salecode.Border.Class = "SideNavStrip";
-            this.ltxt_salecode.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ltxt_salecode.ForeColor = System.Drawing.Color.DimGray;
-            this.ltxt_salecode.Location = new System.Drawing.Point(322, 21);
-            this.ltxt_salecode.Name = "ltxt_salecode";
-            this.ltxt_salecode.PreventEnterBeep = true;
-            this.ltxt_salecode.Size = new System.Drawing.Size(143, 16);
-            this.ltxt_salecode.TabIndex = 39;
             // 
             // InsSellGathering
             // 
