@@ -178,6 +178,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(432, 19);
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // buttonExamine
             // 

@@ -30,9 +30,9 @@ namespace WSCATProject.Sell
         /// </summary>
         private DataSet _AllStorage = null;
         /// <summary>
-        /// 所有的供应商列表
+        /// 所有的客户列表
         /// </summary>
-        private DataTable _AllSupplier = null;
+        private DataTable _AllClient = null;
         /// <summary>
         /// 选择的仓库
         /// </summary>
@@ -40,11 +40,11 @@ namespace WSCATProject.Sell
         /// <summary>
         /// 采购单单号
         /// </summary>
-        private string _BuyOdd = "";
+        private string _SellOdd = "";
         /// <summary>
-        /// 供应商编号
+        /// 客户编号
         /// </summary>
-        private string _ProfeCode = "";
+        private string _ClientCode = "";
         /// <summary>
         /// 点击的项,1为仓库,2为客户,3为收款账号
         /// </summary>
@@ -58,52 +58,40 @@ namespace WSCATProject.Sell
         /// </summary>
         private decimal _MaterialMoney = 0.00m;
 
-        public string BuyOdd
+        public string SellOdd
         {
-            get
-            {
-                return _BuyOdd;
-            }
+            get { return _SellOdd; }
 
-            set
-            {
-                _BuyOdd = value;
-            }
+            set { _SellOdd = value; }
         }
 
         //控制面板是否显示
-        private bool _btnAdd = false;
+        //private bool _btnAdd = false;
 
-        protected bool BtnAdd
-        {
-            get { return _btnAdd; }
-            set { _btnAdd = value; }
-        }
+        //protected bool BtnAdd
+        //{
+        //    get { return _btnAdd; }
+        //    set { _btnAdd = value; }
+        //}
 
         //全局变量的状态判断是开单还是补货
-        private int _state; 
+        private int _state;
         public int State
         {
-            get
-            {
-                return _state;
-            }
+            get {return _state;}
 
-            set
-            {
-                _state = value;
-            }
+            set{_state = value;}
         }
         #endregion
         private void InSellForm_Load(object sender, EventArgs e)
         {
 
-            MaterialManager mm = new MaterialManager();
-            StorageManager sm = new StorageManager();
-            //SupplierManager sum = new SupplierManager();
+            MaterialManager mm = new MaterialManager();//商品
+            StorageManager sm = new StorageManager();//仓库
+            ClientManager clien = new ClientManager();//客户
             _AllMaterial = mm.GetList("");
             _AllStorage = sm.GetList("");
-            //_AllSupplier = sum.SelSupplierTable();
+            _AllClient = clien.SelClientToTable();
 
             //禁用自动创建列
             dataGridView1.AutoGenerateColumns = false;
@@ -115,8 +103,8 @@ namespace WSCATProject.Sell
 
             dataGridView1.DataSource = _AllMaterial.Tables[0];
             //销售单单号
-            BuyOdd = BuildCode.ModuleCode("SS");
-            textBoxOddNumbers.Text = BuyOdd;
+            SellOdd = BuildCode.ModuleCode("SS");
+            textBoxOddNumbers.Text = SellOdd;
 
             //绑定事件 双击事填充内容并隐藏列表
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
@@ -135,7 +123,7 @@ namespace WSCATProject.Sell
         /// <param name="e"></param>
         private void DataGridViewFujia_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
             //绑定客户信息的
             if (_Click == 2)
             {
@@ -156,7 +144,7 @@ namespace WSCATProject.Sell
                 resizablePanel1.Visible = false;
             }
             //绑定收款账号的
-            if (_Click==3)
+            if (_Click == 3)
             {
 
             }
@@ -473,6 +461,32 @@ namespace WSCATProject.Sell
                 dataGridViewFujia.DataSource = _AllStorage.Tables[0];
             }
         }
+
+        private void InitClient()
+        {
+            if (_Click != 1&&_Click!=3)
+            {
+                _Click = 2;
+                dataGridViewFujia.DataSource = null;
+                dataGridViewFujia.Columns.Clear();
+
+                DataGridViewTextBoxColumn dgvc = new DataGridViewTextBoxColumn();
+                dgvc.Name = "Cli_ID";
+                dgvc.Visible = true;
+                dgvc.HeaderText = "code";
+                dgvc.DataPropertyName = "Cli_ID";
+                dataGridViewFujia.Columns.Add(dgvc);
+
+                dgvc = new DataGridViewTextBoxColumn();
+                dgvc.Name = "Cli_Name";
+                dgvc.Visible = true;
+                dgvc.HeaderText = "客户名称";
+                dgvc.DataPropertyName = "Cli_Name";
+                dataGridViewFujia.Columns.Add(dgvc);
+
+                dataGridViewFujia.DataSource = _AllClient;
+            }
+        }
         #endregion
 
         //验证完全后,统计单元格数据
@@ -572,7 +586,7 @@ namespace WSCATProject.Sell
             }
             catch (Exception ex)
             {
-                MessageBox.Show("错误代码：1201-审核过账出现异常，错误代码="+ex.Message);
+                MessageBox.Show("错误代码：1201-审核过账出现异常，错误代码=" + ex.Message);
                 throw;
             }
         }
@@ -586,7 +600,7 @@ namespace WSCATProject.Sell
             }
             catch (Exception ex)
             {
-                MessageBox.Show("错误代码-1202-保存新增审核单出现异常，错误代码="+ex.Message);
+                MessageBox.Show("错误代码-1202-保存新增审核单出现异常，错误代码=" + ex.Message);
                 throw;
             }
         }
@@ -610,6 +624,12 @@ namespace WSCATProject.Sell
                 //绑定仓库列表
                 InitStorageList();
             }
+        }
+
+        //客户图标的点击事件 未写
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
