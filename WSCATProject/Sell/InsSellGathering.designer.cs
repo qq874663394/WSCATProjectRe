@@ -194,25 +194,7 @@
             // 
             // ltxt_sellcode
             // 
-            this.ltxt_sellcode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            // 
-            // 
-            // 
-            this.ltxt_sellcode.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ltxt_sellcode.Border.BorderBottomColor = System.Drawing.Color.Black;
-            this.ltxt_sellcode.Border.BorderBottomWidth = 1;
-            this.ltxt_sellcode.Border.BorderGradientAngle = 0;
-            this.ltxt_sellcode.Border.Class = "SideNavStrip";
-            this.ltxt_sellcode.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ltxt_sellcode.DisabledBackColor = System.Drawing.Color.White;
-            this.ltxt_sellcode.ForeColor = System.Drawing.Color.DimGray;
-            this.ltxt_sellcode.Location = new System.Drawing.Point(319, 21);
-            this.ltxt_sellcode.Name = "ltxt_sellcode";
-            this.ltxt_sellcode.PreventEnterBeep = true;
-            this.ltxt_sellcode.ReadOnly = true;
-            this.ltxt_sellcode.Size = new System.Drawing.Size(148, 16);
-            this.ltxt_sellcode.TabIndex = 34;
-            this.ltxt_sellcode.WatermarkColor = System.Drawing.SystemColors.ButtonHighlight;
+            
             // 
             // label2
             // 
@@ -524,7 +506,6 @@
             this.panel6.Controls.Add(this.labTop3);
             this.panel6.Controls.Add(this.labTop2);
             this.panel6.Controls.Add(this.labTop1);
-            this.panel6.Controls.Add(this.ltxt_sellcode);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);

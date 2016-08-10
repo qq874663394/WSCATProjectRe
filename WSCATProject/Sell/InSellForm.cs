@@ -143,7 +143,7 @@ namespace WSCATProject.Sell
                 //string name = dataGridViewFujia.Rows[e.RowIndex].Cells["Su_Name"].Value.ToString();
                 //_ProfeCode = code;
                 //labtextboxTop2.Text = name;
-                //resizablePanel1.Visible = false;
+                //resizablePanel1.Visible = false; 
             }
             if (_Click == 1)
             {
