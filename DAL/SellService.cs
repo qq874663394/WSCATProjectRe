@@ -590,7 +590,7 @@ namespace DAL
         //    }
         //}
 
-        public void SaveSellOdd(Sell sell, SellDetail sd, SellProcess sp)
+        public void SaveSellOdd(Sell sell, SellDetail sd, SellProcess sp, bool inStock)
         {
             StringBuilder strSql = new StringBuilder();
             Hashtable hashtable = new Hashtable();
@@ -731,6 +731,11 @@ namespace DAL
             parameters[6].Value = sp.Sp_Clear;
             //添加到列表中
             hashtable.Add(strSql.ToString(), parametersDetail);
+
+            if (inStock)
+            {
+                //入库单生成
+            }
 
             DbHelperSQL.ExecuteSqlTran(hashtable);
         }

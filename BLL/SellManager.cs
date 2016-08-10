@@ -168,17 +168,18 @@ namespace BLL
         }
 
         /// <summary>
-        /// 采购单保存
+        /// 销售单保存
         /// </summary>
-        /// <param name="sell">采购单实体</param>
-        /// <param name="sd">采购明细实体</param>
-        /// <param name="sp">采购流程实体</param>
+        /// <param name="sell">销售单单实体</param>
+        /// <param name="sd">销售明细实体</param>
+        /// <param name="sp">销售流程实体</param>
+        /// <param name="inStock">是否生成入库单</param>
         /// <returns></returns>
-        public int SaveSellOdd(Sell sell, SellDetail sd, SellProcess sp)
+        public int SaveSellOdd(Sell sell, SellDetail sd, SellProcess sp, bool inStock)
         {
             try
             {
-                dal.SaveSellOdd(sell, sd, sp);
+                dal.SaveSellOdd(sell, sd, sp, inStock);
                 return 1;
             }
             catch (Exception ex)
