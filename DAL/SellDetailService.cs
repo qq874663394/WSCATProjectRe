@@ -6,11 +6,33 @@ using System.Threading.Tasks;
 using Model;
 using System.Data.SqlClient;
 using System.Data;
+using HelperUtility.Encrypt;
 
 namespace DAL
 {
-    class SellDetailService
+    public class SellDetailService
     {
+        CodingHelper ch = new CodingHelper();
+        /// <summary>
+        /// 查询最近售价
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelPriceByMaName(string Ma_Name)
+        {
+            string sql = string.Format("select top 5 '330A59182E3F583F' as 价格类型,Sell_DiscountAPrice as 最近售价,Sell_Discount as 折扣率 from T_SellDetail where Sell_MaName='{0}'", XYEEncoding.strCodeHex(Ma_Name));
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds, "T_SellDetail");
+            return ch.DataTableReCoding(ds.Tables[0]);
+        }
+        public DataTable SelAccountPriceByAccount(string account)
+        {
+            string sql = string.Format("");
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds,"T_SellDetail");
+            return ch.DataTableReCoding(ds.Tables[0]);
+        }
         /// <summary>
 		/// 增加一条数据
 		/// </summary>

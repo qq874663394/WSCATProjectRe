@@ -4,6 +4,8 @@ using System.Text;
 using System.Data.SqlClient;
 using Model;
 using DAL;
+using System.Collections.Generic;
+using HelperUtility.Encrypt;
 
 namespace DAL
 {
@@ -12,6 +14,28 @@ namespace DAL
 	/// </summary>
 	public partial class MaterialService
     {
+        public object XYEEcoding { get; private set; }
+
+        /// <summary>
+        /// 根据商品名查询建议售价
+        /// </summary>
+        /// <param name="Ma_Name"></param>
+        /// <returns></returns>
+        public Material SelPriceByMaName(string Ma_Name)
+        {
+            string sql = string.Format("select * from T_Material where Ma_Name='{0}'", XYEEncoding.strCodeHex(Ma_Name));
+            SqlDataReader read = DbHelperSQL.ExecuteReader(sql);
+            Material material = new Material();
+            DataSet ds = DbHelperSQL.Query(sql);
+            if (ds.Tables[0].Rows.Count>0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
 		#region  BasicMethod
 
 		/// <summary>
@@ -332,27 +356,27 @@ namespace DAL
 				}
 				if(row["Ma_Price"]!=null)
 				{
-					model.Ma_Price=row["Ma_Price"].ToString();
+					model.Ma_Price=Convert.ToDecimal(row["Ma_Price"]);
 				}
 				if(row["Ma_PriceA"]!=null)
 				{
-					model.Ma_PriceA=row["Ma_PriceA"].ToString();
-				}
+					model.Ma_PriceA= Convert.ToDecimal(row["Ma_PriceA"]);
+                }
 				if(row["Ma_PriceB"]!=null)
 				{
-					model.Ma_PriceB=row["Ma_PriceB"].ToString();
-				}
+					model.Ma_PriceB= Convert.ToDecimal(row["Ma_PriceB"]);
+                }
 				if(row["Ma_PriceC"]!=null)
 				{
-					model.Ma_PriceC=row["Ma_PriceC"].ToString();
+					model.Ma_PriceC= Convert.ToDecimal(row["Ma_PriceC"]);
 				}
 				if(row["Ma_PriceD"]!=null)
 				{
-					model.Ma_PriceD=row["Ma_PriceD"].ToString();
+					model.Ma_PriceD= Convert.ToDecimal(row["Ma_PriceD"]);
 				}
 				if(row["Ma_PriceE"]!=null)
 				{
-					model.Ma_PriceE=row["Ma_PriceE"].ToString();
+					model.Ma_PriceE= Convert.ToDecimal(row["Ma_PriceE"]);
 				}
 				if(row["Ma_CreateDate"]!=null && row["Ma_CreateDate"].ToString()!="")
 				{
@@ -372,11 +396,11 @@ namespace DAL
 				}
 				if(row["Ma_Unit"]!=null)
 				{
-					model.Ma_Unit=row["Ma_Unit"].ToString();
+					model.Ma_Unit= Convert.ToDecimal(row["Ma_Unit"]);
 				}
 				if(row["Ma_InPrice"]!=null)
 				{
-					model.Ma_InPrice=row["Ma_InPrice"].ToString();
+					model.Ma_InPrice= Convert.ToDecimal(row["Ma_InPrice"]);
 				}
 				if(row["Ma_InDate"]!=null && row["Ma_InDate"].ToString()!="")
 				{

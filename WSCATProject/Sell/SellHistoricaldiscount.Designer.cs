@@ -180,7 +180,7 @@
             this.groupBox2.Controls.Add(this.labelX5);
             this.groupBox2.Controls.Add(this.labelX3);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.groupBox2.Location = new System.Drawing.Point(0, 155);
+            this.groupBox2.Location = new System.Drawing.Point(-1, 155);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(385, 202);
             this.groupBox2.TabIndex = 8;
@@ -231,7 +231,7 @@
             // 
             this.textBoxX4.Border.Class = "TextBoxBorder";
             this.textBoxX4.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX4.Location = new System.Drawing.Point(271, 71);
+            this.textBoxX4.Location = new System.Drawing.Point(268, 73);
             this.textBoxX4.Name = "textBoxX4";
             this.textBoxX4.PreventEnterBeep = true;
             this.textBoxX4.Size = new System.Drawing.Size(100, 21);
@@ -249,6 +249,8 @@
             this.textBoxX3.PreventEnterBeep = true;
             this.textBoxX3.Size = new System.Drawing.Size(100, 21);
             this.textBoxX3.TabIndex = 7;
+            this.textBoxX3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxX3_KeyPress);
+            this.textBoxX3.Validated += new System.EventHandler(this.textBoxX3_Validated);
             // 
             // textBoxX2
             // 
@@ -257,7 +259,7 @@
             // 
             this.textBoxX2.Border.Class = "TextBoxBorder";
             this.textBoxX2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX2.Location = new System.Drawing.Point(271, 35);
+            this.textBoxX2.Location = new System.Drawing.Point(268, 35);
             this.textBoxX2.Name = "textBoxX2";
             this.textBoxX2.PreventEnterBeep = true;
             this.textBoxX2.Size = new System.Drawing.Size(100, 21);
@@ -296,7 +298,7 @@
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX8.Location = new System.Drawing.Point(213, 69);
+            this.labelX8.Location = new System.Drawing.Point(210, 71);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(75, 23);
             this.labelX8.TabIndex = 3;
@@ -322,7 +324,7 @@
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX5.Location = new System.Drawing.Point(213, 35);
+            this.labelX5.Location = new System.Drawing.Point(208, 35);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(75, 23);
             this.labelX5.TabIndex = 1;
@@ -382,7 +384,7 @@
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(398, 1);
+            this.panel2.Location = new System.Drawing.Point(396, 1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(264, 363);
             this.panel2.TabIndex = 2;
@@ -419,7 +421,7 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(254, 210);
+            this.dataGridView1.Size = new System.Drawing.Size(254, 354);
             this.dataGridView1.TabIndex = 1;
             // 
             // 价格类型
@@ -453,8 +455,10 @@
             this.ClientSize = new System.Drawing.Size(664, 365);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "SellHistoricaldiscount";
             this.Text = "历史折扣";
+            this.Load += new System.EventHandler(this.SellHistoricaldiscount_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

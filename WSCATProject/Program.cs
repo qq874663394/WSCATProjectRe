@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using WSCATProject.Base;
 using WSCATProject.Base.Buys;
 using WSCATProject.Buys;
+using WSCATProject.Sell;
 
 namespace WSCATProject
 {
@@ -19,7 +20,7 @@ namespace WSCATProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Sell.InSellForm());
+            Application.Run(new SellPriceEntry());
         }
     }
 }

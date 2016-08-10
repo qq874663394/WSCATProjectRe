@@ -88,16 +88,16 @@ namespace WSCATProject.Base
                     {
                         material.Ma_InDate = Convert.ToDateTime(gridRow.Cells["Ma_InDate"].Value);
                     }
-                    material.Ma_InPrice = gridRow.Cells["Ma_InPrice"].Value.ToString();
+                    material.Ma_InPrice = Convert.ToDecimal(gridRow.Cells["Ma_InPrice"].Value);
                     material.Ma_Model = gridRow.Cells["Ma_Model"].Value.ToString();
                     material.Ma_Name = gridRow.Cells["Ma_Name"].Value.ToString();
                     material.Ma_PicName = gridRow.Cells["Ma_PicName"].Value.ToString();
-                    material.Ma_Price = gridRow.Cells["Ma_Price"].Value.ToString();
-                    material.Ma_PriceA = gridRow.Cells["Ma_PriceA"].Value.ToString();
-                    material.Ma_PriceB = gridRow.Cells["Ma_PriceB"].Value.ToString();
-                    material.Ma_PriceC = gridRow.Cells["Ma_PriceC"].Value.ToString();
-                    material.Ma_PriceD = gridRow.Cells["Ma_PriceD"].Value.ToString();
-                    material.Ma_PriceE = "";
+                    material.Ma_Price = Convert.ToDecimal(gridRow.Cells["Ma_Price"].Value);
+                    material.Ma_PriceA = Convert.ToDecimal(gridRow.Cells["Ma_PriceA"].Value);
+                    material.Ma_PriceB = Convert.ToDecimal(gridRow.Cells["Ma_PriceB"].Value);
+                    material.Ma_PriceC = Convert.ToDecimal(gridRow.Cells["Ma_PriceC"].Value);
+                    material.Ma_PriceD = Convert.ToDecimal(gridRow.Cells["Ma_PriceD"].Value);
+                    material.Ma_PriceE = 0;
                     material.Ma_Remark = gridRow.Cells["Ma_Remark"].Value.ToString();
                     material.Ma_RFID = gridRow.Cells["Ma_RFID"].Value.ToString();
                     material.Ma_Safetytwo = "";
@@ -106,7 +106,7 @@ namespace WSCATProject.Base
                     material.Ma_Supplier = gridRow.Cells["Ma_Supplier"].Value.ToString();
                     material.Ma_TypeID = gridRow.Cells["Ma_TypeID"].Value.ToString();
                     material.Ma_TypeName = gridRow.Cells["Ma_TypeName"].Value.ToString();
-                    material.Ma_Unit = gridRow.Cells["Ma_Unit"].Value.ToString();
+                    material.Ma_Unit = Convert.ToDecimal(gridRow.Cells["Ma_Unit"].Value);
                     material.Ma_zhujima = gridRow.Cells["Ma_zhujima"].Value.ToString();
                 }
                 MaterialCreateForm mcf = new MaterialCreateForm();
