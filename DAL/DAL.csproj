@@ -74,7 +74,6 @@
     </Compile>
     <Compile Include="RoleService.cs" />
     <Compile Include="SellDetailService.cs" />
-    <Compile Include="SellProcessService.cs" />
     <Compile Include="SellService.cs" />
     <Compile Include="SerializationService.cs" />
     <Compile Include="SQLHelper.cs" />
