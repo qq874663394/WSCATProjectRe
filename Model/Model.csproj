@@ -89,6 +89,7 @@
     <Compile Include="SellCancel.cs" />
     <Compile Include="SellCancelDetail.cs" />
     <Compile Include="SellDetail.cs" />
+    <Compile Include="SellProcess.cs" />
     <Compile Include="Serialization.cs" />
     <Compile Include="Stock.cs" />
     <Compile Include="StockDetail.cs" />
