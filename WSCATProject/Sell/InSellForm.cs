@@ -1,4 +1,5 @@
-﻿using DevComponents.DotNetBar.Controls;
+﻿using BLL;
+using DevComponents.DotNetBar.Controls;
 using DevComponents.DotNetBar.SuperGrid;
 using HelperUtility;
 using System;
@@ -29,9 +30,13 @@ namespace WSCATProject.Sell
         /// </summary>
         private DataSet _AllStorage = null;
         /// <summary>
-        /// 所有的供应商列表
+        /// 所有的客户列表
         /// </summary>
-        private DataTable _AllSupplier = null;
+        private DataTable _AllClient = null;
+        /// <summary>
+        /// 所有收款账号
+        /// </summary>
+        private DataTable _AllBank = null;
         /// <summary>
         /// 选择的仓库
         /// </summary>
@@ -39,13 +44,17 @@ namespace WSCATProject.Sell
         /// <summary>
         /// 采购单单号
         /// </summary>
-        private string _BuyOdd = "";
+        private string _SellOdd = "";
         /// <summary>
-        /// 供应商编号
+        /// 客户编号
         /// </summary>
-        private string _ProfeCode = "";
+        private string _ClientCode = "";
         /// <summary>
-        /// 点击的项,1为仓库,2为供应商
+        /// 账号Code
+        /// </summary>
+        private string _BankCode = "";
+        /// <summary>
+        /// 点击的项,1为仓库,2为客户,3为收款账号
         /// </summary>
         private int _Click = 0;
         /// <summary>
@@ -57,60 +66,59 @@ namespace WSCATProject.Sell
         /// </summary>
         private decimal _MaterialMoney = 0.00m;
 
-        public string BuyOdd
+        public string SellOdd
         {
-            get
-            {
-                return _BuyOdd;
-            }
+            get { return _SellOdd; }
 
-            set
-            {
-                _BuyOdd = value;
-            }
+            set { _SellOdd = value; }
         }
-
-        public string pbName;
 
         //控制面板是否显示
-        private bool _btnAdd = false;
+        //private bool _btnAdd = false;
 
-        protected bool BtnAdd
-        {
-            get { return _btnAdd; }
-            set { _btnAdd = value; }
-        }
+        //protected bool BtnAdd
+        //{
+        //    get { return _btnAdd; }
+        //    set { _btnAdd = value; }
+        //}
 
         //全局变量的状态判断是开单还是补货
-        private int _state; 
+        private int _state;
         public int State
         {
-            get
-            {
-                return _state;
-            }
+            get {return _state;}
 
-            set
-            {
-                _state = value;
-            }
+            set{_state = value;}
         }
         #endregion
         private void InSellForm_Load(object sender, EventArgs e)
         {
+
+            MaterialManager mm = new MaterialManager();//商品
+            StorageManager sm = new StorageManager();//仓库
+            ClientManager clien = new ClientManager();//客户
+            BankAccountManager bank = new BankAccountManager();//收款账号
+            _AllMaterial = mm.GetList("");
+            _AllStorage = sm.GetList("");
+            _AllClient = clien.SelClientToTable();
+            _AllBank = bank.SelBankAccount2();
+
+            //禁用自动创建列
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridViewFujia.AutoGenerateColumns = false;
+            //初始化商品下拉列表
+            InitMaterialDataGridView();
+            //初始化datagridview
+            InitDataGridView();
+
+            dataGridView1.DataSource = _AllMaterial.Tables[0];
             //销售单单号
-            BuyOdd = BuildCode.ModuleCode("SS");
-            textBoxOddNumbers.Text = BuyOdd;
+            SellOdd = BuildCode.ModuleCode("SS");
+            textBoxOddNumbers.Text = SellOdd;
 
             //绑定事件 双击事填充内容并隐藏列表
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
             dataGridViewFujia.CellDoubleClick += DataGridViewFujia_CellDoubleClick;
-
-            //初始化商品下拉列表
-            InitMaterialDataGridView();
-            // dataGridView1.DataSource = _AllMaterial.Tables[0];
-            //初始化datagridview
-            InitDataGridView();
 
             //使控件只能输入正确的数字和小数点
             textBoxX2.CommandKeyDown += textBox_CommandKeyDown;
@@ -125,21 +133,35 @@ namespace WSCATProject.Sell
         /// <param name="e"></param>
         private void DataGridViewFujia_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            switch (pbName)
+
+            //绑定客户信息的
+            if (_Click == 2)
             {
-                //客户
-                case "pictureBox2":
-                    //labtextboxTop1.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    labtextboxTop2.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[2].Value.ToString();//客户
-                    labtextboxTop5.Text = "";//往来金额
-                    labtextboxTop7.Text = "";//送货地址
-                    labtextboxTop8.Text = "";//联系人
-                    labtextboxTop9.Text = "";//联系电话
-                    break;
-                //收款账号
-                case "pictureBox3":
-                    labtextboxTop4.Text = dataGridViewFujia.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    break;
+                string code = dataGridViewFujia.Rows[e.RowIndex].Cells["Cli_ID"].Value.ToString();
+                string name = dataGridViewFujia.Rows[e.RowIndex].Cells["Cli_Name"].Value.ToString();
+                _ClientCode = code;
+                labtextboxTop2.Text = name;
+                resizablePanel1.Visible = false;
+            }
+            //仓库信息
+            if (_Click == 1)
+            {
+                GridRow gr = (GridRow)superGridControl1.PrimaryGrid.Rows[ClickRowIndex];
+                string code = dataGridViewFujia.Rows[e.RowIndex].Cells["St_Code"].Value.ToString();
+                string name = dataGridViewFujia.Rows[e.RowIndex].Cells["St_Name"].Value.ToString();
+                gr.Cells["gridColumnStockCode"].Value = code;
+                gr.Cells["gridColumnStock"].Value = name;
+                _ClickStorage = new KeyValuePair<string, string>(code, name);
+                resizablePanel1.Visible = false;
+            }
+            //绑定收款账号的
+            if (_Click == 3)
+            {
+                string code = dataGridViewFujia.Rows[e.RowIndex].Cells["Ba_Code"].Value.ToString();
+                string name = dataGridViewFujia.Rows[e.RowIndex].Cells["Ba_OpenBank"].Value.ToString();
+                _BankCode = code;
+                labtextboxTop4.Text = name;
+                resizablePanel1.Visible = false;
             }
         }
         /// <summary>
@@ -200,44 +222,6 @@ namespace WSCATProject.Sell
             }
         }
 
-        /// <summary>
-        /// 点击图片显示DataGirdView数据
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected virtual void ClickPicBox(object sender, EventArgs e)
-        {
-            PictureBox pb = sender as PictureBox;
-            pbName = pb.Name;
-            switch (pb.Name)
-            {
-                //供应商
-                case "pictureBox2":
-                    //resizablePanel1.Location = new Point(180, 110);
-                    //dataGridViewFujia.DataSource = sm.SelSupplierTable2();
-                    //dataGridViewFujia.Columns[2].Visible = false;
-                    break;
-                //收款账号
-                case "pictureBox3":
-                    //resizablePanel1.Location = new Point(190, 260);
-                    //DataTable dt = ch.DataTableReCoding(em.SelEmp2("").Tables[0]);
-                    //dataGridViewFujia.DataSource = dt;
-                    break;
-            }
-            if (!_btnAdd)
-            {
-                resizablePanel1.Visible = true;
-                _btnAdd = true;
-            }
-            else
-            {
-                resizablePanel1.Size = new System.Drawing.Size(248, 144);
-                resizablePanel1.Visible = true;
-                resizablePanel1.Focus();
-            }
-
-        }
-
         #region 初始化数据
         private void InitDataGridView()
         {
@@ -249,16 +233,16 @@ namespace WSCATProject.Sell
             GridRow gr = (GridRow)superGridControl1.PrimaryGrid.
                 Rows[superGridControl1.PrimaryGrid.Rows.Count - 1];
             gr.ReadOnly = true;
-            gr.CellStyles.Default.Background.Color1 = Color.Gray;
+            gr.CellStyles.Default.Background.Color1 = Color.SkyBlue;
             gr.Cells["gridColumnStock"].Value = "合计";
             gr.Cells["gridColumnStock"].CellStyles.Default.Alignment =
                 DevComponents.DotNetBar.SuperGrid.Style.Alignment.MiddleCenter;
             gr.Cells["gridColumnNumber"].Value = 0;
             gr.Cells["gridColumnNumber"].CellStyles.Default.Alignment = DevComponents.DotNetBar.SuperGrid.Style.Alignment.MiddleCenter;
-            gr.Cells["gridColumnNumber"].CellStyles.Default.Background.Color1 = Color.Red;
+            gr.Cells["gridColumnNumber"].CellStyles.Default.Background.Color1 = Color.Orange;
             gr.Cells["gridColumnMoney"].Value = 0;
             gr.Cells["gridColumnMoney"].CellStyles.Default.Alignment = DevComponents.DotNetBar.SuperGrid.Style.Alignment.MiddleCenter;
-            gr.Cells["gridColumnMoney"].CellStyles.Default.Background.Color1 = Color.Red;
+            gr.Cells["gridColumnMoney"].CellStyles.Default.Background.Color1 = Color.Orange;
         }
 
         /// <summary>
@@ -492,8 +476,65 @@ namespace WSCATProject.Sell
                 dataGridViewFujia.DataSource = _AllStorage.Tables[0];
             }
         }
+        /// <summary>
+        /// 初始化客户信息
+        /// </summary>
+        private void InitClient()
+        {
+            if (_Click != 1&&_Click!=3)
+            {
+                _Click = 2;
+                dataGridViewFujia.DataSource = null;
+                dataGridViewFujia.Columns.Clear();
+
+                DataGridViewTextBoxColumn dgvc = new DataGridViewTextBoxColumn();
+                dgvc.Name = "Cli_ID";
+                dgvc.Visible = true;
+                dgvc.HeaderText = "code";
+                dgvc.DataPropertyName = "Cli_ID";
+                dataGridViewFujia.Columns.Add(dgvc);
+
+                dgvc = new DataGridViewTextBoxColumn();
+                dgvc.Name = "Cli_Name";
+                dgvc.Visible = true;
+                dgvc.HeaderText = "客户名称";
+                dgvc.DataPropertyName = "Cli_Name";
+                dataGridViewFujia.Columns.Add(dgvc);
+
+                dataGridViewFujia.DataSource = _AllClient;
+            }
+        }
+        /// <summary>
+        /// 初始化收款账号
+        /// </summary>
+        private void InitBank()
+        {
+            if (_Click!=3)
+            {
+                _Click = 3;
+                dataGridViewFujia.DataSource = null;
+                dataGridViewFujia.Columns.Clear();
+
+                DataGridViewTextBoxColumn dgvc = new DataGridViewTextBoxColumn();
+                dgvc.Name = "Ba_Code";
+                dgvc.Visible = true;
+                dgvc.HeaderText = "code";
+                dgvc.DataPropertyName = "Ba_Code";
+                dataGridViewFujia.Columns.Add(dgvc);
+
+                dgvc = new DataGridViewTextBoxColumn();
+                dgvc.Name = "Ba_OpenBank";
+                dgvc.Visible = true;
+                dgvc.HeaderText = "账号名称";
+                dgvc.DataPropertyName = "Ba_OpenBank";
+                dataGridViewFujia.Columns.Add(dgvc);
+
+                dataGridViewFujia.DataSource = _AllBank;
+            }
+        }
         #endregion
 
+        #region 按钮的事件
         //验证完全后,统计单元格数据
         private void superGridControl1_CellValidated(object sender, GridCellValidatedEventArgs e)
         {
@@ -543,8 +584,8 @@ namespace WSCATProject.Sell
                 textBoxX3.Text = _MaterialMoney.ToString();
                 labtextboxTop5.Text = _MaterialMoney.ToString();
 
-                //labtextboxTop3.Text = (Convert.ToDecimal(textBoxX3.Text) *
-                //(Convert.ToDecimal(textBoxX2.Text) / 100)).ToString();
+                labtextboxTop3.Text = (Convert.ToDecimal(textBoxX3.Text) *
+                (Convert.ToDecimal(textBoxX2.Text) / 100)).ToString();
                 labtextboxTop5.Text = (Convert.ToDecimal(textBoxX3.Text) -
                     Convert.ToDecimal(labtextboxTop3.Text)).ToString();
             }
@@ -582,5 +623,72 @@ namespace WSCATProject.Sell
             }
         }
 
+        //审核过账按钮
+        private void buttonExamine_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误代码：1201-审核过账出现异常，错误代码=" + ex.Message);
+                throw;
+            }
+        }
+
+        //保存并新增按钮
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误代码-1202-保存新增审核单出现异常，错误代码=" + ex.Message);
+                throw;
+            }
+        }
+        //关闭退出按钮
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
+        //双击隐藏下拉列表
+        private void superGridControl1_Click(object sender, EventArgs e)
+        {
+            resizablePanelData.Visible = false;
+            resizablePanel1.Visible = false;
+        }
+
+        private void superGridControl1_BeginEdit(object sender, GridEditEventArgs e)
+        {
+            if (e.GridCell.GridColumn.Name == "gridColumnStock")
+            {
+                //绑定仓库列表
+                InitStorageList();
+            }
+        }
+
+        //客户图标的点击事件 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (_Click!=1&&_Click!=3)
+            {
+                InitClient();
+            }
+        }
+        //收款账号图标的点击事件
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (_Click!=3)
+            {
+                InitBank();
+            }  
+        }
+
+        #endregion
     }
 }
