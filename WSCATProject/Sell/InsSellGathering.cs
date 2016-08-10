@@ -175,7 +175,7 @@ namespace WSCATProject.Sell
         private void buttonSave_Click(object sender, EventArgs e)
         {
             ConllectionWaitManager cwm = new ConllectionWaitManager();
-            cw.CW_Code = BuildCode.ModuleCode("CW");
+            cw.CW_Code = textBoxOddNumbers.Text;
             cw.CW_Operation = ltxt_operation.Text.Trim();
             cw.CW_Remark = ltxt_remark.Text.Trim();
             int result = cwm.InsConllectionWait(cw);

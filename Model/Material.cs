@@ -19,18 +19,18 @@ namespace Model
 		private string _ma_code;
 		private string _ma_typeid;
 		private string _ma_typename;
-		private string _ma_price;
-		private string _ma_pricea;
-		private string _ma_priceb;
-		private string _ma_pricec;
-		private string _ma_priced;
-		private string _ma_pricee;
+		private decimal _ma_price;
+		private decimal _ma_pricea;
+		private decimal _ma_priceb;
+		private decimal _ma_pricec;
+		private decimal _ma_priced;
+		private decimal _ma_pricee;
 		private DateTime? _ma_createdate= DateTime.Now;
 		private string _ma_supplier;
 		private string _ma_supid;
 		private string _ma_zhujima;
-		private string _ma_unit;
-		private string _ma_inprice;
+		private decimal _ma_unit;
+		private decimal _ma_inprice;
 		private DateTime? _ma_indate;
 		private string _ma_remark;
 		private int? _ma_enable=1;
@@ -112,7 +112,7 @@ namespace Model
 		/// <summary>
 		/// 建议售价
 		/// </summary>
-		public string Ma_Price
+		public decimal Ma_Price
 		{
 			set{ _ma_price=value;}
 			get{return _ma_price;}
@@ -120,7 +120,7 @@ namespace Model
 		/// <summary>
 		/// 售价A
 		/// </summary>
-		public string Ma_PriceA
+		public decimal Ma_PriceA
 		{
 			set{ _ma_pricea=value;}
 			get{return _ma_pricea;}
@@ -128,7 +128,7 @@ namespace Model
 		/// <summary>
 		/// 售价B
 		/// </summary>
-		public string Ma_PriceB
+		public decimal Ma_PriceB
 		{
 			set{ _ma_priceb=value;}
 			get{return _ma_priceb;}
@@ -136,7 +136,7 @@ namespace Model
 		/// <summary>
 		/// 售价C
 		/// </summary>
-		public string Ma_PriceC
+		public decimal Ma_PriceC
 		{
 			set{ _ma_pricec=value;}
 			get{return _ma_pricec;}
@@ -144,7 +144,7 @@ namespace Model
 		/// <summary>
 		/// D售价
 		/// </summary>
-		public string Ma_PriceD
+		public decimal Ma_PriceD
 		{
 			set{ _ma_priced=value;}
 			get{return _ma_priced;}
@@ -152,7 +152,7 @@ namespace Model
 		/// <summary>
 		/// 售价E
 		/// </summary>
-		public string Ma_PriceE
+		public decimal Ma_PriceE
 		{
 			set{ _ma_pricee=value;}
 			get{return _ma_pricee;}
@@ -192,7 +192,7 @@ namespace Model
 		/// <summary>
 		/// 单位
 		/// </summary>
-		public string Ma_Unit
+		public decimal Ma_Unit
 		{
 			set{ _ma_unit=value;}
 			get{return _ma_unit;}
@@ -200,7 +200,7 @@ namespace Model
 		/// <summary>
 		/// 进价
 		/// </summary>
-		public string Ma_InPrice
+		public decimal Ma_InPrice
 		{
 			set{ _ma_inprice=value;}
 			get{return _ma_inprice;}

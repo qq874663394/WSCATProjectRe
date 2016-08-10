@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,8 +21,48 @@ namespace WSCATProject.Sell
 
         private void SellPriceEntry_Load(object sender, EventArgs e)
         {
+            DataTable dt = new SellDetailManager().SelPriceByMaName("说服力是地方");
+            Material material = new MaterialManager().SelPriceByMaName("说服力是地方");
+            DataRow row;
+            row = dt.NewRow();
+            row[0] = "建议售价";
+            row[1] = material.Ma_Price;
+            row[2] = DBNull.Value;
+            dt.Rows.Add(row);
+
+            row = dt.NewRow();
+            row[0] = "建议售价";
+            row[1] = material.Ma_PriceA;
+            row[2] = DBNull.Value;
+            dt.Rows.Add(row);
+
+            row = dt.NewRow();
+            row[0] = "建议售价";
+            row[1] = material.Ma_PriceB;
+            row[2] = DBNull.Value;
+            dt.Rows.Add(row);
+
+            row = dt.NewRow();
+            row[0] = "建议售价";
+            row[1] = material.Ma_PriceC;
+            row[2] = DBNull.Value;
+            dt.Rows.Add(row);
+
+            row = dt.NewRow();
+            row[0] = "建议售价";
+            row[1] = material.Ma_PriceD;
+            row[2] = DBNull.Value;
+            dt.Rows.Add(row);
+
+            row = dt.NewRow();
+            row[0] = "建议售价";
+            row[1] = material.Ma_PriceE;
+            row[2] = DBNull.Value;
+            dt.Rows.Add(row);
+
+            dataGridView1.DataSource = dt;
             textBoxX2.ReadOnly = true;//折扣金额
-            textBoxX4.ReadOnly = true ;//总金额
+            textBoxX4.ReadOnly = true;//总金额
             textBoxX5.ReadOnly = true;//折后单价   
             //设置为整行被选中
             this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -68,7 +110,7 @@ namespace WSCATProject.Sell
                     MessageBox.Show("折扣率不能大于100！");
                     return;
                 }
-                double zongmoney = price * (discount/100);//总金额
+                double zongmoney = price * (discount / 100);//总金额
                 textBoxX4.Text = zongmoney.ToString();
                 double zhehou = price * (discount / 100);//折后单价
                 textBoxX5.Text = zhehou.ToString();

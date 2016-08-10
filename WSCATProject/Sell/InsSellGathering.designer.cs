@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsSellGathering));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -62,6 +62,7 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.ltxt_salecode = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.ltxt_shishou = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -72,12 +73,11 @@
             this.labTop3 = new System.Windows.Forms.Label();
             this.labTop2 = new System.Windows.Forms.Label();
             this.labTop1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.resizablePanel1 = new HelperUtility.ExUI.ResizablePanel();
             this.panelDataView = new System.Windows.Forms.Panel();
             this.dataGridViewFujia = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ltxt_salecode = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -192,39 +192,9 @@
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "收款单";
             // 
-            // ltxt_sellcode
-            // 
-            this.ltxt_sellcode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            // 
-            // 
-            // 
-            this.ltxt_sellcode.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ltxt_sellcode.Border.BorderBottomColor = System.Drawing.Color.Black;
-            this.ltxt_sellcode.Border.BorderBottomWidth = 1;
-            this.ltxt_sellcode.Border.BorderGradientAngle = 0;
-            this.ltxt_sellcode.Border.Class = "SideNavStrip";
-            this.ltxt_sellcode.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ltxt_sellcode.DisabledBackColor = System.Drawing.Color.White;
-            this.ltxt_sellcode.ForeColor = System.Drawing.Color.DimGray;
-            this.ltxt_sellcode.Location = new System.Drawing.Point(319, 21);
-            this.ltxt_sellcode.Name = "ltxt_sellcode";
-            this.ltxt_sellcode.PreventEnterBeep = true;
-            this.ltxt_sellcode.ReadOnly = true;
-            this.ltxt_sellcode.Size = new System.Drawing.Size(148, 16);
-            this.ltxt_sellcode.TabIndex = 34;
-            this.ltxt_sellcode.WatermarkColor = System.Drawing.SystemColors.ButtonHighlight;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(252, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "销售单号：";
-            // 
             // ltxt_AccountName
             // 
+            this.ltxt_AccountName.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
@@ -237,6 +207,7 @@
             this.ltxt_AccountName.Location = new System.Drawing.Point(85, 56);
             this.ltxt_AccountName.Name = "ltxt_AccountName";
             this.ltxt_AccountName.PreventEnterBeep = true;
+            this.ltxt_AccountName.ReadOnly = true;
             this.ltxt_AccountName.Size = new System.Drawing.Size(105, 16);
             this.ltxt_AccountName.TabIndex = 29;
             // 
@@ -300,16 +271,17 @@
             this.ltxt_yingshou.Border.Class = "SideNavStrip";
             this.ltxt_yingshou.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ltxt_yingshou.ForeColor = System.Drawing.Color.DimGray;
-            this.ltxt_yingshou.Location = new System.Drawing.Point(324, 53);
+            this.ltxt_yingshou.Location = new System.Drawing.Point(322, 53);
             this.ltxt_yingshou.Name = "ltxt_yingshou";
             this.ltxt_yingshou.PreventEnterBeep = true;
-            this.ltxt_yingshou.Size = new System.Drawing.Size(148, 16);
+            this.ltxt_yingshou.Size = new System.Drawing.Size(143, 16);
             this.ltxt_yingshou.TabIndex = 29;
             this.ltxt_yingshou.TextChanged += new System.EventHandler(this.ltxt_yingshou_TextChanged);
             this.ltxt_yingshou.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ltxt_yingshou_KeyPress);
             // 
             // ltxt_kehu
             // 
+            this.ltxt_kehu.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
@@ -322,6 +294,7 @@
             this.ltxt_kehu.Location = new System.Drawing.Point(85, 21);
             this.ltxt_kehu.Name = "ltxt_kehu";
             this.ltxt_kehu.PreventEnterBeep = true;
+            this.ltxt_kehu.ReadOnly = true;
             this.ltxt_kehu.Size = new System.Drawing.Size(105, 16);
             this.ltxt_kehu.TabIndex = 29;
             // 
@@ -419,7 +392,7 @@
             // 
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::WSCATProject.Properties.Resources.checkMore;
-            this.pictureBox3.Location = new System.Drawing.Point(187, 19);
+            this.pictureBox3.Location = new System.Drawing.Point(187, 15);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(20, 23);
             this.pictureBox3.TabIndex = 30;
@@ -428,6 +401,7 @@
             // 
             // ltxt_saleman
             // 
+            this.ltxt_saleman.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
@@ -440,6 +414,7 @@
             this.ltxt_saleman.Location = new System.Drawing.Point(84, 17);
             this.ltxt_saleman.Name = "ltxt_saleman";
             this.ltxt_saleman.PreventEnterBeep = true;
+            this.ltxt_saleman.ReadOnly = true;
             this.ltxt_saleman.Size = new System.Drawing.Size(105, 16);
             this.ltxt_saleman.TabIndex = 29;
             // 
@@ -508,7 +483,6 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.ltxt_salecode);
-            this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.ltxt_shishou);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.button1);
@@ -524,7 +498,6 @@
             this.panel6.Controls.Add(this.labTop3);
             this.panel6.Controls.Add(this.labTop2);
             this.panel6.Controls.Add(this.labTop1);
-            this.panel6.Controls.Add(this.ltxt_sellcode);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
@@ -532,6 +505,27 @@
             this.panel6.Size = new System.Drawing.Size(1052, 88);
             this.panel6.TabIndex = 0;
             this.panel6.Click += new System.EventHandler(this.panel6_Click);
+            // 
+            // ltxt_salecode
+            // 
+            this.ltxt_salecode.AcceptsReturn = true;
+            this.ltxt_salecode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            // 
+            // 
+            // 
+            this.ltxt_salecode.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ltxt_salecode.Border.BorderBottomColor = System.Drawing.Color.Black;
+            this.ltxt_salecode.Border.BorderBottomWidth = 1;
+            this.ltxt_salecode.Border.BorderGradientAngle = 0;
+            this.ltxt_salecode.Border.Class = "SideNavStrip";
+            this.ltxt_salecode.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ltxt_salecode.ForeColor = System.Drawing.Color.DimGray;
+            this.ltxt_salecode.Location = new System.Drawing.Point(322, 21);
+            this.ltxt_salecode.Name = "ltxt_salecode";
+            this.ltxt_salecode.PreventEnterBeep = true;
+            this.ltxt_salecode.ReadOnly = true;
+            this.ltxt_salecode.Size = new System.Drawing.Size(143, 16);
+            this.ltxt_salecode.TabIndex = 39;
             // 
             // ltxt_shishou
             // 
@@ -546,11 +540,11 @@
             this.ltxt_shishou.Border.Class = "SideNavStrip";
             this.ltxt_shishou.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ltxt_shishou.DisabledBackColor = System.Drawing.Color.White;
-            this.ltxt_shishou.Location = new System.Drawing.Point(597, 50);
+            this.ltxt_shishou.Location = new System.Drawing.Point(579, 50);
             this.ltxt_shishou.Name = "ltxt_shishou";
             this.ltxt_shishou.PreventEnterBeep = true;
             this.ltxt_shishou.ReadOnly = true;
-            this.ltxt_shishou.Size = new System.Drawing.Size(153, 16);
+            this.ltxt_shishou.Size = new System.Drawing.Size(148, 16);
             this.ltxt_shishou.TabIndex = 37;
             this.ltxt_shishou.WatermarkColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ltxt_shishou.TextChanged += new System.EventHandler(this.ltxt_shishou_TextChanged);
@@ -643,6 +637,16 @@
             this.labTop1.TabIndex = 0;
             this.labTop1.Text = "客    户：";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(251, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "销售单号：";
+            // 
             // resizablePanel1
             // 
             this.resizablePanel1.BackColor = System.Drawing.Color.White;
@@ -673,24 +677,24 @@
             this.dataGridViewFujia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewFujia.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewFujia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFujia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewFujia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewFujia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFujia.Cursor = System.Windows.Forms.Cursors.Arrow;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewFujia.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewFujia.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewFujia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFujia.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dataGridViewFujia.Location = new System.Drawing.Point(0, 0);
@@ -715,36 +719,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(251, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 38;
-            this.label2.Text = "销售单号：";
-            // 
-            // ltxt_salecode
-            // 
-            this.ltxt_salecode.AcceptsReturn = true;
-            this.ltxt_salecode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            // 
-            // 
-            // 
-            this.ltxt_salecode.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ltxt_salecode.Border.BorderBottomColor = System.Drawing.Color.Black;
-            this.ltxt_salecode.Border.BorderBottomWidth = 1;
-            this.ltxt_salecode.Border.BorderGradientAngle = 0;
-            this.ltxt_salecode.Border.Class = "SideNavStrip";
-            this.ltxt_salecode.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ltxt_salecode.ForeColor = System.Drawing.Color.DimGray;
-            this.ltxt_salecode.Location = new System.Drawing.Point(322, 21);
-            this.ltxt_salecode.Name = "ltxt_salecode";
-            this.ltxt_salecode.PreventEnterBeep = true;
-            this.ltxt_salecode.Size = new System.Drawing.Size(143, 16);
-            this.ltxt_salecode.TabIndex = 39;
             // 
             // InsSellGathering
             // 

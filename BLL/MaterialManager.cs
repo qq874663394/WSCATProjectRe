@@ -13,6 +13,15 @@ namespace BLL
     {
         private readonly MaterialService dal = new MaterialService();
 
+        /// <summary>
+        /// 根据商品名查询建议售价
+        /// </summary>
+        /// <param name="Ma_Name"></param>
+        /// <returns></returns>
+        public Material SelPriceByMaName(string Ma_Name)
+        {
+            return dal.SelPriceByMaName(Ma_Name);
+        }
         #region  BasicMethod
 
         /// <summary>
