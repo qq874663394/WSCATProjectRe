@@ -174,6 +174,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Location = new System.Drawing.Point(432, 49);
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox2
             // 

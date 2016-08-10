@@ -34,6 +34,10 @@ namespace WSCATProject.Sell
         /// </summary>
         private DataTable _AllClient = null;
         /// <summary>
+        /// 所有收款账号
+        /// </summary>
+        private DataTable _AllBank = null;
+        /// <summary>
         /// 选择的仓库
         /// </summary>
         private KeyValuePair<string, string> _ClickStorage;
@@ -45,6 +49,10 @@ namespace WSCATProject.Sell
         /// 客户编号
         /// </summary>
         private string _ClientCode = "";
+        /// <summary>
+        /// 账号Code
+        /// </summary>
+        private string _BankCode = "";
         /// <summary>
         /// 点击的项,1为仓库,2为客户,3为收款账号
         /// </summary>
@@ -89,9 +97,11 @@ namespace WSCATProject.Sell
             MaterialManager mm = new MaterialManager();//商品
             StorageManager sm = new StorageManager();//仓库
             ClientManager clien = new ClientManager();//客户
+            BankAccountManager bank = new BankAccountManager();//收款账号
             _AllMaterial = mm.GetList("");
             _AllStorage = sm.GetList("");
             _AllClient = clien.SelClientToTable();
+            _AllBank = bank.SelBankAccount2();
 
             //禁用自动创建列
             dataGridView1.AutoGenerateColumns = false;
@@ -127,12 +137,13 @@ namespace WSCATProject.Sell
             //绑定客户信息的
             if (_Click == 2)
             {
-                //string code = dataGridViewFujia.Rows[e.RowIndex].Cells["Su_Code"].Value.ToString();
-                //string name = dataGridViewFujia.Rows[e.RowIndex].Cells["Su_Name"].Value.ToString();
-                //_ProfeCode = code;
-                //labtextboxTop2.Text = name;
-                //resizablePanel1.Visible = false; 
+                string code = dataGridViewFujia.Rows[e.RowIndex].Cells["Cli_ID"].Value.ToString();
+                string name = dataGridViewFujia.Rows[e.RowIndex].Cells["Cli_Name"].Value.ToString();
+                _ClientCode = code;
+                labtextboxTop2.Text = name;
+                resizablePanel1.Visible = false;
             }
+            //仓库信息
             if (_Click == 1)
             {
                 GridRow gr = (GridRow)superGridControl1.PrimaryGrid.Rows[ClickRowIndex];
@@ -146,7 +157,11 @@ namespace WSCATProject.Sell
             //绑定收款账号的
             if (_Click == 3)
             {
-
+                string code = dataGridViewFujia.Rows[e.RowIndex].Cells["Ba_Code"].Value.ToString();
+                string name = dataGridViewFujia.Rows[e.RowIndex].Cells["Ba_OpenBank"].Value.ToString();
+                _BankCode = code;
+                labtextboxTop4.Text = name;
+                resizablePanel1.Visible = false;
             }
         }
         /// <summary>
@@ -461,7 +476,9 @@ namespace WSCATProject.Sell
                 dataGridViewFujia.DataSource = _AllStorage.Tables[0];
             }
         }
-
+        /// <summary>
+        /// 初始化客户信息
+        /// </summary>
         private void InitClient()
         {
             if (_Click != 1&&_Click!=3)
@@ -487,8 +504,37 @@ namespace WSCATProject.Sell
                 dataGridViewFujia.DataSource = _AllClient;
             }
         }
+        /// <summary>
+        /// 初始化收款账号
+        /// </summary>
+        private void InitBank()
+        {
+            if (_Click!=3)
+            {
+                _Click = 3;
+                dataGridViewFujia.DataSource = null;
+                dataGridViewFujia.Columns.Clear();
+
+                DataGridViewTextBoxColumn dgvc = new DataGridViewTextBoxColumn();
+                dgvc.Name = "Ba_Code";
+                dgvc.Visible = true;
+                dgvc.HeaderText = "code";
+                dgvc.DataPropertyName = "Ba_Code";
+                dataGridViewFujia.Columns.Add(dgvc);
+
+                dgvc = new DataGridViewTextBoxColumn();
+                dgvc.Name = "Ba_OpenBank";
+                dgvc.Visible = true;
+                dgvc.HeaderText = "账号名称";
+                dgvc.DataPropertyName = "Ba_OpenBank";
+                dataGridViewFujia.Columns.Add(dgvc);
+
+                dataGridViewFujia.DataSource = _AllBank;
+            }
+        }
         #endregion
 
+        #region 按钮的事件
         //验证完全后,统计单元格数据
         private void superGridControl1_CellValidated(object sender, GridCellValidatedEventArgs e)
         {
@@ -626,10 +672,23 @@ namespace WSCATProject.Sell
             }
         }
 
-        //客户图标的点击事件 未写
+        //客户图标的点击事件 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-
+            if (_Click!=1&&_Click!=3)
+            {
+                InitClient();
+            }
         }
+        //收款账号图标的点击事件
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (_Click!=3)
+            {
+                InitBank();
+            }  
+        }
+
+        #endregion
     }
 }
