@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Model;
 using System.Data.SqlClient;
 using System.Data;
+using HelperUtility.Encrypt;
 
 namespace DAL
 {
-    class SellDetailService
+    public class SellDetailService
     {
         CodingHelper ch = new CodingHelper();
         /// <summary>
@@ -22,6 +23,14 @@ namespace DAL
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);
             DataSet ds = new DataSet();
             adapter.Fill(ds, "T_SellDetail");
+            return ch.DataTableReCoding(ds.Tables[0]);
+        }
+        public DataTable SelAccountPriceByAccount(string account)
+        {
+            string sql = string.Format("");
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds,"T_SellDetail");
             return ch.DataTableReCoding(ds.Tables[0]);
         }
         /// <summary>
