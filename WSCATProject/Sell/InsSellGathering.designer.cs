@@ -194,7 +194,6 @@
             // 
             // ltxt_AccountName
             // 
-            this.ltxt_AccountName.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
@@ -207,7 +206,6 @@
             this.ltxt_AccountName.Location = new System.Drawing.Point(85, 56);
             this.ltxt_AccountName.Name = "ltxt_AccountName";
             this.ltxt_AccountName.PreventEnterBeep = true;
-            this.ltxt_AccountName.ReadOnly = true;
             this.ltxt_AccountName.Size = new System.Drawing.Size(105, 16);
             this.ltxt_AccountName.TabIndex = 29;
             // 
@@ -224,7 +222,7 @@
             this.ltxt_weishou.Border.Class = "SideNavStrip";
             this.ltxt_weishou.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ltxt_weishou.DisabledBackColor = System.Drawing.Color.White;
-            this.ltxt_weishou.Location = new System.Drawing.Point(855, 50);
+            this.ltxt_weishou.Location = new System.Drawing.Point(843, 50);
             this.ltxt_weishou.Name = "ltxt_weishou";
             this.ltxt_weishou.PreventEnterBeep = true;
             this.ltxt_weishou.ReadOnly = true;
@@ -281,7 +279,6 @@
             // 
             // ltxt_kehu
             // 
-            this.ltxt_kehu.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
@@ -294,7 +291,6 @@
             this.ltxt_kehu.Location = new System.Drawing.Point(85, 21);
             this.ltxt_kehu.Name = "ltxt_kehu";
             this.ltxt_kehu.PreventEnterBeep = true;
-            this.ltxt_kehu.ReadOnly = true;
             this.ltxt_kehu.Size = new System.Drawing.Size(105, 16);
             this.ltxt_kehu.TabIndex = 29;
             // 
@@ -401,7 +397,6 @@
             // 
             // ltxt_saleman
             // 
-            this.ltxt_saleman.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
@@ -414,7 +409,6 @@
             this.ltxt_saleman.Location = new System.Drawing.Point(84, 17);
             this.ltxt_saleman.Name = "ltxt_saleman";
             this.ltxt_saleman.PreventEnterBeep = true;
-            this.ltxt_saleman.ReadOnly = true;
             this.ltxt_saleman.Size = new System.Drawing.Size(105, 16);
             this.ltxt_saleman.TabIndex = 29;
             // 
@@ -523,7 +517,6 @@
             this.ltxt_salecode.Location = new System.Drawing.Point(322, 21);
             this.ltxt_salecode.Name = "ltxt_salecode";
             this.ltxt_salecode.PreventEnterBeep = true;
-            this.ltxt_salecode.ReadOnly = true;
             this.ltxt_salecode.Size = new System.Drawing.Size(143, 16);
             this.ltxt_salecode.TabIndex = 39;
             // 
@@ -594,7 +587,7 @@
             // labTop5
             // 
             this.labTop5.AutoSize = true;
-            this.labTop5.Location = new System.Drawing.Point(784, 56);
+            this.labTop5.Location = new System.Drawing.Point(772, 56);
             this.labTop5.Name = "labTop5";
             this.labTop5.Size = new System.Drawing.Size(65, 12);
             this.labTop5.TabIndex = 8;
