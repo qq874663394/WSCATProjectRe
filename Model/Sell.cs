@@ -35,6 +35,13 @@ namespace Model
         private string _sell_AccountCode;
         private string _sell_InMoney;
         private string _sell_LastMoney;
+        private string _sell_Address;
+        private string _sell_ClientName;
+        private string _sell_CliPhone;
+        private string _sell_LinkMan;
+        private string _sell_Salesman;
+        private int? _sell_OddStatus;
+
         /// <summary>
         /// 
         /// </summary>
@@ -76,7 +83,7 @@ namespace Model
 			get{return _sell_transporttype;}
 		}
 		/// <summary>
-		/// 
+		/// 是否已审核
 		/// </summary>
 		public int? Sell_Review
 		{
@@ -313,6 +320,96 @@ namespace Model
             set
             {
                 _sell_LastMoney = value;
+            }
+        }
+        /// <summary>
+        /// 送货地址
+        /// </summary>
+        public string Sell_Address
+        {
+            get
+            {
+                return _sell_Address;
+            }
+
+            set
+            {
+                _sell_Address = value;
+            }
+        }
+        /// <summary>
+        /// 客户姓名
+        /// </summary>
+        public string Sell_ClientName
+        {
+            get
+            {
+                return _sell_ClientName;
+            }
+
+            set
+            {
+                _sell_ClientName = value;
+            }
+        }
+        /// <summary>
+        /// 联系电话
+        /// </summary>
+        public string Sell_CliPhone
+        {
+            get
+            {
+                return _sell_CliPhone;
+            }
+
+            set
+            {
+                _sell_CliPhone = value;
+            }
+        }
+        /// <summary>
+        /// 联系人
+        /// </summary>
+        public string Sell_LinkMan
+        {
+            get
+            {
+                return _sell_LinkMan;
+            }
+
+            set
+            {
+                _sell_LinkMan = value;
+            }
+        }
+        /// <summary>
+        /// 业务员
+        /// </summary>
+        public string Sell_Salesman
+        {
+            get
+            {
+                return _sell_Salesman;
+            }
+
+            set
+            {
+                _sell_Salesman = value;
+            }
+        }
+        /// <summary>
+        /// 发货状态 0 未审核，1 缺货，2 发货中，3 已完成
+        /// </summary>
+        public int? Sell_OddStatus
+        {
+            get
+            {
+                return _sell_OddStatus;
+            }
+
+            set
+            {
+                _sell_OddStatus = value;
             }
         }
         #endregion Model

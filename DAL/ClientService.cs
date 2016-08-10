@@ -22,7 +22,7 @@ namespace DAL
         /// <returns></returns>
         public DataTable SelClientToTable()
         {
-            string sql = @"select Cli_ID as 编号,Cli_Name as 客户名 from T_Client";
+            string sql = @"select Cli_ID as 编号,Cli_Name as 客户名 ,Cli_Code  from T_Client";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);
             DataSet ds = new DataSet();
             adapter.Fill(ds, "T_Client");

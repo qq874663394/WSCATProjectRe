@@ -218,6 +218,7 @@
             this.labtextboxTop3.Border.Class = "SideNavStrip";
             this.labtextboxTop3.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labtextboxTop3.Location = new System.Drawing.Point(829, 49);
+            this.labtextboxTop3.Validated += new System.EventHandler(this.labtextboxTop3_Validated);
             // 
             // labtextboxTop7
             // 
@@ -377,10 +378,10 @@
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn10);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn11);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn12);
-            this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn14);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn13);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn19);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn20);
+            this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn14);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn15);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn16);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn17);
