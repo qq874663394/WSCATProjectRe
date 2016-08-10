@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsSellGathering));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -42,12 +42,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.labelDate = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewFujia = new System.Windows.Forms.DataGridView();
-            this.panelDataView = new System.Windows.Forms.Panel();
-            this.resizablePanel1 = new HelperUtility.ExUI.ResizablePanel();
-            this.ltxt_sellcode = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.label2 = new System.Windows.Forms.Label();
             this.ltxt_AccountName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.ltxt_weishou = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.ltxt_shoukuan = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -78,11 +72,14 @@
             this.labTop3 = new System.Windows.Forms.Label();
             this.labTop2 = new System.Windows.Forms.Label();
             this.labTop1 = new System.Windows.Forms.Label();
+            this.resizablePanel1 = new HelperUtility.ExUI.ResizablePanel();
+            this.panelDataView = new System.Windows.Forms.Panel();
+            this.dataGridViewFujia = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ltxt_salecode = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFujia)).BeginInit();
-            this.panelDataView.SuspendLayout();
-            this.resizablePanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -91,6 +88,9 @@
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.resizablePanel1.SuspendLayout();
+            this.panelDataView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFujia)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -192,79 +192,6 @@
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "收款单";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("宋体", 12F);
-            this.label1.Location = new System.Drawing.Point(0, 145);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 16);
-            this.label1.TabIndex = 2;
-            // 
-            // dataGridViewFujia
-            // 
-            this.dataGridViewFujia.AllowUserToAddRows = false;
-            this.dataGridViewFujia.AllowUserToDeleteRows = false;
-            this.dataGridViewFujia.AllowUserToResizeColumns = false;
-            this.dataGridViewFujia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewFujia.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewFujia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFujia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewFujia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewFujia.Cursor = System.Windows.Forms.Cursors.Arrow;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewFujia.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewFujia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewFujia.GridColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dataGridViewFujia.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewFujia.MinimumSize = new System.Drawing.Size(293, 163);
-            this.dataGridViewFujia.MultiSelect = false;
-            this.dataGridViewFujia.Name = "dataGridViewFujia";
-            this.dataGridViewFujia.ReadOnly = true;
-            this.dataGridViewFujia.RowHeadersVisible = false;
-            this.dataGridViewFujia.RowHeadersWidth = 40;
-            this.dataGridViewFujia.RowTemplate.Height = 23;
-            this.dataGridViewFujia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewFujia.Size = new System.Drawing.Size(293, 163);
-            this.dataGridViewFujia.TabIndex = 0;
-            this.dataGridViewFujia.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFujia_CellContentDoubleClick);
-            // 
-            // panelDataView
-            // 
-            this.panelDataView.Controls.Add(this.dataGridViewFujia);
-            this.panelDataView.Location = new System.Drawing.Point(-1, -1);
-            this.panelDataView.Name = "panelDataView";
-            this.panelDataView.Size = new System.Drawing.Size(270, 163);
-            this.panelDataView.TabIndex = 30;
-            // 
-            // resizablePanel1
-            // 
-            this.resizablePanel1.BackColor = System.Drawing.Color.White;
-            this.resizablePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.resizablePanel1.Controls.Add(this.panelDataView);
-            this.resizablePanel1.Controls.Add(this.label1);
-            this.resizablePanel1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
-            this.resizablePanel1.ForeColor = System.Drawing.Color.Black;
-            this.resizablePanel1.Location = new System.Drawing.Point(90, 162);
-            this.resizablePanel1.Name = "resizablePanel1";
-            this.resizablePanel1.Size = new System.Drawing.Size(270, 163);
-            this.resizablePanel1.TabIndex = 5;
-            this.resizablePanel1.Visible = false;
-            // 
             // ltxt_sellcode
             // 
             this.ltxt_sellcode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -307,7 +234,7 @@
             this.ltxt_AccountName.Border.BorderGradientAngle = 0;
             this.ltxt_AccountName.Border.Class = "SideNavStrip";
             this.ltxt_AccountName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ltxt_AccountName.Location = new System.Drawing.Point(85, 51);
+            this.ltxt_AccountName.Location = new System.Drawing.Point(85, 56);
             this.ltxt_AccountName.Name = "ltxt_AccountName";
             this.ltxt_AccountName.PreventEnterBeep = true;
             this.ltxt_AccountName.Size = new System.Drawing.Size(105, 16);
@@ -326,13 +253,15 @@
             this.ltxt_weishou.Border.Class = "SideNavStrip";
             this.ltxt_weishou.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ltxt_weishou.DisabledBackColor = System.Drawing.Color.White;
-            this.ltxt_weishou.Location = new System.Drawing.Point(854, 55);
+            this.ltxt_weishou.Location = new System.Drawing.Point(855, 50);
             this.ltxt_weishou.Name = "ltxt_weishou";
             this.ltxt_weishou.PreventEnterBeep = true;
             this.ltxt_weishou.ReadOnly = true;
             this.ltxt_weishou.Size = new System.Drawing.Size(146, 16);
             this.ltxt_weishou.TabIndex = 29;
             this.ltxt_weishou.WatermarkColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ltxt_weishou.TextChanged += new System.EventHandler(this.ltxt_weishou_TextChanged);
+            this.ltxt_weishou.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ltxt_weishou_KeyPress);
             // 
             // ltxt_shoukuan
             // 
@@ -349,10 +278,13 @@
             this.ltxt_shoukuan.MaxLength = 123;
             this.ltxt_shoukuan.Name = "ltxt_shoukuan";
             this.ltxt_shoukuan.PreventEnterBeep = true;
-            this.ltxt_shoukuan.Size = new System.Drawing.Size(153, 16);
+            this.ltxt_shoukuan.Size = new System.Drawing.Size(148, 16);
             this.ltxt_shoukuan.TabIndex = 29;
             this.ltxt_shoukuan.Text = "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
             this.ltxt_shoukuan.WordWrap = false;
+            this.ltxt_shoukuan.TextChanged += new System.EventHandler(this.ltxt_shoukuan_TextChanged);
+            this.ltxt_shoukuan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ltxt_shoukuan_KeyPress);
+            this.ltxt_shoukuan.Validated += new System.EventHandler(this.ltxt_shoukuan_Validated);
             // 
             // ltxt_yingshou
             // 
@@ -371,9 +303,10 @@
             this.ltxt_yingshou.Location = new System.Drawing.Point(324, 53);
             this.ltxt_yingshou.Name = "ltxt_yingshou";
             this.ltxt_yingshou.PreventEnterBeep = true;
-            this.ltxt_yingshou.ReadOnly = true;
-            this.ltxt_yingshou.Size = new System.Drawing.Size(143, 16);
+            this.ltxt_yingshou.Size = new System.Drawing.Size(148, 16);
             this.ltxt_yingshou.TabIndex = 29;
+            this.ltxt_yingshou.TextChanged += new System.EventHandler(this.ltxt_yingshou_TextChanged);
+            this.ltxt_yingshou.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ltxt_yingshou_KeyPress);
             // 
             // ltxt_kehu
             // 
@@ -458,7 +391,7 @@
             this.ltxt_operation.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ltxt_operation.DisabledBackColor = System.Drawing.Color.White;
             this.ltxt_operation.ForeColor = System.Drawing.Color.DimGray;
-            this.ltxt_operation.Location = new System.Drawing.Point(365, 19);
+            this.ltxt_operation.Location = new System.Drawing.Point(322, 19);
             this.ltxt_operation.Name = "ltxt_operation";
             this.ltxt_operation.PreventEnterBeep = true;
             this.ltxt_operation.ReadOnly = true;
@@ -523,7 +456,7 @@
             // 
             this.labBotton3.AutoSize = true;
             this.labBotton3.ForeColor = System.Drawing.Color.Black;
-            this.labBotton3.Location = new System.Drawing.Point(320, 21);
+            this.labBotton3.Location = new System.Drawing.Point(277, 21);
             this.labBotton3.Name = "labBotton3";
             this.labBotton3.Size = new System.Drawing.Size(53, 12);
             this.labBotton3.TabIndex = 26;
@@ -574,11 +507,11 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.ltxt_salecode);
+            this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.ltxt_shishou);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.button1);
-            this.panel6.Controls.Add(this.ltxt_sellcode);
-            this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.pictureBox2);
             this.panel6.Controls.Add(this.ltxt_AccountName);
             this.panel6.Controls.Add(this.ltxt_weishou);
@@ -591,6 +524,8 @@
             this.panel6.Controls.Add(this.labTop3);
             this.panel6.Controls.Add(this.labTop2);
             this.panel6.Controls.Add(this.labTop1);
+            this.panel6.Controls.Add(this.ltxt_sellcode);
+            this.panel6.Controls.Add(this.label2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
@@ -611,13 +546,15 @@
             this.ltxt_shishou.Border.Class = "SideNavStrip";
             this.ltxt_shishou.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ltxt_shishou.DisabledBackColor = System.Drawing.Color.White;
-            this.ltxt_shishou.Location = new System.Drawing.Point(579, 56);
+            this.ltxt_shishou.Location = new System.Drawing.Point(597, 50);
             this.ltxt_shishou.Name = "ltxt_shishou";
             this.ltxt_shishou.PreventEnterBeep = true;
             this.ltxt_shishou.ReadOnly = true;
             this.ltxt_shishou.Size = new System.Drawing.Size(153, 16);
             this.ltxt_shishou.TabIndex = 37;
             this.ltxt_shishou.WatermarkColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ltxt_shishou.TextChanged += new System.EventHandler(this.ltxt_shishou_TextChanged);
+            this.ltxt_shishou.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ltxt_shishou_KeyPress);
             // 
             // label3
             // 
@@ -636,6 +573,7 @@
             this.button1.TabIndex = 35;
             this.button1.Text = "√";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox2
             // 
@@ -652,7 +590,7 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::WSCATProject.Properties.Resources.checkMore;
-            this.pictureBox1.Location = new System.Drawing.Point(190, 19);
+            this.pictureBox1.Location = new System.Drawing.Point(190, 16);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 26);
             this.pictureBox1.TabIndex = 24;
@@ -662,7 +600,7 @@
             // labTop5
             // 
             this.labTop5.AutoSize = true;
-            this.labTop5.Location = new System.Drawing.Point(783, 57);
+            this.labTop5.Location = new System.Drawing.Point(784, 56);
             this.labTop5.Name = "labTop5";
             this.labTop5.Size = new System.Drawing.Size(65, 12);
             this.labTop5.TabIndex = 8;
@@ -680,7 +618,7 @@
             // labTop3
             // 
             this.labTop3.AutoSize = true;
-            this.labTop3.Location = new System.Drawing.Point(28, 53);
+            this.labTop3.Location = new System.Drawing.Point(28, 58);
             this.labTop3.Name = "labTop3";
             this.labTop3.Size = new System.Drawing.Size(65, 12);
             this.labTop3.TabIndex = 4;
@@ -705,6 +643,109 @@
             this.labTop1.TabIndex = 0;
             this.labTop1.Text = "客    户：";
             // 
+            // resizablePanel1
+            // 
+            this.resizablePanel1.BackColor = System.Drawing.Color.White;
+            this.resizablePanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.resizablePanel1.Controls.Add(this.panelDataView);
+            this.resizablePanel1.Controls.Add(this.label1);
+            this.resizablePanel1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
+            this.resizablePanel1.ForeColor = System.Drawing.Color.Black;
+            this.resizablePanel1.Location = new System.Drawing.Point(90, 162);
+            this.resizablePanel1.Name = "resizablePanel1";
+            this.resizablePanel1.Size = new System.Drawing.Size(270, 163);
+            this.resizablePanel1.TabIndex = 5;
+            this.resizablePanel1.Visible = false;
+            // 
+            // panelDataView
+            // 
+            this.panelDataView.Controls.Add(this.dataGridViewFujia);
+            this.panelDataView.Location = new System.Drawing.Point(-1, -1);
+            this.panelDataView.Name = "panelDataView";
+            this.panelDataView.Size = new System.Drawing.Size(270, 163);
+            this.panelDataView.TabIndex = 30;
+            // 
+            // dataGridViewFujia
+            // 
+            this.dataGridViewFujia.AllowUserToAddRows = false;
+            this.dataGridViewFujia.AllowUserToDeleteRows = false;
+            this.dataGridViewFujia.AllowUserToResizeColumns = false;
+            this.dataGridViewFujia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewFujia.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewFujia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewFujia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.dataGridViewFujia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFujia.Cursor = System.Windows.Forms.Cursors.Arrow;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewFujia.DefaultCellStyle = dataGridViewCellStyle22;
+            this.dataGridViewFujia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewFujia.GridColor = System.Drawing.SystemColors.AppWorkspace;
+            this.dataGridViewFujia.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewFujia.MinimumSize = new System.Drawing.Size(293, 163);
+            this.dataGridViewFujia.MultiSelect = false;
+            this.dataGridViewFujia.Name = "dataGridViewFujia";
+            this.dataGridViewFujia.ReadOnly = true;
+            this.dataGridViewFujia.RowHeadersVisible = false;
+            this.dataGridViewFujia.RowHeadersWidth = 40;
+            this.dataGridViewFujia.RowTemplate.Height = 23;
+            this.dataGridViewFujia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewFujia.Size = new System.Drawing.Size(293, 163);
+            this.dataGridViewFujia.TabIndex = 0;
+            this.dataGridViewFujia.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFujia_CellContentDoubleClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Font = new System.Drawing.Font("宋体", 12F);
+            this.label1.Location = new System.Drawing.Point(0, 145);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(251, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "销售单号：";
+            // 
+            // ltxt_salecode
+            // 
+            this.ltxt_salecode.AcceptsReturn = true;
+            this.ltxt_salecode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            // 
+            // 
+            // 
+            this.ltxt_salecode.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ltxt_salecode.Border.BorderBottomColor = System.Drawing.Color.Black;
+            this.ltxt_salecode.Border.BorderBottomWidth = 1;
+            this.ltxt_salecode.Border.BorderGradientAngle = 0;
+            this.ltxt_salecode.Border.Class = "SideNavStrip";
+            this.ltxt_salecode.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ltxt_salecode.ForeColor = System.Drawing.Color.DimGray;
+            this.ltxt_salecode.Location = new System.Drawing.Point(322, 21);
+            this.ltxt_salecode.Name = "ltxt_salecode";
+            this.ltxt_salecode.PreventEnterBeep = true;
+            this.ltxt_salecode.Size = new System.Drawing.Size(143, 16);
+            this.ltxt_salecode.TabIndex = 39;
+            // 
             // InsSellGathering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -721,10 +762,6 @@
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFujia)).EndInit();
-            this.panelDataView.ResumeLayout(false);
-            this.resizablePanel1.ResumeLayout(false);
-            this.resizablePanel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -735,6 +772,10 @@
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.resizablePanel1.ResumeLayout(false);
+            this.resizablePanel1.PerformLayout();
+            this.panelDataView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFujia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -758,8 +799,6 @@
         protected System.Windows.Forms.DataGridView dataGridViewFujia;
         protected System.Windows.Forms.Panel panelDataView;
         protected HelperUtility.ExUI.ResizablePanel resizablePanel1;
-        protected DevComponents.DotNetBar.Controls.TextBoxX ltxt_sellcode;
-        protected System.Windows.Forms.Label label2;
         protected System.Windows.Forms.PictureBox pictureBox2;
         protected DevComponents.DotNetBar.Controls.TextBoxX ltxt_AccountName;
         protected DevComponents.DotNetBar.Controls.TextBoxX ltxt_weishou;
@@ -789,5 +828,7 @@
         protected DevComponents.DotNetBar.Controls.TextBoxX ltxt_shishou;
         protected System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
+        protected DevComponents.DotNetBar.Controls.TextBoxX ltxt_salecode;
+        protected System.Windows.Forms.Label label2;
     }
 }

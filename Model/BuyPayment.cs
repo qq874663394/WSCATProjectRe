@@ -194,7 +194,7 @@ namespace Model
 			set{ _buy_states=value;}
 			get{return _buy_states;}
 		}
-
+        //预付金额
         public string Buy_Premoney
         {
             get
@@ -207,7 +207,7 @@ namespace Model
                 _buy_premoney = value;
             }
         }
-
+        //实付金额
         public string Buy_Actmoney
         {
             get

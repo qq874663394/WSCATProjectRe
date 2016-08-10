@@ -1,4 +1,5 @@
-﻿using DevComponents.DotNetBar.SuperGrid;
+﻿using DevComponents.DotNetBar.Controls;
+using DevComponents.DotNetBar.SuperGrid;
 using HelperUtility;
 using System;
 using System.Collections.Generic;
@@ -79,6 +80,21 @@ namespace WSCATProject.Sell
             get { return _btnAdd; }
             set { _btnAdd = value; }
         }
+
+        //全局变量的状态判断是开单还是补货
+        private int _state; 
+        public int State
+        {
+            get
+            {
+                return _state;
+            }
+
+            set
+            {
+                _state = value;
+            }
+        }
         #endregion
         private void InSellForm_Load(object sender, EventArgs e)
         {
@@ -92,9 +108,15 @@ namespace WSCATProject.Sell
 
             //初始化商品下拉列表
             InitMaterialDataGridView();
-           // dataGridView1.DataSource = _AllMaterial.Tables[0];
+            // dataGridView1.DataSource = _AllMaterial.Tables[0];
             //初始化datagridview
             InitDataGridView();
+
+            //使控件只能输入正确的数字和小数点
+            textBoxX2.CommandKeyDown += textBox_CommandKeyDown;
+            textBoxX3.CommandKeyDown += textBox_CommandKeyDown;
+            labtextboxTop3.CommandKeyDown += textBox_CommandKeyDown;
+            labtextboxTop5.CommandKeyDown += textBox_CommandKeyDown;
         }
         /// <summary>
         /// 绑定pictureBox表格的数据
@@ -471,5 +493,94 @@ namespace WSCATProject.Sell
             }
         }
         #endregion
+
+        //验证完全后,统计单元格数据
+        private void superGridControl1_CellValidated(object sender, GridCellValidatedEventArgs e)
+        {
+            GridRow gr = e.GridPanel.Rows[e.GridCell.RowIndex] as GridRow;
+            //若是没数据的行则不做处理
+            if (gr.Cells["gridColumnid"].Value == null)
+            {
+                return;
+            }
+            if (e.GridCell.GridColumn.Name == "gridColumnNumber" ||
+                e.GridCell.GridColumn.Name == "gridColumnPrice" ||
+                e.GridCell.GridColumn.Name == "gridColumnDis")
+            {
+                //添加对应的单价和总价
+                if (e.GridCell.GridColumn.Name == "gridColumnNumber" &&
+                    !string.IsNullOrEmpty(e.GridCell.FormattedValue))
+                {
+                    _MaterialNumber += decimal.Parse(e.GridCell.FormattedValue);
+                }
+                if (e.GridCell.GridColumn.Name == "gridColumnPrice" &&
+                    !string.IsNullOrEmpty(e.GridCell.FormattedValue))
+                {
+                    _MaterialMoney += decimal.Parse(e.GridCell.FormattedValue);
+                }
+                //计算金额
+                decimal number = Convert.ToDecimal(gr.Cells["gridColumnNumber"].FormattedValue);
+                decimal dis = Convert.ToDecimal(gr.Cells["gridColumnDis"].FormattedValue) / 100;
+                decimal price = Convert.ToDecimal(gr.Cells["gridColumnPrice"].FormattedValue);
+                decimal disPrice = price * dis;
+                decimal allPrice = number * disPrice;
+                gr.Cells["gridColumnDisPrice"].Value = disPrice;
+                gr.Cells["gridColumnMoney"].Value = allPrice;
+                //逐行统计数据总数
+                decimal tempAllNumber = 0;
+                decimal tempAllMoney = 0;
+                for (int i = 0; i < superGridControl1.PrimaryGrid.Rows.Count - 1; i++)
+                {
+                    GridRow tempGR = superGridControl1.PrimaryGrid.Rows[i] as GridRow;
+                    tempAllNumber += Convert.ToDecimal(tempGR["gridColumnNumber"].FormattedValue);
+                    tempAllMoney += Convert.ToDecimal(tempGR["gridColumnMoney"].FormattedValue);
+                }
+                _MaterialMoney = tempAllMoney;
+                _MaterialNumber = tempAllNumber;
+                gr = (GridRow)superGridControl1.PrimaryGrid.LastSelectableRow;
+                gr["gridColumnNumber"].Value = _MaterialNumber.ToString();
+                gr["gridColumnMoney"].Value = _MaterialMoney.ToString();
+                textBoxX3.Text = _MaterialMoney.ToString();
+                labtextboxTop5.Text = _MaterialMoney.ToString();
+
+                //labtextboxTop3.Text = (Convert.ToDecimal(textBoxX3.Text) *
+                //(Convert.ToDecimal(textBoxX2.Text) / 100)).ToString();
+                labtextboxTop5.Text = (Convert.ToDecimal(textBoxX3.Text) -
+                    Convert.ToDecimal(labtextboxTop3.Text)).ToString();
+            }
+        }
+
+        //只允许输入数字/小数点/删除键
+        private void textBox_CommandKeyDown(object sender, KeyEventArgs e)
+        {
+            TextBoxX tbx = sender as TextBoxX;
+            if ((e.KeyValue < 48 || e.KeyValue > 57) &&
+                e.KeyValue != 8 &&
+                (e.KeyValue < 96 || e.KeyValue > 105) &&
+                e.KeyValue != 110 &&
+                e.KeyValue != 13)
+            {
+                e.Handled = true;
+            }
+            if (e.KeyValue == 110) //小数点
+            {
+                if (tbx.Text.Length <= 0)
+                    e.Handled = true;//小数点不能在第一位
+                else
+                {
+                    bool b1 = false;
+                    b1 = tbx.Text.Contains(".");
+                    if (b1)
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+            if (e.KeyValue == 13)
+            {
+                superGridControl1.Focus();
+            }
+        }
+
     }
 }

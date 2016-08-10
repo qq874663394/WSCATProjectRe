@@ -49,6 +49,7 @@
     <Compile Include="CityManager.cs" />
     <Compile Include="ClientManager.cs" />
     <Compile Include="ClientTypeManager.cs" />
+    <Compile Include="ConllectionWaitManager.cs" />
     <Compile Include="DepartmentManager.cs" />
     <Compile Include="DiscountManager.cs" />
     <Compile Include="EmpolyeeManager.cs" />

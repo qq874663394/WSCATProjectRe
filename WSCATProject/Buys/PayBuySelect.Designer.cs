@@ -85,11 +85,11 @@ namespace WSCATProject.Buys
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.superGridControl1 = new DevComponents.DotNetBar.SuperGrid.SuperGridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.审核过账ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.申请付款ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.去付款ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看物流ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.新增物料信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.审核过账ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -145,7 +145,8 @@ namespace WSCATProject.Buys
             "应付款单",
             "应收款单",
             "银行存取款",
-            "资金拆借"});
+            "资金拆借",
+            "欠货发货单"});
             this.toolStripComboBox2.Name = "toolStripComboBox2";
             this.toolStripComboBox2.Size = new System.Drawing.Size(121, 35);
             this.toolStripComboBox2.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox2_SelectedIndexChanged);
@@ -383,7 +384,7 @@ namespace WSCATProject.Buys
             // 全部ToolStripMenuItem1
             // 
             this.全部ToolStripMenuItem1.Name = "全部ToolStripMenuItem1";
-            this.全部ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.全部ToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
             this.全部ToolStripMenuItem1.Text = "全部";
             this.全部ToolStripMenuItem1.Click += new System.EventHandler(this.全部ToolStripMenuItem1_Click);
             // 
@@ -504,8 +505,15 @@ namespace WSCATProject.Buys
             this.查看物流ToolStripMenuItem,
             this.新增物料信息ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 114);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // 审核过账ToolStripMenuItem
+            // 
+            this.审核过账ToolStripMenuItem.Name = "审核过账ToolStripMenuItem";
+            this.审核过账ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.审核过账ToolStripMenuItem.Text = "审核过账";
+            this.审核过账ToolStripMenuItem.Click += new System.EventHandler(this.审核过账ToolStripMenuItem_Click);
             // 
             // 申请付款ToolStripMenuItem
             // 
@@ -535,13 +543,6 @@ namespace WSCATProject.Buys
             this.新增物料信息ToolStripMenuItem.Text = "新增物流信息";
             this.新增物料信息ToolStripMenuItem.Click += new System.EventHandler(this.新增物料信息ToolStripMenuItem_Click);
             // 
-            // 审核过账ToolStripMenuItem
-            // 
-            this.审核过账ToolStripMenuItem.Name = "审核过账ToolStripMenuItem";
-            this.审核过账ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.审核过账ToolStripMenuItem.Text = "审核过账";
-            this.审核过账ToolStripMenuItem.Click += new System.EventHandler(this.审核过账ToolStripMenuItem_Click);
-            // 
             // PayBuySelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -550,7 +551,7 @@ namespace WSCATProject.Buys
             this.Controls.Add(this.superGridControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "PayBuySelect";
-            this.Text = "PayBuySelect";
+            this.Text = "业务查找";
             this.Load += new System.EventHandler(this.PayBuySelect_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
