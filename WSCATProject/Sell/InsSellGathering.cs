@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DevComponents.DotNetBar.Controls;
+using DevComponents.DotNetBar.SuperGrid;
 using HelperUtility;
 using HelperUtility.Encrypt;
 using Model;
@@ -31,6 +32,89 @@ namespace WSCATProject.Sell
 
         private void InsSellGathering_Load(object sender, EventArgs e)
         {
+            #region 初始化列
+            GridColumn gc = null;
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "仓库名称";
+            gc.Name = "";
+            gc.HeaderText = "仓库名称";
+            superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "编码";
+            gc.Name = "";
+            gc.HeaderText = "编码";
+            superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "商品名称";
+            gc.Name = "";
+            gc.HeaderText = "商品名称";
+            superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "规格型号";
+            gc.Name = "";
+            gc.HeaderText = "规格型号";
+            superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "单位";
+            gc.Name = "";
+            gc.HeaderText = "单位";
+            superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "单价";
+            gc.Name = "";
+            gc.HeaderText = "单价";
+            superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "需求数量";
+            gc.Name = "";
+            gc.HeaderText = "需求数量";
+            superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "实发数量";
+            gc.Name = "";
+            gc.HeaderText = "实发数量";
+            superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "缺少数量";
+            gc.Name = "";
+            gc.HeaderText = "缺少数量";
+            superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "折扣率";
+            gc.Name = "";
+            gc.HeaderText = "折扣率";
+            superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "折后金额";
+            gc.Name = "";
+            gc.HeaderText = "折后金额";
+            superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "总金额";
+            gc.Name = "";
+            gc.HeaderText = "总金额";
+            superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "备注";
+            gc.Name = "";
+            gc.HeaderText = "备注";
+            superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            #endregion
+
             if (string.IsNullOrWhiteSpace(textBoxOddNumbers.Text))
             {
                 textBoxOddNumbers.Text = BuildCode.ModuleCode("AC");
@@ -44,7 +128,7 @@ namespace WSCATProject.Sell
             ltxt_operation.Text = l.UserName;
             dataGridViewFujia.ReadOnly = true;
             dataGridViewFujia.AllowUserToResizeColumns = false;//是否可以调整列的大小
-            dataGridViewFujia.AllowUserToResizeRows = false;//是否可以调整行的大小  
+            dataGridViewFujia.AllowUserToResizeRows = false;//是否可以调整行的大小            
         }
 
         #region 点击图片把客户、账户、业务员分别绑定到dataGridView
@@ -109,7 +193,7 @@ namespace WSCATProject.Sell
                     dataGridViewFujia.Columns.Add(gc);
                     dataGridViewFujia.DataSource = em.SelEmpolyee(false);
                     dataGridViewFujia.Columns[0].Visible = false;
-                    resizablePanel1.Location = new Point(190, 320);
+                    resizablePanel1.Location = new Point(190, 260);
                     break;
             }
             if (!_btnAdd)
@@ -175,7 +259,7 @@ namespace WSCATProject.Sell
         private void buttonSave_Click(object sender, EventArgs e)
         {
             ConllectionWaitManager cwm = new ConllectionWaitManager();
-            cw.CW_Code = BuildCode.ModuleCode("CW");
+            cw.CW_Code = textBoxOddNumbers.Text;
             cw.CW_Operation = ltxt_operation.Text.Trim();
             cw.CW_Remark = ltxt_remark.Text.Trim();
             int result = cwm.InsConllectionWait(cw);
