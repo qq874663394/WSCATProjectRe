@@ -18,6 +18,7 @@ namespace WSCATProject.Buys
     {
         BuyManager bm = new BuyManager();
         DataTable dt = null;
+ 
         public string whereField;
         public string orderField;
         public PayBuySelect()
@@ -531,9 +532,8 @@ namespace WSCATProject.Buys
         /// </summary>
         public void Band()
         {
-            dt = bm.GetYinFuList();
-            superGridControl1.PrimaryGrid.DataSource = dt;
-        }
+			dt = bm.GetYinFuList();
+            superGridControl1.PrimaryGrid.DataSource = dt;        }
 
         private void superGridControl1_DoubleClick(object sender, EventArgs e)
         {

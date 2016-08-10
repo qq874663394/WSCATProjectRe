@@ -35,6 +35,12 @@ namespace Model
         private string _sell_AccountCode;
         private string _sell_InMoney;
         private string _sell_LastMoney;
+        private string _sell_Address;
+        private string _sell_ClientName;
+        private string _sell_CliPhone;
+        private string _sell_LinkMan;
+        private string _sell_Salesman;
+        private int? _sell_OddStatus;
         /// <summary>
         /// 
         /// </summary>
@@ -315,6 +321,100 @@ namespace Model
                 _sell_LastMoney = value;
             }
         }
+
+        /// <summary>
+        /// 发货地址
+        /// </summary>
+        public string Sell_Address
+        {
+            get
+            {
+                return _sell_Address;
+            }
+
+            set
+            {
+                _sell_Address = value;
+            }
+        }
+
+        /// <summary>
+        /// 客户姓名
+        /// </summary>
+        public string Sell_ClientName
+        {
+            get
+            {
+                return _sell_ClientName;
+            }
+
+            set
+            {
+                _sell_ClientName = value;
+            }
+        }
+
+        /// <summary>
+        /// 客户电话
+        /// </summary>
+        public string Sell_CliPhone
+        {
+            get
+            {
+                return _sell_CliPhone;
+            }
+
+            set
+            {
+                _sell_CliPhone = value;
+            }
+        }
+
+        /// <summary>
+        /// 联系人
+        /// </summary>
+        public string Sell_LinkMan
+        {
+            get
+            {
+                return _sell_LinkMan;
+            }
+
+            set
+            {
+                _sell_LinkMan = value;
+            }
+        }
+
+        /// <summary>
+        /// 销售员
+        /// </summary>
+        public string Sell_Salesman
+        {
+            get
+            {
+                return _sell_Salesman;
+            }
+
+            set
+            {
+                _sell_Salesman = value;
+            }
+        }
+
+        public int? Sell_OddStatus
+        {
+            get
+            {
+                return _sell_OddStatus;
+            }
+
+            set
+            {
+                _sell_OddStatus = value;
+            }
+        }
+
         #endregion Model
 
     }
