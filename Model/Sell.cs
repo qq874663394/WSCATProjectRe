@@ -31,10 +31,14 @@ namespace Model
         private string _sell_logistics;
         private string _sell_logCode;
         private string _sell_logPhone;
-		/// <summary>
-		/// 
-		/// </summary>
-		public int Sell_ID
+        private string _sell_OddMoney;
+        private string _sell_AccountCode;
+        private string _sell_InMoney;
+        private string _sell_LastMoney;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Sell_ID
 		{
 			set{ _sell_id=value;}
 			get{return _sell_id;}
@@ -136,6 +140,9 @@ namespace Model
 			get{return _sell_clear;}
 		}
 
+        /// <summary>
+        /// 是否已付款(0为未付款,1部分付款,2已完成)
+        /// </summary>
         public int? Sell_IsPay
         {
             get
@@ -149,6 +156,9 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// 入库状态(0未入库,1已入库)
+        /// </summary>
         public int? Sell_IsPutSto
         {
             get
@@ -162,6 +172,9 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// 付款方式
+        /// </summary>
         public int? Sell_PayMathod
         {
             get
@@ -175,6 +188,9 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// 到货日期
+        /// </summary>
         public DateTime Sell_GetDate
         {
             get
@@ -188,6 +204,9 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// 物流
+        /// </summary>
         public string Sell_Logistics
         {
             get
@@ -201,6 +220,9 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// 物流单号
+        /// </summary>
         public string Sell_LogCode
         {
             get
@@ -214,6 +236,9 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// 快递电话
+        /// </summary>
         public string Sell_LogPhone
         {
             get
@@ -224,6 +249,70 @@ namespace Model
             set
             {
                 _sell_logPhone = value;
+            }
+        }
+
+        /// <summary>
+        /// 本单总金额
+        /// </summary>
+        public string Sell_OddMoney
+        {
+            get
+            {
+                return _sell_OddMoney;
+            }
+
+            set
+            {
+                _sell_OddMoney = value;
+            }
+        }
+
+        /// <summary>
+        /// 付款账户的code
+        /// </summary>
+        public string Sell_AccountCode
+        {
+            get
+            {
+                return _sell_AccountCode;
+            }
+
+            set
+            {
+                _sell_AccountCode = value;
+            }
+        }
+
+        /// <summary>
+        /// 本次收款
+        /// </summary>
+        public string Sell_InMoney
+        {
+            get
+            {
+                return _sell_InMoney;
+            }
+
+            set
+            {
+                _sell_InMoney = value;
+            }
+        }
+
+        /// <summary>
+        /// 剩余款项
+        /// </summary>
+        public string Sell_LastMoney
+        {
+            get
+            {
+                return _sell_LastMoney;
+            }
+
+            set
+            {
+                _sell_LastMoney = value;
             }
         }
         #endregion Model

@@ -20,6 +20,8 @@ namespace Model
 		private string _sell_model;
 		private string _sell_unit;
 		private string _sell_curnumber;
+        private string _sell_renumber;
+        private string _sell_lostnumber;
         private decimal _sell_discountAPrice;
         private decimal _sell_discount;
         private decimal _sell_discountBPrice;
@@ -28,6 +30,9 @@ namespace Model
 		private string _sell_safetyone;
 		private string _sell_safetytwo;
 		private string _sell_remark;
+        private int? _sell_jiajiState;
+        private DateTime? _zuiwanshijian;
+
 		/// <summary>
 		/// 销售订单编号
 		/// </summary>
@@ -77,7 +82,7 @@ namespace Model
 			get{return _sell_unit;}
 		}
 		/// <summary>
-		/// 数量
+		/// 预期数量
 		/// </summary>
 		public string Sell_CurNumber
 		{
@@ -205,6 +210,70 @@ namespace Model
             set
             {
                 _sell_money = value;
+            }
+        }
+
+        /// <summary>
+        /// 实际数量
+        /// </summary>
+        public string Sell_ReNumber
+        {
+            get
+            {
+                return _sell_renumber;
+            }
+
+            set
+            {
+                _sell_renumber = value;
+            }
+        }
+
+        /// <summary>
+        /// 欠缺数量
+        /// </summary>
+        public string Sell_LostNumber
+        {
+            get
+            {
+                return _sell_lostnumber;
+            }
+
+            set
+            {
+                _sell_lostnumber = value;
+            }
+        }
+
+        /// <summary>
+        /// 加急状态 0不加急 1加急
+        /// </summary>
+        public int? Sell_jiajiState
+        {
+            get
+            {
+                return _sell_jiajiState;
+            }
+
+            set
+            {
+                _sell_jiajiState = value;
+            }
+        }
+
+        /// <summary>
+        /// 最晚送货时间
+        /// </summary>
+        public DateTime? Zuiwanshijian
+        {
+            get
+            {
+                return _zuiwanshijian;
+            }
+
+            set
+            {
+                _zuiwanshijian = value;
             }
         }
         #endregion Model
