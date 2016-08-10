@@ -21,6 +21,7 @@ namespace WSCATProject.Sell
         ClientManager cm = new ClientManager();
         BankAccountManager bam = new BankAccountManager();
         EmpolyeeManager em = new EmpolyeeManager();
+        SellManager sm = new SellManager();
         CodingHelper ch = new CodingHelper();
         ConllectionWait cw = new ConllectionWait();
         public string pbName;//根据图片Name对应相应的datagridview
@@ -112,6 +113,8 @@ namespace WSCATProject.Sell
             gc.Name = "";
             gc.HeaderText = "备注";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            //superGridControl1.PrimaryGrid.DataSource = sm.GetList("");
 
             #endregion
 
