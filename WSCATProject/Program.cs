@@ -20,7 +20,7 @@ namespace WSCATProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SellPriceEntry());
+            Application.Run(new Sell.InsSellGathering());
         }
     }
 }

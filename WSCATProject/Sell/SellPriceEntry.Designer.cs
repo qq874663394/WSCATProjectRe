@@ -46,6 +46,9 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.价格类型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.最近售价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.折扣率 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblcount = new DevComponents.DotNetBar.LabelX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
@@ -69,9 +72,6 @@
             this.line1 = new DevComponents.DotNetBar.Controls.Line();
             this.lblkehu = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.价格类型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.最近售价 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.折扣率 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -206,6 +206,36 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(328, 168);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // 价格类型
+            // 
+            this.价格类型.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.价格类型.DataPropertyName = "价格类型";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.价格类型.DefaultCellStyle = dataGridViewCellStyle6;
+            this.价格类型.HeaderText = "价格类型";
+            this.价格类型.Name = "价格类型";
+            this.价格类型.ReadOnly = true;
+            // 
+            // 最近售价
+            // 
+            this.最近售价.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.最近售价.DataPropertyName = "最近售价";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.最近售价.DefaultCellStyle = dataGridViewCellStyle7;
+            this.最近售价.HeaderText = "价格";
+            this.最近售价.Name = "最近售价";
+            this.最近售价.ReadOnly = true;
+            // 
+            // 折扣率
+            // 
+            this.折扣率.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.折扣率.DataPropertyName = "折扣率";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.折扣率.DefaultCellStyle = dataGridViewCellStyle8;
+            this.折扣率.HeaderText = "折扣率";
+            this.折扣率.Name = "折扣率";
+            this.折扣率.ReadOnly = true;
             // 
             // panel1
             // 
@@ -389,6 +419,7 @@
             this.textBoxX3.PreventEnterBeep = true;
             this.textBoxX3.Size = new System.Drawing.Size(100, 21);
             this.textBoxX3.TabIndex = 7;
+            this.textBoxX3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxX1_KeyPress);
             // 
             // textBoxX2
             // 
@@ -415,6 +446,7 @@
             this.textBoxX1.PreventEnterBeep = true;
             this.textBoxX1.Size = new System.Drawing.Size(100, 21);
             this.textBoxX1.TabIndex = 5;
+            this.textBoxX1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxX1_KeyPress);
             // 
             // labelX9
             // 
@@ -517,36 +549,6 @@
             this.labelX1.Size = new System.Drawing.Size(69, 23);
             this.labelX1.TabIndex = 0;
             this.labelX1.Text = "往来单位：";
-            // 
-            // 价格类型
-            // 
-            this.价格类型.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.价格类型.DataPropertyName = "价格类型";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.价格类型.DefaultCellStyle = dataGridViewCellStyle6;
-            this.价格类型.HeaderText = "价格类型";
-            this.价格类型.Name = "价格类型";
-            this.价格类型.ReadOnly = true;
-            // 
-            // 最近售价
-            // 
-            this.最近售价.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.最近售价.DataPropertyName = "最近售价";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.最近售价.DefaultCellStyle = dataGridViewCellStyle7;
-            this.最近售价.HeaderText = "价格";
-            this.最近售价.Name = "最近售价";
-            this.最近售价.ReadOnly = true;
-            // 
-            // 折扣率
-            // 
-            this.折扣率.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.折扣率.DataPropertyName = "折扣率";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.折扣率.DefaultCellStyle = dataGridViewCellStyle8;
-            this.折扣率.HeaderText = "折扣率";
-            this.折扣率.Name = "折扣率";
-            this.折扣率.ReadOnly = true;
             // 
             // SellPriceEntry
             // 
