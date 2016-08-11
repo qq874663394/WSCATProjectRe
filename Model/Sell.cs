@@ -41,6 +41,9 @@ namespace Model
         private string _sell_LinkMan;
         private string _sell_Salesman;
         private int? _sell_OddStatus;
+        private int? _sell_jiajiState;
+        private DateTime? _sell_zuiwanshijian;
+        private string _sell_fukuanfangshi;
 
         /// <summary>
         /// 
@@ -410,6 +413,51 @@ namespace Model
             set
             {
                 _sell_OddStatus = value;
+            }
+        }
+
+        /// <summary>
+        /// 加急状态 0不加急 1加急
+        /// </summary>
+        public int? Sell_jiajiState
+        {
+            get
+            {
+                return _sell_jiajiState;
+            }
+
+            set
+            {
+                _sell_jiajiState = value;
+            }
+        }
+
+        /// <summary>
+        /// 最晚发货的时间
+        /// </summary>
+        public DateTime? Sell_zuiwanshijian
+        {
+            get
+            {
+                return _sell_zuiwanshijian;
+            }
+
+            set
+            {
+                _sell_zuiwanshijian = value;
+            }
+        }
+
+        public string Sell_fukuanfangshi
+        {
+            get
+            {
+                return _sell_fukuanfangshi;
+            }
+
+            set
+            {
+                _sell_fukuanfangshi = value;
             }
         }
         #endregion Model

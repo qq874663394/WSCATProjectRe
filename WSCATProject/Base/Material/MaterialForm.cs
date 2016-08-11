@@ -106,7 +106,7 @@ namespace WSCATProject.Base
                     material.Ma_Supplier = gridRow.Cells["Ma_Supplier"].Value.ToString();
                     material.Ma_TypeID = gridRow.Cells["Ma_TypeID"].Value.ToString();
                     material.Ma_TypeName = gridRow.Cells["Ma_TypeName"].Value.ToString();
-                    material.Ma_Unit = Convert.ToDecimal(gridRow.Cells["Ma_Unit"].Value);
+                    material.Ma_Unit = gridRow.Cells["Ma_Unit"].Value.ToString();
                     material.Ma_zhujima = gridRow.Cells["Ma_zhujima"].Value.ToString();
                 }
                 MaterialCreateForm mcf = new MaterialCreateForm();

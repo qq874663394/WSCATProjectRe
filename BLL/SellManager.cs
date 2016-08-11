@@ -199,6 +199,13 @@ namespace BLL
             return ch.DataTableReCoding(dal.GetList(strWhere).Tables[0]);
         }
 
+        /// <summary>
+        /// 根据仓库code和物料code查询库存量,当仓库code为空时查询所有库存数列表 
+        /// </summary>
+        /// <param name="stockDT">库存量</param>
+        /// <param name="stockCode">仓库code</param>
+        /// <param name="maCode">物料code</param>
+        /// <returns></returns>
         public DataTable searchMaterialStockNumber(DataTable stockDT, string stockCode, string maCode)
         {
             if (stockCode == "")

@@ -212,10 +212,10 @@ namespace WSCATProject
             gr.Cells["gridColumnid"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_ID"].Value;
             gr.Cells["gridColumnpic"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_PicName"].Value;
             gr.Cells["gridColumnRfid"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_RFID"].Value;
-            gr.Cells["gridColumnBarcode"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_Code"].Value;
+            gr.Cells["gridColumnBarcode"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_Barcode"].Value;
             gr.Cells["gridColumnTypeid"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_TypeID"].Value;
             //gr.Cells["gridColumnStock"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_TypeID"].Value;
-            gr.Cells["gridColumnMaID"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_ID"].Value;
+            gr.Cells["gridColumnMaCode"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_Code"].Value;
             gr.Cells["material"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_zhujima"].Value;
             gr.Cells["gridColumnName"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_Name"].Value;
             gr.Cells["gridColumnModel"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_Model"].Value;
@@ -602,8 +602,10 @@ namespace WSCATProject
                 buy.Buy_Class = "采购申请单";
                 //buy.Buy_PayMethod = 
                 //buy.Buy_PayMethod = 
+                int i = 0;
                 foreach (GridRow gr in grs)
                 {
+                    i++;
                     BuyDetail buyDetail = new BuyDetail();
                     if (gr["gridColumnName"].Value == null)
                     {
@@ -626,8 +628,8 @@ namespace WSCATProject
                             gr["gridColumnName"].Value.ToString() + "仓库未选择,请选择!");
                         return;
                     }
-
-                    buyDetail.Buy_LineCode = BuyOdd;
+                    
+                    buyDetail.Buy_LineCode = BuyOdd + "_" + i.ToString(); 
                     buyDetail.Buy_StockCode = gr["gridColumnStockCode"].Value.ToString();
                     buyDetail.Buy_StockName = gr["gridColumnStock"].Value.ToString();
                     buyDetail.Buy_Code = BuyOdd;
