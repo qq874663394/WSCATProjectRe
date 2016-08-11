@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DevComponents.DotNetBar.Controls;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -109,17 +110,18 @@ namespace WSCATProject.Sell
             {
                 double price = Convert.ToDouble(textBoxX1.Text.Trim());//原始单价
                 double discount = Convert.ToDouble(textBoxX3.Text.Trim());//折扣率
-                if (discount > 100)
+                if (discount > 100 || discount<= 0)
                 {
-                    MessageBox.Show("折扣率不能大于100！");
+                    MessageBox.Show("折扣率不能大于100并且不能小于0！");
+                    textBoxX3.Text = "100.00";
                     return;
                 }
                 double zongmoney = price * (discount / 100);//总金额
-                textBoxX4.Text = zongmoney.ToString();
+                textBoxX4.Text = zongmoney.ToString("0.00");
                 double zhehou = price * (discount / 100);//折后单价
-                textBoxX5.Text = zhehou.ToString();
+                textBoxX5.Text = zhehou.ToString("0.00");
                 double zhekou = price - zhehou;//折扣金额
-                textBoxX2.Text = zhekou.ToString();
+                textBoxX2.Text = zhekou.ToString("0.00");
             }
             catch (Exception)
             {
@@ -155,7 +157,8 @@ namespace WSCATProject.Sell
 
         private void textBoxX1_Leave(object sender, EventArgs e)
         {
-            MessageBox.Show("Test");
+            TextBoxX name = (sender as TextBoxX);
+            name.Text = Convert.ToDecimal(name.Text).ToString("0.00");
         }
     }
 }

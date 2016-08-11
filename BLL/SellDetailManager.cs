@@ -29,5 +29,15 @@ namespace BLL
         {
             return sds.SelAccountPriceByAccount(clientName, maName);
         }
+        /// <summary>
+        /// 查询历史折扣
+        /// </summary>
+        /// <param name="clientName"></param>
+        /// <param name="maName"></param>
+        /// <returns></returns>
+        public DataTable SelDiscountByAccount(string clientName, string maName)
+        {
+            return sds.SelDiscountByAccount(clientName, maName);
+        }
     }
 }
