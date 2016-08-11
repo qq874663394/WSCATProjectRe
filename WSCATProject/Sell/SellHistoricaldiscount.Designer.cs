@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblcount = new DevComponents.DotNetBar.LabelX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
@@ -82,9 +82,10 @@
             this.panel1.Controls.Add(this.line1);
             this.panel1.Controls.Add(this.lblkehu);
             this.panel1.Controls.Add(this.labelX1);
-            this.panel1.Location = new System.Drawing.Point(1, 1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(390, 363);
+            this.panel1.Size = new System.Drawing.Size(394, 348);
             this.panel1.TabIndex = 1;
             // 
             // lblcount
@@ -94,11 +95,11 @@
             // 
             this.lblcount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblcount.ForeColor = System.Drawing.Color.Black;
-            this.lblcount.Location = new System.Drawing.Point(116, 96);
+            this.lblcount.Location = new System.Drawing.Point(95, 103);
             this.lblcount.Name = "lblcount";
             this.lblcount.Size = new System.Drawing.Size(75, 23);
             this.lblcount.TabIndex = 14;
-            this.lblcount.Text = "lblcount";
+            this.lblcount.Text = "10";
             // 
             // labelX6
             // 
@@ -107,7 +108,7 @@
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX6.ForeColor = System.Drawing.Color.Black;
-            this.labelX6.Location = new System.Drawing.Point(40, 98);
+            this.labelX6.Location = new System.Drawing.Point(19, 103);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(75, 23);
             this.labelX6.TabIndex = 13;
@@ -120,7 +121,7 @@
             // 
             this.lblunity.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblunity.ForeColor = System.Drawing.Color.Black;
-            this.lblunity.Location = new System.Drawing.Point(116, 67);
+            this.lblunity.Location = new System.Drawing.Point(95, 75);
             this.lblunity.Name = "lblunity";
             this.lblunity.Size = new System.Drawing.Size(75, 23);
             this.lblunity.TabIndex = 12;
@@ -133,7 +134,7 @@
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.ForeColor = System.Drawing.Color.Black;
-            this.labelX2.Location = new System.Drawing.Point(40, 41);
+            this.labelX2.Location = new System.Drawing.Point(19, 47);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(69, 23);
             this.labelX2.TabIndex = 9;
@@ -146,7 +147,7 @@
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX4.ForeColor = System.Drawing.Color.Black;
-            this.labelX4.Location = new System.Drawing.Point(40, 69);
+            this.labelX4.Location = new System.Drawing.Point(19, 75);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(75, 23);
             this.labelX4.TabIndex = 11;
@@ -159,7 +160,7 @@
             // 
             this.lblname.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblname.ForeColor = System.Drawing.Color.Black;
-            this.lblname.Location = new System.Drawing.Point(116, 41);
+            this.lblname.Location = new System.Drawing.Point(95, 47);
             this.lblname.Name = "lblname";
             this.lblname.Size = new System.Drawing.Size(75, 23);
             this.lblname.TabIndex = 10;
@@ -180,9 +181,9 @@
             this.groupBox2.Controls.Add(this.labelX5);
             this.groupBox2.Controls.Add(this.labelX3);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.groupBox2.Location = new System.Drawing.Point(-1, 155);
+            this.groupBox2.Location = new System.Drawing.Point(4, 170);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(385, 202);
+            this.groupBox2.Size = new System.Drawing.Size(374, 172);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "折扣信息";
@@ -192,7 +193,7 @@
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.BackColor = System.Drawing.SystemColors.Control;
             this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX2.Location = new System.Drawing.Point(294, 149);
+            this.buttonX2.Location = new System.Drawing.Point(300, 131);
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(61, 29);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2000;
@@ -204,7 +205,7 @@
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.BackColor = System.Drawing.SystemColors.Control;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Location = new System.Drawing.Point(212, 149);
+            this.buttonX1.Location = new System.Drawing.Point(219, 131);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(59, 29);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2000;
@@ -218,7 +219,7 @@
             // 
             this.textBoxX5.Border.Class = "TextBoxBorder";
             this.textBoxX5.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX5.Location = new System.Drawing.Point(84, 113);
+            this.textBoxX5.Location = new System.Drawing.Point(80, 93);
             this.textBoxX5.Name = "textBoxX5";
             this.textBoxX5.PreventEnterBeep = true;
             this.textBoxX5.Size = new System.Drawing.Size(100, 21);
@@ -231,7 +232,7 @@
             // 
             this.textBoxX4.Border.Class = "TextBoxBorder";
             this.textBoxX4.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX4.Location = new System.Drawing.Point(268, 73);
+            this.textBoxX4.Location = new System.Drawing.Point(261, 58);
             this.textBoxX4.Name = "textBoxX4";
             this.textBoxX4.PreventEnterBeep = true;
             this.textBoxX4.Size = new System.Drawing.Size(100, 21);
@@ -244,7 +245,7 @@
             // 
             this.textBoxX3.Border.Class = "TextBoxBorder";
             this.textBoxX3.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX3.Location = new System.Drawing.Point(84, 73);
+            this.textBoxX3.Location = new System.Drawing.Point(80, 60);
             this.textBoxX3.Name = "textBoxX3";
             this.textBoxX3.PreventEnterBeep = true;
             this.textBoxX3.Size = new System.Drawing.Size(100, 21);
@@ -259,7 +260,7 @@
             // 
             this.textBoxX2.Border.Class = "TextBoxBorder";
             this.textBoxX2.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX2.Location = new System.Drawing.Point(268, 35);
+            this.textBoxX2.Location = new System.Drawing.Point(261, 26);
             this.textBoxX2.Name = "textBoxX2";
             this.textBoxX2.PreventEnterBeep = true;
             this.textBoxX2.Size = new System.Drawing.Size(100, 21);
@@ -272,7 +273,7 @@
             // 
             this.textBoxX1.Border.Class = "TextBoxBorder";
             this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.Location = new System.Drawing.Point(84, 35);
+            this.textBoxX1.Location = new System.Drawing.Point(80, 26);
             this.textBoxX1.Name = "textBoxX1";
             this.textBoxX1.PreventEnterBeep = true;
             this.textBoxX1.Size = new System.Drawing.Size(100, 21);
@@ -285,7 +286,7 @@
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX9.Location = new System.Drawing.Point(18, 113);
+            this.labelX9.Location = new System.Drawing.Point(14, 93);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(75, 23);
             this.labelX9.TabIndex = 4;
@@ -298,7 +299,7 @@
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX8.Location = new System.Drawing.Point(210, 71);
+            this.labelX8.Location = new System.Drawing.Point(196, 57);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(75, 23);
             this.labelX8.TabIndex = 3;
@@ -311,7 +312,7 @@
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX7.Location = new System.Drawing.Point(18, 73);
+            this.labelX7.Location = new System.Drawing.Point(14, 60);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(75, 23);
             this.labelX7.TabIndex = 2;
@@ -324,7 +325,7 @@
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX5.Location = new System.Drawing.Point(208, 35);
+            this.labelX5.Location = new System.Drawing.Point(196, 27);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(75, 23);
             this.labelX5.TabIndex = 1;
@@ -337,7 +338,7 @@
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelX3.Location = new System.Drawing.Point(18, 35);
+            this.labelX3.Location = new System.Drawing.Point(14, 26);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(69, 23);
             this.labelX3.TabIndex = 0;
@@ -348,9 +349,9 @@
             this.line1.BackColor = System.Drawing.SystemColors.Control;
             this.line1.Font = new System.Drawing.Font("楷体", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.line1.ForeColor = System.Drawing.Color.Silver;
-            this.line1.Location = new System.Drawing.Point(-1, 130);
+            this.line1.Location = new System.Drawing.Point(-1, 136);
             this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(389, 21);
+            this.line1.Size = new System.Drawing.Size(396, 21);
             this.line1.TabIndex = 7;
             this.line1.Text = "line1";
             // 
@@ -361,7 +362,7 @@
             // 
             this.lblkehu.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lblkehu.ForeColor = System.Drawing.Color.Black;
-            this.lblkehu.Location = new System.Drawing.Point(116, 12);
+            this.lblkehu.Location = new System.Drawing.Point(95, 19);
             this.lblkehu.Name = "lblkehu";
             this.lblkehu.Size = new System.Drawing.Size(75, 23);
             this.lblkehu.TabIndex = 1;
@@ -374,7 +375,7 @@
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.ForeColor = System.Drawing.Color.Black;
-            this.labelX1.Location = new System.Drawing.Point(39, 12);
+            this.labelX1.Location = new System.Drawing.Point(18, 19);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(69, 23);
             this.labelX1.TabIndex = 0;
@@ -384,67 +385,69 @@
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(396, 1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(394, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(264, 363);
+            this.panel2.Size = new System.Drawing.Size(323, 348);
             this.panel2.TabIndex = 2;
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.价格类型,
             this.价格,
             this.折扣率});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(254, 354);
+            this.dataGridView1.Size = new System.Drawing.Size(321, 346);
             this.dataGridView1.TabIndex = 1;
             // 
             // 价格类型
             // 
             this.价格类型.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.价格类型.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.价格类型.DefaultCellStyle = dataGridViewCellStyle8;
             this.价格类型.HeaderText = "价格类型";
             this.价格类型.Name = "价格类型";
             // 
             // 价格
             // 
             this.价格.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.价格.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.价格.DefaultCellStyle = dataGridViewCellStyle9;
             this.价格.HeaderText = "价格";
             this.价格.Name = "价格";
             // 
             // 折扣率
             // 
             this.折扣率.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.折扣率.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.折扣率.DefaultCellStyle = dataGridViewCellStyle10;
             this.折扣率.HeaderText = "折扣率";
             this.折扣率.Name = "折扣率";
             // 
@@ -452,7 +455,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 365);
+            this.ClientSize = new System.Drawing.Size(717, 348);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;

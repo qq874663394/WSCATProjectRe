@@ -622,7 +622,7 @@
             // 
             this.gridColumn18.DataPropertyName = "Buy_MaID";
             this.gridColumn18.HeaderText = "macode";
-            this.gridColumn18.Name = "gridColumnMaID";
+            this.gridColumn18.Name = "gridColumnMaCode";
             this.gridColumn18.Visible = false;
             // 
             // comboBoxEx1
