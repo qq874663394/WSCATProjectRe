@@ -63,6 +63,7 @@ namespace WSCATProject.Sell
             row[2] = DBNull.Value;
             dt.Rows.Add(row);
 
+            //绑定数据
             dataGridView1.DataSource = dt;
             dataGridView2.DataSource = new SellDetailManager().SelAccountPriceByAccount("本次", "说服力是地方");
             textBoxX2.ReadOnly = true;//折扣金额
@@ -110,13 +111,15 @@ namespace WSCATProject.Sell
             {
                 double price = Convert.ToDouble(textBoxX1.Text.Trim());//原始单价
                 double discount = Convert.ToDouble(textBoxX3.Text.Trim());//折扣率
+                double shuliang = Convert.ToDouble(lblcount.Text.Trim());//数量
                 if (discount > 100 || discount<= 0)
                 {
                     MessageBox.Show("折扣率不能大于100并且不能小于0！");
                     textBoxX3.Text = "100.00";
                     return;
                 }
-                double zongmoney = price * (discount / 100);//总金额
+                double jine = price * shuliang;
+                double zongmoney = jine * (discount / 100);//总金额
                 textBoxX4.Text = zongmoney.ToString("0.00");
                 double zhehou = price * (discount / 100);//折后单价
                 textBoxX5.Text = zhehou.ToString("0.00");
@@ -129,23 +132,24 @@ namespace WSCATProject.Sell
             }
         }
 
+        //选中行绑定到文本框
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             string priceType = "";
             string price = "";
             string discount = "100.00";
-            string controlName = (sender as DataGridView).Name;
-            priceType = dataGridView1.CurrentRow.Cells["价格类型"].Value.ToString();
-            price = dataGridView1.CurrentRow.Cells["价格"].Value.ToString();
+            DataGridView controlName = (sender as DataGridView);
+            priceType = controlName.CurrentRow.Cells[0].Value.ToString();//价格类型
+            price = controlName.CurrentRow.Cells[1].Value.ToString();//价格
             if (priceType != "建议售价")
             {
-                discount = dataGridView1.CurrentRow.Cells["折扣率"].Value.ToString();
+                discount = controlName.CurrentRow.Cells[2].Value.ToString();//折扣率
             }
             textBoxX1.Text = price;
             textBoxX3.Text = discount;
-            textBoxX5.Text = (Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100).ToString("0.00");
-            textBoxX2.Text = (Convert.ToDecimal(price) - (Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100)).ToString("0.00");
-            textBoxX4.Text = ((Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100) * Convert.ToDecimal(lblcount.Text)).ToString("0.00");
+            textBoxX5.Text = (Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100).ToString("0.00");//折后价格
+            textBoxX2.Text = (Convert.ToDecimal(price) - (Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100)).ToString("0.00");//折扣金额
+            textBoxX4.Text = ((Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100) * Convert.ToDecimal(lblcount.Text)).ToString("0.00");//总金额
             //dataGridViewTextBoxColumn2  lblcount
         }
 
@@ -157,6 +161,7 @@ namespace WSCATProject.Sell
 
         private void textBoxX1_Leave(object sender, EventArgs e)
         {
+            //控件失去焦点后将它的值的格式精确到两位小数
             TextBoxX name = (sender as TextBoxX);
             name.Text = Convert.ToDecimal(name.Text).ToString("0.00");
         }

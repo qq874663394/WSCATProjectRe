@@ -47,7 +47,7 @@ namespace BLL
         public DataSet GetList(string strWhere)
         {
             return sds.GetList(strWhere);
-        }    }
+        }    
         /// <summary>
         /// 查询历史折扣
         /// </summary>
