@@ -47,10 +47,12 @@ namespace DAL
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into T_Sell(");
             strSql.Append("Sell_Code,Sell_Type,Sell_Date,Sell_TransportType,Sell_Review,Sell_ChangeDate,Sell_Operation,Sell_Auditman,Sell_Remark,Sell_Satetyone,Sell_Satetytwo,");
-            strSql.Append("Sell_IsPay,Sell_IsPutSto,Sell_PayMathod,Sell_GetDate,Sell_Logistics,Sell_LogCode,Sell_LogPhone,Sell_Clear,Sell_OddMoney,Sell_AccountCode,Sell_InMoney,Sell_LastMoney)");
+            strSql.Append("Sell_IsPay,Sell_IsPutSto,Sell_PayMathod,Sell_GetDate,Sell_Logistics,Sell_LogCode,Sell_LogPhone,Sell_Clear,Sell_OddMoney,Sell_AccountCode,Sell_InMoney,Sell_LastMoney,");
+            strSql.Append("Sell_Address,Sell_ClientName,Sell_CliPhone,Sell_LinkMan,Sell_Salesman,Sell_OddStatus)");
             strSql.Append(" values (");
             strSql.Append("@Sell_Code,@Sell_Type,@Sell_Date,@Sell_TransportType,@Sell_Review,@Sell_ChangeDate,@Sell_Operation,@Sell_Auditman,@Sell_Remark,@Sell_Satetyone,@Sell_Satetytwo,");
-            strSql.Append("@Sell_IsPay,@Sell_IsPutSto,@Sell_PayMathod,@Sell_GetDate,@Sell_Logistics,@Sell_LogCode,@Sell_LogPhone,@Sell_Clear,@Sell_OddMoney,@Sell_AccountCode,@Sell_InMoney,@Sell_LastMoney)");
+            strSql.Append("@Sell_IsPay,@Sell_IsPutSto,@Sell_PayMathod,@Sell_GetDate,@Sell_Logistics,@Sell_LogCode,@Sell_LogPhone,@Sell_Clear,@Sell_OddMoney,@Sell_AccountCode,@Sell_InMoney,@Sell_LastMoney,");
+            strSql.Append("@Sell_Address,@Sell_ClientName,@Sell_CliPhone,@Sell_LinkMan,@Sell_Salesman,@Sell_OddStatus)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
                     new SqlParameter("@Sell_Code", SqlDbType.NVarChar,512),
@@ -75,7 +77,13 @@ namespace DAL
                     new SqlParameter("@Sell_OddMoney", SqlDbType.NVarChar,512),
                     new SqlParameter("@Sell_AccountCode", SqlDbType.NVarChar,512),
                     new SqlParameter("@Sell_InMoney", SqlDbType.NVarChar,512),
-                    new SqlParameter("@Sell_LastMoney", SqlDbType.NVarChar,512),};
+                    new SqlParameter("@Sell_LastMoney", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_Address", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_ClientName", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_CliPhone", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_LinkMan", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_Salesman", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_OddStatus", SqlDbType.Int,4)};
             parameters[0].Value = model.Sell_Code;
             parameters[1].Value = model.Sell_Type;
             parameters[2].Value = model.Sell_Date;
@@ -99,6 +107,12 @@ namespace DAL
             parameters[20].Value = model.Sell_AccountCode;
             parameters[21].Value = model.Sell_InMoney;
             parameters[22].Value = model.Sell_LastMoney;
+            parameters[23].Value = model.Sell_Address;
+            parameters[24].Value = model.Sell_ClientName;
+            parameters[25].Value = model.Sell_CliPhone;
+            parameters[26].Value = model.Sell_LinkMan;
+            parameters[27].Value = model.Sell_Salesman;
+            parameters[28].Value = model.Sell_OddStatus;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
@@ -138,7 +152,13 @@ namespace DAL
             strSql.Append("Sell_OddMoney=@Sell_OddMoney,");
             strSql.Append("Sell_AccountCode=@Sell_AccountCode,");
             strSql.Append("Sell_InMoney=@Sell_InMoney,");
-            strSql.Append("Sell_LastMoney=@Sell_LastMoney");
+            strSql.Append("Sell_LastMoney=@Sell_LastMoney,");
+            strSql.Append("Sell_Address=@Sell_Address");
+            strSql.Append("Sell_ClientName=@Sell_ClientName");
+            strSql.Append("Sell_CliPhone=@Sell_CliPhone");
+            strSql.Append("Sell_LinkMan=@Sell_LinkMan");
+            strSql.Append("Sell_Salesman=@Sell_Salesman");
+            strSql.Append("Sell_OddStatus=@Sell_OddStatus");
             strSql.Append(" where Sell_Code=@Sell_Code");
             SqlParameter[] parameters = {
                     new SqlParameter("@Sell_Type", SqlDbType.NVarChar,512),
@@ -163,6 +183,12 @@ namespace DAL
                     new SqlParameter("@Sell_AccountCode", SqlDbType.NVarChar,512),
                     new SqlParameter("@Sell_InMoney", SqlDbType.NVarChar,512),
                     new SqlParameter("@Sell_LastMoney", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_Address", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_ClientName", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_CliPhone", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_LinkMan", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_Salesman", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_OddStatus", SqlDbType.Int,512),
                     new SqlParameter("@Sell_Code", SqlDbType.NVarChar,512)};
             parameters[0].Value = model.Sell_Type;
             parameters[1].Value = model.Sell_Date;
@@ -186,7 +212,13 @@ namespace DAL
             parameters[19].Value = model.Sell_AccountCode;
             parameters[20].Value = model.Sell_InMoney;
             parameters[21].Value = model.Sell_LastMoney;
-            parameters[22].Value = model.Sell_Code;
+            parameters[22].Value = model.Sell_Address;
+            parameters[19].Value = model.Sell_ClientName;
+            parameters[20].Value = model.Sell_CliPhone;
+            parameters[21].Value = model.Sell_LinkMan;
+            parameters[22].Value = model.Sell_Salesman;
+            parameters[23].Value = model.Sell_OddStatus;
+            parameters[24].Value = model.Sell_Code;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -250,7 +282,8 @@ namespace DAL
 
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select  top 1 Sell_ID,Sell_Code,Sell_Type,Sell_Date,Sell_TransportType,Sell_Review,Sell_ChangeDate,Sell_Operation,Sell_Auditman,Sell_Remark,Sell_Satetyone,Sell_Satetytwo,");
-            strSql.Append("Sell_IsPay,Sell_IsPutSto,Sell_PayMathod,Sell_GetDate,Sell_Logistics,Sell_LogCode,Sell_LogPhone,Sell_OddMoney,Sell_AccountCode,Sell_InMoney,Sell_LastMoney from T_Sell");
+            strSql.Append("Sell_IsPay,Sell_IsPutSto,Sell_PayMathod,Sell_GetDate,Sell_Logistics,Sell_LogCode,Sell_LogPhone,Sell_OddMoney,Sell_AccountCode,Sell_InMoney,Sell_LastMoney,Sell_Address");
+            strSql.Append("Sell_ClientName,Sell_CliPhone,Sell_LinkMan,Sell_Salesman,Sell_OddStatus from T_Sell");
             strSql.Append(" where Sell_Code=@Sell_Code");
             SqlParameter[] parameters = {
                     new SqlParameter("@Sell_Code", SqlDbType.NVarChar,512)
@@ -344,15 +377,15 @@ namespace DAL
                 }
                 if (row["Sell_Logistics"] != null)
                 {
-                    model.Sell_Satetytwo = row["Sell_Logistics"].ToString();
+                    model.Sell_Logistics = row["Sell_Logistics"].ToString();
                 }
                 if (row["Sell_LogCode"] != null)
                 {
-                    model.Sell_Satetytwo = row["Sell_LogCode"].ToString();
+                    model.Sell_LogCode = row["Sell_LogCode"].ToString();
                 }
                 if (row["Sell_LogPhone"] != null)
                 {
-                    model.Sell_Satetytwo = row["Sell_LogPhone"].ToString();
+                    model.Sell_LogPhone = row["Sell_LogPhone"].ToString();
                 }
                 if (row["Sell_Clear"] != null && row["Sell_Clear"].ToString() != "")
                 {
@@ -360,19 +393,43 @@ namespace DAL
                 }
                 if (row["Sell_OddMoney"] != null)
                 {
-                    model.Sell_Satetytwo = row["Sell_OddMoney"].ToString();
+                    model.Sell_OddMoney = row["Sell_OddMoney"].ToString();
                 }
                 if (row["Sell_AccountCode"] != null)
                 {
-                    model.Sell_Satetytwo = row["Sell_AccountCode"].ToString();
+                    model.Sell_AccountCode = row["Sell_AccountCode"].ToString();
                 }
                 if (row["Sell_InMoney"] != null)
                 {
-                    model.Sell_Satetytwo = row["Sell_InMoney"].ToString();
+                    model.Sell_InMoney = row["Sell_InMoney"].ToString();
                 }
                 if (row["Sell_LastMoney"] != null)
                 {
-                    model.Sell_Satetytwo = row["Sell_LastMoney"].ToString();
+                    model.Sell_LastMoney = row["Sell_LastMoney"].ToString();
+                }
+                if (row["Sell_Address"] != null)
+                {
+                    model.Sell_Address = row["Sell_Address"].ToString();
+                }
+                if (row["Sell_ClientName"] != null)
+                {
+                    model.Sell_ClientName = row["Sell_ClientName"].ToString();
+                }
+                if (row["Sell_CliPhone"] != null)
+                {
+                    model.Sell_CliPhone = row["Sell_CliPhone"].ToString();
+                }
+                if (row["Sell_LinkMan"] != null)
+                {
+                    model.Sell_LinkMan = row["Sell_LinkMan"].ToString();
+                }
+                if (row["Sell_Salesman"] != null)
+                {
+                    model.Sell_Salesman = row["Sell_Salesman"].ToString();
+                }
+                if (row["Sell_OddStatus"] != null)
+                {
+                    model.Sell_OddStatus = int.Parse(row["Sell_OddStatus"].ToString());
                 }
             }
             return model;
@@ -385,8 +442,8 @@ namespace DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select Sell_ID,Sell_Code,Sell_Type,Sell_Date,Sell_TransportType,Sell_Review,Sell_ChangeDate,Sell_Operation,Sell_Auditman,Sell_Remark,Sell_Satetyone,Sell_Satetytwo, ");
-            strSql.Append("Sell_IsPay,Sell_IsPutSto,Sell_PayMathod,Sell_GetDate,Sell_Logistics,Sell_LogCode,Sell_LogPhone,Sell_Clear,Sell_OddMoney,Sell_AccountCode,Sell_InMoney,Sell_LastMoney");
-            strSql.Append(" FROM T_Sell ");
+            strSql.Append("Sell_IsPay,Sell_IsPutSto,Sell_PayMathod,Sell_GetDate,Sell_Logistics,Sell_LogCode,Sell_LogPhone,Sell_Clear,Sell_OddMoney,Sell_AccountCode,Sell_InMoney,Sell_LastMoney,");
+            strSql.Append("Sell_Address,Sell_ClientName,Sell_CliPhone,Sell_LinkMan,Sell_Salesman,Sell_OddStatus FROM T_Sell ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
@@ -406,8 +463,8 @@ namespace DAL
                 strSql.Append(" top " + Top.ToString());
             }
             strSql.Append(" Sell_ID,Sell_Code,Sell_Type,Sell_Date,Sell_TransportType,Sell_Review,Sell_ChangeDate,Sell_Operation,Sell_Auditman,Sell_Remark,Sell_Satetyone,Sell_Satetytwo,");
-            strSql.Append("Sell_IsPay,Sell_IsPutSto,Sell_PayMathod,Sell_GetDate,Sell_Logistics,Sell_LogCode,Sell_LogPhone,Sell_Clear,Sell_OddMoney,Sell_AccountCode,Sell_InMoney,Sell_LastMoney");
-            strSql.Append(" FROM T_Sell ");
+            strSql.Append("Sell_IsPay,Sell_IsPutSto,Sell_PayMathod,Sell_GetDate,Sell_Logistics,Sell_LogCode,Sell_LogPhone,Sell_Clear,Sell_OddMoney,Sell_AccountCode,Sell_InMoney,Sell_LastMoney,");
+            strSql.Append("Sell_Address,Sell_ClientName,Sell_CliPhone,Sell_LinkMan,Sell_Salesman,Sell_OddStatus FROM T_Sell ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
@@ -590,17 +647,17 @@ namespace DAL
         //    }
         //}
 
-        public void SaveSellOdd(Sell sell, SellDetail sd, SellProcess sp)
+        public void SaveSellOdd(Sell sell, List<SellDetail> sdl, SellProcess sp, bool inStock)
         {
             StringBuilder strSql = new StringBuilder();
             Hashtable hashtable = new Hashtable();
             //销售主表操作
             strSql.Append("insert into T_Sell(");
             strSql.Append("Sell_Code,Sell_Type,Sell_Date,Sell_TransportType,Sell_Review,Sell_ChangeDate,Sell_Operation,Sell_Auditman,Sell_Remark,Sell_Satetyone,Sell_Satetytwo,");
-            strSql.Append("Sell_IsPay,Sell_IsPutSto,Sell_PayMathod,Sell_GetDate,Sell_Logistics,Sell_LogCode,Sell_LogPhone,Sell_Clear,Sell_OddMoney,Sell_AccountCode,Sell_InMoney,Sell_LastMoney)");
+            strSql.Append("Sell_IsPay,Sell_IsPutSto,Sell_PayMathod,Sell_GetDate,Sell_Logistics,Sell_LogCode,Sell_LogPhone,Sell_Clear,Sell_OddMoney,Sell_AccountCode,Sell_InMoney,Sell_LastMoney,Sell_Address,Sell_OddStatus)");
             strSql.Append(" values (");
             strSql.Append("@Sell_Code,@Sell_Type,@Sell_Date,@Sell_TransportType,@Sell_Review,@Sell_ChangeDate,@Sell_Operation,@Sell_Auditman,@Sell_Remark,@Sell_Satetyone,@Sell_Satetytwo,");
-            strSql.Append("@Sell_IsPay,@Sell_IsPutSto,@Sell_PayMathod,@Sell_GetDate,@Sell_Logistics,@Sell_LogCode,@Sell_LogPhone,@Sell_Clear,@Sell_OddMoney,@Sell_AccountCode,@Sell_InMoney,@Sell_LastMoney)");
+            strSql.Append("@Sell_IsPay,@Sell_IsPutSto,@Sell_PayMathod,@Sell_GetDate,@Sell_Logistics,@Sell_LogCode,@Sell_LogPhone,@Sell_Clear,@Sell_OddMoney,@Sell_AccountCode,@Sell_InMoney,@Sell_LastMoney,@Sell_Address,@Sell_OddStatus)");
 
             SqlParameter[] parameters = {
                     new SqlParameter("@Sell_Code", SqlDbType.NVarChar,512),
@@ -625,7 +682,9 @@ namespace DAL
                     new SqlParameter("@Sell_OddMoney", SqlDbType.NVarChar,512),
                     new SqlParameter("@Sell_AccountCode", SqlDbType.NVarChar,512),
                     new SqlParameter("@Sell_InMoney", SqlDbType.NVarChar,512),
-                    new SqlParameter("@Sell_LastMoney", SqlDbType.NVarChar,512),};
+                    new SqlParameter("@Sell_LastMoney", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_Address", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_OddStatus", SqlDbType.Int,4)};
             parameters[0].Value = sell.Sell_Code;
             parameters[1].Value = sell.Sell_Type;
             parameters[2].Value = sell.Sell_Date;
@@ -649,18 +708,22 @@ namespace DAL
             parameters[20].Value = sell.Sell_AccountCode;
             parameters[21].Value = sell.Sell_InMoney;
             parameters[22].Value = sell.Sell_LastMoney;
+            parameters[23].Value = sell.Sell_Address;
+            parameters[24].Value = sell.Sell_OddStatus;
             //添加到列表中
             hashtable.Add(strSql.ToString(), parameters);
             //销售明细表操作
-            strSql = new StringBuilder();
-            strSql.Append("insert into T_SellDetail(");
-            strSql.Append("Sell_Code,Sell_StockCode,Sell_StockName,Sell_LineCode,Sell_MaID,Sell_MaName,Sell_Model,Sell_Unit,Sell_CurNumber,");
-            strSql.Append("Sell_ReNumber,Sell_LostNumber,Sell_DiscountAPrice,Sell_Discount,Sell_DiscountBPrice,Sell_Money,Sell_Clear,Sell_Safetyone,Sell_Safetytwo,Sell_Remark,Sell_jiajiState,Sell_zuiwanshijian)");
-            strSql.Append(" values (");
-            strSql.Append("@Sell_Code,@Sell_StockCode,@Sell_StockName,@Sell_LineCode,@Sell_MaID,@Sell_MaName,@Sell_Model,@Sell_Unit,@Sell_CurNumber,");
-            strSql.Append("@Sell_ReNumber,@Sell_LostNumber,@Sell_DiscountAPrice,@Sell_Discount,@Sell_DiscountBPrice,@Sell_Money,@Sell_Clear,@Sell_Safetyone,@Sell_Safetytwo,@Sell_Remark,@Sell_jiajiState,@Sell_zuiwanshijian)");
-            
-            SqlParameter[] parametersDetail = {
+            foreach (var sd in sdl)
+            {
+                strSql = new StringBuilder();
+                strSql.Append("insert into T_SellDetail(");
+                strSql.Append("Sell_Code,Sell_StockCode,Sell_StockName,Sell_LineCode,Sell_MaID,Sell_MaName,Sell_Model,Sell_Unit,Sell_CurNumber,");
+                strSql.Append("Sell_ReNumber,Sell_LostNumber,Sell_DiscountAPrice,Sell_Discount,Sell_DiscountBPrice,Sell_Money,Sell_Clear,Sell_Safetyone,Sell_Safetytwo,Sell_Remark,Sell_jiajiState,Sell_zuiwanshijian)");
+                strSql.Append(" values (");
+                strSql.Append("@Sell_Code,@Sell_StockCode,@Sell_StockName,@Sell_LineCode,@Sell_MaID,@Sell_MaName,@Sell_Model,@Sell_Unit,@Sell_CurNumber,");
+                strSql.Append("@Sell_ReNumber,@Sell_LostNumber,@Sell_DiscountAPrice,@Sell_Discount,@Sell_DiscountBPrice,@Sell_Money,@Sell_Clear,@Sell_Safetyone,@Sell_Safetytwo,@Sell_Remark,@Sell_jiajiState,@Sell_zuiwanshijian)");
+
+                SqlParameter[] parametersDetail = {
                 new SqlParameter("@Sell_Code", SqlDbType.NVarChar, 512),
                     new SqlParameter("@Sell_StockCode", SqlDbType.NVarChar, 512),
                     new SqlParameter("@Sell_StockName", SqlDbType.NVarChar, 512),
@@ -682,29 +745,30 @@ namespace DAL
                     new SqlParameter("@Sell_Remark", SqlDbType.NVarChar, 1024),
                     new SqlParameter("@Sell_jiajiState", SqlDbType.Int, 4),
                     new SqlParameter("@Sell_zuiwanshijian", SqlDbType.DateTime)};
-            parameters[0].Value = sd.Sell_Code;
-            parameters[1].Value = sd.Sell_StockCode;
-            parameters[2].Value = sd.Sell_StockName;
-            parameters[3].Value = sd.Sell_LineCode;
-            parameters[4].Value = sd.Sell_MaID;
-            parameters[5].Value = sd.Sell_MaName;
-            parameters[6].Value = sd.Sell_Model;
-            parameters[7].Value = sd.Sell_Unit;
-            parameters[8].Value = sd.Sell_CurNumber;
-            parameters[9].Value = sd.Sell_ReNumber;
-            parameters[10].Value = sd.Sell_LostNumber;
-            parameters[11].Value = sd.Sell_DiscountAPrice;
-            parameters[12].Value = sd.Sell_Discount;
-            parameters[13].Value = sd.Sell_DiscountBPrice;
-            parameters[14].Value = sd.Sell_Money;
-            parameters[15].Value = sd.Sell_Clear;
-            parameters[16].Value = sd.Sell_Safetyone;
-            parameters[17].Value = sd.Sell_Safetytwo;
-            parameters[18].Value = sd.Sell_Remark;
-            parameters[19].Value = sd.Sell_jiajiState;
-            parameters[20].Value = sd.Zuiwanshijian;
-            //添加到列表中
-            hashtable.Add(strSql.ToString(), parametersDetail);
+                parameters[0].Value = sd.Sell_Code;
+                parameters[1].Value = sd.Sell_StockCode;
+                parameters[2].Value = sd.Sell_StockName;
+                parameters[3].Value = sd.Sell_LineCode;
+                parameters[4].Value = sd.Sell_MaID;
+                parameters[5].Value = sd.Sell_MaName;
+                parameters[6].Value = sd.Sell_Model;
+                parameters[7].Value = sd.Sell_Unit;
+                parameters[8].Value = sd.Sell_CurNumber;
+                parameters[9].Value = sd.Sell_ReNumber;
+                parameters[10].Value = sd.Sell_LostNumber;
+                parameters[11].Value = sd.Sell_DiscountAPrice;
+                parameters[12].Value = sd.Sell_Discount;
+                parameters[13].Value = sd.Sell_DiscountBPrice;
+                parameters[14].Value = sd.Sell_Money;
+                parameters[15].Value = sd.Sell_Clear;
+                parameters[16].Value = sd.Sell_Safetyone;
+                parameters[17].Value = sd.Sell_Safetytwo;
+                parameters[18].Value = sd.Sell_Remark;
+                parameters[19].Value = sd.Sell_jiajiState;
+                parameters[20].Value = sd.Zuiwanshijian;
+                //添加到列表中
+                hashtable.Add(strSql.ToString(), parametersDetail);
+            }
             //操作过程表操作
             strSql = new StringBuilder();
             strSql.Append("insert into T_Sell(");
@@ -730,7 +794,12 @@ namespace DAL
             parameters[5].Value = sp.Sp_Remark;
             parameters[6].Value = sp.Sp_Clear;
             //添加到列表中
-            hashtable.Add(strSql.ToString(), parametersDetail);
+            hashtable.Add(strSql.ToString(), parametersProcess);
+
+            if (inStock)
+            {
+                //入库单生成
+            }
 
             DbHelperSQL.ExecuteSqlTran(hashtable);
         }

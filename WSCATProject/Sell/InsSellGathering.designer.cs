@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsSellGathering));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -194,6 +194,7 @@
             // 
             // ltxt_AccountName
             // 
+            this.ltxt_AccountName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // 
             // 
@@ -206,6 +207,7 @@
             this.ltxt_AccountName.Location = new System.Drawing.Point(85, 56);
             this.ltxt_AccountName.Name = "ltxt_AccountName";
             this.ltxt_AccountName.PreventEnterBeep = true;
+            this.ltxt_AccountName.ReadOnly = true;
             this.ltxt_AccountName.Size = new System.Drawing.Size(105, 16);
             this.ltxt_AccountName.TabIndex = 29;
             // 
@@ -272,6 +274,7 @@
             this.ltxt_yingshou.Location = new System.Drawing.Point(322, 53);
             this.ltxt_yingshou.Name = "ltxt_yingshou";
             this.ltxt_yingshou.PreventEnterBeep = true;
+            this.ltxt_yingshou.ReadOnly = true;
             this.ltxt_yingshou.Size = new System.Drawing.Size(143, 16);
             this.ltxt_yingshou.TabIndex = 29;
             this.ltxt_yingshou.TextChanged += new System.EventHandler(this.ltxt_yingshou_TextChanged);
@@ -279,6 +282,7 @@
             // 
             // ltxt_kehu
             // 
+            this.ltxt_kehu.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // 
             // 
@@ -291,6 +295,7 @@
             this.ltxt_kehu.Location = new System.Drawing.Point(85, 21);
             this.ltxt_kehu.Name = "ltxt_kehu";
             this.ltxt_kehu.PreventEnterBeep = true;
+            this.ltxt_kehu.ReadOnly = true;
             this.ltxt_kehu.Size = new System.Drawing.Size(105, 16);
             this.ltxt_kehu.TabIndex = 29;
             // 
@@ -397,6 +402,7 @@
             // 
             // ltxt_saleman
             // 
+            this.ltxt_saleman.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // 
             // 
@@ -409,6 +415,7 @@
             this.ltxt_saleman.Location = new System.Drawing.Point(84, 17);
             this.ltxt_saleman.Name = "ltxt_saleman";
             this.ltxt_saleman.PreventEnterBeep = true;
+            this.ltxt_saleman.ReadOnly = true;
             this.ltxt_saleman.Size = new System.Drawing.Size(105, 16);
             this.ltxt_saleman.TabIndex = 29;
             // 
@@ -517,6 +524,7 @@
             this.ltxt_salecode.Location = new System.Drawing.Point(322, 21);
             this.ltxt_salecode.Name = "ltxt_salecode";
             this.ltxt_salecode.PreventEnterBeep = true;
+            this.ltxt_salecode.ReadOnly = true;
             this.ltxt_salecode.Size = new System.Drawing.Size(143, 16);
             this.ltxt_salecode.TabIndex = 39;
             // 
@@ -670,24 +678,24 @@
             this.dataGridViewFujia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewFujia.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewFujia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFujia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewFujia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewFujia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFujia.Cursor = System.Windows.Forms.Cursors.Arrow;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewFujia.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewFujia.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewFujia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFujia.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dataGridViewFujia.Location = new System.Drawing.Point(0, 0);
