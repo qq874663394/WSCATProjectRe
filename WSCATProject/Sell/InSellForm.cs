@@ -56,6 +56,18 @@ namespace WSCATProject.Sell
         /// </summary>
         private string _BankCode = "";
         /// <summary>
+        /// 保存仓库的Code
+        /// </summary>
+        private string _StorageCode = "";
+        /// <summary>
+        /// 保存商品Code
+        /// </summary>
+        private string _MaterialCode = "";
+        /// <summary>
+        /// 点击小拉列表搜索
+        /// </summary>
+        private bool _SosoStater = false;
+        /// <summary>
         /// 点击的项,1为仓库,2为客户,3为收款账号
         /// </summary>
         private int _Click = 0;
@@ -120,6 +132,23 @@ namespace WSCATProject.Sell
             textBoxX3.CommandKeyDown += textBox_CommandKeyDown;
             labtextboxTop3.CommandKeyDown += textBox_CommandKeyDown;
             labtextboxTop5.CommandKeyDown += textBox_CommandKeyDown;
+            //需求数量
+            GridDoubleInputEditControl gdiecNumber = superGridControl1.PrimaryGrid.Columns["gridColumnNumber"].EditControl as GridDoubleInputEditControl;
+            gdiecNumber.MinValue = 0;
+            gdiecNumber.MaxValue = 999999999;
+            //实发数量
+            GridDoubleInputEditControl gdiecShifa = superGridControl1.PrimaryGrid.Columns["gridColumnshifashu"].EditControl as GridDoubleInputEditControl;
+            gdiecShifa.MinValue = 0;
+            gdiecShifa.MaxValue = 999999999;
+            //缺少数量
+            GridDoubleInputEditControl gdiecQushao = superGridControl1.PrimaryGrid.Columns["gridColumnqueshao"].EditControl as GridDoubleInputEditControl;
+            gdiecQushao.MinValue = 0;
+            gdiecQushao.MaxValue = 999999999;
+            //单价  
+            GridDoubleInputEditControl gdiecdanjia = superGridControl1.PrimaryGrid.Columns["gridColumnPrice"].EditControl as GridDoubleInputEditControl;
+            gdiecdanjia.MinValue = 0;
+            gdiecdanjia.MaxValue = 999999999;
+
         }
         /// <summary>
         /// 绑定pictureBox表格的数据
@@ -144,6 +173,7 @@ namespace WSCATProject.Sell
                 this.labtextboxTop7.Text = area.Replace("/", "") + address;
                 this.labtextboxTop8.Text = linkMan;
                 this.labtextboxTop9.Text = phone + ";" + phone2;
+                _SosoStater = true;
                 resizablePanel1.Visible = false;
             }
             //仓库信息
@@ -155,6 +185,7 @@ namespace WSCATProject.Sell
                 gr.Cells["gridColumnStockCode"].Value = code;
                 gr.Cells["gridColumnStock"].Value = name;
                 _ClickStorage = new KeyValuePair<string, string>(code, name);
+                _StorageCode = code;
                 resizablePanel1.Visible = false;
             }
             //绑定收款账号的
@@ -164,6 +195,7 @@ namespace WSCATProject.Sell
                 string name = dataGridViewFujia.Rows[e.RowIndex].Cells["Ba_OpenBank"].Value.ToString();
                 _BankCode = code;
                 labtextboxTop4.Text = name;
+                _SosoStater = true;
                 resizablePanel1.Visible = false;
             }
         }
@@ -185,10 +217,12 @@ namespace WSCATProject.Sell
             gr.Cells["gridColumnid"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_ID"].Value;
             gr.Cells["gridColumnpic"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_PicName"].Value;
             gr.Cells["gridColumnRfid"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_RFID"].Value;
-            gr.Cells["gridColumnBarcode"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_Code"].Value;
+            gr.Cells["gridColumnBarcode"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_Barcode"].Value;
+            
             gr.Cells["gridColumnTypeid"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_TypeID"].Value;
             //gr.Cells["gridColumnStock"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_TypeID"].Value;
-            gr.Cells["gridColumnMaID"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_ID"].Value;
+            gr.Cells["gridColumnMaCode"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_Code"].Value;
+            _MaterialCode = gr.Cells["gridColumnMaCode"].Value.ToString();
             gr.Cells["material"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_zhujima"].Value;
             gr.Cells["gridColumnName"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_Name"].Value;
             gr.Cells["gridColumnModel"].Value = dataGridView1.Rows[e.RowIndex].Cells["Ma_Model"].Value;
@@ -605,7 +639,7 @@ namespace WSCATProject.Sell
                 {
                     queshaoshu = xuyaoshu - shifanshu;
                     gr.Cells["gridColumnqueshao"].Value = queshaoshu.ToString();
-                   
+
                 }
                 if (shifanshu == xuyaoshu)//实发数量等于需要数量
                 {
@@ -719,6 +753,7 @@ namespace WSCATProject.Sell
                 sell.Sell_Salesman = XYEEncoding.strCodeHex(this.labtextboxBotton1.Text);
                 sell.Sell_Operation = XYEEncoding.strCodeHex(this.labtextboxBotton3.Text);
                 sell.Sell_Auditman = XYEEncoding.strCodeHex(this.labtextboxBotton4.Text);
+                //sell.sell = XYEEncoding.strCodeHex(this.comboBoxEx1.Text);//收款方式
                 sell.Sell_Clear = 1;
                 //判断是否付款
                 if (Convert.ToDecimal(labtextboxTop5.Text) == 0)
@@ -754,9 +789,10 @@ namespace WSCATProject.Sell
                 {
                     sell.Sell_OddStatus = 2;
                 }
+                int i = 0;
                 foreach (GridRow gr in grs)
                 {
-
+                    i++;
                     SellDetail selldetail = new SellDetail();
                     if (gr["gridColumnName"].Value == null)
                     {
@@ -780,7 +816,7 @@ namespace WSCATProject.Sell
                         return;
                     }
 
-                    selldetail.Sell_LineCode = _SellOdd;
+                    selldetail.Sell_LineCode = _SellOdd+"_"+i.ToString();//列表单号
                     selldetail.Sell_StockCode = gr["gridColumnStockCode"].Value.ToString();
                     selldetail.Sell_StockName = gr["gridColumnStock"].Value.ToString();
                     selldetail.Sell_Code = _SellOdd;
@@ -849,6 +885,7 @@ namespace WSCATProject.Sell
                 sell.Sell_Salesman = XYEEncoding.strCodeHex(this.labtextboxBotton1.Text);
                 sell.Sell_Operation = XYEEncoding.strCodeHex(this.labtextboxBotton3.Text);
                 sell.Sell_Auditman = XYEEncoding.strCodeHex(this.labtextboxBotton4.Text);
+                //sell.sell = XYEEncoding.strCodeHex(this.comboBoxEx1.Text);//收款方式
                 sell.Sell_Clear = 1;
                 //判断是否付款
                 if (Convert.ToDecimal(labtextboxTop5.Text) == 0)
@@ -877,10 +914,10 @@ namespace WSCATProject.Sell
                 sell.Sell_Review = 0;
                 //判断发货状态
                 sell.Sell_OddStatus = 0;
-
+                int i = 0;
                 foreach (GridRow gr in grs)
                 {
-
+                    i++;
                     SellDetail selldetail = new SellDetail();
                     if (gr["gridColumnName"].Value == null)
                     {
@@ -904,7 +941,7 @@ namespace WSCATProject.Sell
                         return;
                     }
 
-                    selldetail.Sell_LineCode = _SellOdd;
+                    selldetail.Sell_LineCode = _SellOdd + "_" + i.ToString();//列表单号
                     selldetail.Sell_StockCode = gr["gridColumnStockCode"].Value.ToString();
                     selldetail.Sell_StockName = gr["gridColumnStock"].Value.ToString();
                     selldetail.Sell_Code = _SellOdd;
@@ -964,6 +1001,8 @@ namespace WSCATProject.Sell
         {
             resizablePanelData.Visible = false;
             resizablePanel1.Visible = false;
+
+
         }
         //点击表格的第一列绑定仓库
         private void superGridControl1_BeginEdit(object sender, GridEditEventArgs e)
@@ -995,10 +1034,59 @@ namespace WSCATProject.Sell
         //输入应付金额后面验证
         private void labtextboxTop3_Validated(object sender, EventArgs e)
         {
-            labtextboxTop5.Text = (Convert.ToDecimal(textBoxX3.Text) -
-            Convert.ToDecimal(labtextboxTop3.Text)).ToString();
+            try
+            {
+                labtextboxTop5.Text = (Convert.ToDecimal(textBoxX3.Text) -
+                Convert.ToDecimal(labtextboxTop3.Text)).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("请输入本次付款金额！" + ex.Message);
+            }
+
         }
 
         #endregion
+        #region 验证客户文本框
+        //根据文本框的值，模糊查询 未写
+        private void labtextboxTop2_TextChanged(object sender, EventArgs e)
+        {
+            //SellManager.a(,)
+        }
+
+        //获取客户焦点事件
+        private void labtextboxTop2_Enter(object sender, EventArgs e)
+        {
+            _SosoStater = false;
+            pictureBox2_Click(sender, e);
+            resizablePanel1.Location = new Point(400, 100);
+            resizablePanel1.Visible = true;
+        }
+        //失去客户焦点事件
+        private void labtextboxTop2_Leave(object sender, EventArgs e)
+        {
+            if (_SosoStater == true)
+            {
+                return;
+            }
+            if (_SosoStater == false)
+            {
+                this.labtextboxTop2.Text = "";
+
+                return;
+            }
+        }
+
+        #endregion
+        //隐藏窗体
+        private void label3_Click(object sender, EventArgs e)
+        {
+            resizablePanel1.Visible = false;
+        }
+
+        private void panel6_Click_1(object sender, EventArgs e)
+        {
+            resizablePanel1.Visible = false;
+        }
     }
 }

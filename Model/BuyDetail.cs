@@ -29,14 +29,7 @@ namespace Model
         private string _buy_safetytwo;
         private string _buy_remark;
         private string _buy_linecode;
-        /// <summary>
-        /// 物料ID
-        /// </summary>
-        public string Buy_ID
-        {
-            set { _buy_id = value; }
-            get { return _buy_id; }
-        }
+
         /// <summary>
         /// 栏号自增
         /// </summary>
