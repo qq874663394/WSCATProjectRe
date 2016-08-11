@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,7 +20,7 @@ namespace BLL
         {
             return sds.SelPriceByMaName(Ma_Name);
         }
-        /// <summary>
+		/// <summary>
         /// 查询历史售价
         /// </summary>
         /// <param name="clientName"></param>
@@ -28,7 +29,25 @@ namespace BLL
         public DataTable SelAccountPriceByAccount(string clientName, string maName)
         {
             return sds.SelAccountPriceByAccount(clientName, maName);
+        }		/// <summary>
+        /// 增加一条数据
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public int Add(SellDetail model)
+        {
+            return sds.Add(model);
         }
+
+        /// <summary>
+        /// 获取数据列表
+        /// </summary>
+        /// <param name="strWhere">where条件</param>
+        /// <returns></returns>
+        public DataSet GetList(string strWhere)
+        {
+            return sds.GetList(strWhere);
+        }    }
         /// <summary>
         /// 查询历史折扣
         /// </summary>

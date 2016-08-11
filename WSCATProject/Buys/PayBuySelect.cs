@@ -267,9 +267,11 @@ namespace WSCATProject.Buys
             switch (cb2)
             {
                 case "采购开单":
+                    superGridControl1.PrimaryGrid.DataSource = null;
                     superGridControl1.PrimaryGrid.Columns.Clear();
                     try
                     {
+                        #region 初始化采购开单列
                         gc = new GridColumn();
                         gc.DataPropertyName = "ID";
                         gc.Name = "ColumnsID";
@@ -334,6 +336,7 @@ namespace WSCATProject.Buys
                         superGridControl1.PrimaryGrid.DataSource = dt;
                         whereField = "单据日期";
                         orderField = "ID";
+                        #endregion
                     }
                     catch (Exception ex)
                     {
@@ -341,6 +344,16 @@ namespace WSCATProject.Buys
                     }
                     break;
                 case "销售开单":
+                    superGridControl1.PrimaryGrid.DataSource = null;
+                    superGridControl1.PrimaryGrid.Columns.Clear();
+                    try
+                    {
+
+                    }
+                    catch(Exception ex)
+                    {
+
+                    }
                     break;
                 case "其他收货单":
                     break;

@@ -10,7 +10,6 @@ namespace Model
 		public BuyDetail()
 		{}
         #region Model
-        private string _buy_id;
         private int _buy_lineno;
         private string _buy_code;
         private string _buy_stockcode;
@@ -29,14 +28,7 @@ namespace Model
         private string _buy_safetytwo;
         private string _buy_remark;
         private string _buy_linecode;
-        /// <summary>
-        /// 物料ID
-        /// </summary>
-        public string Buy_ID
-        {
-            set { _buy_id = value; }
-            get { return _buy_id; }
-        }
+
         /// <summary>
         /// 栏号自增
         /// </summary>
@@ -150,7 +142,7 @@ namespace Model
             get { return _buy_remark; }
         }
         /// <summary>
-        /// 
+        /// 当前栏code
         /// </summary>
         public string Buy_LineCode
         {
@@ -184,6 +176,9 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// 主表code
+        /// </summary>
         public string Buy_Code
         {
             get
