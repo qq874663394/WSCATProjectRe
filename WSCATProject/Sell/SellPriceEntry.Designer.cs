@@ -426,10 +426,12 @@
             this.textBoxX3.Border.Class = "TextBoxBorder";
             this.textBoxX3.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxX3.Location = new System.Drawing.Point(80, 60);
+            this.textBoxX3.MaxLength = 9;
             this.textBoxX3.Name = "textBoxX3";
             this.textBoxX3.PreventEnterBeep = true;
             this.textBoxX3.Size = new System.Drawing.Size(100, 21);
             this.textBoxX3.TabIndex = 7;
+            this.textBoxX3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxX1_KeyPress);
             // 
             // textBoxX2
             // 
@@ -458,6 +460,7 @@
             this.textBoxX1.Size = new System.Drawing.Size(100, 21);
             this.textBoxX1.TabIndex = 5;
             this.textBoxX1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxX1_KeyPress);
+            this.textBoxX1.Leave += new System.EventHandler(this.textBoxX1_Leave);
             // 
             // labelX9
             // 

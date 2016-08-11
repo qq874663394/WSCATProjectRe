@@ -152,5 +152,10 @@ namespace WSCATProject.Sell
             this.Close();
             this.Dispose();
         }
+
+        private void textBoxX1_Leave(object sender, EventArgs e)
+        {
+            MessageBox.Show("Test");
+        }
     }
 }
