@@ -30,8 +30,6 @@ namespace Model
 		private string _sell_safetyone;
 		private string _sell_safetytwo;
 		private string _sell_remark;
-        private int? _sell_jiajiState;
-        private DateTime? _zuiwanshijian;
 
 		/// <summary>
 		/// 销售订单编号
@@ -245,37 +243,6 @@ namespace Model
             }
         }
 
-        /// <summary>
-        /// 加急状态 0不加急 1加急
-        /// </summary>
-        public int? Sell_jiajiState
-        {
-            get
-            {
-                return _sell_jiajiState;
-            }
-
-            set
-            {
-                _sell_jiajiState = value;
-            }
-        }
-
-        /// <summary>
-        /// 最晚送货时间
-        /// </summary>
-        public DateTime? Zuiwanshijian
-        {
-            get
-            {
-                return _zuiwanshijian;
-            }
-
-            set
-            {
-                _zuiwanshijian = value;
-            }
-        }
         #endregion Model
 
     }
