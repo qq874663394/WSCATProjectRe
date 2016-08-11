@@ -29,7 +29,7 @@ namespace Model
 		private string _ma_supplier;
 		private string _ma_supid;
 		private string _ma_zhujima;
-		private decimal _ma_unit;
+		private string _ma_unit;
 		private decimal _ma_inprice;
 		private DateTime? _ma_indate;
 		private string _ma_remark;
@@ -192,7 +192,7 @@ namespace Model
 		/// <summary>
 		/// 单位
 		/// </summary>
-		public decimal Ma_Unit
+		public string Ma_Unit
 		{
 			set{ _ma_unit=value;}
 			get{return _ma_unit;}

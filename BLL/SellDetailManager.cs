@@ -20,13 +20,16 @@ namespace BLL
         {
             return sds.SelPriceByMaName(Ma_Name);
         }
-
-        public DataTable SelAccountPriceByAccount(string account)
+		/// <summary>
+        /// 查询历史售价
+        /// </summary>
+        /// <param name="clientName"></param>
+        /// <param name="maName"></param>
+        /// <returns></returns>
+        public DataTable SelAccountPriceByAccount(string clientName, string maName)
         {
-            return sds.SelAccountPriceByAccount(account);
-        }
-
-        /// <summary>
+            return sds.SelAccountPriceByAccount(clientName, maName);
+        }		/// <summary>
         /// 增加一条数据
         /// </summary>
         /// <param name="model"></param>
@@ -44,6 +47,5 @@ namespace BLL
         public DataSet GetList(string strWhere)
         {
             return sds.GetList(strWhere);
-        }
-    }
+        }    }
 }

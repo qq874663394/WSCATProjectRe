@@ -351,7 +351,6 @@ namespace WSCATProject.Sell
             {
                 e.Handled = true;
             }
-           
 
         }
 
@@ -514,5 +513,12 @@ namespace WSCATProject.Sell
         }
         #endregion
 
+        private void ltxt_kehu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DataView dv = dt.DefaultView;
+            dv.RowFilter = "Cli_Name ='" + ltxt_kehu.Text.Trim().ToString() +"'";
+            dt = dv.ToTable();
+        }
     }
 }
