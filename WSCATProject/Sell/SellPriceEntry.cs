@@ -109,9 +109,9 @@ namespace WSCATProject.Sell
             {
                 double price = Convert.ToDouble(textBoxX1.Text.Trim());//原始单价
                 double discount = Convert.ToDouble(textBoxX3.Text.Trim());//折扣率
-                if (discount > 100)
+                if (discount > 100 || discount <=0)
                 {
-                    MessageBox.Show("折扣率不能大于100！");
+                    MessageBox.Show("折扣率不能大于100并且不能小于0！");
                     return;
                 }
                 double zongmoney = price * (discount / 100);//总金额
@@ -135,7 +135,7 @@ namespace WSCATProject.Sell
             string controlName = (sender as DataGridView).Name;
             priceType = dataGridView1.CurrentRow.Cells["价格类型"].Value.ToString();
             price = dataGridView1.CurrentRow.Cells["价格"].Value.ToString();
-            if (priceType!="建议售价")
+            if (priceType != "建议售价")
             {
                 discount = dataGridView1.CurrentRow.Cells["折扣率"].Value.ToString();
             }
