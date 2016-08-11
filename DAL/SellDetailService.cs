@@ -19,15 +19,23 @@ namespace DAL
         /// <returns></returns>
         public DataTable SelPriceByMaName(string Ma_Name)
         {
-            string sql = string.Format("select top 5 '330A59182E3F583F' as 价格类型,Sell_DiscountAPrice as 最近售价,Sell_Discount as 折扣率 from T_SellDetail where Sell_MaName='{0}'", XYEEncoding.strCodeHex(Ma_Name));
+            string sql = string.Format("select top 5 '330A59182E3F583F' as 价格类型,Sell_DiscountAPrice as 价格,Sell_Discount as 折扣率 from T_SellDetail where Sell_MaName='{0}'", XYEEncoding.strCodeHex(Ma_Name));
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);
             DataSet ds = new DataSet();
             adapter.Fill(ds, "T_SellDetail");
             return ch.DataTableReCoding(ds.Tables[0]);
         }
-        public DataTable SelAccountPriceByAccount(string account)
+        /// <summary>
+        /// 查询历史售价
+        /// </summary>
+        /// <param name="clientName"></param>
+        /// <param name="maName"></param>
+        /// <returns></returns>
+        public DataTable SelAccountPriceByAccount(string clientName,string maName)
         {
-            string sql = string.Format("");
+            string sql = string.Format(@"select DISTINCT '241E2E532E3F583F' as 价格类型,sd.Sell_DiscountAPrice as 价格,sd.Sell_Discount as 折扣率 from T_Sell s
+inner join T_SellDetail sd on  sd.Sell_Code = s.Sell_Code
+where s.Sell_ClientName = '{0}' and sd.Sell_MaName = '{1}'", XYEEncoding.strCodeHex(clientName), XYEEncoding.strCodeHex(maName));
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);
             DataSet ds = new DataSet();
             adapter.Fill(ds,"T_SellDetail");

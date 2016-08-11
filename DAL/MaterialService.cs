@@ -396,7 +396,7 @@ namespace DAL
 				}
 				if(row["Ma_Unit"]!=null)
 				{
-					model.Ma_Unit= Convert.ToDecimal(row["Ma_Unit"]);
+					model.Ma_Unit= row["Ma_Unit"].ToString();
 				}
 				if(row["Ma_InPrice"]!=null)
 				{

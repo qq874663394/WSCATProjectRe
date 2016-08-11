@@ -19,5 +19,15 @@ namespace BLL
         {
             return sds.SelPriceByMaName(Ma_Name);
         }
+        /// <summary>
+        /// 查询历史售价
+        /// </summary>
+        /// <param name="clientName"></param>
+        /// <param name="maName"></param>
+        /// <returns></returns>
+        public DataTable SelAccountPriceByAccount(string clientName, string maName)
+        {
+            return sds.SelAccountPriceByAccount(clientName, maName);
+        }
     }
 }

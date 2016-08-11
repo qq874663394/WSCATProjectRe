@@ -91,7 +91,7 @@ namespace WSCATProject.Base
                         material.Ma_TypeID = XYEEncoding.strCodeHex(comboTreeType.SelectedNode.Tag.ToString());
                         material.Ma_TypeName = XYEEncoding.strCodeHex(comboTreeType.SelectedNode.FullPath.Replace(';', '/'));
                     }
-                    material.Ma_Unit = Convert.ToDecimal(textBoxXUnit.Text.Trim());
+                    material.Ma_Unit = textBoxXUnit.Text.Trim();
                     material.Ma_zhujima = XYEEncoding.strCodeHex(textBoxXzhujima.Text.Trim());
 
                     MaterialManager mm = new MaterialManager();
@@ -157,7 +157,7 @@ namespace WSCATProject.Base
                         material.Ma_TypeID = XYEEncoding.strCodeHex(comboTreeType.SelectedNode.Tag.ToString());
                         material.Ma_TypeName = XYEEncoding.strCodeHex(comboTreeType.SelectedNode.FullPath.Replace(';', '/'));
                     }
-                    material.Ma_Unit = Convert.ToDecimal(textBoxXUnit.Text.Trim());
+                    material.Ma_Unit = textBoxXUnit.Text.Trim();
                     material.Ma_zhujima = XYEEncoding.strCodeHex(textBoxXzhujima.Text.Trim());
 
                     MaterialManager mm = new MaterialManager();

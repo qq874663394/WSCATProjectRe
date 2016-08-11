@@ -17,6 +17,8 @@ namespace WSCATProject.Sell
         public SellPriceEntry()
         {
             InitializeComponent();
+            dataGridView2.SelectionChanged += dataGridView1_SelectionChanged;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
         }
 
         private void SellPriceEntry_Load(object sender, EventArgs e)
@@ -61,6 +63,7 @@ namespace WSCATProject.Sell
             dt.Rows.Add(row);
 
             dataGridView1.DataSource = dt;
+            dataGridView2.DataSource = new SellDetailManager().SelAccountPriceByAccount("本次", "说服力是地方");
             textBoxX2.ReadOnly = true;//折扣金额
             textBoxX4.ReadOnly = true;//总金额
             textBoxX5.ReadOnly = true;//折后单价   
@@ -72,6 +75,7 @@ namespace WSCATProject.Sell
         #region 原始单价和折扣率只允许输入数字，小数和Del
         private void textBoxX1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            e.Handled = false;
             // 只允许输入数字、小数和Del
             if (!(((e.KeyChar >= '0') && (e.KeyChar <= '9')) || e.KeyChar <= 31))
             {
@@ -121,6 +125,32 @@ namespace WSCATProject.Sell
             {
                 throw;
             }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            string priceType = "";
+            string price = "";
+            string discount = "100.00";
+            string controlName = (sender as DataGridView).Name;
+            priceType = dataGridView1.CurrentRow.Cells["价格类型"].Value.ToString();
+            price = dataGridView1.CurrentRow.Cells["价格"].Value.ToString();
+            if (priceType!="建议售价")
+            {
+                discount = dataGridView1.CurrentRow.Cells["折扣率"].Value.ToString();
+            }
+            textBoxX1.Text = price;
+            textBoxX3.Text = discount;
+            textBoxX5.Text = (Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100).ToString("0.00");
+            textBoxX2.Text = (Convert.ToDecimal(price) - (Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100)).ToString("0.00");
+            textBoxX4.Text = ((Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100) * Convert.ToDecimal(lblcount.Text)).ToString("0.00");
+            //dataGridViewTextBoxColumn2  lblcount
+        }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
         }
     }
 }
