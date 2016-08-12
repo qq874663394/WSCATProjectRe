@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HelperUtility.Encrypt;
 
 namespace BLL
 {
@@ -21,7 +22,7 @@ namespace BLL
         {
             return sds.SelPriceByMaName(Ma_Name);
         }
-		/// <summary>
+        /// <summary>
         /// 查询历史售价
         /// </summary>
         /// <param name="clientName"></param>
@@ -46,11 +47,9 @@ namespace BLL
         /// </summary>
         /// <param name="strWhere">where条件</param>
         /// <returns></returns>
-        public DataSet GetList(string strWhere)
+        public DataTable GetList(string strWhere)
         {
-            CodingHelper ch = new CodingHelper();
-            return ch.DataSetReCoding(sds.GetList(strWhere));
-        }    
+			CodingHelper ch = new CodingHelper();			return ch.DataSetReCoding(sds.GetList(strWhere));        }    
         /// <summary>
         /// 查询历史折扣
         /// </summary>

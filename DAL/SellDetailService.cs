@@ -128,9 +128,9 @@ where s.Sell_ClientName = '{0}' and sd.Sell_MaName = '{1}'", XYEEncoding.strCode
         public DataSet GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select Sell_Code,Sell_StockCode,Sell_StockName,Sell_Lineno,Sell_MaID,Sell_MaName,");
-            strSql.Append("Sell_Model,Sell_Unit,Sell_CurNumber,Sell_ReNumber,Sell_LostNumber,Sell_DiscountAPrice,");
-            strSql.Append("Sell_Discount,Sell_DiscountBPrice,Sell_Money,Sell_Clear,Sell_Safetyone,Sell_Safetytwo,Sell_Remark");
+            strSql.Append("select Sell_Code,Sell_StockName,Sell_MaID,Sell_MaName,");
+            strSql.Append("Sell_Model,Sell_Unit,Sell_CurNumber,Sell_ReNumber,Sell_LostNumber,");
+            strSql.Append("Sell_Discount,Sell_DiscountBPrice,Sell_Money,Sell_Remark");
             strSql.Append(" FROM T_SellDetail ");
             if (strWhere.Trim() != "")
             {

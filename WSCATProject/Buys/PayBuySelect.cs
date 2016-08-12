@@ -1155,8 +1155,7 @@ namespace WSCATProject.Buys
                     {
                         MessageBox.Show("请选择要审核的数据行！");
                     }
-                    break;
-                case "其他收货单":
+                    break;                case "其他收货单":
                     break;
                 case "其他发货单":
                     break;
