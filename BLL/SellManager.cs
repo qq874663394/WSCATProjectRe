@@ -13,7 +13,10 @@ namespace BLL
     public class SellManager
     {
         private readonly SellService dal = new SellService();
-
+        public Sell SelSellGatheringBySellCode(string Sell_Code)
+        {
+            return dal.SelSellGatheringBySellCode(Sell_Code);
+        }
         #region  BasicMethod
 
         /// <summary>
@@ -73,7 +76,7 @@ namespace BLL
             return dal.GetModel(Sell_Code);
         }
 
-        
+
         /// <summary>
         /// 获得前几行数据
         /// </summary>
@@ -136,7 +139,7 @@ namespace BLL
         #endregion  BasicMethod
 
         #region  ExtensionMethod
-        
+
         /// <summary>
         /// 判断该数据是否存在
         /// </summary>

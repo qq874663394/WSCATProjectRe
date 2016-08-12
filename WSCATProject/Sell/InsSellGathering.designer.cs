@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsSellGathering));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -44,7 +44,6 @@
             this.labelTitle = new System.Windows.Forms.Label();
             this.ltxt_AccountName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.ltxt_weishou = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.ltxt_shoukuan = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.ltxt_yingshou = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.ltxt_kehu = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -59,6 +58,7 @@
             this.labBotton3 = new System.Windows.Forms.Label();
             this.labBotton1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -67,6 +67,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ltxt_shoukuan = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labTop5 = new System.Windows.Forms.Label();
             this.labTop4 = new System.Windows.Forms.Label();
@@ -78,7 +79,6 @@
             this.panelDataView = new System.Windows.Forms.Panel();
             this.dataGridViewFujia = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -211,6 +211,7 @@
             this.ltxt_AccountName.ReadOnly = true;
             this.ltxt_AccountName.Size = new System.Drawing.Size(105, 16);
             this.ltxt_AccountName.TabIndex = 29;
+            this.ltxt_AccountName.WordWrap = false;
             // 
             // ltxt_weishou
             // 
@@ -233,34 +234,12 @@
             this.ltxt_weishou.Size = new System.Drawing.Size(146, 16);
             this.ltxt_weishou.TabIndex = 29;
             this.ltxt_weishou.WatermarkColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ltxt_weishou.WordWrap = false;
             this.ltxt_weishou.TextChanged += new System.EventHandler(this.ltxt_weishou_TextChanged);
             this.ltxt_weishou.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ltxt_weishou_KeyPress);
             // 
-            // ltxt_shoukuan
-            // 
-            // 
-            // 
-            // 
-            this.ltxt_shoukuan.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ltxt_shoukuan.Border.BorderBottomColor = System.Drawing.Color.Black;
-            this.ltxt_shoukuan.Border.BorderBottomWidth = 1;
-            this.ltxt_shoukuan.Border.BorderGradientAngle = 0;
-            this.ltxt_shoukuan.Border.Class = "SideNavStrip";
-            this.ltxt_shoukuan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ltxt_shoukuan.Location = new System.Drawing.Point(579, 22);
-            this.ltxt_shoukuan.MaxLength = 11;
-            this.ltxt_shoukuan.Name = "ltxt_shoukuan";
-            this.ltxt_shoukuan.PreventEnterBeep = true;
-            this.ltxt_shoukuan.Size = new System.Drawing.Size(148, 16);
-            this.ltxt_shoukuan.TabIndex = 29;
-            this.ltxt_shoukuan.WordWrap = false;
-            this.ltxt_shoukuan.TextChanged += new System.EventHandler(this.ltxt_shoukuan_TextChanged);
-            this.ltxt_shoukuan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ltxt_shoukuan_KeyPress);
-            this.ltxt_shoukuan.Validated += new System.EventHandler(this.ltxt_shoukuan_Validated);
-            // 
             // ltxt_yingshou
             // 
-            this.ltxt_yingshou.AcceptsReturn = true;
             this.ltxt_yingshou.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // 
@@ -276,8 +255,10 @@
             this.ltxt_yingshou.MaxLength = 11;
             this.ltxt_yingshou.Name = "ltxt_yingshou";
             this.ltxt_yingshou.PreventEnterBeep = true;
+            this.ltxt_yingshou.ReadOnly = true;
             this.ltxt_yingshou.Size = new System.Drawing.Size(143, 16);
             this.ltxt_yingshou.TabIndex = 29;
+            this.ltxt_yingshou.WordWrap = false;
             this.ltxt_yingshou.TextChanged += new System.EventHandler(this.ltxt_yingshou_TextChanged);
             this.ltxt_yingshou.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ltxt_yingshou_KeyPress);
             // 
@@ -299,6 +280,7 @@
             this.ltxt_kehu.ReadOnly = true;
             this.ltxt_kehu.Size = new System.Drawing.Size(105, 16);
             this.ltxt_kehu.TabIndex = 29;
+            this.ltxt_kehu.WordWrap = false;
             // 
             // panel3
             // 
@@ -372,6 +354,7 @@
             this.ltxt_operation.ReadOnly = true;
             this.ltxt_operation.Size = new System.Drawing.Size(143, 16);
             this.ltxt_operation.TabIndex = 29;
+            this.ltxt_operation.WordWrap = false;
             // 
             // ltxt_remark
             // 
@@ -389,6 +372,7 @@
             this.ltxt_remark.PreventEnterBeep = true;
             this.ltxt_remark.Size = new System.Drawing.Size(602, 16);
             this.ltxt_remark.TabIndex = 29;
+            this.ltxt_remark.WordWrap = false;
             // 
             // pictureBox3
             // 
@@ -419,6 +403,7 @@
             this.ltxt_saleman.ReadOnly = true;
             this.ltxt_saleman.Size = new System.Drawing.Size(105, 16);
             this.ltxt_saleman.TabIndex = 29;
+            this.ltxt_saleman.WordWrap = false;
             // 
             // labBotton2
             // 
@@ -460,6 +445,15 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1052, 46);
             this.panel4.TabIndex = 32;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(682, 7);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(93, 31);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "保存并审核";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // buttonSave
             // 
@@ -511,7 +505,6 @@
             // 
             // ltxt_salecode
             // 
-            this.ltxt_salecode.AcceptsReturn = true;
             this.ltxt_salecode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             // 
             // 
@@ -529,6 +522,8 @@
             this.ltxt_salecode.ReadOnly = true;
             this.ltxt_salecode.Size = new System.Drawing.Size(143, 16);
             this.ltxt_salecode.TabIndex = 39;
+            this.ltxt_salecode.Text = "编号";
+            this.ltxt_salecode.WordWrap = false;
             // 
             // ltxt_shishou
             // 
@@ -551,6 +546,7 @@
             this.ltxt_shishou.Size = new System.Drawing.Size(148, 16);
             this.ltxt_shishou.TabIndex = 37;
             this.ltxt_shishou.WatermarkColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ltxt_shishou.WordWrap = false;
             this.ltxt_shishou.TextChanged += new System.EventHandler(this.ltxt_shishou_TextChanged);
             this.ltxt_shishou.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ltxt_shishou_KeyPress);
             // 
@@ -565,7 +561,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(738, 20);
+            this.button1.Location = new System.Drawing.Point(736, 20);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(20, 20);
             this.button1.TabIndex = 35;
@@ -583,6 +579,27 @@
             this.pictureBox2.TabIndex = 31;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.ClickPicBox);
+            // 
+            // ltxt_shoukuan
+            // 
+            // 
+            // 
+            // 
+            this.ltxt_shoukuan.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ltxt_shoukuan.Border.BorderBottomColor = System.Drawing.Color.Black;
+            this.ltxt_shoukuan.Border.BorderBottomWidth = 1;
+            this.ltxt_shoukuan.Border.BorderGradientAngle = 0;
+            this.ltxt_shoukuan.Border.Class = "SideNavStrip";
+            this.ltxt_shoukuan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ltxt_shoukuan.Location = new System.Drawing.Point(579, 22);
+            this.ltxt_shoukuan.MaxLength = 11;
+            this.ltxt_shoukuan.Name = "ltxt_shoukuan";
+            this.ltxt_shoukuan.Size = new System.Drawing.Size(148, 16);
+            this.ltxt_shoukuan.TabIndex = 29;
+            this.ltxt_shoukuan.WordWrap = false;
+            this.ltxt_shoukuan.TextChanged += new System.EventHandler(this.ltxt_shoukuan_TextChanged);
+            this.ltxt_shoukuan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ltxt_shoukuan_KeyPress);
+            this.ltxt_shoukuan.Validated += new System.EventHandler(this.ltxt_shoukuan_Validated);
             // 
             // pictureBox1
             // 
@@ -681,24 +698,24 @@
             this.dataGridViewFujia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewFujia.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewFujia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFujia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewFujia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewFujia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFujia.Cursor = System.Windows.Forms.Cursors.Arrow;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewFujia.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(140)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewFujia.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewFujia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFujia.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.dataGridViewFujia.Location = new System.Drawing.Point(0, 0);
@@ -723,15 +740,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 2;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(682, 7);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 31);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "保存并审核";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // InsSellGathering
             // 
@@ -789,7 +797,6 @@
         protected System.Windows.Forms.PictureBox pictureBox2;
         protected DevComponents.DotNetBar.Controls.TextBoxX ltxt_AccountName;
         protected DevComponents.DotNetBar.Controls.TextBoxX ltxt_weishou;
-        protected DevComponents.DotNetBar.Controls.TextBoxX ltxt_shoukuan;
         protected DevComponents.DotNetBar.Controls.TextBoxX ltxt_yingshou;
         protected DevComponents.DotNetBar.Controls.TextBoxX ltxt_kehu;
         protected System.Windows.Forms.PictureBox pictureBox1;
@@ -818,5 +825,6 @@
         protected DevComponents.DotNetBar.Controls.TextBoxX ltxt_salecode;
         protected System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
+        protected DevComponents.DotNetBar.Controls.TextBoxX ltxt_shoukuan;
     }
 }

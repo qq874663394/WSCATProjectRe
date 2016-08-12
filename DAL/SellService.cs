@@ -7,11 +7,61 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 using System.Collections;
+using HelperUtility.Encrypt;
 
 namespace DAL
 {
     public class SellService
     {
+        public Sell SelSellGatheringBySellCode(string Sell_Code)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 Sell_ID,Sell_Code,Sell_Type,Sell_Date,Sell_TransportType,Sell_Review,Sell_ChangeDate,Sell_Operation,Sell_Auditman,Sell_Remark,");
+            strSql.Append("Sell_IsPay,Sell_IsPutSto,Sell_PayMathod,Sell_GetDate,Sell_Logistics,Sell_LogCode,Sell_LogPhone,Sell_OddMoney,Sell_AccountCode,Sell_InMoney,Sell_LastMoney,Sell_Address,");
+            strSql.Append("Sell_ClientName,Sell_CliPhone,Sell_LinkMan,Sell_Salesman,Sell_OddStatus,Sell_jiajiState,Sell_zuiwanshijian,Sell_fukuanfangshi from T_Sell");
+            strSql.Append(" where Sell_Code=@Sell_Code");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@Sell_Code", SqlDbType.NVarChar,512)
+            };
+            parameters[0].Value = XYEEncoding.strCodeHex(Sell_Code);
+            SqlDataReader read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters);
+            while (read.Read())
+            {
+                Sell model = new Sell();
+                model.Sell_ID = Convert.ToInt32(read["Sell_ID"]);
+                model.Sell_Code = XYEEncoding.strHexDecode(read["Sell_Code"].ToString());
+                model.Sell_Type = XYEEncoding.strHexDecode(read["Sell_Type"].ToString());
+                model.Sell_Date = Convert.ToDateTime(read["Sell_Date"]);
+                model.Sell_TransportType = XYEEncoding.strHexDecode(read["Sell_TransportType"].ToString());
+                model.Sell_Review = Convert.ToInt32(read["Sell_Review"]);
+                model.Sell_ChangeDate = Convert.ToDateTime(read["Sell_ChangeDate"]);
+                model.Sell_Operation = XYEEncoding.strHexDecode(read["Sell_Operation"].ToString());
+                model.Sell_Auditman = XYEEncoding.strHexDecode(read["Sell_Auditman"].ToString());
+                model.Sell_Remark = XYEEncoding.strHexDecode(read["Sell_Remark"].ToString());
+                model.Sell_IsPay = Convert.ToInt32(read["Sell_IsPay"]);
+                model.Sell_IsPutSto = Convert.ToInt32(read["Sell_IsPutSto"]);
+                model.Sell_PayMathod = Convert.ToInt32(read["Sell_PayMathod"]);
+                model.Sell_GetDate = Convert.ToDateTime(read["Sell_GetDate"]);
+                model.Sell_Logistics = XYEEncoding.strHexDecode(read["Sell_Logistics"].ToString());
+                model.Sell_LogCode = XYEEncoding.strHexDecode(read["Sell_LogCode"].ToString());
+                model.Sell_LogPhone = XYEEncoding.strHexDecode(read["Sell_LogPhone"].ToString());
+                model.Sell_OddMoney = read["Sell_OddMoney"].ToString();
+                model.Sell_AccountCode = XYEEncoding.strHexDecode(read["Sell_AccountCode"].ToString());
+                model.Sell_InMoney = read["Sell_InMoney"].ToString();
+                model.Sell_LastMoney = read["Sell_LastMoney"].ToString();
+                model.Sell_Address = XYEEncoding.strHexDecode(read["Sell_Address"].ToString());
+                model.Sell_ClientName = XYEEncoding.strHexDecode(read["Sell_ClientName"].ToString());
+                model.Sell_CliPhone = XYEEncoding.strHexDecode(read["Sell_CliPhone"].ToString());
+                model.Sell_LinkMan = XYEEncoding.strHexDecode(read["Sell_LinkMan"].ToString());
+                model.Sell_Salesman = XYEEncoding.strHexDecode(read["Sell_Salesman"].ToString());
+                model.Sell_OddStatus = Convert.ToInt32(read["Sell_OddStatus"]);
+                model.Sell_jiajiState = Convert.ToInt32(read["Sell_jiajiState"]);
+                model.Sell_zuiwanshijian = Convert.ToDateTime(read["Sell_zuiwanshijian"]);
+                model.Sell_fukuanfangshi = XYEEncoding.strHexDecode(read["Sell_fukuanfangshi"].ToString());
+                return model;
+            }
+            return null;
+        }
         #region  BasicMethod
 
         /// <summary>
