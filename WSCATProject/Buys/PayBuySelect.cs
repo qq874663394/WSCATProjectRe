@@ -163,7 +163,7 @@ namespace WSCATProject.Buys
         /// <param name="e"></param>
         private void PayBuySelect_Load(object sender, EventArgs e)
         {
-            superGridControl1.PrimaryGrid.AutoGenerateColumns = true;
+            superGridControl1.PrimaryGrid.AutoGenerateColumns = false;
             superGridControl1.PrimaryGrid.SelectionGranularity = SelectionGranularity.Row;
             superGridControl1.PrimaryGrid.InitialSelection = RelativeSelection.None;
             superGridControl1.PrimaryGrid.FocusCuesEnabled = false;
@@ -802,6 +802,9 @@ namespace WSCATProject.Buys
                     }
                     break;
                 case "销售开单":
+                    SelectedElementCollection cols = superGridControl1.PrimaryGrid.GetSelectedRows();
+                    GridRow rows = cols[0] as GridRow;
+                    string shenghestate = rows.Cells["ColumnsAuditStatus"].Value.ToString();
                     break;
                 case "其他收货单":
                     break;
