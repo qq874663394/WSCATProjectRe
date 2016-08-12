@@ -63,6 +63,7 @@ namespace HelperUtility.Encrypt
                             //时间和int以及bool不加密 需排除
                             temp = (ds.Tables[t].Columns[j].DataType == typeof(int) ||
                                 ds.Tables[t].Columns[j].DataType == typeof(DateTime) ||
+                                ds.Tables[t].Columns[j].DataType == typeof(decimal) ||
                                 ds.Tables[t].Columns[j].DataType == typeof(Boolean)) ?
                                 ds.Tables[t].Rows[i][j] :
                                 XYEEncoding.strHexDecode(ds.Tables[t].Rows[i][j].ToString());
