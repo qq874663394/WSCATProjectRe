@@ -24,6 +24,7 @@ namespace WSCATProject.Sell
         SellDetailManager sdm = new SellDetailManager();
         CodingHelper ch = new CodingHelper();
         ConllectionWait cw = new ConllectionWait();
+        SellManager sm = new SellManager();
         public string pbName;//根据图片Name对应相应的datagridview
         //销售单号
         private string _sellcode;
@@ -420,7 +421,7 @@ namespace WSCATProject.Sell
 
         private void ltxt_shoukuan_Validated(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             if (ltxt_shoukuan.Text == "" || ltxt_shishou.Text == "" || ltxt_weishou.Text == "")
             {
                 return;
@@ -434,9 +435,8 @@ namespace WSCATProject.Sell
                 return;
             }
             ltxt_shishou.Text = shoukuan.ToString();
-            //ltxt_weishou.Text = (Convert.ToDecimal(ltxt_yingshou.Text.Trim()) - Convert.ToDecimal(ltxt_shishou.Text.Trim())).ToString();//未收金额
-=======
->>>>>>> a896dbc44a4baf92876161ac2414549f18c0fe78
+            ltxt_weishou.Text = (Convert.ToDecimal(ltxt_yingshou.Text.Trim()) - Convert.ToDecimal(ltxt_shishou.Text.Trim())).ToString();//未收金额
+
         }
         #endregion
 
@@ -510,9 +510,6 @@ namespace WSCATProject.Sell
         }
         #endregion
 
-<<<<<<< HEAD
-
-=======
         private void ltxt_kehu_KeyPress(object sender, KeyPressEventArgs e)
         {
             DataTable dt = new DataTable();
@@ -520,6 +517,5 @@ namespace WSCATProject.Sell
             dv.RowFilter = "Cli_Name ='" + ltxt_kehu.Text.Trim().ToString() + "'";
             dt = dv.ToTable();
         }
->>>>>>> a896dbc44a4baf92876161ac2414549f18c0fe78
     }
 }
