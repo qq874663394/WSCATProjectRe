@@ -117,14 +117,20 @@ namespace WSCATProject.Sell
             //superGridControl1.PrimaryGrid.DataSource = sm.GetList("");
 
             #endregion
-
+            Model.Sell sell = sm.SelSellGatheringBySellCode(ltxt_salecode.Text.Trim());
+            ltxt_kehu.Text = sell.Sell_ClientName;
+            ltxt_AccountName.Text = sell.Sell_AccountCode;
+            ltxt_yingshou.ReadOnly = true;
+            ltxt_yingshou.Text = sell.Sell_OddMoney;
+            ltxt_saleman.Text = sell.Sell_Salesman;
+            ltxt_operation.Text = sell.Sell_Operation;
+            ltxt_remark.Text = sell.Sell_Remark;
             if (string.IsNullOrWhiteSpace(textBoxOddNumbers.Text))
             {
                 textBoxOddNumbers.Text = BuildCode.ModuleCode("AC");
             }
-            
-            //textBoxOddNumbers.Text = BuildCode.ModuleCode("AC");//收款单单号
-            ltxt_shoukuan.Text = "0";
+            //ltxt_salecode.Text
+            textBoxX1.Text = "0";
             ltxt_shishou.Text = "0";
             ltxt_weishou.Text = "0";
             //制单人
@@ -269,7 +275,7 @@ namespace WSCATProject.Sell
             cw.CW_Operation = ltxt_operation.Text.Trim();
             cw.CW_Remark = ltxt_remark.Text.Trim();
             int result = cwm.InsConllectionWait(cw);
-            if (result>0)
+            if (result > 0)
             {
                 MessageBox.Show("保存成功！");
             }
@@ -345,30 +351,11 @@ namespace WSCATProject.Sell
         /// <param name="e"></param>
         private void ltxt_shoukuan_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = false;
-            // 只允许输入数字和Del
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
-            {
-                e.Handled = true;
-            }
-            if (ltxt_shoukuan.MaxLength < 12)
-            {
-                e.Handled = true;
-            }
-          
+
         }
 
         private void ltxt_shoukuan_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(ltxt_shoukuan.Text))
-                return;
-
-            // 按千分位逗号格式显示！
-            decimal d = Convert.ToDecimal(skipComma(ltxt_shoukuan.Text));
-            ltxt_shoukuan.Text = string.Format("{0:N0}", d);
-
-            // 确保输入光标在最右侧
-            ltxt_shoukuan.Select(ltxt_shoukuan.Text.Length, 0);
         }
 
         /// <summary>
@@ -378,28 +365,10 @@ namespace WSCATProject.Sell
         /// <param name="e"></param>
         private void ltxt_shishou_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // 只允许输入数字和Del
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
-            {
-                e.Handled = true;
-            }
-            if (ltxt_shishou.MaxLength < 12)
-            {
-                e.Handled = true;
-            }
         }
 
         private void ltxt_shishou_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(ltxt_shishou.Text))
-                return;
-
-            // 按千分位逗号格式显示！
-            decimal d = Convert.ToDecimal(skipComma(ltxt_shishou.Text));
-            ltxt_shishou.Text = string.Format("{0:N0}", d);
-
-            // 确保输入光标在最右侧
-            ltxt_shishou.Select(ltxt_shishou.Text.Length, 0);
         }
 
         /// <summary>
@@ -436,20 +405,6 @@ namespace WSCATProject.Sell
 
         private void ltxt_shoukuan_Validated(object sender, EventArgs e)
         {
-            if (ltxt_shoukuan.Text == "" || ltxt_shishou.Text == "" || ltxt_weishou.Text == "")
-            {
-                return;
-            }
-            decimal shoukuan = Convert.ToDecimal(ltxt_shoukuan.Text.Trim());
-            decimal ying = Convert.ToDecimal(ltxt_yingshou.Text);
-            if (shoukuan > ying)
-            {
-                MessageBox.Show("收款金额不能大于应收金额！");
-                ltxt_shoukuan.Clear();
-                return;
-            }
-            ltxt_shishou.Text = shoukuan.ToString();
-            ltxt_weishou.Text = (Convert.ToDecimal(ltxt_yingshou.Text.Trim()) - Convert.ToDecimal(ltxt_shishou.Text.Trim())).ToString();//未收金额
         }
         #endregion
 
@@ -489,10 +444,9 @@ namespace WSCATProject.Sell
             try
             {
                 string yingshou = ltxt_yingshou.Text.Trim();
-                string shoukuan = ltxt_shoukuan.Text.Trim();
                 string shishou = ltxt_shishou.Text.Trim();
                 string weishou = ltxt_weishou.Text.Trim();
-                ltxt_shoukuan.Text = yingshou.ToString();
+                textBoxX1.Text = yingshou.ToString();
                 ltxt_shishou.Text = yingshou.ToString();
                 if (this.button1.Text == "√")
                 {
@@ -510,7 +464,7 @@ namespace WSCATProject.Sell
                 }
                 if (this.button1.Text == "×")
                 {
-                    ltxt_shoukuan.Text = "0";
+                    textBoxX1.Text = "0";
                     ltxt_shishou.Text = "0";
                     ltxt_weishou.Text = ltxt_yingshou.Text;
                     this.button1.Text = "√";
@@ -528,7 +482,7 @@ namespace WSCATProject.Sell
         {
             DataTable dt = new DataTable();
             DataView dv = dt.DefaultView;
-            dv.RowFilter = "Cli_Name ='" + ltxt_kehu.Text.Trim().ToString() +"'";
+            dv.RowFilter = "Cli_Name ='" + ltxt_kehu.Text.Trim().ToString() + "'";
             dt = dv.ToTable();
         }
     }
