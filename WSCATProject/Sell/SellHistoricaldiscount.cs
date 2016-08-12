@@ -21,6 +21,16 @@ namespace WSCATProject.Sell
 
         private void SellHistoricaldiscount_Load(object sender, EventArgs e)
         {
+            InSellForm isf = (InSellForm)this.Owner;
+            lblkehu.Text = isf.Sell_Clientname;
+            lblname.Text = isf.Sell_MaName;
+            lblunity.Text = isf.Sell_Unit;
+            lblcount.Text = isf.Sell_CurNumber;
+            textBoxX1.Text = isf.Sell_Price;
+            textBoxX3.Text = isf.Sell_Discount;
+            textBoxX4.Text = isf.Sell_zongmoney;
+            textBoxX5.Text = isf.Sell_PriceAfter;
+
             textBoxX2.ReadOnly = true;//折扣金额
             textBoxX4.ReadOnly = true;//总金额
             textBoxX5.ReadOnly = true;//折后单价   
@@ -81,9 +91,9 @@ namespace WSCATProject.Sell
                 double zhekou = price - zhehou;//折扣金额
                 textBoxX2.Text = zhekou.ToString("0.00");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -107,6 +117,11 @@ namespace WSCATProject.Sell
         {
             //控件失去焦点后将它的值的格式精确到两位小数
             TextBoxX name = (sender as TextBoxX);
+            
+            if (name.Text=="")
+            {
+                name.Text = "0.00";
+            }
             name.Text = Convert.ToDecimal(name.Text).ToString("0.00");
         }
 
@@ -114,6 +129,17 @@ namespace WSCATProject.Sell
         {
             this.Close();
             this.Dispose();
+        }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            InSellForm isf = (InSellForm)this.Owner;
+            isf.Sell_Price = textBoxX1.Text;
+            isf.Sell_Discount = textBoxX3.Text;
+            isf.Sell_zongmoney = textBoxX4.Text;
+            isf.Sell_PriceAfter = textBoxX5.Text;
+            Close();
+            Dispose();
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using Model;
+﻿using HelperUtility.Encrypt;
+using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,6 +12,7 @@ namespace DAL
 {
     public class ConllectionWaitService
     {
+        CodingHelper ch = new CodingHelper();
         public int InsConllectionWait(ConllectionWait cw)
         {
             string sql = string.Format(@"INSERT INTO T_ConllectionWait
@@ -56,5 +59,30 @@ namespace DAL
             };
             return DbHelperSQL.ExecuteSql(sql, sps);
         }
+
+        /// <summary>
+        /// 获得资金收款单数据列表 
+        /// </summary>
+        public DataTable GetList()
+        {
+            string strsql = (@" select C_No ,   (case 
+               when C_Status=1 then '36352E315B0A'
+               else '2A502E315B0A' end
+               ) as C_Status ,
+               C_Date ,       
+               C_ClientName ,
+               C_AccountName ,
+               C_AmountPay ,
+               C_AccountPaid ,
+               C_MoneyOwed ,
+               C_SalesMan ,
+               C_Remark 
+                from T_Conllection");
+            SqlDataAdapter adapter = new SqlDataAdapter(strsql, DbHelperSQL.connectionString);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds, "T_Conllection");
+            return ch.DataTableReCoding(ds.Tables[0]);
+        }
+
     }
 }

@@ -144,11 +144,13 @@ namespace WSCATProject.Sell
             if (string.IsNullOrWhiteSpace(textBoxOddNumbers.Text))
             {
                 textBoxOddNumbers.Text = BuildCode.ModuleCode("AC");
+                conll.C_No = textBoxOddNumbers.Text;
             }
             //ltxt_salecode.Text
             //textBoxX1.Text = "0";
             ltxt_shishou.Text = "0";
             ltxt_weishou.Text = "0";
+            ltxt_shoukuan.Text = "0";
             //制单人
             LoginInfomation l = LoginInfomation.getInstance();
             l.UserName = "sss";
@@ -266,17 +268,18 @@ namespace WSCATProject.Sell
             {
                 case "pictureBox1":
                     ltxt_kehu.Text = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();
-                    //ltxt_yingshou.Text = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();
-                    cw.CW_ClientName = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();//客户名称
-                    cw.CW_ClientCode = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsValue"].Value.ToString();//客户编号
+                    conll.C_ClientCode = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsValue"].Value.ToString();//客户编号
+                    conll.C_ClientName = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();//客户名称
                     break;
                 case "pictureBox2":
                     ltxt_AccountName.Text = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();
-                    cw.CW_AccountCode = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsValue"].Value.ToString();//收款账户
+                    conll.C_AccountCode = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsValue"].Value.ToString();//收款账户
+                    conll.C_AccountName = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();//收款账户
                     break;
                 case "pictureBox3":
                     ltxt_saleman.Text = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();
-                    cw.CW_SalesMan = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();//业务员
+                    conll.C_SalesCode = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsValue"].Value.ToString();//业务员
+                    conll.C_SalesMan = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();//业务员
                     break;
             }
             resizablePanel1.Visible = false;
@@ -286,11 +289,20 @@ namespace WSCATProject.Sell
         //保存
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            ConllectionWaitManager cwm = new ConllectionWaitManager();
-            cw.CW_Code = textBoxOddNumbers.Text;
-            cw.CW_Operation = ltxt_operation.Text.Trim();
-            cw.CW_Remark = ltxt_remark.Text.Trim();
-            int result = cwm.InsConllectionWait(cw);
+            ConllectionManager cm = new ConllectionManager();
+            conll.C_Operation = ltxt_operation.Text.Trim();
+            conll.C_Remark = ltxt_remark.Text.Trim();
+            conll.C_AmountPay = ltxt_yingshou.Text.Trim();
+            conll.C_AccountPaid = ltxt_shishou.Text.Trim();
+            conll.C_MoneyOwed = ltxt_weishou.Text.Trim();
+            conll.C_SellCode = ltxt_salecode.Text.Trim();
+            conll.C_AuditMan = "";
+            conll.C_Date = dateTimePicker1.Value;
+            conll.C_AuditStatus = 0;
+            conll.C_Clear = 1;
+            conll.C_Status = 0;
+            conll.C_SellCode = ltxt_salecode.Text;
+            int result = cm.InsConllection(conll);
             if (result > 0)
             {
                 MessageBox.Show("保存成功！");
@@ -347,19 +359,6 @@ namespace WSCATProject.Sell
             return strnew;
         }
 
-        private void ltxt_yingshou_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(ltxt_yingshou.Text))
-                return;
-
-            // 按千分位逗号格式显示！
-            decimal d = Convert.ToDecimal(skipComma(ltxt_yingshou.Text));
-            ltxt_yingshou.Text = string.Format("{0:#,#}", d);
-
-            // 确保输入光标在最右侧
-            ltxt_yingshou.Select(ltxt_yingshou.Text.Length, 0);
-        }
-
         /// <summary>
         /// 验证收款金额
         /// </summary>
@@ -367,11 +366,44 @@ namespace WSCATProject.Sell
         /// <param name="e"></param>
         private void ltxt_shoukuan_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            e.Handled = false;
+            // 只允许输入数字、小数和Del
+            if (!(((e.KeyChar >= '0') && (e.KeyChar <= '9')) || e.KeyChar <= 31))
+            {
+                if (e.KeyChar == '.')
+                {
+                    if (((TextBox)sender).Text.Trim().IndexOf('.') > -1)
+                        e.Handled = true;
+                }
+                else
+                    e.Handled = true;
+            }
+            else
+            {
+                if (e.KeyChar <= 31)
+                {
+                    e.Handled = false;
+                }
+                else if (((TextBox)sender).Text.Trim().IndexOf('.') > -1)
+                {
+                    //小数位最多只能输入2位
+                    if (((TextBox)sender).Text.Trim().Substring(((TextBox)sender).Text.Trim().IndexOf('.') + 1).Length >= 2)
+                        e.Handled = true;
+                }
+            }
         }
 
         private void ltxt_shoukuan_TextChanged(object sender, EventArgs e)
         {
+            //实收金额赋值
+            ltxt_shishou.Text = ltxt_shoukuan.Text;
+            if (Convert.ToDecimal(ltxt_shoukuan.Text) > Convert.ToDecimal(ltxt_yingshou.Text))
+            {
+                ltxt_shoukuan.Text = ltxt_yingshou.Text;
+                MessageBox.Show("【收款金额】不能大于应付金额！");
+            }
+            //未收金额计算
+            ltxt_weishou.Text = (Convert.ToDecimal(ltxt_yingshou.Text) - Convert.ToDecimal(ltxt_shishou.Text)).ToString();
         }
 
         /// <summary>
