@@ -21,7 +21,7 @@ namespace BLL
         {
             return sds.SelPriceByMaName(Ma_Name);
         }
-		/// <summary>
+        /// <summary>
         /// 查询历史售价
         /// </summary>
         /// <param name="clientName"></param>
