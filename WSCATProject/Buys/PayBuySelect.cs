@@ -18,7 +18,8 @@ namespace WSCATProject.Buys
     {
         BuyManager bm = new BuyManager();
         SellManager sm = new SellManager();
-        DataTable dt = null;
+        ConllectionWaitManager cwm = new ConllectionWaitManager();
+         DataTable dt = null;
  
         public string whereField;
         public string orderField;
@@ -443,6 +444,71 @@ namespace WSCATProject.Buys
                     superGridControl1.PrimaryGrid.Columns.Clear();
                     Band();
                     break;
+                case "资金收款单":
+                    superGridControl1.PrimaryGrid.Columns.Clear();
+                    try
+                    {
+                        #region 初始化资金收款列     
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "C_No";
+                        gc.Name = "ColumnsCode";
+                        gc.HeaderText = "资金收款编号";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "C_ClientName";
+                        gc.Name = "ColumnsSuName";
+                        gc.HeaderText = "客户";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "C_Date";
+                        gc.Name = "ColumnsDate";
+                        gc.HeaderText = "单据日期";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "C_Status";
+                        gc.Name = "ColumnsPurchaseStatus";
+                        gc.HeaderText = "单据状态";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "C_AccountName";
+                        gc.Name = "ColumnsBank";
+                        gc.HeaderText = "结算账户";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "C_AmountPay";
+                        gc.Name = "ColumnsAmountPay";
+                        gc.HeaderText = "总金额";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "C_SalesMan";
+                        gc.Name = "ColumnsSalesMan";
+                        gc.HeaderText = "业务员";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "C_Remark";
+                        gc.Name = "ColumnsRemark";
+                        gc.HeaderText = "摘要";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        dt = cwm.GetList();
+                        superGridControl1.PrimaryGrid.DataSource = dt;
+                        whereField = "单据日期";
+                        orderField = "ID";
+                        #endregion
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("错误代码:3230-资金收款业务查找：资金收款单加载全部数据异常，异常信息：" + ex.Message);
+                    }
+                   
+                    break;
                 case "银行存取款":
                     break;
                 case "资金拆借":
@@ -612,7 +678,8 @@ namespace WSCATProject.Buys
         public void Band()
         {
 			dt = bm.GetYinFuList();
-            superGridControl1.PrimaryGrid.DataSource = dt;        }
+            superGridControl1.PrimaryGrid.DataSource = dt;
+        }
 
         private void superGridControl1_DoubleClick(object sender, EventArgs e)
         {
@@ -825,6 +892,8 @@ namespace WSCATProject.Buys
                 case "其他收入":
                     break;
                 case "应付款单":
+                    break;
+                case "资金收款单":
                     break;
                 case "银行存取款":
                     break;

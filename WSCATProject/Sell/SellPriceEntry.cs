@@ -21,32 +21,18 @@ namespace WSCATProject.Sell
             dataGridView2.SelectionChanged += dataGridView1_SelectionChanged;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
         }
-
-        private string _magname;
-        public string Sell_MaName
-        {
-            get { return _magname; }
-            set { _magname = value; }
-        }
-        private string _maunit;
-        public string Sell_Unit
-        {
-            get { return _maunit; }
-            set { _maunit = value; }
-        }
-        private string _count;
-        public string Sell_CurNumber
-        {
-            get { return _count; }
-            set { _count = value; }
-        }
-
         private void SellPriceEntry_Load(object sender, EventArgs e)
         {
-            lblname.Text = _magname;
-            lblunity.Text = _maunit;
-            lblcount.Text = _count;
-
+            InSellForm isf = (InSellForm)this.Owner;
+            lblkehu.Text = isf.Sell_Clientname;
+            lblname.Text = isf.Sell_MaName;
+            lblunity.Text =isf.Sell_Unit;
+            lblcount.Text = isf.Sell_CurNumber;
+            textBoxX1.Text = isf.Sell_Price;
+            textBoxX3.Text = isf.Sell_Discount;
+            textBoxX4.Text = isf.Sell_zongmoney;
+            textBoxX5.Text = isf.Sell_PriceAfter;
+            this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DataTable dt = new SellDetailManager().SelPriceByMaName("说服力是地方");
             Material material = new MaterialManager().SelPriceByMaName("说服力是地方");
             DataRow row;
@@ -99,7 +85,7 @@ namespace WSCATProject.Sell
 
         #region 原始单价和折扣率只允许输入数字，小数和Del
         private void textBoxX1_KeyPress(object sender, KeyPressEventArgs e)
-        {
+      {
             e.Handled = false;
             // 只允许输入数字、小数和Del
             if (!(((e.KeyChar >= '0') && (e.KeyChar <= '9')) || e.KeyChar <= 31))
@@ -149,9 +135,9 @@ namespace WSCATProject.Sell
                 decimal zhekou = price - zhehou;//折扣金额
                 textBoxX2.Text = zhekou.ToString("0.00");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -161,7 +147,7 @@ namespace WSCATProject.Sell
             string priceType = "";
             string price = "";
             string discount = "100.00";
-            lblcount.Text = "10";
+            //lblcount.Text = "";
             DataGridView controlName = (sender as DataGridView);
             priceType = controlName.CurrentRow.Cells[0].Value.ToString();//价格类型
             price = controlName.CurrentRow.Cells[1].Value.ToString();//价格
@@ -187,7 +173,23 @@ namespace WSCATProject.Sell
         {
             //控件失去焦点后将它的值的格式精确到两位小数
             TextBoxX name = (sender as TextBoxX);
+
+            if (name.Text == "")
+            {
+                name.Text = "0.00";
+            }
             name.Text = Convert.ToDecimal(name.Text).ToString("0.00");
+        }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            InSellForm isf = (InSellForm)this.Owner;
+            isf.Sell_Price=textBoxX1.Text ;
+            isf.Sell_Discount = textBoxX3.Text ;
+            isf.Sell_zongmoney = textBoxX4.Text ;
+            isf.Sell_PriceAfter= textBoxX5.Text;
+            Close();
+            Dispose();
         }
     }
 }

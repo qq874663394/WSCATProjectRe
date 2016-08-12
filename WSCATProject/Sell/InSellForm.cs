@@ -22,6 +22,55 @@ namespace WSCATProject.Sell
         {
             InitializeComponent();
         }
+        private string _kehu;
+        public string Sell_Clientname
+        {
+            get { return _kehu; }
+            set { _kehu = value; }
+        }
+        private string _magname;
+        public string Sell_MaName
+        {
+            get { return _magname; }
+            set { _magname = value; }
+        }
+        private string _maunit;
+        public string Sell_Unit
+        {
+            get { return _maunit; }
+            set { _maunit = value; }
+        }
+        private string _count;
+        public string Sell_CurNumber
+        {
+            get { return _count; }
+            set { _count = value; }
+        }
+        private string _price;
+        public string Sell_Price
+        {
+            get { return _price; }
+            set { _price = value; }
+        }
+        private string _discount;
+        public string Sell_Discount
+        {
+            get { return _discount; }
+            set { _discount = value; }
+        }
+
+        private string _priceAfter;
+        public string Sell_PriceAfter
+        {
+            get { return _priceAfter; }
+            set { _priceAfter = value; }
+        }
+        private string _zongmoney;
+        public string Sell_zongmoney
+        {
+            get { return _zongmoney; }
+            set { _zongmoney = value; }
+        }
         #region 数据字段
         /// <summary>
         /// 所有商品列表
@@ -1140,18 +1189,38 @@ namespace WSCATProject.Sell
         {
             resizablePanel1.Visible = false;
         }
-
         private void superGridControl1_CellDoubleClick(object sender, GridCellDoubleClickEventArgs e)
         {
-            if (e.GridCell.GridColumn.Name != "gridColumnPrice")
+            if (e.GridCell.GridRow.Cells[7].Value == null || e.GridCell.GridRow.Cells[9].Value == null || e.GridCell.GridRow.Cells[8].Value == null)
             {
                 return;
             }
-            SellPriceEntry sp = new SellPriceEntry();
-            sp.Sell_MaName = e.GridCell.GridRow.Cells[9].Value.ToString();
-            sp.Sell_Unit= e.GridCell.GridRow.Cells[11].Value.ToString();
-            sp.Sell_CurNumber = e.GridCell.GridRow.Cells[15].Value.ToString();
-            sp.ShowDialog(this);
+            Sell_Clientname = labtextboxTop2.Text;
+            Sell_MaName = e.GridCell.GridRow.Cells[9].Value.ToString();
+            Sell_Unit = e.GridCell.GridRow.Cells[11].Value.ToString();
+            Sell_CurNumber = e.GridCell.GridRow.Cells[12].Value.ToString();
+            Sell_Price = e.GridCell.GridRow.Cells[15].Value.ToString();
+            Sell_Discount = e.GridCell.GridRow.Cells[16].Value.ToString();
+            Sell_PriceAfter = e.GridCell.GridRow.Cells[17].Value.ToString();
+            Sell_zongmoney = e.GridCell.GridRow.Cells[18].Value.ToString();
+            switch (e.GridCell.GridColumn.Name)
+            {
+                case "gridColumnPrice":
+                    SellPriceEntry sp = new SellPriceEntry();
+                    sp.ShowDialog(this);
+                    break;
+                case "gridColumnDis":
+                    SellHistoricaldiscount shd = new SellHistoricaldiscount();
+                    shd.ShowDialog(this);
+                    break;
+                default:
+                    MessageBox.Show("选择错误！");
+                    break;
+            }
+            e.GridCell.GridRow.Cells[15].Value = Sell_Price;
+            e.GridCell.GridRow.Cells[16].Value = Sell_Discount;
+            e.GridCell.GridRow.Cells[17].Value = Sell_PriceAfter;
+            e.GridCell.GridRow.Cells[18].Value = Sell_zongmoney;
         }
     }
 }
