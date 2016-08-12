@@ -174,8 +174,16 @@ namespace WSCATProject.Sell
             GridDoubleInputEditControl gdiecdanjia = superGridControl1.PrimaryGrid.Columns["gridColumnPrice"].EditControl as GridDoubleInputEditControl;
             gdiecdanjia.MinValue = 0;
             gdiecdanjia.MaxValue = 999999999;
+            gdiecdanjia.ButtonCustom.Visible = true;
+            gdiecdanjia.ButtonCustomClick += Gdiecdanjia_ButtonCustomClick;
+            //折扣
+            GridDoubleInputEditControl gdieczhekou = superGridControl1.PrimaryGrid.Columns["gridColumnDis"].EditControl as GridDoubleInputEditControl;
+            gdieczhekou.MinValue = 0;
+            gdieczhekou.MaxValue = 100;
+            gdieczhekou.ButtonCustom.Visible = true;
+            gdiecdanjia.ButtonCustomClick += Gdiecdanjia_ButtonCustomClick;
 
-			//未审核进行查看的时候
+            //未审核进行查看的时候
             if (_state == 1)
             {
                 if (_sellmodel != null)
@@ -220,6 +228,28 @@ namespace WSCATProject.Sell
                 }
             }
         }
+
+        /// <summary>
+        /// 触发的点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Gdiecdanjia_ButtonCustomClick(object sender, CancelEventArgs e)
+        {
+            GridTextBoxDropDownEditControl ddc =
+                sender as GridTextBoxDropDownEditControl;
+
+            if (ddc != null)
+            {
+
+            }
+        }
+
+        private void Gdiecdanjia_ButtonCustomClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// 绑定pictureBox表格的数据
         /// </summary>
@@ -266,10 +296,16 @@ namespace WSCATProject.Sell
                             gr.Cells["gridColumnStockCode"].Value.ToString(),
                             gr.Cells["gridColumnMaCode"].Value.ToString());
 
-						materialStockNumber(tempDT,true, gr.Cells["gridColumnName"].Value.ToString(),
+                        materialStockNumber(tempDT, true, gr.Cells["gridColumnName"].Value.ToString(),
                             gr.Cells["gridColumnStock"].Value.ToString());
                     }
-                }            }
+                }
+                else
+                {
+                    labelXZongKuCun.Visible = false;
+                    labelXKuCun.Visible = false;
+                }
+            }
             //绑定收款账号的
             if (_Click == 3)
             {
@@ -399,7 +435,16 @@ namespace WSCATProject.Sell
                     labelXKuCun.Text = "商品 [" + maName + "] 在仓库" +
                         stoName + "中的总量为: " + 
                         mastDT.Rows[0]["Sto_AllNumber"].ToString();
-                    labelXKuCun.Visible = true;
+
+                    decimal allnumber = 0;
+                    foreach (DataRow dr in mastDT.Rows)
+                    {
+                        allnumber += dr["Sto_AllNumber"] == null ?
+                            0 : Convert.ToDecimal(dr["Sto_AllNumber"]);
+                    }
+                    labelXZongKuCun.Visible = true;
+                    labelXZongKuCun.Text = "商品 [" + maName + "] 在所有仓库中的总量为 " +
+                        mastDT.Rows[0]["Sto_AllNumber"].ToString();
                 }
                 else
                 {
