@@ -353,73 +353,164 @@ namespace WSCATProject.Buys
                         #region 初始化销售开单列
                         gc = new GridColumn();
                         gc.DataPropertyName = "Sell_ID";
-                        gc.Name = "ColumnsID";
+                        gc.Name = "Sell_ID";
                         gc.HeaderText = "ID";
-                        superGridControl1.PrimaryGrid.Columns.Add(gc);
-
-                        gc = new GridColumn();
-                        gc.DataPropertyName = "Sell_Code";
-                        gc.Name = "ColumnsCode";
-                        gc.HeaderText = "编号";
-                        superGridControl1.PrimaryGrid.Columns.Add(gc);
-
-                        gc = new GridColumn();
-                        gc.DataPropertyName = "Sell_Date";
-                        gc.Name = "ColumnsDate";
-                        gc.HeaderText = "单据日期";
-                        superGridControl1.PrimaryGrid.Columns.Add(gc);
-
-                        gc = new GridColumn();
-                        gc.DataPropertyName = "Sell_Review";
-                        gc.Name = "ColumnsAuditStatus";
-                        gc.HeaderText = "审核状态";
+                        gc.Visible = true;
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
                         gc.DataPropertyName = "Sell_Type";
-                        gc.Name = "ColumnsPurchaseStatus";
+                        gc.Name = "Sell_Type";
+                        gc.HeaderText = "单据类型";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Code";
+                        gc.Name = "Sell_Code";
+                        gc.HeaderText = "编号";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Date";
+                        gc.Name = "Sell_Date";
+                        gc.HeaderText = "单据日期";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Review";
+                        gc.Name = "Sell_Review";
+                        gc.HeaderText = "审核状态";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_OddStatus";
+                        gc.Name = "Sell_OddStatus";
                         gc.HeaderText = "单据状态";
+                        gc.Visible = true;
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
                         gc.DataPropertyName = "Sell_ClientName";
-                        gc.Name = "ColumnsSuName";
+                        gc.Name = "Sell_ClientName";
                         gc.HeaderText = "客户";
+                        gc.Visible = true;
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
                         gc.DataPropertyName = "Sell_AccountCode";
-                        gc.Name = "ColumnsBank";
-                        gc.HeaderText = "结算账户";
+                        gc.Name = "Sell_AccountCode";
+                        gc.HeaderText = "收款账户";
+                        gc.Visible = true;
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
                         gc.DataPropertyName = "Sell_OddMoney";
-                        gc.Name = "ColumnsAmountMone";
+                        gc.Name = "Sell_OddMoney";
                         gc.HeaderText = "总金额";
+                        gc.Visible = true;
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
                         gc.DataPropertyName = "Sell_Salesman";
-                        gc.Name = "ColumnsSalesMan";
+                        gc.Name = "Sell_Salesman";
                         gc.HeaderText = "业务员";
+                        gc.Visible = true;
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
                         gc.DataPropertyName = "Sell_Remark";
-                        gc.Name = "ColumnsRemark";
+                        gc.Name = "Sell_Remark";
                         gc.HeaderText = "备注";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_PayMathod";
+                        gc.Name = "Sell_PayMathod";
+                        gc.HeaderText = "预收百分百";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_InMoney";
+                        gc.Name = "Sell_InMoney";
+                        gc.HeaderText = "本次收款";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_LastMoney";
+                        gc.Name = "Sell_LastMoney";
+                        gc.HeaderText = "剩余尾款";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_TransportType";
+                        gc.Name = "Sell_TransportType";
+                        gc.HeaderText = "运输方式";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Operation";
+                        gc.Name = "Sell_Operation";
+                        gc.HeaderText = "制单人";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Auditman";
+                        gc.Name = "Sell_Auditman";
+                        gc.HeaderText = "审核人";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_fukuanfangshi";
+                        gc.Name = "Sell_fukuanfangshi";
+                        gc.HeaderText = "收款方式";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Address";
+                        gc.Name = "Sell_Address";
+                        gc.HeaderText = "送货地址";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_LinkMan";
+                        gc.Name = "Sell_LinkMan";
+                        gc.HeaderText = "联系人";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_CliPhone";
+                        gc.Name = "Sell_CliPhone";
+                        gc.HeaderText = "联系电话";
+                        gc.Visible = false;
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         dt = sm.GetList("");
                         superGridControl1.PrimaryGrid.DataSource = dt;
                         whereField = "单据日期";
                         orderField = "ID";
+
+
                         #endregion
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("错误代码:3219-销售业务查找：销售单加载全部数据异常，异常信息：" + ex.Message);
+                        MessageBox.Show("错误代码:1219-销售业务查找：销售单加载全部数据异常，异常信息：" + ex.Message);
                     }
                     break;
                 case "其他收货单":
@@ -514,6 +605,169 @@ namespace WSCATProject.Buys
                 case "资金拆借":
                     break;
                 case "欠货发货单":
+                    superGridControl1.PrimaryGrid.DataSource = null;
+                    superGridControl1.PrimaryGrid.Columns.Clear();
+
+                    try
+                    {
+                        #region 初始化欠货发货单列
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_ID";
+                        gc.Name = "Sell_ID";
+                        gc.HeaderText = "ID";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Type";
+                        gc.Name = "Sell_Type";
+                        gc.HeaderText = "单据类型";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Code";
+                        gc.Name = "Sell_Code";
+                        gc.HeaderText = "编号";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Date";
+                        gc.Name = "Sell_Date";
+                        gc.HeaderText = "单据日期";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Review";
+                        gc.Name = "Sell_Review";
+                        gc.HeaderText = "审核状态";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_OddStatus";
+                        gc.Name = "Sell_OddStatus";
+                        gc.HeaderText = "单据状态";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_ClientName";
+                        gc.Name = "Sell_ClientName";
+                        gc.HeaderText = "客户";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_AccountCode";
+                        gc.Name = "Sell_AccountCode";
+                        gc.HeaderText = "收款账户";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_OddMoney";
+                        gc.Name = "Sell_OddMoney";
+                        gc.HeaderText = "总金额";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Salesman";
+                        gc.Name = "Sell_Salesman";
+                        gc.HeaderText = "业务员";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Remark";
+                        gc.Name = "Sell_Remark";
+                        gc.HeaderText = "备注";
+                        gc.Visible = true;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_PayMathod";
+                        gc.Name = "Sell_PayMathod";
+                        gc.HeaderText = "预收百分百";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_InMoney";
+                        gc.Name = "Sell_InMoney";
+                        gc.HeaderText = "本次收款";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_LastMoney";
+                        gc.Name = "Sell_LastMoney";
+                        gc.HeaderText = "剩余尾款";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_TransportType";
+                        gc.Name = "Sell_TransportType";
+                        gc.HeaderText = "运输方式";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Operation";
+                        gc.Name = "Sell_Operation";
+                        gc.HeaderText = "制单人";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Auditman";
+                        gc.Name = "Sell_Auditman";
+                        gc.HeaderText = "审核人";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_fukuanfangshi";
+                        gc.Name = "Sell_fukuanfangshi";
+                        gc.HeaderText = "收款方式";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Address";
+                        gc.Name = "Sell_Address";
+                        gc.HeaderText = "送货地址";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_LinkMan";
+                        gc.Name = "Sell_LinkMan";
+                        gc.HeaderText = "联系人";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_CliPhone";
+                        gc.Name = "Sell_CliPhone";
+                        gc.HeaderText = "联系电话";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        dt = sm.GetList("  Sell_OddStatus=1 ");
+                        superGridControl1.PrimaryGrid.DataSource = dt;
+                        whereField = "单据日期";
+                        orderField = "ID";
+                        #endregion
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("错误代码:1224-欠货发货单业务查找：欠货发货单加载全部数据异常，异常信息：" + ex.Message);
+                    }
                     break;
                 default:
                     break;
@@ -683,30 +937,120 @@ namespace WSCATProject.Buys
 
         private void superGridControl1_DoubleClick(object sender, EventArgs e)
         {
+            string cb2 = toolStripComboBox2.Text;
+            switch (cb2)
+            {
+                case "采购开单":
+                    break;
+                case "销售开单":
+                    if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
+                    {
 
-            if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
-            {
-                SelectedElementCollection col = superGridControl1.PrimaryGrid.GetSelectedRows();
-                if (col.Count > 0)
-                {
-                    GridRow row = col[0] as GridRow;
-                    string zhuangtai = row.Cells[2].Value.ToString();
-                    AppDomain.CurrentDomain.SetData("s", row.Cells[1].Value);
-                    AppDomain.CurrentDomain.SetData("q", row.Cells[2].Value);
-                    BuyPayment bu = new BuyPayment(this);
-                    bu.Show();
-                }
-                else
-                {
-                    MessageBox.Show("请先选中要查看的数据所在行");
-                }
-            }
-            else
-            {
-                MessageBox.Show("请先选中要查看的数据所在行");
+                        SelectedElementCollection cols = superGridControl1.PrimaryGrid.GetSelectedRows();
+                        if (cols.Count > 0)
+                        {
+                            GridRow rows = cols[0] as GridRow;
+                            string shengh = rows.Cells["Sell_Review"].Value.ToString();
+                            //未审核查看
+                            if (shengh == "0")
+                            {
+                                Sell.InSellForm sell = new Sell.InSellForm();
+                                sell.Sellmodel = rows;
+                                sell.State = 1;//1，审核查看
+                                sell.Show();
+                            }
+                            //以审核查看
+                            if (shengh == "1")
+                            {
+                                Sell.InSellForm sell = new Sell.InSellForm();
+                                sell.Sellmodel = rows;
+                                sell.State = 1;//1，审核查看
+                                sell.Show();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("请选择要查看的数据行！");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("请选择要查看的数据行！");
+                    }
+                    break;
+                case "其他收货单":
+                    break;
+                case "其他发货单":
+                    break;
+                case "领料单":
+                    break;
+                case "调拨单":
+                    break;
+                case "报损单":
+                    break;
+                case "盘点单":
+                    break;
+                case "调价单":
+                    break;
+                case "费用开支":
+                    break;
+                case "其他收入":
+                    break;
+                case "应付款单":
+                    if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
+                    {
+                        SelectedElementCollection col = superGridControl1.PrimaryGrid.GetSelectedRows();
+                        if (col.Count > 0)
+                        {
+                            GridRow row = col[0] as GridRow;
+                            string zhuangtai = row.Cells[2].Value.ToString();
+                            AppDomain.CurrentDomain.SetData("s", row.Cells[1].Value);
+                            AppDomain.CurrentDomain.SetData("q", row.Cells[2].Value);
+                            BuyPayment bu = new BuyPayment(this);
+                            bu.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("请先选中要查看的数据所在行");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("请先选中要查看的数据所在行");
+                    }
+                    break;
+                case "银行存取款":
+                    break;
+                case "资金拆借":
+                    break;
+                case "欠货发货单":
+                    if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
+                    {
+
+                        SelectedElementCollection cols = superGridControl1.PrimaryGrid.GetSelectedRows();
+                        if (cols.Count > 0)
+                        {
+                            GridRow rows = cols[0] as GridRow;
+
+                                Sell.InSellForm sell = new Sell.InSellForm();
+                                sell.Sellmodel = rows;
+                                sell.State = 2;//2，缺货销售单
+                                sell.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("请选择要查看的数据行！");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("请选择要查看的数据行！");
+                    }
+                    break;
+                default:
+                    break;
             }
         }
-
         /// <summary>
         /// 查看物流
         /// </summary>
@@ -843,6 +1187,7 @@ namespace WSCATProject.Buys
             去付款ToolStripMenuItem.Visible = false;
             查看物流ToolStripMenuItem.Visible = false;
             新增物料信息ToolStripMenuItem.Visible = false;
+            销售审核ToolStripMenuItem.Visible = false;
             string cb2 = toolStripComboBox2.Text;
             switch (cb2)
             {
@@ -869,12 +1214,33 @@ namespace WSCATProject.Buys
                     }
                     break;
                 case "销售开单":
-                    SelectedElementCollection cols = superGridControl1.PrimaryGrid.GetSelectedRows();
-                    GridRow rows = cols[0] as GridRow;
-                    //string shenghestate = rows.Cells["ColumnsAuditStatus"].Value.ToString();
-                    break;
-                case "其他收货单":
-                    break;
+					if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
+                    {
+                        SelectedElementCollection cols = superGridControl1.PrimaryGrid.GetSelectedRows();
+                        if (cols.Count > 0)
+                        {
+                            GridRow rows = cols[0] as GridRow;
+                            string shengh = rows.Cells["Sell_Review"].Value.ToString();
+                            //未审核查看
+                            if (shengh == "0")
+                            {
+                                销售审核ToolStripMenuItem.Visible = true;
+                            }
+                            if (shengh == "1")
+                            {
+                                销售审核ToolStripMenuItem.Visible = false;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("请选择要审核的数据行！");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("请选择要审核的数据行！");
+                    }
+                    break;                case "其他收货单":                    break;
                 case "其他发货单":
                     break;
                 case "领料单":
@@ -905,5 +1271,37 @@ namespace WSCATProject.Buys
                     break;
             }
         }
+
+        private void 销售审核ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
+                {
+
+                    SelectedElementCollection cols = superGridControl1.PrimaryGrid.GetSelectedRows();
+                    if (cols.Count > 0)
+                    {
+                        GridRow rows = cols[0] as GridRow;
+                            Sell.InSellForm sell = new Sell.InSellForm();
+                            sell.Sellmodel = rows;
+                            sell.State = 1;//1，审核查看
+                            sell.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("请选择要审核的数据行！");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("请选择要审核的数据行！");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误"+ex.Message);
+            }
+}
     }
 }

@@ -19,9 +19,9 @@ namespace Model
 		private string _sell_maname;
 		private string _sell_model;
 		private string _sell_unit;
-		private string _sell_curnumber;
-        private string _sell_renumber;
-        private string _sell_lostnumber;
+		private decimal _sell_curnumber;
+        private decimal _sell_renumber;
+        private decimal _sell_lostnumber;
         private decimal _sell_discountAPrice;
         private decimal _sell_discount;
         private decimal _sell_discountBPrice;
@@ -82,7 +82,7 @@ namespace Model
 		/// <summary>
 		/// 预期数量
 		/// </summary>
-		public string Sell_CurNumber
+		public decimal Sell_CurNumber
 		{
 			set{ _sell_curnumber=value;}
 			get{return _sell_curnumber;}
@@ -214,7 +214,7 @@ namespace Model
         /// <summary>
         /// 实际数量
         /// </summary>
-        public string Sell_ReNumber
+        public decimal Sell_ReNumber
         {
             get
             {
@@ -230,7 +230,7 @@ namespace Model
         /// <summary>
         /// 欠缺数量
         /// </summary>
-        public string Sell_LostNumber
+        public decimal Sell_LostNumber
         {
             get
             {

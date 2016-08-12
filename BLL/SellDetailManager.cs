@@ -1,4 +1,5 @@
 ﻿using DAL;
+using HelperUtility.Encrypt;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ namespace BLL
         /// <returns></returns>
         public DataTable GetList(string strWhere)
         {
-            CodingHelper ch = new CodingHelper();
+			CodingHelper ch = new CodingHelper();
             return ch.DataTableReCoding(sds.GetList(strWhere).Tables[0]);
         }    
         /// <summary>
