@@ -1148,7 +1148,7 @@ namespace WSCATProject.Buys
                     }
                     break;
                 case "销售开单":
-                    if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
+					if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
                     {
                         SelectedElementCollection cols = superGridControl1.PrimaryGrid.GetSelectedRows();
                         if (cols.Count > 0)
@@ -1174,8 +1174,7 @@ namespace WSCATProject.Buys
                     {
                         MessageBox.Show("请选择要审核的数据行！");
                     }
-                    break;                case "其他收货单":
-                    break;
+                    break;                case "其他收货单":                    break;
                 case "其他发货单":
                     break;
                 case "领料单":
