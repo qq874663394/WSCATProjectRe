@@ -346,6 +346,7 @@ namespace WSCATProject.Buys
                 case "销售开单":
                     superGridControl1.PrimaryGrid.DataSource = null;
                     superGridControl1.PrimaryGrid.Columns.Clear();
+
                     try
                     {
                         #region 初始化销售开单列
