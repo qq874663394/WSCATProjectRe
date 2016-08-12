@@ -493,6 +493,55 @@ namespace DAL
                 }
             }
         }
+
+        /// <summary>
+        /// 执行多条SQL语句，实现数据库事务。并在其中有一条多影响行数的多参数语句
+        /// </summary>
+        /// <param name="SQLStringList">SQL语句的哈希表（key为sql语句，value是该语句的SqlParameter[]）</param>
+        /// <param name="sqlstr">对某表插入多条数据的sql</param>
+        /// <param name="paraList">插入多条数据的sql的参数集合</param>
+        public static void ExecuteSqlTran(Hashtable SQLStringList, string sqlstr, List<SqlParameter[]> paraList)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (SqlTransaction trans = conn.BeginTransaction())
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    try
+                    {
+                        if (paraList.Count > 0)
+                        {
+                            //循环
+                            foreach (DictionaryEntry myDE in SQLStringList)
+                            {
+                                string cmdText = myDE.Key.ToString();
+                                SqlParameter[] cmdParms = (SqlParameter[])myDE.Value;
+                                PrepareCommand(cmd, conn, trans, cmdText, cmdParms);
+                                int val = cmd.ExecuteNonQuery();
+                                cmd.Parameters.Clear();
+                            }
+
+                            foreach (SqlParameter[] para in paraList)
+                            {
+                                string cmdText = sqlstr;
+                                SqlParameter[] cmdParms = para;
+                                PrepareCommand(cmd, conn, trans, cmdText, cmdParms);
+                                int val = cmd.ExecuteNonQuery();
+                                cmd.Parameters.Clear();
+                            }
+                            trans.Commit();
+                        }
+                    }
+                    catch
+                    {
+                        trans.Rollback();
+                        throw;
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// 执行多条SQL语句，实现数据库事务。
         /// </summary>

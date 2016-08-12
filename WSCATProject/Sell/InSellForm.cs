@@ -195,6 +195,7 @@ namespace WSCATProject.Sell
                 _ClickStorage = new KeyValuePair<string, string>(code, name);
                 _StorageCode = code;
                 resizablePanel1.Visible = false;
+                //统计库存数
                 if (gr.Cells["gridColumnMaCode"].Value != null)
                 {
                     if (!string.IsNullOrEmpty(gr.Cells["gridColumnMaCode"].Value.ToString()))
@@ -202,21 +203,7 @@ namespace WSCATProject.Sell
                         DataTable tempDT = sm.searchMaterialStockNumber(_AllStock,
                             gr.Cells["gridColumnStockCode"].Value.ToString(),
                             gr.Cells["gridColumnMaCode"].Value.ToString());
-                        if (tempDT.Rows.Count > 0)
-                        {
-                            foreach (DataRow dr in tempDT.Rows)
-                            {
-                                decimal allnumber = dr["Sto_AllNumber"] == null ? 
-                                    0 : Convert.ToDecimal(dr["Sto_AllNumber"]);
-                            }
-                            labelXZongKuCun.Visible = true;
-                            labelXZongKuCun.Text = tempDT.Rows[0]["Sto_AllNumber"].ToString();
-                        }
-                        else
-                        {
-                            labelXZongKuCun.Visible = true;
-                            labelXZongKuCun.Text = "该商品不在软件库存中受统计";
-                        }
+                        materialStockNumber(tempDT,true);
                     }
                 }
             }
@@ -240,6 +227,7 @@ namespace WSCATProject.Sell
         {
             //是否要新增一行的标记
             bool newAdd = false;
+            SellManager sellManager = new SellManager();
             GridRow gr = (GridRow)superGridControl1.PrimaryGrid.Rows[ClickRowIndex];
             //id字段为空 说明是没有数据的行 不是修改而是新增
             if (gr.Cells["gridColumnid"].Value == null)
@@ -276,11 +264,45 @@ namespace WSCATProject.Sell
                 gr.Cells["gridColumnStockCode"].Value = _ClickStorage.Key;
                 gr.Cells["gridColumnStock"].Value = _ClickStorage.Value;
             }
+            if (gr.Cells["gridColumnStockCode"].Value != null)
+            {
+                //统计库存数
+                if (!string.IsNullOrEmpty(gr.Cells["gridColumnStockCode"].Value.ToString()))
+                {
+                    try
+                    {
+                        DataTable tempDT = sellManager.searchMaterialStockNumber(_AllStock,
+                            gr.Cells["gridColumnStockCode"].Value.ToString(),
+                            gr.Cells["gridColumnMaCode"].Value.ToString());
+                        materialStockNumber(tempDT, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("错误代码：1203-商品库存查询异常，错误代码=" + ex.Message);
+                    }
+                }
+                else
+                {
+                    //查询所有的库存信息
+                    DataTable tempDT = sellManager.searchMaterialStockNumber(_AllStock,
+                            "",
+                            gr.Cells["gridColumnMaCode"].Value.ToString());
+                    materialStockNumber(tempDT, false);
+                }
+            }
+            else
+            {
+                //查询所有的库存信息
+                DataTable tempDT = sellManager.searchMaterialStockNumber(_AllStock,
+                            "",
+                            gr.Cells["gridColumnMaCode"].Value.ToString());
+                materialStockNumber(tempDT, false);
+            }
+            //新增一行 
             if (newAdd)
             {
-                //新增一行
                 superGridControl1.PrimaryGrid.NewRow(superGridControl1.PrimaryGrid.Rows.Count);
-                //递增数量和金额 默认为1和单价
+                //递增数量和金额 默认为1和单价 
                 gr = (GridRow)superGridControl1.PrimaryGrid.LastSelectableRow;
                 _MaterialNumber += 1;
                 _MaterialMoney += price;
@@ -290,10 +312,43 @@ namespace WSCATProject.Sell
                 textBoxX2.Text = 100.ToString();
                 labtextboxTop5.Text = "0.00";
                 labtextboxTop3.Text = "0.00";
-
             }
+
             superGridControl1.Focus();
             SendKeys.Send("^{End}{Home}");
+        }
+
+        /// <summary>
+        /// 统计库存中商品的数量,并给显示它的lab赋值
+        /// </summary>
+        /// <param name="mastDT">物料的库存信息表</param>
+        /// <param name="stockNull">是否指定仓库</param>
+        private void materialStockNumber(DataTable mastDT, bool stockNull)
+        {
+            if (mastDT.Rows.Count > 0)
+            {
+                if (stockNull)
+                {
+                    labelXKuCun.Visible = true;
+                    labelXKuCun.Text = mastDT.Rows[0]["Sto_AllNumber"].ToString();
+                }
+                else
+                {
+                    decimal allnumber = 0;
+                    foreach (DataRow dr in mastDT.Rows)
+                    {
+                        allnumber += dr["Sto_AllNumber"] == null ?
+                            0 : Convert.ToDecimal(dr["Sto_AllNumber"]);
+                    }
+                    labelXZongKuCun.Visible = true;
+                    labelXZongKuCun.Text = mastDT.Rows[0]["Sto_AllNumber"].ToString();
+                }
+            }
+            else
+            {
+                labelXZongKuCun.Visible = true;
+                labelXZongKuCun.Text = "该商品不在软件库存中受统计";
+            }
         }
 
         #region 初始化数据
@@ -896,7 +951,6 @@ namespace WSCATProject.Sell
                 catch (Exception ex)
                 {
                     MessageBox.Show("错误代码：1201-审核过账出现异常，错误代码=" + ex.Message);
-                    throw;
                 }
             }
         }

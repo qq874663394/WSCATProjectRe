@@ -754,17 +754,22 @@ namespace DAL
 
             //添加到列表中
             hashtable.Add(strSql.ToString(), parameters);
+            
             //销售明细表操作
+            string moresqlstr = "";//该sql将插入多行
+            List<SqlParameter[]> paraList = new List<SqlParameter[]>();//多行的值参数列表
+
+            strSql = new StringBuilder();
+            strSql.Append("insert into T_SellDetail(");
+            strSql.Append("Sell_Code,Sell_StockCode,Sell_StockName,Sell_LineCode,Sell_MaID,Sell_MaName,Sell_Model,Sell_Unit,Sell_CurNumber,");
+            strSql.Append("Sell_ReNumber,Sell_LostNumber,Sell_DiscountAPrice,Sell_Discount,Sell_DiscountBPrice,Sell_Money,Sell_Clear,Sell_Safetyone,Sell_Safetytwo,Sell_Remark)");
+            strSql.Append(" values (");
+            strSql.Append("@Sell_Code,@Sell_StockCode,@Sell_StockName,@Sell_LineCode,@Sell_MaID,@Sell_MaName,@Sell_Model,@Sell_Unit,@Sell_CurNumber,");
+            strSql.Append("@Sell_ReNumber,@Sell_LostNumber,@Sell_DiscountAPrice,@Sell_Discount,@Sell_DiscountBPrice,@Sell_Money,@Sell_Clear,@Sell_Safetyone,@Sell_Safetytwo,@Sell_Remark)");
+            moresqlstr = strSql.ToString();
+
             foreach (var sd in sdl)
             {
-                strSql = new StringBuilder();
-                strSql.Append("insert into T_SellDetail(");
-                strSql.Append("Sell_Code,Sell_StockCode,Sell_StockName,Sell_LineCode,Sell_MaID,Sell_MaName,Sell_Model,Sell_Unit,Sell_CurNumber,");
-                strSql.Append("Sell_ReNumber,Sell_LostNumber,Sell_DiscountAPrice,Sell_Discount,Sell_DiscountBPrice,Sell_Money,Sell_Clear,Sell_Safetyone,Sell_Safetytwo,Sell_Remark)");
-                strSql.Append(" values (");
-                strSql.Append("@Sell_Code,@Sell_StockCode,@Sell_StockName,@Sell_LineCode,@Sell_MaID,@Sell_MaName,@Sell_Model,@Sell_Unit,@Sell_CurNumber,");
-                strSql.Append("@Sell_ReNumber,@Sell_LostNumber,@Sell_DiscountAPrice,@Sell_Discount,@Sell_DiscountBPrice,@Sell_Money,@Sell_Clear,@Sell_Safetyone,@Sell_Safetytwo,@Sell_Remark)");
-
                 SqlParameter[] parametersDetail = {
                 new SqlParameter("@Sell_Code", SqlDbType.NVarChar, 512),
                     new SqlParameter("@Sell_StockCode", SqlDbType.NVarChar, 512),
@@ -805,7 +810,7 @@ namespace DAL
                 parametersDetail[17].Value = sd.Sell_Safetytwo;
                 parametersDetail[18].Value = sd.Sell_Remark;
                 //添加到列表中
-                hashtable.Add(strSql.ToString(), parametersDetail);
+                paraList.Add(parametersDetail);
             }
             //操作过程表操作
             strSql = new StringBuilder();
@@ -838,7 +843,7 @@ namespace DAL
                 //入库单生成
             }
 
-            DbHelperSQL.ExecuteSqlTran(hashtable);
+            DbHelperSQL.ExecuteSqlTran(hashtable,moresqlstr,paraList);
 
         }
 
