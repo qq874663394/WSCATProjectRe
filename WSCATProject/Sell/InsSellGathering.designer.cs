@@ -528,6 +528,7 @@
             this.ltxt_salecode.ReadOnly = true;
             this.ltxt_salecode.Size = new System.Drawing.Size(143, 16);
             this.ltxt_salecode.TabIndex = 39;
+            this.ltxt_salecode.Text = "编号";
             // 
             // ltxt_shishou
             // 

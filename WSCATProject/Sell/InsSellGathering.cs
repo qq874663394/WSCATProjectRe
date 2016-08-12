@@ -122,6 +122,7 @@ namespace WSCATProject.Sell
             {
                 textBoxOddNumbers.Text = BuildCode.ModuleCode("AC");
             }
+            
             //textBoxOddNumbers.Text = BuildCode.ModuleCode("AC");//收款单单号
             ltxt_shoukuan.Text = "0";
             ltxt_shishou.Text = "0";
@@ -242,16 +243,16 @@ namespace WSCATProject.Sell
                 case "pictureBox1":
                     ltxt_kehu.Text = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();
                     //ltxt_yingshou.Text = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();
-                    cw.CW_ClientName = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();
-                    cw.CW_ClientCode = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsValue"].Value.ToString();
+                    cw.CW_ClientName = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();//客户名称
+                    cw.CW_ClientCode = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsValue"].Value.ToString();//客户编号
                     break;
                 case "pictureBox2":
                     ltxt_AccountName.Text = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();
-                    cw.CW_AccountCode = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsValue"].Value.ToString();
+                    cw.CW_AccountCode = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsValue"].Value.ToString();//收款账户
                     break;
                 case "pictureBox3":
                     ltxt_saleman.Text = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();
-                    cw.CW_SalesMan = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();
+                    cw.CW_SalesMan = dataGridViewFujia.Rows[e.RowIndex].Cells["ColumnsName"].Value.ToString();//业务员
                     break;
             }
             resizablePanel1.Visible = false;
@@ -262,10 +263,10 @@ namespace WSCATProject.Sell
         private void buttonSave_Click(object sender, EventArgs e)
         {
             ConllectionWaitManager cwm = new ConllectionWaitManager();
-            cw.CW_Code = textBoxOddNumbers.Text;
-            cw.CW_Operation = ltxt_operation.Text.Trim();
-            cw.CW_Remark = ltxt_remark.Text.Trim();
-            int result = cwm.InsConllectionWait(cw);
+            cw.CW_Code = textBoxOddNumbers.Text;//单号
+            cw.CW_Operation = ltxt_operation.Text.Trim();//制单人
+            cw.CW_Remark = ltxt_remark.Text.Trim();//备注
+            int result = cwm.InsConllectionWait(cw);//增加后返回int类型
             if (result>0)
             {
                 MessageBox.Show("保存成功！");

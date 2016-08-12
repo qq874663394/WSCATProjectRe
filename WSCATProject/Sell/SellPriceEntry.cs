@@ -108,19 +108,19 @@ namespace WSCATProject.Sell
         {
             try
             {
-                double price = Convert.ToDouble(textBoxX1.Text.Trim());//原始单价
-                double discount = Convert.ToDouble(textBoxX3.Text.Trim());//折扣率
-                if (discount > 100 || discount<= 0)
+                decimal price = Convert.ToDecimal(textBoxX1.Text.Trim());//原始单价
+                decimal discount = Convert.ToDecimal(textBoxX3.Text.Trim());//折扣率
+                if (discount > 100 || discount <= 0)
                 {
                     MessageBox.Show("折扣率不能大于100并且不能小于0！");
                     textBoxX3.Text = "100.00";
                     return;
                 }
-                double zongmoney = price * (discount / 100);//总金额
+                decimal zongmoney = price * (discount / 100)* Convert.ToDecimal(lblcount.Text);//总金额
                 textBoxX4.Text = zongmoney.ToString("0.00");
-                double zhehou = price * (discount / 100);//折后单价
+                decimal zhehou = price * (discount / 100);//折后单价
                 textBoxX5.Text = zhehou.ToString("0.00");
-                double zhekou = price - zhehou;//折扣金额
+                decimal zhekou = price - zhehou;//折扣金额
                 textBoxX2.Text = zhekou.ToString("0.00");
             }
             catch (Exception)
@@ -134,12 +134,12 @@ namespace WSCATProject.Sell
             string priceType = "";
             string price = "";
             string discount = "100.00";
-            string controlName = (sender as DataGridView).Name;
-            priceType = dataGridView1.CurrentRow.Cells["价格类型"].Value.ToString();
-            price = dataGridView1.CurrentRow.Cells["价格"].Value.ToString();
-            if (priceType!="建议售价")
+            DataGridView controlName = (sender as DataGridView);
+            priceType = controlName.CurrentRow.Cells[0].Value.ToString();
+            price = controlName.CurrentRow.Cells[1].Value.ToString();
+            if (priceType != "建议售价")
             {
-                discount = dataGridView1.CurrentRow.Cells["折扣率"].Value.ToString();
+                discount = controlName.CurrentRow.Cells[2].Value.ToString();
             }
             textBoxX1.Text = price;
             textBoxX3.Text = discount;
