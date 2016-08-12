@@ -278,6 +278,7 @@
             this.lblcount.Name = "lblcount";
             this.lblcount.Size = new System.Drawing.Size(75, 23);
             this.lblcount.TabIndex = 14;
+            this.lblcount.Text = "10";
             // 
             // labelX6
             // 

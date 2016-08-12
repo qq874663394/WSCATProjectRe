@@ -57,7 +57,7 @@
             this.gridColumn18 = new DevComponents.DotNetBar.SuperGrid.GridColumn();
             this.gridColumn19 = new DevComponents.DotNetBar.SuperGrid.GridColumn();
             this.gridColumn20 = new DevComponents.DotNetBar.SuperGrid.GridColumn();
-            this.labelXKuCheng = new DevComponents.DotNetBar.LabelX();
+            this.labelXZongKuCun = new DevComponents.DotNetBar.LabelX();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxEx1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -66,6 +66,7 @@
             this.comboItem6 = new DevComponents.Editors.ComboItem();
             this.comboItem7 = new DevComponents.Editors.ComboItem();
             this.comboItem8 = new DevComponents.Editors.ComboItem();
+            this.labelXKuCun = new DevComponents.DotNetBar.LabelX();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -232,7 +233,7 @@
             this.labtextboxTop3.Border.BorderGradientAngle = 0;
             this.labtextboxTop3.Border.Class = "SideNavStrip";
             this.labtextboxTop3.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labtextboxTop3.Location = new System.Drawing.Point(829, 49);
+            this.labtextboxTop3.Location = new System.Drawing.Point(836, 49);
             this.labtextboxTop3.Validated += new System.EventHandler(this.labtextboxTop3_Validated);
             // 
             // labtextboxTop7
@@ -302,7 +303,7 @@
             this.labtextboxTop8.Border.BorderGradientAngle = 0;
             this.labtextboxTop8.Border.Class = "SideNavStrip";
             this.labtextboxTop8.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labtextboxTop8.Location = new System.Drawing.Point(829, 83);
+            this.labtextboxTop8.Location = new System.Drawing.Point(837, 83);
             // 
             // labtextboxTop5
             // 
@@ -429,15 +430,18 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.labelXKuCheng);
+            this.panel4.Controls.Add(this.labelXKuCun);
+            this.panel4.Controls.Add(this.labelXZongKuCun);
             this.panel4.Size = new System.Drawing.Size(1204, 47);
             this.panel4.Controls.SetChildIndex(this.buttonClose, 0);
             this.panel4.Controls.SetChildIndex(this.buttonSave, 0);
             this.panel4.Controls.SetChildIndex(this.buttonExamine, 0);
-            this.panel4.Controls.SetChildIndex(this.labelXKuCheng, 0);
+            this.panel4.Controls.SetChildIndex(this.labelXZongKuCun, 0);
+            this.panel4.Controls.SetChildIndex(this.labelXKuCun, 0);
             // 
             // panel5
             // 
+            this.panel5.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel5.Size = new System.Drawing.Size(1204, 71);
             // 
             // textBoxX3
@@ -613,6 +617,7 @@
             this.gridColumn14.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn14.HeaderText = "单价";
             this.gridColumn14.Name = "gridColumnPrice";
+            this.gridColumn14.ReadOnly = true;
             this.gridColumn14.Width = 80;
             // 
             // gridColumn15
@@ -659,18 +664,19 @@
             this.gridColumn20.ReadOnly = true;
             this.gridColumn20.Width = 80;
             // 
-            // labelXKuCheng
+            // labelXZongKuCun
             // 
             // 
             // 
             // 
-            this.labelXKuCheng.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelXKuCheng.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelXKuCheng.Location = new System.Drawing.Point(31, 12);
-            this.labelXKuCheng.Name = "labelXKuCheng";
-            this.labelXKuCheng.Size = new System.Drawing.Size(75, 23);
-            this.labelXKuCheng.TabIndex = 3;
-            this.labelXKuCheng.Text = "labelX1";
+            this.labelXZongKuCun.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelXZongKuCun.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelXZongKuCun.Location = new System.Drawing.Point(13, 3);
+            this.labelXZongKuCun.Name = "labelXZongKuCun";
+            this.labelXZongKuCun.Size = new System.Drawing.Size(681, 21);
+            this.labelXZongKuCun.TabIndex = 3;
+            this.labelXZongKuCun.Text = "总数量";
+            this.labelXZongKuCun.Visible = false;
             // 
             // label3
             // 
@@ -729,6 +735,20 @@
             // comboItem8
             // 
             this.comboItem8.Text = "微信";
+            // 
+            // labelXKuCun
+            // 
+            // 
+            // 
+            // 
+            this.labelXKuCun.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelXKuCun.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelXKuCun.Location = new System.Drawing.Point(12, 24);
+            this.labelXKuCun.Name = "labelXKuCun";
+            this.labelXKuCun.Size = new System.Drawing.Size(681, 21);
+            this.labelXKuCun.TabIndex = 4;
+            this.labelXKuCun.Text = "仓库数量";
+            this.labelXKuCun.Visible = false;
             // 
             // InSellForm
             // 
@@ -791,7 +811,7 @@
         private DevComponents.DotNetBar.SuperGrid.GridColumn gridColumn18;
         private DevComponents.DotNetBar.SuperGrid.GridColumn gridColumn19;
         private DevComponents.DotNetBar.SuperGrid.GridColumn gridColumn20;
-        private DevComponents.DotNetBar.LabelX labelXKuCheng;
+        private DevComponents.DotNetBar.LabelX labelXZongKuCun;
         private System.Windows.Forms.Label label3;
         private DevComponents.Editors.ComboItem comboItem3;
         private System.Windows.Forms.Label label4;
@@ -801,5 +821,6 @@
         private DevComponents.Editors.ComboItem comboItem6;
         private DevComponents.Editors.ComboItem comboItem7;
         private DevComponents.Editors.ComboItem comboItem8;
+        private DevComponents.DotNetBar.LabelX labelXKuCun;
     }
 }

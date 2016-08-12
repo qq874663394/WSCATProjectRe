@@ -161,6 +161,7 @@ namespace WSCATProject.Sell
             string priceType = "";
             string price = "";
             string discount = "100.00";
+            lblcount.Text = "10";
             DataGridView controlName = (sender as DataGridView);
             priceType = controlName.CurrentRow.Cells[0].Value.ToString();//价格类型
             price = controlName.CurrentRow.Cells[1].Value.ToString();//价格

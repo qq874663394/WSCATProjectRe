@@ -463,7 +463,7 @@ namespace WSCATProject.Sell
                 return;
             }
             ltxt_shishou.Text = shoukuan.ToString();
-            ltxt_weishou.Text = (Convert.ToDecimal(ltxt_yingshou.Text.Trim()) - Convert.ToDecimal(ltxt_shishou.Text.Trim())).ToString();//未收金额
+            //ltxt_weishou.Text = (Convert.ToDecimal(ltxt_yingshou.Text.Trim()) - Convert.ToDecimal(ltxt_shishou.Text.Trim())).ToString();//未收金额
         }
         #endregion
 
