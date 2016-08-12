@@ -219,7 +219,7 @@ namespace WSCATProject.Sell
                     }
                 }
             }
- //缺货销售单
+            //缺货销售单
             if (_state==2)
             {
                 try
