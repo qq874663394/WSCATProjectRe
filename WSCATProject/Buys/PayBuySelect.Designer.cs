@@ -90,6 +90,7 @@ namespace WSCATProject.Buys
             this.去付款ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看物流ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.新增物料信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.销售审核ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -503,45 +504,53 @@ namespace WSCATProject.Buys
             this.申请付款ToolStripMenuItem,
             this.去付款ToolStripMenuItem,
             this.查看物流ToolStripMenuItem,
-            this.新增物料信息ToolStripMenuItem});
+            this.新增物料信息ToolStripMenuItem,
+            this.销售审核ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 158);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // 审核过账ToolStripMenuItem
             // 
             this.审核过账ToolStripMenuItem.Name = "审核过账ToolStripMenuItem";
-            this.审核过账ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.审核过账ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.审核过账ToolStripMenuItem.Text = "审核过账";
             this.审核过账ToolStripMenuItem.Click += new System.EventHandler(this.审核过账ToolStripMenuItem_Click);
             // 
             // 申请付款ToolStripMenuItem
             // 
             this.申请付款ToolStripMenuItem.Name = "申请付款ToolStripMenuItem";
-            this.申请付款ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.申请付款ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.申请付款ToolStripMenuItem.Text = "申请付款";
             this.申请付款ToolStripMenuItem.Click += new System.EventHandler(this.申请付款ToolStripMenuItem_Click);
             // 
             // 去付款ToolStripMenuItem
             // 
             this.去付款ToolStripMenuItem.Name = "去付款ToolStripMenuItem";
-            this.去付款ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.去付款ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.去付款ToolStripMenuItem.Text = "审核付款";
             this.去付款ToolStripMenuItem.Click += new System.EventHandler(this.去付款ToolStripMenuItem_Click);
             // 
             // 查看物流ToolStripMenuItem
             // 
             this.查看物流ToolStripMenuItem.Name = "查看物流ToolStripMenuItem";
-            this.查看物流ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.查看物流ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.查看物流ToolStripMenuItem.Text = "查看物流";
             this.查看物流ToolStripMenuItem.Click += new System.EventHandler(this.查看物流ToolStripMenuItem_Click);
             // 
             // 新增物料信息ToolStripMenuItem
             // 
             this.新增物料信息ToolStripMenuItem.Name = "新增物料信息ToolStripMenuItem";
-            this.新增物料信息ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.新增物料信息ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.新增物料信息ToolStripMenuItem.Text = "新增物流信息";
             this.新增物料信息ToolStripMenuItem.Click += new System.EventHandler(this.新增物料信息ToolStripMenuItem_Click);
+            // 
+            // 销售审核ToolStripMenuItem
+            // 
+            this.销售审核ToolStripMenuItem.Name = "销售审核ToolStripMenuItem";
+            this.销售审核ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.销售审核ToolStripMenuItem.Text = "销售审核";
+            this.销售审核ToolStripMenuItem.Click += new System.EventHandler(this.销售审核ToolStripMenuItem_Click);
             // 
             // PayBuySelect
             // 
@@ -621,5 +630,6 @@ namespace WSCATProject.Buys
         private ToolStripMenuItem 新增物料信息ToolStripMenuItem;
         private ToolStripMenuItem 申请付款ToolStripMenuItem;
         private ToolStripMenuItem 审核过账ToolStripMenuItem;
+        private ToolStripMenuItem 销售审核ToolStripMenuItem;
     }
 }

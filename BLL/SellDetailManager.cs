@@ -1,4 +1,5 @@
 ﻿using DAL;
+using HelperUtility.Encrypt;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -47,7 +48,8 @@ namespace BLL
         /// <returns></returns>
         public DataSet GetList(string strWhere)
         {
-            return sds.GetList(strWhere);
+            CodingHelper ch = new CodingHelper();
+            return ch.DataSetReCoding(sds.GetList(strWhere));
         }    
         /// <summary>
         /// 查询历史折扣

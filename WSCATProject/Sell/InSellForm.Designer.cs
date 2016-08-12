@@ -101,6 +101,7 @@
             // 
             // panel6
             // 
+            this.panel6.BackColor = System.Drawing.Color.White;
             this.panel6.Controls.Add(this.comboBoxEx1);
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.comboBoxEx);
@@ -578,11 +579,13 @@
             // 
             // gridColumn8
             // 
+            this.gridColumn8.DataPropertyName = "Sell_StockName";
             this.gridColumn8.HeaderText = "仓库名称";
             this.gridColumn8.Name = "gridColumnStock";
             // 
             // gridColumn9
             // 
+            this.gridColumn9.DataPropertyName = "Sell_LineCode";
             this.gridColumn9.HeaderText = "助记码、型号、名称";
             this.gridColumn9.Name = "material";
             this.gridColumn9.Width = 130;
@@ -590,22 +593,26 @@
             // gridColumn10
             // 
             this.gridColumn10.AllowEdit = false;
+            this.gridColumn10.DataPropertyName = "Sell_MaName";
             this.gridColumn10.HeaderText = "货品名称";
             this.gridColumn10.Name = "gridColumnName";
             // 
             // gridColumn11
             // 
+            this.gridColumn11.DataPropertyName = "Sell_Model";
             this.gridColumn11.HeaderText = "规格型号";
             this.gridColumn11.Name = "gridColumnModel";
             // 
             // gridColumn12
             // 
+            this.gridColumn12.DataPropertyName = "Sell_Unit";
             this.gridColumn12.HeaderText = "单位";
             this.gridColumn12.Name = "gridColumnUnit";
             this.gridColumn12.Width = 80;
             // 
             // gridColumn13
             // 
+            this.gridColumn13.DataPropertyName = "Sell_CurNumber";
             this.gridColumn13.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn13.HeaderText = "需求数量";
             this.gridColumn13.Name = "gridColumnNumber";
@@ -613,6 +620,7 @@
             // 
             // gridColumn14
             // 
+            this.gridColumn14.DataPropertyName = "Sell_DiscountBPrice";
             this.gridColumn14.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn14.HeaderText = "单价";
             this.gridColumn14.Name = "gridColumnPrice";
@@ -620,6 +628,7 @@
             // 
             // gridColumn15
             // 
+            this.gridColumn15.DataPropertyName = "Sell_Discount";
             this.gridColumn15.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn15.HeaderText = "折扣率";
             this.gridColumn15.Name = "gridColumnDis";
@@ -628,6 +637,7 @@
             // 
             // gridColumn16
             // 
+            this.gridColumn16.DataPropertyName = "Sell_DiscountAPrice";
             this.gridColumn16.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn16.HeaderText = "折后价格";
             this.gridColumn16.Name = "gridColumnDisPrice";
@@ -636,6 +646,7 @@
             // 
             // gridColumn17
             // 
+            this.gridColumn17.DataPropertyName = "Sell_Money";
             this.gridColumn17.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn17.HeaderText = "总金额";
             this.gridColumn17.Name = "gridColumnMoney";
@@ -644,11 +655,13 @@
             // 
             // gridColumn18
             // 
+            this.gridColumn18.DataPropertyName = "Sell_Remark";
             this.gridColumn18.HeaderText = "备注";
             this.gridColumn18.Name = "gridColumnRemark";
             // 
             // gridColumn19
             // 
+            this.gridColumn19.DataPropertyName = "Sell_ReNumber";
             this.gridColumn19.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn19.HeaderText = "实发数量";
             this.gridColumn19.Name = "gridColumnshifashu";
@@ -656,6 +669,7 @@
             // 
             // gridColumn20
             // 
+            this.gridColumn20.DataPropertyName = "Sell_LostNumber";
             this.gridColumn20.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn20.HeaderText = "缺少数量";
             this.gridColumn20.Name = "gridColumnqueshao";
