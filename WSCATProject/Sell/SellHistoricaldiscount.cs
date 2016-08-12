@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using DevComponents.DotNetBar.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +26,8 @@ namespace WSCATProject.Sell
             textBoxX5.ReadOnly = true;//折后单价   
             //设置为整行被选中
             this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //绑定数据
+            dataGridView1.DataSource = new SellDetailManager().SelDiscountByAccount("本次", "说服力是地方");
         }
 
         #region  折扣率只允许输入数字，小数和Del
@@ -62,17 +66,20 @@ namespace WSCATProject.Sell
             {
                 double price = Convert.ToDouble(textBoxX1.Text.Trim());//原始单价
                 double discount = Convert.ToDouble(textBoxX3.Text.Trim());//折扣率
-                if (discount > 100)
+                double shuliang = Convert.ToDouble(lblcount.Text.Trim());//数量
+                if (discount > 100 || discount <= 0)
                 {
-                    MessageBox.Show("折扣率不能大于100！");
+                    MessageBox.Show("折扣率不能大于100并且不能小于0！");
+                    textBoxX3.Text = "100.00";
                     return;
                 }
-                double zongmoney = price * (discount / 100);//总金额
-                textBoxX4.Text = zongmoney.ToString();
+                double jine = price * shuliang;
+                double zongmoney = jine * (discount / 100);//总金额
+                textBoxX4.Text = zongmoney.ToString("0.00");
                 double zhehou = price * (discount / 100);//折后单价
-                textBoxX5.Text = zhehou.ToString();
+                textBoxX5.Text = zhehou.ToString("0.00");
                 double zhekou = price - zhehou;//折扣金额
-                textBoxX2.Text = zhekou.ToString();
+                textBoxX2.Text = zhekou.ToString("0.00");
             }
             catch (Exception)
             {
@@ -80,5 +87,33 @@ namespace WSCATProject.Sell
             }
         }
 
+        //选中行绑定到文本框
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            string priceType = "";
+            string price = "";
+            string discount = "100.00";
+            priceType = dataGridView1.CurrentRow.Cells[0].Value.ToString();//价格类型
+            price = dataGridView1.CurrentRow.Cells[1].Value.ToString();//价格
+            discount = dataGridView1.CurrentRow.Cells[2].Value.ToString();//折扣率
+            textBoxX1.Text = price;
+            textBoxX3.Text = discount;
+            textBoxX5.Text = (Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100).ToString("0.00");//折扣单价
+            textBoxX2.Text = (Convert.ToDecimal(price) - (Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100)).ToString("0.00");//折扣金额
+            textBoxX4.Text = ((Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100) * (Convert.ToDecimal(lblcount.Text))).ToString("0.00");//总金额
+        }
+
+        private void textBoxX1_Leave(object sender, EventArgs e)
+        {
+            //控件失去焦点后将它的值的格式精确到两位小数
+            TextBoxX name = (sender as TextBoxX);
+            name.Text = Convert.ToDecimal(name.Text).ToString("0.00");
+        }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
     }
 }
