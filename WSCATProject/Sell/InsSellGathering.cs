@@ -130,7 +130,7 @@ namespace WSCATProject.Sell
                 textBoxOddNumbers.Text = BuildCode.ModuleCode("AC");
             }
             //ltxt_salecode.Text
-            textBoxX1.Text = "0";
+            //textBoxX1.Text = "0";
             ltxt_shishou.Text = "0";
             ltxt_weishou.Text = "0";
             //制单人
@@ -446,7 +446,7 @@ namespace WSCATProject.Sell
                 string yingshou = ltxt_yingshou.Text.Trim();
                 string shishou = ltxt_shishou.Text.Trim();
                 string weishou = ltxt_weishou.Text.Trim();
-                textBoxX1.Text = yingshou.ToString();
+                //yingshou.Text = yingshou.ToString();
                 ltxt_shishou.Text = yingshou.ToString();
                 if (this.button1.Text == "√")
                 {
@@ -464,7 +464,7 @@ namespace WSCATProject.Sell
                 }
                 if (this.button1.Text == "×")
                 {
-                    textBoxX1.Text = "0";
+                    //textBoxX1.Text = "0";
                     ltxt_shishou.Text = "0";
                     ltxt_weishou.Text = ltxt_yingshou.Text;
                     this.button1.Text = "√";

@@ -1140,5 +1140,9 @@ namespace WSCATProject.Sell
         {
             resizablePanel1.Visible = false;
         }
+
+        private void superGridControl1_CellDoubleClick(object sender, GridCellDoubleClickEventArgs e)
+        {
+        }
     }
 }

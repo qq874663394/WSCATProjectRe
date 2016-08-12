@@ -58,6 +58,7 @@
             this.labBotton3 = new System.Windows.Forms.Label();
             this.labBotton1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -66,6 +67,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ltxt_shoukuan = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labTop5 = new System.Windows.Forms.Label();
             this.labTop4 = new System.Windows.Forms.Label();
@@ -77,8 +79,6 @@
             this.panelDataView = new System.Windows.Forms.Panel();
             this.dataGridViewFujia = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.ltxt_shoukuan = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -446,6 +446,15 @@
             this.panel4.Size = new System.Drawing.Size(1052, 46);
             this.panel4.TabIndex = 32;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(682, 7);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(93, 31);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "保存并审核";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // buttonSave
             // 
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -570,6 +579,27 @@
             this.pictureBox2.TabIndex = 31;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.ClickPicBox);
+            // 
+            // ltxt_shoukuan
+            // 
+            // 
+            // 
+            // 
+            this.ltxt_shoukuan.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ltxt_shoukuan.Border.BorderBottomColor = System.Drawing.Color.Black;
+            this.ltxt_shoukuan.Border.BorderBottomWidth = 1;
+            this.ltxt_shoukuan.Border.BorderGradientAngle = 0;
+            this.ltxt_shoukuan.Border.Class = "SideNavStrip";
+            this.ltxt_shoukuan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ltxt_shoukuan.Location = new System.Drawing.Point(579, 22);
+            this.ltxt_shoukuan.MaxLength = 11;
+            this.ltxt_shoukuan.Name = "ltxt_shoukuan";
+            this.ltxt_shoukuan.Size = new System.Drawing.Size(148, 16);
+            this.ltxt_shoukuan.TabIndex = 29;
+            this.ltxt_shoukuan.WordWrap = false;
+            this.ltxt_shoukuan.TextChanged += new System.EventHandler(this.ltxt_shoukuan_TextChanged);
+            this.ltxt_shoukuan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ltxt_shoukuan_KeyPress);
+            this.ltxt_shoukuan.Validated += new System.EventHandler(this.ltxt_shoukuan_Validated);
             // 
             // pictureBox1
             // 
@@ -710,36 +740,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 2;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(682, 7);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 31);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "保存并审核";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // ltxt_shoukuan
-            // 
-            // 
-            // 
-            // 
-            this.ltxt_shoukuan.Border.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ltxt_shoukuan.Border.BorderBottomColor = System.Drawing.Color.Black;
-            this.ltxt_shoukuan.Border.BorderBottomWidth = 1;
-            this.ltxt_shoukuan.Border.BorderGradientAngle = 0;
-            this.ltxt_shoukuan.Border.Class = "SideNavStrip";
-            this.ltxt_shoukuan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ltxt_shoukuan.Location = new System.Drawing.Point(579, 22);
-            this.ltxt_shoukuan.MaxLength = 11;
-            this.ltxt_shoukuan.Name = "ltxt_shoukuan";
-            this.ltxt_shoukuan.Size = new System.Drawing.Size(148, 16);
-            this.ltxt_shoukuan.TabIndex = 29;
-            this.ltxt_shoukuan.WordWrap = false;
-            this.ltxt_shoukuan.TextChanged += new System.EventHandler(this.ltxt_shoukuan_TextChanged);
-            this.ltxt_shoukuan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ltxt_shoukuan_KeyPress);
-            this.ltxt_shoukuan.Validated += new System.EventHandler(this.ltxt_shoukuan_Validated);
             // 
             // InsSellGathering
             // 
