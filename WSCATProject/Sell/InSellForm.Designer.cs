@@ -440,6 +440,7 @@
             // 
             // panel5
             // 
+            this.panel5.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel5.Size = new System.Drawing.Size(1204, 71);
             // 
             // textBoxX3
