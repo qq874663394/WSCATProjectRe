@@ -145,7 +145,7 @@ namespace WSCATProject.Sell
             gdiecNumber.MaxValue = 999999999;
             //实发数量
             GridDoubleInputEditControl gdiecShifa = superGridControl1.PrimaryGrid.Columns["gridColumnshifashu"].EditControl as GridDoubleInputEditControl;
-
+            gdiecShifa.ButtonCustom.Visible = true;
             gdiecShifa.MinValue = 0;
             gdiecShifa.MaxValue = 999999999;
             //缺少数量
@@ -157,6 +157,12 @@ namespace WSCATProject.Sell
             gdiecdanjia.MinValue = 0;
             gdiecdanjia.MaxValue = 999999999;
 
+
+            GridTextBoxDropDownEditControl ddc =
+                superGridControl1.PrimaryGrid.Columns["gridColumnModel"].EditControl as GridTextBoxDropDownEditControl;
+            ddc.ButtonCustom.Visible = true;
+
+            
         }
         /// <summary>
         /// 绑定pictureBox表格的数据
@@ -203,7 +209,10 @@ namespace WSCATProject.Sell
                         DataTable tempDT = sm.searchMaterialStockNumber(_AllStock,
                             gr.Cells["gridColumnStockCode"].Value.ToString(),
                             gr.Cells["gridColumnMaCode"].Value.ToString());
-						materialStockNumber(tempDT,true);                    }
+
+						materialStockNumber(tempDT,true, gr.Cells["gridColumnName"].Value.ToString(),
+                            gr.Cells["gridColumnStock"].Value.ToString());
+                    }
                 }
             }
             //绑定收款账号的
@@ -273,7 +282,9 @@ namespace WSCATProject.Sell
                         DataTable tempDT = sellManager.searchMaterialStockNumber(_AllStock,
                             gr.Cells["gridColumnStockCode"].Value.ToString(),
                             gr.Cells["gridColumnMaCode"].Value.ToString());
-                        materialStockNumber(tempDT, true);
+
+                        materialStockNumber(tempDT, true, gr.Cells["gridColumnName"].Value.ToString(),
+                            gr.Cells["gridColumnStock"].Value.ToString());
                     }
                     catch (Exception ex)
                     {
@@ -286,7 +297,7 @@ namespace WSCATProject.Sell
                     DataTable tempDT = sellManager.searchMaterialStockNumber(_AllStock,
                             "",
                             gr.Cells["gridColumnMaCode"].Value.ToString());
-                    materialStockNumber(tempDT, false);
+                    materialStockNumber(tempDT, false, gr.Cells["gridColumnName"].Value.ToString(), "");
                 }
             }
             else
@@ -295,7 +306,7 @@ namespace WSCATProject.Sell
                 DataTable tempDT = sellManager.searchMaterialStockNumber(_AllStock,
                             "",
                             gr.Cells["gridColumnMaCode"].Value.ToString());
-                materialStockNumber(tempDT, false);
+                materialStockNumber(tempDT, false, gr.Cells["gridColumnName"].Value.ToString(),"");
             }
             //新增一行 
             if (newAdd)
@@ -322,14 +333,17 @@ namespace WSCATProject.Sell
         /// </summary>
         /// <param name="mastDT">物料的库存信息表</param>
         /// <param name="stockNull">是否指定仓库</param>
-        private void materialStockNumber(DataTable mastDT, bool stockNull)
+        private void materialStockNumber(DataTable mastDT, bool stockNull, string maName, string stoName)
         {
             if (mastDT.Rows.Count > 0)
             {
                 if (stockNull)
                 {
                     labelXKuCun.Visible = true;
-                    labelXKuCun.Text = mastDT.Rows[0]["Sto_AllNumber"].ToString();
+                    labelXKuCun.Text = "商品 [" + maName + "] 在仓库" +
+                        stoName + "中的总量为: " + 
+                        mastDT.Rows[0]["Sto_AllNumber"].ToString();
+                    labelXKuCun.Visible = true;
                 }
                 else
                 {
@@ -340,13 +354,18 @@ namespace WSCATProject.Sell
                             0 : Convert.ToDecimal(dr["Sto_AllNumber"]);
                     }
                     labelXZongKuCun.Visible = true;
-                    labelXZongKuCun.Text = mastDT.Rows[0]["Sto_AllNumber"].ToString();
+                    labelXZongKuCun.Text = "商品 [" + maName + "] 在所有仓库中的总量为 " + 
+                        mastDT.Rows[0]["Sto_AllNumber"].ToString();
+                    labelXKuCun.Visible = false;
+                    labelXKuCun.Text = "";
                 }
             }
             else
             {
                 labelXZongKuCun.Visible = true;
                 labelXZongKuCun.Text = "该商品不在软件库存中受统计";
+                labelXKuCun.Text = "";
+                labelXKuCun.Visible = false;
             }
         }
 

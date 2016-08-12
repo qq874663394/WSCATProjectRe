@@ -596,6 +596,7 @@
             // 
             // gridColumn11
             // 
+            this.gridColumn11.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridTextBoxDropDownEditControl);
             this.gridColumn11.HeaderText = "规格型号";
             this.gridColumn11.Name = "gridColumnModel";
             // 

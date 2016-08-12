@@ -804,7 +804,8 @@ namespace WSCATProject.Buys
                 case "销售开单":
                     SelectedElementCollection cols = superGridControl1.PrimaryGrid.GetSelectedRows();
                     GridRow rows = cols[0] as GridRow;
-					//string shenghestate = rows.Cells["ColumnsAuditStatus"].Value.ToString();                    break;
+                    //string shenghestate = rows.Cells["ColumnsAuditStatus"].Value.ToString(); 
+                    break;
                 case "其他收货单":
                     break;
                 case "其他发货单":
