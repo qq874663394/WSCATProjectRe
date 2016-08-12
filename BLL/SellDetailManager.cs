@@ -29,11 +29,12 @@ namespace BLL
         public DataTable SelAccountPriceByAccount(string clientName, string maName)
         {
             return sds.SelAccountPriceByAccount(clientName, maName);
-        }       /// <summary>
-                /// 增加一条数据
-                /// </summary>
-                /// <param name="model"></param>
-                /// <returns></returns>
+        }		
+        /// <summary>
+        /// 增加一条数据
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public int Add(SellDetail model)
         {
             return sds.Add(model);

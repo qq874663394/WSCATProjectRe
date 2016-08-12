@@ -27,7 +27,7 @@ namespace Model
         private int? _sell_isPay;
         private int? _sell_isPutSto;
         private int? _sell_payMathod;
-        private DateTime _sell_getDate;
+        private DateTime? _sell_getDate;
         private string _sell_logistics;
         private string _sell_logCode;
         private string _sell_logPhone;
@@ -201,7 +201,7 @@ namespace Model
         /// <summary>
         /// 到货日期
         /// </summary>
-        public DateTime Sell_GetDate
+        public DateTime? Sell_GetDate
         {
             get
             {
@@ -447,7 +447,9 @@ namespace Model
                 _sell_zuiwanshijian = value;
             }
         }
-
+        /// <summary>
+        /// 付款方式
+        /// </summary>
         public string Sell_fukuanfangshi
         {
             get

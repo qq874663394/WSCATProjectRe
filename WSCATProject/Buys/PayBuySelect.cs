@@ -17,6 +17,7 @@ namespace WSCATProject.Buys
     public partial class PayBuySelect : Form
     {
         BuyManager bm = new BuyManager();
+        SellManager sm = new SellManager();
         DataTable dt = null;
  
         public string whereField;
@@ -262,8 +263,7 @@ namespace WSCATProject.Buys
                 EmbezzleColumns
             };
             #endregion
-            //superGridControl1.PrimaryGrid.DataSource = null;
-            //superGridControl1.PrimaryGrid.Columns.Clear();
+
             switch (cb2)
             {
                 case "采购开单":
@@ -340,7 +340,7 @@ namespace WSCATProject.Buys
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("错误代码:3218-业务查找：采购单加载全部数据异常，异常信息：" + ex.Message);
+                        MessageBox.Show("错误代码:3218-采购业务查找：采购单加载全部数据异常，异常信息：" + ex.Message);
                     }
                     break;
                 case "销售开单":
@@ -348,11 +348,76 @@ namespace WSCATProject.Buys
                     superGridControl1.PrimaryGrid.Columns.Clear();
                     try
                     {
+                        #region 初始化销售开单列
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_ID";
+                        gc.Name = "ColumnsID";
+                        gc.HeaderText = "ID";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
 
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Code";
+                        gc.Name = "ColumnsCode";
+                        gc.HeaderText = "编号";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Date";
+                        gc.Name = "ColumnsDate";
+                        gc.HeaderText = "单据日期";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Review";
+                        gc.Name = "ColumnsAuditStatus";
+                        gc.HeaderText = "审核状态";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Type";
+                        gc.Name = "ColumnsPurchaseStatus";
+                        gc.HeaderText = "单据状态";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_ClientName";
+                        gc.Name = "ColumnsSuName";
+                        gc.HeaderText = "客户";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_AccountCode";
+                        gc.Name = "ColumnsBank";
+                        gc.HeaderText = "结算账户";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_OddMoney";
+                        gc.Name = "ColumnsAmountMone";
+                        gc.HeaderText = "总金额";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Salesman";
+                        gc.Name = "ColumnsSalesMan";
+                        gc.HeaderText = "业务员";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Remark";
+                        gc.Name = "ColumnsRemark";
+                        gc.HeaderText = "备注";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        dt = sm.GetList("");
+                        superGridControl1.PrimaryGrid.DataSource = dt;
+                        whereField = "单据日期";
+                        orderField = "ID";
+                        #endregion
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
-
+                        MessageBox.Show("错误代码:3219-销售业务查找：销售单加载全部数据异常，异常信息：" + ex.Message);
                     }
                     break;
                 case "其他收货单":

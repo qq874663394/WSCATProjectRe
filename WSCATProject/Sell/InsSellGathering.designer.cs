@@ -78,6 +78,7 @@
             this.panelDataView = new System.Windows.Forms.Panel();
             this.dataGridViewFujia = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -225,6 +226,7 @@
             this.ltxt_weishou.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ltxt_weishou.DisabledBackColor = System.Drawing.Color.White;
             this.ltxt_weishou.Location = new System.Drawing.Point(843, 50);
+            this.ltxt_weishou.MaxLength = 11;
             this.ltxt_weishou.Name = "ltxt_weishou";
             this.ltxt_weishou.PreventEnterBeep = true;
             this.ltxt_weishou.ReadOnly = true;
@@ -246,12 +248,11 @@
             this.ltxt_shoukuan.Border.Class = "SideNavStrip";
             this.ltxt_shoukuan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ltxt_shoukuan.Location = new System.Drawing.Point(579, 22);
-            this.ltxt_shoukuan.MaxLength = 123;
+            this.ltxt_shoukuan.MaxLength = 11;
             this.ltxt_shoukuan.Name = "ltxt_shoukuan";
             this.ltxt_shoukuan.PreventEnterBeep = true;
             this.ltxt_shoukuan.Size = new System.Drawing.Size(148, 16);
             this.ltxt_shoukuan.TabIndex = 29;
-            this.ltxt_shoukuan.Text = "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
             this.ltxt_shoukuan.WordWrap = false;
             this.ltxt_shoukuan.TextChanged += new System.EventHandler(this.ltxt_shoukuan_TextChanged);
             this.ltxt_shoukuan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ltxt_shoukuan_KeyPress);
@@ -272,9 +273,9 @@
             this.ltxt_yingshou.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ltxt_yingshou.ForeColor = System.Drawing.Color.DimGray;
             this.ltxt_yingshou.Location = new System.Drawing.Point(322, 53);
+            this.ltxt_yingshou.MaxLength = 11;
             this.ltxt_yingshou.Name = "ltxt_yingshou";
             this.ltxt_yingshou.PreventEnterBeep = true;
-            this.ltxt_yingshou.ReadOnly = true;
             this.ltxt_yingshou.Size = new System.Drawing.Size(143, 16);
             this.ltxt_yingshou.TabIndex = 29;
             this.ltxt_yingshou.TextChanged += new System.EventHandler(this.ltxt_yingshou_TextChanged);
@@ -298,7 +299,6 @@
             this.ltxt_kehu.ReadOnly = true;
             this.ltxt_kehu.Size = new System.Drawing.Size(105, 16);
             this.ltxt_kehu.TabIndex = 29;
-            this.ltxt_kehu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ltxt_kehu_KeyPress);
             // 
             // panel3
             // 
@@ -452,6 +452,7 @@
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.button2);
             this.panel4.Controls.Add(this.buttonSave);
             this.panel4.Controls.Add(this.buttonClose);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -463,9 +464,9 @@
             // buttonSave
             // 
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSave.Location = new System.Drawing.Point(819, 7);
+            this.buttonSave.Location = new System.Drawing.Point(803, 7);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(76, 31);
+            this.buttonSave.Size = new System.Drawing.Size(84, 31);
             this.buttonSave.TabIndex = 1;
             this.buttonSave.Text = "保存";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -544,6 +545,7 @@
             this.ltxt_shishou.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ltxt_shishou.DisabledBackColor = System.Drawing.Color.White;
             this.ltxt_shishou.Location = new System.Drawing.Point(579, 50);
+            this.ltxt_shishou.MaxLength = 11;
             this.ltxt_shishou.Name = "ltxt_shishou";
             this.ltxt_shishou.PreventEnterBeep = true;
             this.ltxt_shishou.ReadOnly = true;
@@ -723,6 +725,15 @@
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 2;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(682, 7);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(93, 31);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "保存并审核";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // InsSellGathering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -807,5 +818,6 @@
         private System.Windows.Forms.Button button1;
         protected DevComponents.DotNetBar.Controls.TextBoxX ltxt_salecode;
         protected System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
     }
 }

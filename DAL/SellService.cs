@@ -571,7 +571,7 @@ namespace DAL
 			parameters[6].Value = strWhere;	
 			return DbHelperSQL.RunProcedure("UP_GetRecordByPage",parameters,"ds");
 		}*/
-        
+
         #endregion  BasicMethod
 
         #region  ExtensionMethod
@@ -681,10 +681,10 @@ namespace DAL
             //销售主表操作
             strSql.Append("insert into T_Sell(");
             strSql.Append("Sell_Code,Sell_Type,Sell_Date,Sell_TransportType,Sell_Review,Sell_ChangeDate,Sell_Operation,Sell_Auditman,Sell_Remark,Sell_Satetyone,Sell_Satetytwo,");
-            strSql.Append("Sell_IsPay,Sell_IsPutSto,Sell_PayMathod,Sell_GetDate,Sell_Logistics,Sell_LogCode,Sell_LogPhone,Sell_Clear,Sell_OddMoney,Sell_AccountCode,Sell_InMoney,Sell_LastMoney,Sell_Address,Sell_OddStatus,Sell_jiajiState,Sell_zuiwanshijian,Sell_fukuanfangshi)");
+            strSql.Append("Sell_IsPay,Sell_IsPutSto,Sell_PayMathod,Sell_GetDate,Sell_Logistics,Sell_LogCode,Sell_LogPhone,Sell_Clear,Sell_OddMoney,Sell_AccountCode,Sell_InMoney,Sell_LastMoney,Sell_Address,Sell_ClientName,Sell_CliPhone,Sell_Salesman,Sell_LinkMan,Sell_OddStatus,Sell_jiajiState,Sell_zuiwanshijian,Sell_fukuanfangshi)");
             strSql.Append(" values (");
             strSql.Append("@Sell_Code,@Sell_Type,@Sell_Date,@Sell_TransportType,@Sell_Review,@Sell_ChangeDate,@Sell_Operation,@Sell_Auditman,@Sell_Remark,@Sell_Satetyone,@Sell_Satetytwo,");
-            strSql.Append("@Sell_IsPay,@Sell_IsPutSto,@Sell_PayMathod,@Sell_GetDate,@Sell_Logistics,@Sell_LogCode,@Sell_LogPhone,@Sell_Clear,@Sell_OddMoney,@Sell_AccountCode,@Sell_InMoney,@Sell_LastMoney,@Sell_Address,@Sell_OddStatus,@Sell_jiajiState,@Sell_zuiwanshijian,@Sell_fukuanfangshi)");
+            strSql.Append("@Sell_IsPay,@Sell_IsPutSto,@Sell_PayMathod,@Sell_GetDate,@Sell_Logistics,@Sell_LogCode,@Sell_LogPhone,@Sell_Clear,@Sell_OddMoney,@Sell_AccountCode,@Sell_InMoney,@Sell_LastMoney,@Sell_Address,@Sell_ClientName,@Sell_CliPhone,@Sell_Salesman,@Sell_LinkMan,@Sell_OddStatus,@Sell_jiajiState,@Sell_zuiwanshijian,@Sell_fukuanfangshi)");
 
             SqlParameter[] parameters = {
                     new SqlParameter("@Sell_Code", SqlDbType.NVarChar,512),
@@ -711,6 +711,10 @@ namespace DAL
                     new SqlParameter("@Sell_InMoney", SqlDbType.NVarChar,512),
                     new SqlParameter("@Sell_LastMoney", SqlDbType.NVarChar,512),
                     new SqlParameter("@Sell_Address", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_ClientName", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_CliPhone", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_Salesman", SqlDbType.NVarChar,512),
+                    new SqlParameter("@Sell_LinkMan", SqlDbType.NVarChar,512),
                     new SqlParameter("@Sell_OddStatus", SqlDbType.Int,4),
                     new SqlParameter("@Sell_jiajiState", SqlDbType.Int,4),
                     new SqlParameter("@Sell_zuiwanshijian", SqlDbType.DateTime),
@@ -739,10 +743,15 @@ namespace DAL
             parameters[21].Value = sell.Sell_InMoney;
             parameters[22].Value = sell.Sell_LastMoney;
             parameters[23].Value = sell.Sell_Address;
-            parameters[24].Value = sell.Sell_OddStatus;
-            parameters[25].Value = sell.Sell_jiajiState;
-            parameters[26].Value = sell.Sell_zuiwanshijian;
-            parameters[27].Value = sell.Sell_fukuanfangshi;
+            parameters[24].Value = sell.Sell_ClientName;
+            parameters[25].Value = sell.Sell_CliPhone;
+            parameters[26].Value = sell.Sell_Salesman;
+            parameters[27].Value = sell.Sell_LinkMan;
+            parameters[28].Value = sell.Sell_OddStatus;
+            parameters[29].Value = sell.Sell_jiajiState;
+            parameters[30].Value = sell.Sell_zuiwanshijian;
+            parameters[31].Value = sell.Sell_fukuanfangshi;
+
             //添加到列表中
             hashtable.Add(strSql.ToString(), parameters);
             //销售明细表操作
@@ -800,12 +809,11 @@ namespace DAL
             }
             //操作过程表操作
             strSql = new StringBuilder();
-            strSql.Append("insert into T_Sell(");
-            strSql.Append("Sell_Code,Sell_Type,Sell_Date,Sell_TransportType,Sell_Review,Sell_ChangeDate,Sell_Operation,Sell_Auditman,Sell_Remark,Sell_Satetyone,Sell_Satetytwo,");
-            strSql.Append("Sell_IsPay,Sell_IsPutSto,Sell_PayMathod,Sell_GetDate,Sell_Logistics,Sell_LogCode,Sell_LogPhone,Sell_Clear,Sell_OddMoney,Sell_AccountCode,Sell_InMoney,Sell_LastMoney)");
+            strSql.Append("insert into T_SellProcess(");
+            strSql.Append("SP_Code,SP_SellLineno,SP_Datetime,SP_Opt,SP_Ope,SP_Remark,SP_Clear )");
+
             strSql.Append(" values (");
-            strSql.Append("@Sell_Code,@Sell_Type,@Sell_Date,@Sell_TransportType,@Sell_Review,@Sell_ChangeDate,@Sell_Operation,@Sell_Auditman,@Sell_Remark,@Sell_Satetyone,@Sell_Satetytwo,");
-            strSql.Append("@Sell_IsPay,@Sell_IsPutSto,@Sell_PayMathod,@Sell_GetDate,@Sell_Logistics,@Sell_LogCode,@Sell_LogPhone,@Sell_Clear,@Sell_OddMoney,@Sell_AccountCode,@Sell_InMoney,@Sell_LastMoney)");
+            strSql.Append("@SP_Code,@SP_SellLineno,@SP_Datetime,@SP_Opt,@SP_Ope,@SP_Remark,@SP_Clear)");
 
             SqlParameter[] parametersProcess = {
                     new SqlParameter("@SP_Code", SqlDbType.NVarChar,512),
@@ -813,7 +821,7 @@ namespace DAL
                     new SqlParameter("@SP_Datetime", SqlDbType.DateTime),
                     new SqlParameter("@SP_Opt", SqlDbType.NVarChar,512),
                     new SqlParameter("@SP_Ope", SqlDbType.Int,4),
-                    new SqlParameter("@SP_Remark", SqlDbType.DateTime),
+                    new SqlParameter("@SP_Remark", SqlDbType.NVarChar,512),
                     new SqlParameter("@SP_Clear", SqlDbType.NVarChar,512)};
             parameters[0].Value = sp.Sp_Code;
             parameters[1].Value = sp.Sp_SellLineno;
@@ -831,6 +839,7 @@ namespace DAL
             }
 
             DbHelperSQL.ExecuteSqlTran(hashtable);
+
         }
 
         #endregion  ExtensionMethod
