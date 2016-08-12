@@ -40,6 +40,10 @@ namespace WSCATProject.Sell
         /// </summary>
         private DataTable _AllBank = null;
         /// <summary>
+        /// 所有的库存数据
+        /// </summary>
+        private DataTable _AllStock = null;
+        /// <summary>
         /// 选择的仓库
         /// </summary>
         private KeyValuePair<string, string> _ClickStorage;
@@ -104,10 +108,13 @@ namespace WSCATProject.Sell
             MaterialManager mm = new MaterialManager();//商品
             StorageManager sm = new StorageManager();//仓库
             ClientManager clien = new ClientManager();//客户
+            StockManager stm = new StockManager();//库存
             BankAccountManager bank = new BankAccountManager();//收款账号
             _AllMaterial = mm.GetList("");
             _AllStorage = sm.GetList("");
             _AllClient = clien.GetList("");
+            _AllStock = stm.SelStockTable();
+            
             _AllBank = bank.SelBankAccount2();
 
             //禁用自动创建列
@@ -157,7 +164,7 @@ namespace WSCATProject.Sell
         /// <param name="e"></param>
         private void DataGridViewFujia_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            SellManager sm = new SellManager();
             //绑定客户信息的
             if (_Click == 2)
             {
@@ -187,6 +194,30 @@ namespace WSCATProject.Sell
                 _ClickStorage = new KeyValuePair<string, string>(code, name);
                 _StorageCode = code;
                 resizablePanel1.Visible = false;
+                if (gr.Cells["gridColumnMaCode"].Value != null)
+                {
+                    if (!string.IsNullOrEmpty(gr.Cells["gridColumnMaCode"].Value.ToString()))
+                    {
+                        DataTable tempDT = sm.searchMaterialStockNumber(_AllStock,
+                            gr.Cells["gridColumnStockCode"].Value.ToString(),
+                            gr.Cells["gridColumnMaCode"].Value.ToString());
+                        if (tempDT.Rows.Count > 0)
+                        {
+                            foreach (DataRow dr in tempDT.Rows)
+                            {
+                                decimal allnumber = dr["Sto_AllNumber"] == null ? 
+                                    0 : Convert.ToDecimal(dr["Sto_AllNumber"]);
+                            }
+                            labelXZongKuCun.Visible = true;
+                            labelXZongKuCun.Text = tempDT.Rows[0]["Sto_AllNumber"].ToString();
+                        }
+                        else
+                        {
+                            labelXZongKuCun.Visible = true;
+                            labelXZongKuCun.Text = "该商品不在软件库存中受统计";
+                        }
+                    }
+                }
             }
             //绑定收款账号的
             if (_Click == 3)
@@ -256,9 +287,9 @@ namespace WSCATProject.Sell
                 textBoxX3.Text = _MaterialMoney.ToString();
                 textBoxX2.Text = 100.ToString();
                 //labtextboxTop5.Text = _MaterialMoney.ToString();
-
+                
             }
-            dataGridView1.Focus();
+            superGridControl1.Focus();
             SendKeys.Send("^{End}{Home}");
         }
 
@@ -615,7 +646,7 @@ namespace WSCATProject.Sell
             }
         }
         #endregion
-
+        
         #region 按钮的事件
         //验证完全后,统计单元格数据
         private void superGridControl1_CellValidated(object sender, GridCellValidatedEventArgs e)
@@ -1047,6 +1078,7 @@ namespace WSCATProject.Sell
         }
 
         #endregion
+
         #region 验证客户文本框
         //根据文本框的值，模糊查询 未写
         private void labtextboxTop2_TextChanged(object sender, EventArgs e)
@@ -1065,11 +1097,11 @@ namespace WSCATProject.Sell
         //失去客户焦点事件
         private void labtextboxTop2_Leave(object sender, EventArgs e)
         {
-            if (_SosoStater == true)
+            if (_SosoStater)
             {
                 return;
             }
-            if (_SosoStater == false)
+            else
             {
                 this.labtextboxTop2.Text = "";
 
