@@ -109,17 +109,17 @@ namespace WSCATProject.Sell
         {
             try
             {
-                double price = Convert.ToDouble(textBoxX1.Text.Trim());//原始单价
-                double discount = Convert.ToDouble(textBoxX3.Text.Trim());//折扣率
-                double shuliang = Convert.ToDouble(lblcount.Text.Trim());//数量
+                decimal price = Convert.ToDecimal(textBoxX1.Text.Trim());//原始单价
+                decimal discount = Convert.ToDecimal(textBoxX3.Text.Trim());//折扣率
+                decimal shuliang = Convert.ToDecimal(lblcount.Text.Trim());//数量
                 if (discount > 100 || discount<= 0)
                 {
                     MessageBox.Show("折扣率不能大于100并且不能小于0！");
                     textBoxX3.Text = "100.00";
                     return;
                 }
-                double jine = price * shuliang;
-                double zongmoney = jine * (discount / 100);//总金额
+                decimal jine = price * shuliang;
+                decimal zongmoney = jine * (discount / 100);//总金额
                 textBoxX4.Text = zongmoney.ToString("0.00");
                 decimal zhehou = price * (discount / 100);//折后单价
                 textBoxX5.Text = zhehou.ToString("0.00");
