@@ -625,7 +625,6 @@
             this.gridColumn14.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn14.HeaderText = "单价";
             this.gridColumn14.Name = "gridColumnPrice";
-            this.gridColumn14.ReadOnly = true;
             this.gridColumn14.Width = 80;
             // 
             // gridColumn15

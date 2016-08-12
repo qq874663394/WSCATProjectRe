@@ -49,7 +49,9 @@ namespace BLL
         /// <returns></returns>
         public DataTable GetList(string strWhere)
         {
-			CodingHelper ch = new CodingHelper();			return ch.DataSetReCoding(sds.GetList(strWhere));        }    
+			CodingHelper ch = new CodingHelper();
+            return ch.DataTableReCoding(sds.GetList(strWhere).Tables[0]);
+        }    
         /// <summary>
         /// 查询历史折扣
         /// </summary>

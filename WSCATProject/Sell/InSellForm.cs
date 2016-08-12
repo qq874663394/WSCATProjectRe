@@ -219,6 +219,36 @@ namespace WSCATProject.Sell
                     }
                 }
             }
+            //缺货销售单
+            if (_state==2)
+            {
+                try
+                {
+                    textBoxOddNumbers.Text = _sellmodel["Sell_Code"].Value.ToString();
+                    this.dateTimePicker1.Value = Convert.ToDateTime(_sellmodel["Sell_Date"].Value);
+                    this.comboBoxEx.Text = _sellmodel["Sell_TransportType"].Value.ToString();
+                    this.labtextboxBotton3.Text = _sellmodel["Sell_Operation"].Value.ToString();
+                    this.labtextboxBotton4.Text = _sellmodel["Sell_Auditman"].Value.ToString();
+                    this.labtextboxBotton2.Text = _sellmodel["Sell_Remark"].Value.ToString();
+                    this.textBoxX2.Text = _sellmodel["Sell_PayMathod"].Value.ToString();
+                    this.textBoxX3.Text = _sellmodel["Sell_OddMoney"].Value.ToString();
+                    labtextboxTop4.Text = _sellmodel["Sell_AccountCode"].Value.ToString();
+                    this.labtextboxTop3.Text = _sellmodel["Sell_InMoney"].Value.ToString();
+                    this.labtextboxTop5.Text = _sellmodel["Sell_LastMoney"].Value.ToString();
+                    this.labtextboxTop7.Text = _sellmodel["Sell_Address"].Value.ToString();
+                    this.comboBoxEx1.Text = _sellmodel["Sell_fukuanfangshi"].Value.ToString();
+                    this.labtextboxTop8.Text = _sellmodel["Sell_LinkMan"].Value.ToString();
+                    this.labtextboxBotton1.Text = _sellmodel["Sell_Salesman"].Value.ToString();
+                    this.labtextboxTop2.Text = _sellmodel["Sell_ClientName"].Value.ToString();
+                    this.labtextboxTop9.Text = _sellmodel["Sell_CliPhone"].Value.ToString();
+                    dataGridView1.AutoGenerateColumns = false;
+                    superGridControl1.PrimaryGrid.DataSource = selldm.GetList(" Sell_Code='" + XYEEncoding.strCodeHex(textBoxOddNumbers.Text) + "' and Sell_LostNumber>0");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("错误" + ex.Message);
+                }
+            }
 
         }
         /// <summary>
@@ -973,24 +1003,26 @@ namespace WSCATProject.Sell
                         return;
                     }
 
-                    selldetail.Sell_LineCode = _SellOdd + "_" + i.ToString();//列表单号
-                    selldetail.Sell_StockCode = gr["gridColumnStockCode"].Value.ToString();
-                    selldetail.Sell_StockName = gr["gridColumnStock"].Value.ToString();
-                    selldetail.Sell_Code = _SellOdd;
-                    selldetail.Sell_MaID = gr["gridColumnMaCode"].Value.ToString();
-                    selldetail.Sell_MaName = gr["gridColumnName"].Value.ToString();
-                    selldetail.Sell_Model = gr["gridColumnModel"].Value.ToString();
-                    selldetail.Sell_Unit = gr["gridColumnUnit"].Value.ToString();
-                    selldetail.Sell_CurNumber = gr["gridColumnNumber"].Value.ToString();//先保存string
-                    selldetail.Sell_ReNumber = gr["gridColumnshifashu"].Value.ToString();
-                    selldetail.Sell_LostNumber = gr["gridColumnqueshao"].Value.ToString();
+                    selldetail.Sell_LineCode = XYEEncoding.strCodeHex(_SellOdd + "_" + i.ToString());//列表单号
+                    selldetail.Sell_StockCode = XYEEncoding.strCodeHex(gr["gridColumnStockCode"].Value.ToString());
+                    selldetail.Sell_StockName = XYEEncoding.strCodeHex(gr["gridColumnStock"].Value.ToString());
+                    selldetail.Sell_Code = XYEEncoding.strCodeHex(_SellOdd);
+                    selldetail.Sell_MaID = XYEEncoding.strCodeHex(gr["gridColumnMaCode"].Value.ToString());
+                    selldetail.Sell_MaName = XYEEncoding.strCodeHex(gr["gridColumnName"].Value.ToString());
+                    selldetail.Sell_Model = XYEEncoding.strCodeHex(gr["gridColumnModel"].Value.ToString());
+                    selldetail.Sell_Unit = XYEEncoding.strCodeHex(gr["gridColumnUnit"].Value.ToString());
+                    selldetail.Sell_CurNumber = Convert.ToDecimal(gr["gridColumnNumber"].Value.ToString());//先保存string
+                    selldetail.Sell_ReNumber = Convert.ToDecimal(gr["gridColumnshifashu"].Value.ToString());
+                    selldetail.Sell_LostNumber = Convert.ToDecimal(gr["gridColumnqueshao"].Value.ToString());
                     selldetail.Sell_DiscountAPrice = Convert.ToDecimal(gr["gridColumnPrice"].Value);
                     selldetail.Sell_Discount = Convert.ToDecimal(gr["gridColumnDis"].Value);
                     selldetail.Sell_DiscountBPrice = Convert.ToDecimal(gr["gridColumnDisPrice"].Value);
                     selldetail.Sell_Money = Convert.ToDecimal(gr["gridColumnMoney"].Value);
                     selldetail.Sell_Clear = 1;
                     selldetail.Sell_Remark = gr["gridColumnRemark"].Value == null ?
-                        "" : gr["gridColumnRemark"].Value.ToString();
+                        "" : XYEEncoding.strCodeHex(gr["gridColumnRemark"].Value.ToString());
+                    selldetail.Sell_Safetyone = "";
+                    selldetail.Sell_Safetytwo = "";
 
                     buyDetailList.Add(selldetail);
                 }
@@ -1011,7 +1043,7 @@ namespace WSCATProject.Sell
                     }
                     else
                     {
-                        if (DialogResult.Yes == MessageBox.Show("申请销售单成功,该单正在等待审核中.",
+                        if (DialogResult.Yes == MessageBox.Show("审核过账成功,是否前往付款",
                             "温馨提示",
                             MessageBoxButtons.YesNo,
                             MessageBoxIcon.Asterisk,
@@ -1126,9 +1158,9 @@ namespace WSCATProject.Sell
                     selldetail.Sell_MaName = XYEEncoding.strCodeHex(gr["gridColumnName"].Value.ToString());
                     selldetail.Sell_Model = XYEEncoding.strCodeHex(gr["gridColumnModel"].Value.ToString());
                     selldetail.Sell_Unit = XYEEncoding.strCodeHex(gr["gridColumnUnit"].Value.ToString());
-                    selldetail.Sell_CurNumber = XYEEncoding.strCodeHex(gr["gridColumnNumber"].Value.ToString());//先保存string
-                    selldetail.Sell_ReNumber = XYEEncoding.strCodeHex(gr["gridColumnshifashu"].Value.ToString());
-                    selldetail.Sell_LostNumber = XYEEncoding.strCodeHex(gr["gridColumnqueshao"].Value.ToString());
+                    selldetail.Sell_CurNumber = Convert.ToDecimal( gr["gridColumnNumber"].Value.ToString());//先保存string
+                    selldetail.Sell_ReNumber =Convert.ToDecimal( gr["gridColumnshifashu"].Value.ToString());
+                    selldetail.Sell_LostNumber =Convert.ToDecimal( gr["gridColumnqueshao"].Value.ToString());
                     selldetail.Sell_DiscountAPrice = Convert.ToDecimal(gr["gridColumnPrice"].Value);
                     selldetail.Sell_Discount = Convert.ToDecimal(gr["gridColumnDis"].Value);
                     selldetail.Sell_DiscountBPrice = Convert.ToDecimal(gr["gridColumnDisPrice"].Value);

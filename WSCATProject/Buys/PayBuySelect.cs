@@ -499,7 +499,6 @@ namespace WSCATProject.Buys
                         gc.Visible = false;
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
-                        superGridControl1.PrimaryGrid.Columns.Add(gc);
                         dt = sm.GetList("");
                         superGridControl1.PrimaryGrid.DataSource = dt;
                         whereField = "单据日期";
@@ -693,8 +692,7 @@ namespace WSCATProject.Buys
                         gc.Visible = false;
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
-                        superGridControl1.PrimaryGrid.Columns.Add(gc);
-                        dt = sm.GetList("");
+                        dt = sm.GetList("  Sell_OddStatus=1 ");
                         superGridControl1.PrimaryGrid.DataSource = dt;
                         whereField = "单据日期";
                         orderField = "ID";
@@ -960,7 +958,28 @@ namespace WSCATProject.Buys
                 case "资金拆借":
                     break;
                 case "欠货发货单":
+                    if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
+                    {
 
+                        SelectedElementCollection cols = superGridControl1.PrimaryGrid.GetSelectedRows();
+                        if (cols.Count > 0)
+                        {
+                            GridRow rows = cols[0] as GridRow;
+
+                                Sell.InSellForm sell = new Sell.InSellForm();
+                                sell.Sellmodel = rows;
+                                sell.State = 2;//2，缺货销售单
+                                sell.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("请选择要查看的数据行！");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("请选择要查看的数据行！");
+                    }
                     break;
                 default:
                     break;
