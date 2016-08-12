@@ -233,7 +233,7 @@
             this.labtextboxTop3.Border.BorderGradientAngle = 0;
             this.labtextboxTop3.Border.Class = "SideNavStrip";
             this.labtextboxTop3.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labtextboxTop3.Location = new System.Drawing.Point(829, 49);
+            this.labtextboxTop3.Location = new System.Drawing.Point(836, 49);
             this.labtextboxTop3.Validated += new System.EventHandler(this.labtextboxTop3_Validated);
             // 
             // labtextboxTop7
@@ -303,7 +303,7 @@
             this.labtextboxTop8.Border.BorderGradientAngle = 0;
             this.labtextboxTop8.Border.Class = "SideNavStrip";
             this.labtextboxTop8.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labtextboxTop8.Location = new System.Drawing.Point(829, 83);
+            this.labtextboxTop8.Location = new System.Drawing.Point(837, 83);
             // 
             // labtextboxTop5
             // 
@@ -440,6 +440,7 @@
             // 
             // panel5
             // 
+            this.panel5.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel5.Size = new System.Drawing.Size(1204, 71);
             // 
             // textBoxX3
