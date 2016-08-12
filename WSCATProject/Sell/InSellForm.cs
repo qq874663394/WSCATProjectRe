@@ -1088,5 +1088,24 @@ namespace WSCATProject.Sell
         {
             resizablePanel1.Visible = false;
         }
+
+        private void superGridControl1_CellDoubleClick(object sender, GridCellDoubleClickEventArgs e)
+        {
+            SelectedElementCollection col = this.superGridControl1.PrimaryGrid.GetSelectedRows();
+            if (col.Count > 0)
+            {
+                GridRow row = col[0] as GridRow;
+                if ( row.Cells[8].ToString()!="单价")
+                {
+                    return;
+                }
+                SellPriceEntry spe = new SellPriceEntry();
+                spe.Sell_MaName= row.Cells["gridColumnName"].Value.ToString();
+                spe.Sell_Unit = row.Cells["gridColumnUnit"].Value.ToString();
+                //spe.KEhu= row.Cells["gridColumnUnit"].Value.ToString();
+                spe.Sell_CurNumber = row.Cells["gridColumnNumber"].Value.ToString();
+                spe.ShowDialog();
+            }
+        }
     }
 }

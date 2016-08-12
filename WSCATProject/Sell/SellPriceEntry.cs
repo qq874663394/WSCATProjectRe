@@ -22,8 +22,31 @@ namespace WSCATProject.Sell
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
         }
 
+        private string _magname;
+        public string Sell_MaName
+        {
+            get { return _magname; }
+            set { _magname = value; }
+        }
+        private string _maunit;
+        public string Sell_Unit
+        {
+            get { return _maunit; }
+            set { _maunit = value; }
+        }
+        private string _count;
+        public string Sell_CurNumber
+        {
+            get { return _count; }
+            set { _count = value; }
+        }
+
         private void SellPriceEntry_Load(object sender, EventArgs e)
         {
+            lblname.Text = _magname;
+            lblunity.Text = _maunit;
+            lblcount.Text = _count;
+
             DataTable dt = new SellDetailManager().SelPriceByMaName("说服力是地方");
             Material material = new MaterialManager().SelPriceByMaName("说服力是地方");
             DataRow row;
@@ -145,8 +168,8 @@ namespace WSCATProject.Sell
             {
                 discount = controlName.CurrentRow.Cells[2].Value.ToString();//折扣率
             }
-            textBoxX1.Text = price;
-            textBoxX3.Text = discount;
+            textBoxX1.Text = price;//原始单价
+            textBoxX3.Text = discount;//折扣率
             textBoxX5.Text = (Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100).ToString("0.00");//折后价格
             textBoxX2.Text = (Convert.ToDecimal(price) - (Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100)).ToString("0.00");//折扣金额
             textBoxX4.Text = ((Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100) * Convert.ToDecimal(lblcount.Text)).ToString("0.00");//总金额

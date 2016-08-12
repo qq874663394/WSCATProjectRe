@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HelperUtility.Encrypt;
 
 namespace BLL
 {
@@ -44,9 +45,10 @@ namespace BLL
         /// </summary>
         /// <param name="strWhere">where条件</param>
         /// <returns></returns>
-        public DataSet GetList(string strWhere)
+        public DataTable GetList(string strWhere)
         {
-            return sds.GetList(strWhere);
+            CodingHelper ch = new CodingHelper();
+            return ch.DataTableReCoding(sds.GetList(strWhere).Tables[0]);
         }    
         /// <summary>
         /// 查询历史折扣

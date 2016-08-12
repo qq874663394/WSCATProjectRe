@@ -21,10 +21,17 @@ namespace WSCATProject.Sell
         ClientManager cm = new ClientManager();
         BankAccountManager bam = new BankAccountManager();
         EmpolyeeManager em = new EmpolyeeManager();
-        SellManager sm = new SellManager();
+        SellDetailManager sdm = new SellDetailManager();
         CodingHelper ch = new CodingHelper();
         ConllectionWait cw = new ConllectionWait();
         public string pbName;//根据图片Name对应相应的datagridview
+        //销售单号
+        private string _sellcode;
+        public string Sell_Code
+        {
+            get { return _sellcode; }
+            set { _sellcode = value; }
+        }
 
         public InsSellGathering()
         {
@@ -37,84 +44,92 @@ namespace WSCATProject.Sell
             GridColumn gc = null;
 
             gc = new GridColumn();
-            gc.DataPropertyName = "仓库名称";
-            gc.Name = "";
+            gc.DataPropertyName = "Sell_Code";
+            gc.Name = "Code";
+            gc.HeaderText = "销售单号";
+            superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "Sell_StockName";
+            gc.Name = "StockName";
             gc.HeaderText = "仓库名称";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
 
             gc = new GridColumn();
-            gc.DataPropertyName = "编码";
-            gc.Name = "";
+            gc.DataPropertyName = "Sell_MaID";
+            gc.Name = "MaID";
             gc.HeaderText = "编码";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
 
             gc = new GridColumn();
-            gc.DataPropertyName = "商品名称";
-            gc.Name = "";
+            gc.DataPropertyName = "Sell_MaName";
+            gc.Name = "MaName";
             gc.HeaderText = "商品名称";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
 
             gc = new GridColumn();
-            gc.DataPropertyName = "规格型号";
-            gc.Name = "";
+            gc.DataPropertyName = "Sell_Model";
+            gc.Name = "Model";
             gc.HeaderText = "规格型号";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
 
             gc = new GridColumn();
-            gc.DataPropertyName = "单位";
-            gc.Name = "";
+            gc.DataPropertyName = "Sell_Unit";
+            gc.Name = "Unit";
             gc.HeaderText = "单位";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
 
             gc = new GridColumn();
-            gc.DataPropertyName = "单价";
-            gc.Name = "";
+            gc.DataPropertyName = "Sell_DiscountBPrice";
+            gc.Name = "DiscountBPrice";
             gc.HeaderText = "单价";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
 
             gc = new GridColumn();
-            gc.DataPropertyName = "需求数量";
-            gc.Name = "";
+            gc.DataPropertyName = "Sell_CurNumber";
+            gc.Name = "CurNumber";
             gc.HeaderText = "需求数量";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
 
             gc = new GridColumn();
-            gc.DataPropertyName = "实发数量";
-            gc.Name = "";
+            gc.DataPropertyName = "Sell_ReNumber";
+            gc.Name = "ReNumber";
             gc.HeaderText = "实发数量";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
 
             gc = new GridColumn();
-            gc.DataPropertyName = "缺少数量";
-            gc.Name = "";
+            gc.DataPropertyName = "Sell_LostNumber";
+            gc.Name = "LostNumber";
             gc.HeaderText = "缺少数量";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
 
             gc = new GridColumn();
-            gc.DataPropertyName = "折扣率";
-            gc.Name = "";
+            gc.DataPropertyName = "Sell_Discount";
+            gc.Name = "Discount";
             gc.HeaderText = "折扣率";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
 
             gc = new GridColumn();
-            gc.DataPropertyName = "折后金额";
-            gc.Name = "";
+            gc.DataPropertyName = "Sell_DiscountBPrice";
+            gc.Name = "DiscountBPrice";
             gc.HeaderText = "折后金额";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
 
             gc = new GridColumn();
-            gc.DataPropertyName = "总金额";
-            gc.Name = "";
+            gc.DataPropertyName = "Sell_Money";
+            gc.Name = "Money";
             gc.HeaderText = "总金额";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
 
             gc = new GridColumn();
-            gc.DataPropertyName = "备注";
-            gc.Name = "";
+            gc.DataPropertyName = "Sell_Remark";
+            gc.Name = "Remark";
             gc.HeaderText = "备注";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
 
-            //superGridControl1.PrimaryGrid.DataSource = sm.GetList("");
+            //superGridControl1.PrimaryGrid.Columns[0].Visible = false;
+            //superGridControl1.PrimaryGrid.DataSource = sdm.GetList(" Sell_Code='" + _sellcode + "'");
+            superGridControl1.PrimaryGrid.DataSource = sdm.GetList("");
 
             #endregion
 
@@ -522,6 +537,7 @@ namespace WSCATProject.Sell
             }
         }
         #endregion
+
 
     }
 }
