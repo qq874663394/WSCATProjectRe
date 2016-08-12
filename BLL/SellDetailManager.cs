@@ -47,5 +47,16 @@ namespace BLL
         public DataSet GetList(string strWhere)
         {
             return sds.GetList(strWhere);
-        }    }
+        }    
+        /// <summary>
+        /// 查询历史折扣
+        /// </summary>
+        /// <param name="clientName"></param>
+        /// <param name="maName"></param>
+        /// <returns></returns>
+        public DataTable SelDiscountByAccount(string clientName, string maName)
+        {
+            return sds.SelDiscountByAccount(clientName, maName);
+        }
+    }
 }
