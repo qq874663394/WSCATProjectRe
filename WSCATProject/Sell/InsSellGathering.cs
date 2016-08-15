@@ -23,7 +23,7 @@ namespace WSCATProject.Sell
         EmpolyeeManager em = new EmpolyeeManager();
         SellDetailManager sdm = new SellDetailManager();
         CodingHelper ch = new CodingHelper();
-        ConllectionWait cw = new ConllectionWait();
+        Conllection conll = new Conllection();
         SellManager sm = new SellManager();
         public string pbName;//根据图片Name对应相应的datagridview
         //销售单号
