@@ -91,6 +91,7 @@ namespace WSCATProject.Buys
             this.查看物流ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.新增物料信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.销售审核ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.资金收款单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -505,9 +506,10 @@ namespace WSCATProject.Buys
             this.去付款ToolStripMenuItem,
             this.查看物流ToolStripMenuItem,
             this.新增物料信息ToolStripMenuItem,
-            this.销售审核ToolStripMenuItem});
+            this.销售审核ToolStripMenuItem,
+            this.资金收款单ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 180);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // 审核过账ToolStripMenuItem
@@ -551,6 +553,13 @@ namespace WSCATProject.Buys
             this.销售审核ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.销售审核ToolStripMenuItem.Text = "销售审核";
             this.销售审核ToolStripMenuItem.Click += new System.EventHandler(this.销售审核ToolStripMenuItem_Click);
+            // 
+            // 资金收款单ToolStripMenuItem
+            // 
+            this.资金收款单ToolStripMenuItem.Name = "资金收款单ToolStripMenuItem";
+            this.资金收款单ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.资金收款单ToolStripMenuItem.Text = "资金收款单";
+            this.资金收款单ToolStripMenuItem.Click += new System.EventHandler(this.资金收款单ToolStripMenuItem_Click);
             // 
             // PayBuySelect
             // 
@@ -631,5 +640,6 @@ namespace WSCATProject.Buys
         private ToolStripMenuItem 申请付款ToolStripMenuItem;
         private ToolStripMenuItem 审核过账ToolStripMenuItem;
         private ToolStripMenuItem 销售审核ToolStripMenuItem;
+        private ToolStripMenuItem 资金收款单ToolStripMenuItem;
     }
 }

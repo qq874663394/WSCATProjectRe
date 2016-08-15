@@ -69,6 +69,11 @@ namespace DAL
                when C_Status=1 then '36352E315B0A'
                else '2A502E315B0A' end
                ) as C_Status ,
+               C_SellCode,
+               (case 
+               when C_AuditStatus=1 then '36352D175E2F'
+               else '2A502D175E2F' end
+               ) as C_AuditStatus ,
                C_Date ,       
                C_ClientName ,
                C_AccountName ,

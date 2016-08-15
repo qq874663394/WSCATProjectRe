@@ -11,6 +11,7 @@ using Model;
 using BLL;
 using DevComponents.DotNetBar.SuperGrid;
 using HelperUtility.Encrypt;
+using WSCATProject.Sell;
 
 namespace WSCATProject.Buys
 {
@@ -547,8 +548,14 @@ namespace WSCATProject.Buys
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
+                        gc.DataPropertyName = "C_SellCode";
+                        gc.Name = "ColumnsSellCode";
+                        gc.HeaderText = "销售单单号";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
                         gc.DataPropertyName = "C_ClientName";
-                        gc.Name = "ColumnsSuName";
+                        gc.Name = "ColumnsClientName";
                         gc.HeaderText = "客户";
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
@@ -560,13 +567,19 @@ namespace WSCATProject.Buys
 
                         gc = new GridColumn();
                         gc.DataPropertyName = "C_Status";
-                        gc.Name = "ColumnsPurchaseStatus";
+                        gc.Name = "ColumnsStatus";
                         gc.HeaderText = "单据状态";
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
+                        gc.DataPropertyName = "C_AuditStatus";
+                        gc.Name = "ColumnsAuditStatus";
+                        gc.HeaderText = "审核状态";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
                         gc.DataPropertyName = "C_AccountName";
-                        gc.Name = "ColumnsBank";
+                        gc.Name = "ColumnsAccountName";
                         gc.HeaderText = "结算账户";
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
@@ -1303,5 +1316,47 @@ namespace WSCATProject.Buys
                 MessageBox.Show("错误"+ex.Message);
             }
 }
+
+        private void 资金收款单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
+                {
+                    SelectedElementCollection col = superGridControl1.PrimaryGrid.GetSelectedRows();
+                    if (col.Count > 0)
+                    {
+                        GridRow row = col[0] as GridRow;
+                        string sheng = row.Cells["ColumnsAuditStatus"].Value.ToString();
+                        string danju = row.Cells["ColumnsStatus"].Value.ToString();
+                        if (sheng == "已审核" && danju == "未收款")
+                        {
+                            InsSellGathering isg = new InsSellGathering();
+                            isg.Sell_Code = row.Cells["ColumnsSellCode"].Value.ToString();
+                            isg.C_ClientName = row.Cells["ColumnsClientName"].Value.ToString();
+                            isg.C_AccountName = row.Cells["ColumnsAccountName"].Value.ToString();
+                            isg.C_AmountPay = row.Cells["ColumnsAmountPay"].Value.ToString();
+                            isg.C_SalesMan = row.Cells["ColumnsSalesMan"].Value.ToString();
+                            isg.ShowDialog();
+                            superGridControl1.PrimaryGrid.DataSource = dt;
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("请先选择要操作的行！");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("请先选择要操作的行！");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误" + ex.Message);
+            }
+         
+        }
     }
 }
