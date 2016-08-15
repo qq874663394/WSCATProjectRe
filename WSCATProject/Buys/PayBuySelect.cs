@@ -20,8 +20,8 @@ namespace WSCATProject.Buys
         BuyManager bm = new BuyManager();
         SellManager sm = new SellManager();
         ConllectionWaitManager cwm = new ConllectionWaitManager();
-         DataTable dt = null;
- 
+        DataTable dt = null;
+
         public string whereField;
         public string orderField;
         public PayBuySelect()
@@ -567,7 +567,7 @@ namespace WSCATProject.Buys
 
                         gc = new GridColumn();
                         gc.DataPropertyName = "C_Status";
-                        gc.Name = "ColumnsStatus";
+                        gc.Name = "ColumnsPurchaseStatus";
                         gc.HeaderText = "单据状态";
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
@@ -611,7 +611,7 @@ namespace WSCATProject.Buys
                     {
                         MessageBox.Show("错误代码:3230-资金收款业务查找：资金收款单加载全部数据异常，异常信息：" + ex.Message);
                     }
-                   
+
                     break;
                 case "银行存取款":
                     break;
@@ -944,7 +944,7 @@ namespace WSCATProject.Buys
         /// </summary>
         public void Band()
         {
-			dt = bm.GetYinFuList();
+            dt = bm.GetYinFuList();
             superGridControl1.PrimaryGrid.DataSource = dt;
         }
 
@@ -1044,11 +1044,10 @@ namespace WSCATProject.Buys
                         if (cols.Count > 0)
                         {
                             GridRow rows = cols[0] as GridRow;
-
-                                Sell.InSellForm sell = new Sell.InSellForm();
-                                sell.Sellmodel = rows;
-                                sell.State = 2;//2，缺货销售单
-                                sell.Show();
+                            Sell.InSellForm sell = new Sell.InSellForm();
+                            sell.Sellmodel = rows;
+                            sell.State = 2;//2，缺货销售单
+                            sell.Show();
                         }
                         else
                         {
@@ -1201,6 +1200,7 @@ namespace WSCATProject.Buys
             查看物流ToolStripMenuItem.Visible = false;
             新增物料信息ToolStripMenuItem.Visible = false;
             销售审核ToolStripMenuItem.Visible = false;
+            欠货补货销售ToolStripMenuItem.Visible = false;
             string cb2 = toolStripComboBox2.Text;
             switch (cb2)
             {
@@ -1227,7 +1227,7 @@ namespace WSCATProject.Buys
                     }
                     break;
                 case "销售开单":
-					if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
+                    if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
                     {
                         SelectedElementCollection cols = superGridControl1.PrimaryGrid.GetSelectedRows();
                         if (cols.Count > 0)
@@ -1253,7 +1253,9 @@ namespace WSCATProject.Buys
                     {
                         MessageBox.Show("请选择要审核的数据行！");
                     }
-                    break;                case "其他收货单":                    break;
+                    break;
+                case "其他收货单":
+                    break;
                 case "其他发货单":
                     break;
                 case "领料单":
@@ -1279,6 +1281,18 @@ namespace WSCATProject.Buys
                 case "资金拆借":
                     break;
                 case "欠货发货单":
+                    if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
+                    {
+                        SelectedElementCollection cols = superGridControl1.PrimaryGrid.GetSelectedRows();
+                        if (cols.Count > 0)
+                        {
+                            欠货补货销售ToolStripMenuItem.Visible = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("请选择要审核的数据行！");
+                        }
+                    }
                     break;
                 default:
                     break;
@@ -1296,10 +1310,10 @@ namespace WSCATProject.Buys
                     if (cols.Count > 0)
                     {
                         GridRow rows = cols[0] as GridRow;
-                            Sell.InSellForm sell = new Sell.InSellForm();
-                            sell.Sellmodel = rows;
-                            sell.State = 1;//1，审核查看
-                            sell.Show();
+                        Sell.InSellForm sell = new Sell.InSellForm();
+                        sell.Sellmodel = rows;
+                        sell.State = 1;//1，审核查看
+                        sell.Show();
                     }
                     else
                     {
@@ -1313,9 +1327,35 @@ namespace WSCATProject.Buys
             }
             catch (Exception ex)
             {
-                MessageBox.Show("错误"+ex.Message);
+                MessageBox.Show("错误" + ex.Message);
             }
-}
+        }
+
+        private void 欠货补货销售ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
+            {
+
+                SelectedElementCollection cols = superGridControl1.PrimaryGrid.GetSelectedRows();
+                if (cols.Count > 0)
+                {
+                    GridRow rows = cols[0] as GridRow;
+
+                    Sell.InSellForm sell = new Sell.InSellForm();
+                    sell.Sellmodel = rows;
+                    sell.State = 2;//2，缺货销售单
+                    sell.Show();
+                }
+                else
+                {
+                    MessageBox.Show("请选择要查看的数据行！");
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择要查看的数据行！");
+            }
+        }
 
         private void 资金收款单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1333,10 +1373,10 @@ namespace WSCATProject.Buys
                         {
                             InsSellGathering isg = new InsSellGathering();
                             isg.Sell_Code = row.Cells["ColumnsSellCode"].Value.ToString();
-                            isg.C_ClientName = row.Cells["ColumnsClientName"].Value.ToString();
+                            // isg.C_ClientName = row.Cells["ColumnsClientName"].Value.ToString();
                             isg.C_AccountName = row.Cells["ColumnsAccountName"].Value.ToString();
-                            isg.C_AmountPay = row.Cells["ColumnsAmountPay"].Value.ToString();
-                            isg.C_SalesMan = row.Cells["ColumnsSalesMan"].Value.ToString();
+                            //isg.C_AmountPay = row.Cells["ColumnsAmountPay"].Value.ToString();
+                            //isg.C_SalesMan = row.Cells["ColumnsSalesMan"].Value.ToString();
                             isg.ShowDialog();
                             superGridControl1.PrimaryGrid.DataSource = dt;
                             return;
@@ -1356,7 +1396,47 @@ namespace WSCATProject.Buys
             {
                 MessageBox.Show("错误" + ex.Message);
             }
-         
+        }
+
+        private void 资金收款单ToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
+                {
+                    SelectedElementCollection col = superGridControl1.PrimaryGrid.GetSelectedRows();
+                    if (col.Count > 0)
+                    {
+                        GridRow row = col[0] as GridRow;
+                        string sheng = row.Cells["ColumnsAuditStatus"].Value.ToString();
+                        string danju = row.Cells["ColumnsPurchaseStatus"].Value.ToString();
+                        if (sheng == "已审核" && danju == "未收款")
+                        {
+                            InsSellGathering isg = new InsSellGathering();
+                            isg.Sell_Code = row.Cells["ColumnsSellCode"].Value.ToString();
+                            // isg.C_ClientName = row.Cells["ColumnsClientName"].Value.ToString();
+                            isg.C_AccountName = row.Cells["ColumnsAccountName"].Value.ToString();
+                            //isg.C_AmountPay = row.Cells["ColumnsAmountPay"].Value.ToString();
+                            //isg.C_SalesMan = row.Cells["ColumnsSalesMan"].Value.ToString();
+                            isg.ShowDialog();
+                            superGridControl1.PrimaryGrid.DataSource = dt;
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("请先选择要操作的行！");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("请先选择要操作的行！");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误" + ex.Message);
+            }
         }
     }
 }

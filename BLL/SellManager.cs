@@ -234,6 +234,12 @@ namespace BLL
             }
         }
 
+        
+        //public DataTable searchMaterialByzhujimaAndNameAndModel(DataTable maDT, string value)
+        //{
+
+        //}
+
         #endregion  ExtensionMethod
     }
 }

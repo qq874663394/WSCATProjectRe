@@ -22,6 +22,8 @@ namespace WSCATProject.Sell
         {
             InitializeComponent();
         }
+
+        #region 历史价格和历史折扣需要的参数
         private string _kehu;
         public string Sell_Clientname
         {
@@ -71,6 +73,8 @@ namespace WSCATProject.Sell
             get { return _zongmoney; }
             set { _zongmoney = value; }
         }
+        #endregion
+
         #region 数据字段
         /// <summary>
         /// 所有商品列表
@@ -168,6 +172,7 @@ namespace WSCATProject.Sell
         private GridRow _sellmodel;
 
         #endregion
+
         private void InSellForm_Load(object sender, EventArgs e)
         {
 
@@ -189,9 +194,7 @@ namespace WSCATProject.Sell
             dataGridViewFujia.AutoGenerateColumns = false;
             //初始化商品下拉列表
             InitMaterialDataGridView();
-            //初始化datagridview
             InitDataGridView();
-
             dataGridView1.DataSource = _AllMaterial.Tables[0];
             //销售单单号
             SellOdd = BuildCode.ModuleCode("SS");
@@ -212,7 +215,6 @@ namespace WSCATProject.Sell
             gdiecNumber.MaxValue = 999999999;
             //实发数量
             GridDoubleInputEditControl gdiecShifa = superGridControl1.PrimaryGrid.Columns["gridColumnshifashu"].EditControl as GridDoubleInputEditControl;
-            gdiecShifa.ButtonCustom.Visible = true;
             gdiecShifa.MinValue = 0;
             gdiecShifa.MaxValue = 999999999;
             //缺少数量
@@ -224,13 +226,13 @@ namespace WSCATProject.Sell
             gdiecdanjia.MinValue = 0;
             gdiecdanjia.MaxValue = 999999999;
             gdiecdanjia.ButtonCustom.Visible = true;
-            gdiecdanjia.ButtonCustomClick += Gdiecdanjia_ButtonCustomClick;
+            gdiecdanjia.ButtonCustomClick += Gdiec_ButtonCustomClick;
             //折扣
             GridDoubleInputEditControl gdieczhekou = superGridControl1.PrimaryGrid.Columns["gridColumnDis"].EditControl as GridDoubleInputEditControl;
             gdieczhekou.MinValue = 0;
             gdieczhekou.MaxValue = 100;
             gdieczhekou.ButtonCustom.Visible = true;
-            gdiecdanjia.ButtonCustomClick += Gdiecdanjia_ButtonCustomClick;
+            gdieczhekou.ButtonCustomClick += Gdiec_ButtonCustomClick;
 
             //未审核进行查看的时候
             if (_state == 1)
@@ -269,12 +271,14 @@ namespace WSCATProject.Sell
                         this.labtextboxTop9.Text = _sellmodel["Sell_CliPhone"].Value.ToString();
                         dataGridView1.AutoGenerateColumns = false;
                         superGridControl1.PrimaryGrid.DataSource = selldm.GetList(" Sell_Code='" + XYEEncoding.strCodeHex(textBoxOddNumbers.Text) + "'");
+                        superGridControl1.PrimaryGrid.EnsureVisible();
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("错误"+ex.Message);
                     }
                 }
+             
             }
             //缺货销售单
             if (_state==2)
@@ -299,33 +303,75 @@ namespace WSCATProject.Sell
                     this.labtextboxTop2.Text = _sellmodel["Sell_ClientName"].Value.ToString();
                     this.labtextboxTop9.Text = _sellmodel["Sell_CliPhone"].Value.ToString();
                     dataGridView1.AutoGenerateColumns = false;
+                   superGridControl1.PrimaryGrid.Columns["gridColumnNumber"].ReadOnly = true;
+                    superGridControl1.PrimaryGrid.Columns["gridColumnStock"].ReadOnly = true;
+                    superGridControl1.PrimaryGrid.Columns["material"].ReadOnly = true;
+                    superGridControl1.PrimaryGrid.Columns["gridColumnName"].ReadOnly = true;
+                    superGridControl1.PrimaryGrid.Columns["gridColumnModel"].ReadOnly = true;
+                    superGridControl1.PrimaryGrid.Columns["gridColumnUnit"].ReadOnly = true;
+                    superGridControl1.PrimaryGrid.Columns["gridColumnPrice"].ReadOnly = true;
                     superGridControl1.PrimaryGrid.DataSource = selldm.GetList(" Sell_Code='" + XYEEncoding.strCodeHex(textBoxOddNumbers.Text) + "' and Sell_LostNumber>0");
+                    superGridControl1.PrimaryGrid.EnsureVisible();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("错误" + ex.Message);
                 }
-            }        }
-
+            }
+            //初始化datagridview
+            InitDataGridView();
+            TongJi();
+        }
         /// <summary>
-        /// 触发的点击事件
+        /// 点击价格和折扣的扩展按钮弹出扩展窗体给客户查看
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Gdiecdanjia_ButtonCustomClick(object sender, CancelEventArgs e)
+        private void Gdiec_ButtonCustomClick(object sender, EventArgs e)
         {
-            GridTextBoxDropDownEditControl ddc =
-                sender as GridTextBoxDropDownEditControl;
-
-            if (ddc != null)
+            if (string.IsNullOrWhiteSpace(labtextboxTop2.Text))
             {
-
+                MessageBox.Show("请先选择要查看历史的客户名称");
+                return;
             }
-        }
-
-        private void Gdiecdanjia_ButtonCustomClick(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
+            SelectedElementCollection ge = superGridControl1.PrimaryGrid.GetSelectedCells();
+            if(ge.Count > 0)
+            {
+                GridCell gc = ge[0] as GridCell;
+                if (gc.GridRow.Cells[9].Value == null || gc.GridRow.Cells[8].Value == null)
+                {
+                    MessageBox.Show("请先选择商品信息");
+                    return;
+                }
+                Sell_Clientname = labtextboxTop2.Text;
+                Sell_MaName = gc.GridRow.Cells[9].Value.ToString();
+                Sell_Unit = gc.GridRow.Cells[11].Value.ToString();
+                Sell_CurNumber = gc.GridRow.Cells[12].Value.ToString();
+                Sell_Price = gc.GridRow.Cells[15].Value.ToString();
+                Sell_Discount = gc.GridRow.Cells[16].Value.ToString();
+                Sell_PriceAfter = gc.GridRow.Cells[17].Value.ToString();
+                Sell_zongmoney = gc.GridRow.Cells[18].Value.ToString();
+                switch (gc.GridColumn.Name)
+                {
+                    case "gridColumnPrice":
+                        SellPriceEntry sp = new SellPriceEntry();
+                        sp.MaName = gc.GridRow.Cells[9].Value.ToString();
+                        sp.ClientName = labtextboxTop2.Text;
+                        sp.ShowDialog(this);
+                        break;
+                    case "gridColumnDis":
+                        SellHistoricaldiscount shd = new SellHistoricaldiscount();
+                        shd.ShowDialog(this);
+                        break;
+                    default:
+                        MessageBox.Show("选择错误！");
+                        break;
+                }
+                gc.GridRow.Cells[15].Value = Sell_Price;
+                gc.GridRow.Cells[16].Value = Sell_Discount;
+                gc.GridRow.Cells[17].Value = Sell_PriceAfter;
+                gc.GridRow.Cells[18].Value = Sell_zongmoney;
+            }
         }
 
         /// <summary>
@@ -407,7 +453,7 @@ namespace WSCATProject.Sell
             SellManager sellManager = new SellManager();
             GridRow gr = (GridRow)superGridControl1.PrimaryGrid.Rows[ClickRowIndex];
             //id字段为空 说明是没有数据的行 不是修改而是新增
-            if (gr.Cells["gridColumnid"].Value == null)
+            if (gr.Cells["gridColumnMaCode"].Value == null)
             {
                 newAdd = true;
             }
@@ -908,7 +954,7 @@ namespace WSCATProject.Sell
         {
             GridRow gr = e.GridPanel.Rows[e.GridCell.RowIndex] as GridRow;
             //若是没数据的行则不做处理
-            if (gr.Cells["gridColumnid"].Value == null)
+            if (gr.Cells["gridColumnMaCode"].Value == null)
             {
                 return;
             }
@@ -1435,6 +1481,44 @@ namespace WSCATProject.Sell
             e.GridCell.GridRow.Cells[16].Value = Sell_Discount;
             e.GridCell.GridRow.Cells[17].Value = Sell_PriceAfter;
             e.GridCell.GridRow.Cells[18].Value = Sell_zongmoney;
+        }
+
+        //重新绑定统计数量
+        private void TongJi()
+        {
+            double Xushu = 0;
+            double Jine = 0;
+            foreach (GridElement item in superGridControl1.PrimaryGrid.Rows)
+            {
+                GridRow gr = item as GridRow;
+                if (gr["gridColumnNumber"].Value != null)
+                {
+                    if (gr["gridColumnNumber"].Value.ToString() != "")
+                    {
+                        Xushu += Convert.ToDouble(gr["gridColumnNumber"].Value);
+                    }
+                }
+                else
+                {
+                    break;
+                }
+                if (gr["gridColumnMoney"].Value != null)
+                {
+                    if (gr["gridColumnMoney"].Value.ToString() != "")
+                    {
+                        Jine += Convert.ToDouble(gr["gridColumnMoney"].Value);
+                    }
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+           GridRow grow = (GridRow)superGridControl1.PrimaryGrid.LastSelectableRow;
+            grow["gridColumnNumber"].Value = Xushu.ToString();
+            grow["gridColumnMoney"].Value = Jine.ToString();
+
         }
     }
 }

@@ -15,6 +15,40 @@ namespace WSCATProject.Sell
 {
     public partial class SellPriceEntry : Form
     {
+        private string _maName;
+        /// <summary>
+        /// 要查看价格的物料名称
+        /// </summary>
+        public string MaName
+        {
+            get
+            {
+                return _maName;
+            }
+
+            set
+            {
+                _maName = value;
+            }
+        }
+
+        private string _clientName;
+        /// <summary>
+        /// 要查看历史价格的客户名称
+        /// </summary>
+        public string ClientName
+        {
+            get
+            {
+                return _clientName;
+            }
+
+            set
+            {
+                _clientName = value;
+            }
+        }
+
         public SellPriceEntry()
         {
             InitializeComponent();
@@ -33,8 +67,8 @@ namespace WSCATProject.Sell
             textBoxX4.Text = isf.Sell_zongmoney;
             textBoxX5.Text = isf.Sell_PriceAfter;
             this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DataTable dt = new SellDetailManager().SelPriceByMaName("说服力是地方");
-            Material material = new MaterialManager().SelPriceByMaName("说服力是地方");
+            DataTable dt = new SellDetailManager().SelPriceByMaName(_maName);
+            Material material = new MaterialManager().SelPriceByMaName(_maName);
             DataRow row;
             row = dt.NewRow();
             row[0] = "建议售价";
@@ -74,7 +108,7 @@ namespace WSCATProject.Sell
 
             //绑定数据
             dataGridView1.DataSource = dt;
-            dataGridView2.DataSource = new SellDetailManager().SelAccountPriceByAccount("本次", "说服力是地方");
+            dataGridView2.DataSource = new SellDetailManager().SelAccountPriceByAccount(_clientName, _maName);
             textBoxX2.ReadOnly = true;//折扣金额
             textBoxX4.ReadOnly = true;//总金额
             textBoxX5.ReadOnly = true;//折后单价   
@@ -162,7 +196,7 @@ namespace WSCATProject.Sell
             textBoxX4.Text = ((Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100) * Convert.ToDecimal(lblcount.Text)).ToString("0.00");//总金额
             //dataGridViewTextBoxColumn2  lblcount
         }
-
+        //取消
         private void buttonX2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -180,7 +214,7 @@ namespace WSCATProject.Sell
             }
             name.Text = Convert.ToDecimal(name.Text).ToString("0.00");
         }
-
+        //确定
         private void buttonX1_Click(object sender, EventArgs e)
         {
             InSellForm isf = (InSellForm)this.Owner;
