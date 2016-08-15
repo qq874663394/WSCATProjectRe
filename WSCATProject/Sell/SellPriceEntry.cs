@@ -162,7 +162,7 @@ namespace WSCATProject.Sell
             textBoxX4.Text = ((Convert.ToDecimal(price) * Convert.ToDecimal(discount) / 100) * Convert.ToDecimal(lblcount.Text)).ToString("0.00");//总金额
             //dataGridViewTextBoxColumn2  lblcount
         }
-
+        //取消
         private void buttonX2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -180,7 +180,7 @@ namespace WSCATProject.Sell
             }
             name.Text = Convert.ToDecimal(name.Text).ToString("0.00");
         }
-
+        //确定
         private void buttonX1_Click(object sender, EventArgs e)
         {
             InSellForm isf = (InSellForm)this.Owner;

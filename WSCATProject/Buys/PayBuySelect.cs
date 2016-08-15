@@ -1333,10 +1333,10 @@ namespace WSCATProject.Buys
                         {
                             InsSellGathering isg = new InsSellGathering();
                             isg.Sell_Code = row.Cells["ColumnsSellCode"].Value.ToString();
-                            isg.C_ClientName = row.Cells["ColumnsClientName"].Value.ToString();
+                           // isg.C_ClientName = row.Cells["ColumnsClientName"].Value.ToString();
                             isg.C_AccountName = row.Cells["ColumnsAccountName"].Value.ToString();
-                            isg.C_AmountPay = row.Cells["ColumnsAmountPay"].Value.ToString();
-                            isg.C_SalesMan = row.Cells["ColumnsSalesMan"].Value.ToString();
+                            //isg.C_AmountPay = row.Cells["ColumnsAmountPay"].Value.ToString();
+                            //isg.C_SalesMan = row.Cells["ColumnsSalesMan"].Value.ToString();
                             isg.ShowDialog();
                             superGridControl1.PrimaryGrid.DataSource = dt;
                             return;
