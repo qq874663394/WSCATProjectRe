@@ -194,7 +194,7 @@ namespace WSCATProject.Sell
             dataGridViewFujia.AutoGenerateColumns = false;
             //初始化商品下拉列表
             InitMaterialDataGridView();
-
+            InitDataGridView();
             dataGridView1.DataSource = _AllMaterial.Tables[0];
             //销售单单号
             SellOdd = BuildCode.ModuleCode("SS");
@@ -278,6 +278,7 @@ namespace WSCATProject.Sell
                         MessageBox.Show("错误"+ex.Message);
                     }
                 }
+             
             }
             //缺货销售单
             if (_state==2)
@@ -302,6 +303,13 @@ namespace WSCATProject.Sell
                     this.labtextboxTop2.Text = _sellmodel["Sell_ClientName"].Value.ToString();
                     this.labtextboxTop9.Text = _sellmodel["Sell_CliPhone"].Value.ToString();
                     dataGridView1.AutoGenerateColumns = false;
+                   superGridControl1.PrimaryGrid.Columns["gridColumnNumber"].ReadOnly = true;
+                    superGridControl1.PrimaryGrid.Columns["gridColumnStock"].ReadOnly = true;
+                    superGridControl1.PrimaryGrid.Columns["material"].ReadOnly = true;
+                    superGridControl1.PrimaryGrid.Columns["gridColumnName"].ReadOnly = true;
+                    superGridControl1.PrimaryGrid.Columns["gridColumnModel"].ReadOnly = true;
+                    superGridControl1.PrimaryGrid.Columns["gridColumnUnit"].ReadOnly = true;
+                    superGridControl1.PrimaryGrid.Columns["gridColumnPrice"].ReadOnly = true;
                     superGridControl1.PrimaryGrid.DataSource = selldm.GetList(" Sell_Code='" + XYEEncoding.strCodeHex(textBoxOddNumbers.Text) + "' and Sell_LostNumber>0");
                     superGridControl1.PrimaryGrid.EnsureVisible();
                 }
@@ -312,8 +320,8 @@ namespace WSCATProject.Sell
             }
             //初始化datagridview
             InitDataGridView();
+            TongJi();
         }
-
         /// <summary>
         /// 点击价格和折扣的扩展按钮弹出扩展窗体给客户查看
         /// </summary>
@@ -445,7 +453,7 @@ namespace WSCATProject.Sell
             SellManager sellManager = new SellManager();
             GridRow gr = (GridRow)superGridControl1.PrimaryGrid.Rows[ClickRowIndex];
             //id字段为空 说明是没有数据的行 不是修改而是新增
-            if (gr.Cells["gridColumnid"].Value == null)
+            if (gr.Cells["gridColumnMaCode"].Value == null)
             {
                 newAdd = true;
             }
@@ -946,7 +954,7 @@ namespace WSCATProject.Sell
         {
             GridRow gr = e.GridPanel.Rows[e.GridCell.RowIndex] as GridRow;
             //若是没数据的行则不做处理
-            if (gr.Cells["gridColumnid"].Value == null)
+            if (gr.Cells["gridColumnMaCode"].Value == null)
             {
                 return;
             }
@@ -1473,6 +1481,44 @@ namespace WSCATProject.Sell
             e.GridCell.GridRow.Cells[16].Value = Sell_Discount;
             e.GridCell.GridRow.Cells[17].Value = Sell_PriceAfter;
             e.GridCell.GridRow.Cells[18].Value = Sell_zongmoney;
+        }
+
+        //重新绑定统计数量
+        private void TongJi()
+        {
+            double Xushu = 0;
+            double Jine = 0;
+            foreach (GridElement item in superGridControl1.PrimaryGrid.Rows)
+            {
+                GridRow gr = item as GridRow;
+                if (gr["gridColumnNumber"].Value != null)
+                {
+                    if (gr["gridColumnNumber"].Value.ToString() != "")
+                    {
+                        Xushu += Convert.ToDouble(gr["gridColumnNumber"].Value);
+                    }
+                }
+                else
+                {
+                    break;
+                }
+                if (gr["gridColumnMoney"].Value != null)
+                {
+                    if (gr["gridColumnMoney"].Value.ToString() != "")
+                    {
+                        Jine += Convert.ToDouble(gr["gridColumnMoney"].Value);
+                    }
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+           GridRow grow = (GridRow)superGridControl1.PrimaryGrid.LastSelectableRow;
+            grow["gridColumnNumber"].Value = Xushu.ToString();
+            grow["gridColumnMoney"].Value = Jine.ToString();
+
         }
     }
 }

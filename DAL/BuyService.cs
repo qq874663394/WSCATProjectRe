@@ -46,7 +46,8 @@ namespace DAL
             SqlDataAdapter dapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);
             DataSet ds = new DataSet();
             dapter.Fill(ds, "T_Buy");
-            return ch.DataTableReCoding(ds.Tables[0]);
+            //return ch.DataTableReCoding(ds.Tables[0]);//解密两遍
+            return ds.Tables[0];
         }
         public DataTable SelBuyDataTable()
         {
