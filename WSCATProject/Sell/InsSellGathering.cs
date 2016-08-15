@@ -26,6 +26,11 @@ namespace WSCATProject.Sell
         Conllection conll = new Conllection();
         SellManager sm = new SellManager();
         public string pbName;//根据图片Name对应相应的datagridview
+
+        public InsSellGathering()
+        {
+            InitializeComponent();
+        }
         //销售单号
         private string _sellcode;
         public string Sell_Code
@@ -33,11 +38,35 @@ namespace WSCATProject.Sell
             get { return _sellcode; }
             set { _sellcode = value; }
         }
-
-        public InsSellGathering()
+        //客户
+        private string _ClientName;
+        public string C_ClientName
         {
-            InitializeComponent();
+            get { return _ClientName; }
+            set { _ClientName = value; }
         }
+        //结算账户
+        private string _AccountName;
+        public string C_AccountName
+        {
+            get { return _AccountName; }
+            set { _AccountName = value; }
+        }
+        //应收金额
+        private string _AccountPay;
+        public string C_AmountPay
+        {
+            get { return _AccountPay; }
+            set { _AccountPay = value; }
+        }
+        //业务员
+        private string _SalesMan;
+        public string C_SalesMan
+        {
+            get { return _SalesMan; }
+            set { _SalesMan = value; }
+        }
+
 
         private void InsSellGathering_Load(object sender, EventArgs e)
         {
@@ -127,30 +156,38 @@ namespace WSCATProject.Sell
             gc.Name = "Remark";
             gc.HeaderText = "备注";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
-
-            //superGridControl1.PrimaryGrid.Columns[0].Visible = false;
-            //superGridControl1.PrimaryGrid.DataSource = sdm.GetList(" Sell_Code='" + _sellcode + "'");
-            superGridControl1.PrimaryGrid.DataSource = sdm.GetList("");
+            
+            superGridControl1.PrimaryGrid.DataSource = sdm.GetList(string.Format("Sell_Code='{0}'", XYEEncoding.strCodeHex(Sell_Code)));
 
             #endregion
+
+            ltxt_salecode.Text = Sell_Code; ;
+            ltxt_kehu.Text = C_ClientName;
+            ltxt_AccountName.Text = C_AccountName;
+            ltxt_yingshou.Text = C_AmountPay;
+
             Model.Sell sell = sm.SelSellGatheringBySellCode(ltxt_salecode.Text.Trim());
-            ltxt_kehu.Text = sell.Sell_ClientName;
-            ltxt_AccountName.Text = sell.Sell_AccountCode;
-            ltxt_yingshou.ReadOnly = true;
-            ltxt_yingshou.Text = sell.Sell_OddMoney;
-            ltxt_saleman.Text = sell.Sell_Salesman;
-            ltxt_operation.Text = sell.Sell_Operation;
-            ltxt_remark.Text = sell.Sell_Remark;
+            if (sell != null)
+            {
+                ltxt_kehu.Text = sell.Sell_ClientName;
+                ltxt_AccountName.Text = sell.Sell_AccountCode;
+                ltxt_yingshou.ReadOnly = true;
+                ltxt_yingshou.Text = sell.Sell_OddMoney;
+                ltxt_saleman.Text = sell.Sell_Salesman;
+                ltxt_operation.Text = sell.Sell_Operation;
+                ltxt_remark.Text = sell.Sell_Remark;
+            }
             if (string.IsNullOrWhiteSpace(textBoxOddNumbers.Text))
             {
                 textBoxOddNumbers.Text = BuildCode.ModuleCode("AC");
-                conll.C_No = textBoxOddNumbers.Text;
+                conll.C_No = textBoxOddNumbers.Text;//资金收款编号
             }
-            //ltxt_salecode.Text
+            //ltxt_salecode.Text   
             //textBoxX1.Text = "0";
             ltxt_shishou.Text = "0";
             ltxt_weishou.Text = "0";
             ltxt_shoukuan.Text = "0";
+            ltxt_yingshou.Text = "0";
             //制单人
             LoginInfomation l = LoginInfomation.getInstance();
             l.UserName = "sss";
@@ -397,6 +434,10 @@ namespace WSCATProject.Sell
         {
             //实收金额赋值
             ltxt_shishou.Text = ltxt_shoukuan.Text;
+            if (ltxt_yingshou.Text == "")
+            {
+                ltxt_yingshou.Text = "0";
+            }
             if (Convert.ToDecimal(ltxt_shoukuan.Text) > Convert.ToDecimal(ltxt_yingshou.Text))
             {
                 ltxt_shoukuan.Text = ltxt_yingshou.Text;
