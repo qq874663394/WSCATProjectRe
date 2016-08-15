@@ -31,7 +31,8 @@ namespace Model
 		private string _ma_zhujima;
 		private string _ma_unit;
 		private decimal _ma_inprice;
-		private DateTime? _ma_indate;
+        private decimal _ma_outprice;
+        private DateTime? _ma_indate;
 		private string _ma_remark;
 		private int? _ma_enable=1;
 		private int? _ma_clear=1;
@@ -253,8 +254,24 @@ namespace Model
 			set{ _ma_safetytwo=value;}
 			get{return _ma_safetytwo;}
 		}
-		#endregion Model
 
-	}
+        /// <summary>
+        /// 最近出货价格
+        /// </summary>
+        public decimal Ma_outprice
+        {
+            get
+            {
+                return _ma_outprice;
+            }
+
+            set
+            {
+                _ma_outprice = value;
+            }
+        }
+        #endregion Model
+
+    }
 }
 

@@ -16,11 +16,16 @@ namespace WSCATProject.Sell
         {
             InitializeComponent();
         }
-
+        //关闭按钮
         private void buttonX2_Click(object sender, EventArgs e)
         {
             this.Close();
             this.Dispose();
+        }
+        //立即补货按钮
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
