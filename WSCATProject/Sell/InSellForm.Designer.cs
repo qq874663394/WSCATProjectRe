@@ -598,8 +598,9 @@
             // 
             // gridColumn11
             // 
-			this.gridColumn11.DataPropertyName = "Sell_Model";
-            this.gridColumn11.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridTextBoxDropDownEditControl);            this.gridColumn11.HeaderText = "规格型号";
+            this.gridColumn11.DataPropertyName = "Sell_Model";
+            this.gridColumn11.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridTextBoxDropDownEditControl);
+            this.gridColumn11.HeaderText = "规格型号";
             this.gridColumn11.Name = "gridColumnModel";
             // 
             // gridColumn12
@@ -631,7 +632,6 @@
             this.gridColumn15.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn15.HeaderText = "折扣率";
             this.gridColumn15.Name = "gridColumnDis";
-            this.gridColumn15.ReadOnly = true;
             this.gridColumn15.Width = 80;
             // 
             // gridColumn16
@@ -640,7 +640,6 @@
             this.gridColumn16.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridDoubleInputEditControl);
             this.gridColumn16.HeaderText = "折后价格";
             this.gridColumn16.Name = "gridColumnDisPrice";
-            this.gridColumn16.ReadOnly = true;
             this.gridColumn16.Width = 80;
             // 
             // gridColumn17

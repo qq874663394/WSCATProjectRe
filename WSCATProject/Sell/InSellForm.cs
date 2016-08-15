@@ -22,6 +22,8 @@ namespace WSCATProject.Sell
         {
             InitializeComponent();
         }
+
+        #region 历史价格和历史折扣需要的参数
         private string _kehu;
         public string Sell_Clientname
         {
@@ -71,6 +73,8 @@ namespace WSCATProject.Sell
             get { return _zongmoney; }
             set { _zongmoney = value; }
         }
+        #endregion
+
         #region 数据字段
         /// <summary>
         /// 所有商品列表
@@ -168,6 +172,7 @@ namespace WSCATProject.Sell
         private GridRow _sellmodel;
 
         #endregion
+
         private void InSellForm_Load(object sender, EventArgs e)
         {
 
@@ -189,8 +194,6 @@ namespace WSCATProject.Sell
             dataGridViewFujia.AutoGenerateColumns = false;
             //初始化商品下拉列表
             InitMaterialDataGridView();
-            //初始化datagridview
-            InitDataGridView();
 
             dataGridView1.DataSource = _AllMaterial.Tables[0];
             //销售单单号
@@ -212,7 +215,6 @@ namespace WSCATProject.Sell
             gdiecNumber.MaxValue = 999999999;
             //实发数量
             GridDoubleInputEditControl gdiecShifa = superGridControl1.PrimaryGrid.Columns["gridColumnshifashu"].EditControl as GridDoubleInputEditControl;
-            gdiecShifa.ButtonCustom.Visible = true;
             gdiecShifa.MinValue = 0;
             gdiecShifa.MaxValue = 999999999;
             //缺少数量
@@ -224,13 +226,13 @@ namespace WSCATProject.Sell
             gdiecdanjia.MinValue = 0;
             gdiecdanjia.MaxValue = 999999999;
             gdiecdanjia.ButtonCustom.Visible = true;
-            gdiecdanjia.ButtonCustomClick += Gdiecdanjia_ButtonCustomClick;
+            gdiecdanjia.ButtonCustomClick += Gdiec_ButtonCustomClick;
             //折扣
             GridDoubleInputEditControl gdieczhekou = superGridControl1.PrimaryGrid.Columns["gridColumnDis"].EditControl as GridDoubleInputEditControl;
             gdieczhekou.MinValue = 0;
             gdieczhekou.MaxValue = 100;
             gdieczhekou.ButtonCustom.Visible = true;
-            gdiecdanjia.ButtonCustomClick += Gdiecdanjia_ButtonCustomClick;
+            gdieczhekou.ButtonCustomClick += Gdiec_ButtonCustomClick;
 
             //未审核进行查看的时候
             if (_state == 1)
@@ -269,6 +271,7 @@ namespace WSCATProject.Sell
                         this.labtextboxTop9.Text = _sellmodel["Sell_CliPhone"].Value.ToString();
                         dataGridView1.AutoGenerateColumns = false;
                         superGridControl1.PrimaryGrid.DataSource = selldm.GetList(" Sell_Code='" + XYEEncoding.strCodeHex(textBoxOddNumbers.Text) + "'");
+                        superGridControl1.PrimaryGrid.EnsureVisible();
                     }
                     catch (Exception ex)
                     {
@@ -300,32 +303,67 @@ namespace WSCATProject.Sell
                     this.labtextboxTop9.Text = _sellmodel["Sell_CliPhone"].Value.ToString();
                     dataGridView1.AutoGenerateColumns = false;
                     superGridControl1.PrimaryGrid.DataSource = selldm.GetList(" Sell_Code='" + XYEEncoding.strCodeHex(textBoxOddNumbers.Text) + "' and Sell_LostNumber>0");
+                    superGridControl1.PrimaryGrid.EnsureVisible();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("错误" + ex.Message);
                 }
-            }        }
+            }
+            //初始化datagridview
+            InitDataGridView();
+        }
 
         /// <summary>
-        /// 触发的点击事件
+        /// 点击价格和折扣的扩展按钮弹出扩展窗体给客户查看
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Gdiecdanjia_ButtonCustomClick(object sender, CancelEventArgs e)
+        private void Gdiec_ButtonCustomClick(object sender, EventArgs e)
         {
-            GridTextBoxDropDownEditControl ddc =
-                sender as GridTextBoxDropDownEditControl;
-
-            if (ddc != null)
+            if (string.IsNullOrWhiteSpace(labtextboxTop2.Text))
             {
-
+                MessageBox.Show("请先选择要查看历史的客户名称");
+                return;
             }
-        }
-
-        private void Gdiecdanjia_ButtonCustomClick(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
+            SelectedElementCollection ge = superGridControl1.PrimaryGrid.GetSelectedCells();
+            if(ge.Count > 0)
+            {
+                GridCell gc = ge[0] as GridCell;
+                if (gc.GridRow.Cells[9].Value == null || gc.GridRow.Cells[8].Value == null)
+                {
+                    MessageBox.Show("请先选择商品信息");
+                    return;
+                }
+                Sell_Clientname = labtextboxTop2.Text;
+                Sell_MaName = gc.GridRow.Cells[9].Value.ToString();
+                Sell_Unit = gc.GridRow.Cells[11].Value.ToString();
+                Sell_CurNumber = gc.GridRow.Cells[12].Value.ToString();
+                Sell_Price = gc.GridRow.Cells[15].Value.ToString();
+                Sell_Discount = gc.GridRow.Cells[16].Value.ToString();
+                Sell_PriceAfter = gc.GridRow.Cells[17].Value.ToString();
+                Sell_zongmoney = gc.GridRow.Cells[18].Value.ToString();
+                switch (gc.GridColumn.Name)
+                {
+                    case "gridColumnPrice":
+                        SellPriceEntry sp = new SellPriceEntry();
+                        sp.MaName = gc.GridRow.Cells[9].Value.ToString();
+                        sp.ClientName = labtextboxTop2.Text;
+                        sp.ShowDialog(this);
+                        break;
+                    case "gridColumnDis":
+                        SellHistoricaldiscount shd = new SellHistoricaldiscount();
+                        shd.ShowDialog(this);
+                        break;
+                    default:
+                        MessageBox.Show("选择错误！");
+                        break;
+                }
+                gc.GridRow.Cells[15].Value = Sell_Price;
+                gc.GridRow.Cells[16].Value = Sell_Discount;
+                gc.GridRow.Cells[17].Value = Sell_PriceAfter;
+                gc.GridRow.Cells[18].Value = Sell_zongmoney;
+            }
         }
 
         /// <summary>
