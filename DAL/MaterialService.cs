@@ -122,7 +122,7 @@ namespace DAL
 			parameters[17].Value = model.Ma_zhujima;
 			parameters[18].Value = model.Ma_Unit;
 			parameters[19].Value = model.Ma_InPrice;
-            parameters[20].Value = model.Ma_outprice;
+            parameters[20].Value = model.Ma_OutPrice;
             parameters[21].Value = model.Ma_InDate;
 			parameters[22].Value = model.Ma_Remark;
 			parameters[23].Value = model.Ma_Enable;
@@ -224,7 +224,7 @@ namespace DAL
 			parameters[17].Value = model.Ma_zhujima;
 			parameters[18].Value = model.Ma_Unit;
 			parameters[19].Value = model.Ma_InPrice;
-            parameters[20].Value = model.Ma_outprice;
+            parameters[20].Value = model.Ma_OutPrice;
             parameters[21].Value = model.Ma_InDate;
 			parameters[22].Value = model.Ma_Remark;
 			parameters[23].Value = model.Ma_Enable;
@@ -409,7 +409,7 @@ namespace DAL
 				}
                 if (row["Ma_OutPrice"] != null && row["Ma_OutPrice"] != DBNull.Value)
                 {
-                    model.Ma_outprice = Convert.ToDecimal(row["Ma_OutPrice"]);
+                    model.Ma_OutPrice = Convert.ToDecimal(row["Ma_OutPrice"]);
                 }
                 if (row["Ma_InDate"]!=null && row["Ma_InDate"].ToString()!="")
 				{

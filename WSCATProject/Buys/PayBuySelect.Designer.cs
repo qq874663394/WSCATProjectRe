@@ -92,6 +92,7 @@ namespace WSCATProject.Buys
             this.新增物料信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.销售审核ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.欠货补货销售ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.资金收款单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -507,9 +508,10 @@ namespace WSCATProject.Buys
             this.查看物流ToolStripMenuItem,
             this.新增物料信息ToolStripMenuItem,
             this.销售审核ToolStripMenuItem,
-            this.欠货补货销售ToolStripMenuItem});
+            this.欠货补货销售ToolStripMenuItem,
+            this.资金收款单ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 180);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 202);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // 审核过账ToolStripMenuItem
@@ -560,6 +562,13 @@ namespace WSCATProject.Buys
             this.欠货补货销售ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.欠货补货销售ToolStripMenuItem.Text = "欠货销售";
             this.欠货补货销售ToolStripMenuItem.Click += new System.EventHandler(this.欠货补货销售ToolStripMenuItem_Click);
+            // 
+            // 资金收款单ToolStripMenuItem
+            // 
+            this.资金收款单ToolStripMenuItem.Name = "资金收款单ToolStripMenuItem";
+            this.资金收款单ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.资金收款单ToolStripMenuItem.Text = "资金收款单";
+            this.资金收款单ToolStripMenuItem.Click += new System.EventHandler(this.资金收款单ToolStripMenuItem_Click_1);
             // 
             // PayBuySelect
             // 
@@ -641,5 +650,6 @@ namespace WSCATProject.Buys
         private ToolStripMenuItem 审核过账ToolStripMenuItem;
         private ToolStripMenuItem 销售审核ToolStripMenuItem;
         private ToolStripMenuItem 欠货补货销售ToolStripMenuItem;
+        private ToolStripMenuItem 资金收款单ToolStripMenuItem;
     }
 }
