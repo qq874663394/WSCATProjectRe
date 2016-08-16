@@ -412,6 +412,7 @@
             this.superGridControl1.CellDoubleClick += new System.EventHandler<DevComponents.DotNetBar.SuperGrid.GridCellDoubleClickEventArgs>(this.superGridControl1_CellDoubleClick);
             this.superGridControl1.CellValidated += new System.EventHandler<DevComponents.DotNetBar.SuperGrid.GridCellValidatedEventArgs>(this.superGridControl1_CellValidated);
             this.superGridControl1.BeginEdit += new System.EventHandler<DevComponents.DotNetBar.SuperGrid.GridEditEventArgs>(this.superGridControl1_BeginEdit);
+            this.superGridControl1.EditorValueChanged += new System.EventHandler<DevComponents.DotNetBar.SuperGrid.GridEditEventArgs>(this.superGridControl1_EditorValueChanged);
             this.superGridControl1.Click += new System.EventHandler(this.superGridControl1_Click);
             // 
             // resizablePanel1
@@ -607,7 +608,7 @@
             this.gridColumn11.ColumnSortMode = DevComponents.DotNetBar.SuperGrid.ColumnSortMode.None;
             this.gridColumn11.DataPropertyName = "Sell_Model";
             this.gridColumn11.EditorType = typeof(DevComponents.DotNetBar.SuperGrid.GridTextBoxDropDownEditControl);
-            this.gridColumn11.HeaderText = "规格型号";     
+            this.gridColumn11.HeaderText = "规格型号";
             this.gridColumn11.Name = "gridColumnModel";
             // 
             // gridColumn12

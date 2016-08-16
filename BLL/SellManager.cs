@@ -234,11 +234,17 @@ namespace BLL
             }
         }
 
-        
-        //public DataTable searchMaterialByzhujimaAndNameAndModel(DataTable maDT, string value)
-        //{
 
-        //}
+        public DataTable searchMaterialByzhujimaAndNameAndModel(DataTable maDT, string value)
+        {
+            var result = maDT.AsEnumerable().Where(c => c["Ma_Name"].ToString().Contains(value));
+            DataTable resultDT = maDT.Clone();
+            if (result.Count() > 0)
+            {
+                resultDT = result.CopyToDataTable();
+            }
+            return resultDT;
+        }
 
         #endregion  ExtensionMethod
     }
