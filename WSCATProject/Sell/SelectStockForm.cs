@@ -16,6 +16,22 @@ namespace WSCATProject.Sell
         {
             InitializeComponent();
         }
+
+        private DataTable _dt;//绑定数据
+
+        public DataTable Dt
+        {
+            get
+            {
+                return _dt;
+            }
+
+            set
+            {
+                _dt = value;
+            }
+        }
+
         //关闭按钮
         private void buttonX2_Click(object sender, EventArgs e)
         {
@@ -26,6 +42,12 @@ namespace WSCATProject.Sell
         private void buttonX1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void SelectStockForm_Load(object sender, EventArgs e)
+        {
+            
+            this.superGridControl1.PrimaryGrid.DataSource = _dt;
         }
     }
 }

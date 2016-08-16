@@ -34,6 +34,7 @@
             this.gridColumn2 = new DevComponents.DotNetBar.SuperGrid.GridColumn();
             this.gridColumn3 = new DevComponents.DotNetBar.SuperGrid.GridColumn();
             this.gridColumn4 = new DevComponents.DotNetBar.SuperGrid.GridColumn();
+            this.gridColumn5 = new DevComponents.DotNetBar.SuperGrid.GridColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
@@ -59,37 +60,46 @@
             // 
             // 
             // 
+            this.superGridControl1.PrimaryGrid.AutoGenerateColumns = false;
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn1);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn2);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn3);
             this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn4);
+            this.superGridControl1.PrimaryGrid.Columns.Add(this.gridColumn5);
             this.superGridControl1.Size = new System.Drawing.Size(483, 278);
             this.superGridControl1.TabIndex = 0;
             this.superGridControl1.Text = "superGridControl1";
             // 
             // gridColumn1
             // 
+            this.gridColumn1.DataPropertyName = "Sto_StID";
             this.gridColumn1.HeaderText = "仓库编号";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = false;
             // 
             // gridColumn2
             // 
+            this.gridColumn2.DataPropertyName = "Sto_StName";
             this.gridColumn2.HeaderText = "仓库名称";
             this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Width = 150;
             // 
             // gridColumn3
             // 
+            this.gridColumn3.DataPropertyName = "Sto_maID";
             this.gridColumn3.HeaderText = "商品名称";
             this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Width = 150;
             // 
             // gridColumn4
             // 
-            this.gridColumn4.AutoSizeMode = DevComponents.DotNetBar.SuperGrid.ColumnAutoSizeMode.Fill;
-            this.gridColumn4.HeaderText = "库存数量";
+            this.gridColumn4.DataPropertyName = "Sto_AllNumber";
+            this.gridColumn4.HeaderText = "实际库存数量";
             this.gridColumn4.Name = "gridColumn4";
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.DataPropertyName = "Sto_EnaNumber";
+            this.gridColumn5.HeaderText = "可用库存数量";
+            this.gridColumn5.Name = "gridColumn5";
             // 
             // panel2
             // 
@@ -133,6 +143,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "SelectStockForm";
             this.Text = "商品库存显示";
+            this.Load += new System.EventHandler(this.SelectStockForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -150,5 +161,6 @@
         private System.Windows.Forms.Panel panel2;
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.ButtonX buttonX1;
+        private DevComponents.DotNetBar.SuperGrid.GridColumn gridColumn5;
     }
 }

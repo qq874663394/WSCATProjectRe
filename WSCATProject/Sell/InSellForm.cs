@@ -171,6 +171,8 @@ namespace WSCATProject.Sell
 
         private GridRow _sellmodel;
 
+        private double _KuCun;//库存数
+
         #endregion
 
         private void InSellForm_Load(object sender, EventArgs e)
@@ -244,7 +246,7 @@ namespace WSCATProject.Sell
                     panel5.Enabled = false;
                     panel5.BackColor = Color.FromArgb(240, 240, 240);
                     superGridControl1.PrimaryGrid.ReadOnly = true;
-                    if (_sellmodel["Sell_Review"].Value.ToString()=="1")
+                    if (_sellmodel["Sell_Review"].Value.ToString() == "1")
                     {
                         this.buttonSave.Enabled = false;
                         this.buttonExamine.Enabled = false;
@@ -275,13 +277,13 @@ namespace WSCATProject.Sell
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("错误"+ex.Message);
+                        MessageBox.Show("错误" + ex.Message);
                     }
                 }
-             
+
             }
             //缺货销售单
-            if (_state==2)
+            if (_state == 2)
             {
                 try
                 {
@@ -303,7 +305,7 @@ namespace WSCATProject.Sell
                     this.labtextboxTop2.Text = _sellmodel["Sell_ClientName"].Value.ToString();
                     this.labtextboxTop9.Text = _sellmodel["Sell_CliPhone"].Value.ToString();
                     dataGridView1.AutoGenerateColumns = false;
-                   superGridControl1.PrimaryGrid.Columns["gridColumnNumber"].ReadOnly = true;
+                    superGridControl1.PrimaryGrid.Columns["gridColumnNumber"].ReadOnly = true;
                     superGridControl1.PrimaryGrid.Columns["gridColumnStock"].ReadOnly = true;
                     superGridControl1.PrimaryGrid.Columns["material"].ReadOnly = true;
                     superGridControl1.PrimaryGrid.Columns["gridColumnName"].ReadOnly = true;
@@ -335,7 +337,7 @@ namespace WSCATProject.Sell
                 return;
             }
             SelectedElementCollection ge = superGridControl1.PrimaryGrid.GetSelectedCells();
-            if(ge.Count > 0)
+            if (ge.Count > 0)
             {
                 GridCell gc = ge[0] as GridCell;
                 if (gc.GridRow.Cells[9].Value == null || gc.GridRow.Cells[8].Value == null)
@@ -522,7 +524,7 @@ namespace WSCATProject.Sell
                 DataTable tempDT = sellManager.searchMaterialStockNumber(_AllStock,
                             "",
                             gr.Cells["gridColumnMaCode"].Value.ToString());
-                materialStockNumber(tempDT, false, gr.Cells["gridColumnName"].Value.ToString(),"");
+                materialStockNumber(tempDT, false, gr.Cells["gridColumnName"].Value.ToString(), "");
             }
             //新增一行 
             if (newAdd)
@@ -557,9 +559,10 @@ namespace WSCATProject.Sell
                 {
                     labelXKuCun.Visible = true;
                     labelXKuCun.Text = "商品 [" + maName + "] 在仓库" +
-                        stoName + "中的总量为: " + 
+                        stoName + "中的总量为: " +
                         mastDT.Rows[0]["Sto_AllNumber"].ToString();
-
+                    _KuCun = Convert.ToDouble(mastDT.Rows[0]["Sto_AllNumber"]);
+                    //记录库存
                     decimal allnumber = 0;
                     foreach (DataRow dr in mastDT.Rows)
                     {
@@ -579,7 +582,7 @@ namespace WSCATProject.Sell
                             0 : Convert.ToDecimal(dr["Sto_AllNumber"]);
                     }
                     labelXZongKuCun.Visible = true;
-                    labelXZongKuCun.Text = "商品 [" + maName + "] 在所有仓库中的总量为 " + 
+                    labelXZongKuCun.Text = "商品 [" + maName + "] 在所有仓库中的总量为 " +
                         mastDT.Rows[0]["Sto_AllNumber"].ToString();
                     labelXKuCun.Visible = false;
                     labelXKuCun.Text = "";
@@ -1024,6 +1027,22 @@ namespace WSCATProject.Sell
                 labtextboxTop5.Text = (Convert.ToDecimal(textBoxX3.Text) -
                     Convert.ToDecimal(labtextboxTop3.Text)).ToString();
             }
+            //需求数量大于库存数量显示库存情况
+            GridRow grow = e.GridPanel.Rows[e.GridCell.RowIndex] as GridRow;
+            if (grow["gridColumnStock"].Value.ToString() != "" && grow["gridColumnName"].Value.ToString() != "")
+            {
+                if (_KuCun < Convert.ToDouble(grow["gridColumnNumber"].FormattedValue))
+                {
+
+                    SelectStockForm select = new SelectStockForm();
+                    SellManager sell = new SellManager();
+                    select.Dt = sell.searchMaterialStockNumber(_AllStock,
+                        _StorageCode,
+                        grow["gridColumnMaCode"].Value.ToString());
+
+                    select.Show();
+                }
+            }
         }
 
         //只允许输入数字/小数点/删除键
@@ -1309,9 +1328,9 @@ namespace WSCATProject.Sell
                     selldetail.Sell_MaName = XYEEncoding.strCodeHex(gr["gridColumnName"].Value.ToString());
                     selldetail.Sell_Model = XYEEncoding.strCodeHex(gr["gridColumnModel"].Value.ToString());
                     selldetail.Sell_Unit = XYEEncoding.strCodeHex(gr["gridColumnUnit"].Value.ToString());
-                    selldetail.Sell_CurNumber = Convert.ToDecimal( gr["gridColumnNumber"].Value.ToString());//先保存string
-                    selldetail.Sell_ReNumber =Convert.ToDecimal( gr["gridColumnshifashu"].Value.ToString());
-                    selldetail.Sell_LostNumber =Convert.ToDecimal( gr["gridColumnqueshao"].Value.ToString());
+                    selldetail.Sell_CurNumber = Convert.ToDecimal(gr["gridColumnNumber"].Value.ToString());//先保存string
+                    selldetail.Sell_ReNumber = Convert.ToDecimal(gr["gridColumnshifashu"].Value.ToString());
+                    selldetail.Sell_LostNumber = Convert.ToDecimal(gr["gridColumnqueshao"].Value.ToString());
                     selldetail.Sell_DiscountAPrice = Convert.ToDecimal(gr["gridColumnPrice"].Value);
                     selldetail.Sell_Discount = Convert.ToDecimal(gr["gridColumnDis"].Value);
                     selldetail.Sell_DiscountBPrice = Convert.ToDecimal(gr["gridColumnDisPrice"].Value);
@@ -1515,7 +1534,7 @@ namespace WSCATProject.Sell
                 }
 
             }
-           GridRow grow = (GridRow)superGridControl1.PrimaryGrid.LastSelectableRow;
+            GridRow grow = (GridRow)superGridControl1.PrimaryGrid.LastSelectableRow;
             grow["gridColumnNumber"].Value = Xushu.ToString();
             grow["gridColumnMoney"].Value = Jine.ToString();
 
