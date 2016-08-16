@@ -1357,47 +1357,6 @@ namespace WSCATProject.Buys
             }
         }
 
-        private void 资金收款单ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
-                {
-                    SelectedElementCollection col = superGridControl1.PrimaryGrid.GetSelectedRows();
-                    if (col.Count > 0)
-                    {
-                        GridRow row = col[0] as GridRow;
-                        string sheng = row.Cells["ColumnsAuditStatus"].Value.ToString();
-                        string danju = row.Cells["ColumnsStatus"].Value.ToString();
-                        if (sheng == "已审核" && danju == "未收款")
-                        {
-                            InsSellGathering isg = new InsSellGathering();
-                            isg.Sell_Code = row.Cells["ColumnsSellCode"].Value.ToString();
-                            // isg.C_ClientName = row.Cells["ColumnsClientName"].Value.ToString();
-                            isg.C_AccountName = row.Cells["ColumnsAccountName"].Value.ToString();
-                            //isg.C_AmountPay = row.Cells["ColumnsAmountPay"].Value.ToString();
-                            //isg.C_SalesMan = row.Cells["ColumnsSalesMan"].Value.ToString();
-                            isg.ShowDialog();
-                            superGridControl1.PrimaryGrid.DataSource = dt;
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("请先选择要操作的行！");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("请先选择要操作的行！");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("错误" + ex.Message);
-            }
-        }
-
         private void 资金收款单ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             try
