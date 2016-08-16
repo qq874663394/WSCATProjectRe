@@ -50,6 +50,10 @@ namespace HelperUtility.Encrypt
         /// <returns></returns>
         public static string strCodeHex(string str)
         {
+            if (str==null)
+            {
+                return "";
+            }
             string strCode = "";
             byte[] strBytes = System.Text.UTF8Encoding.Default.GetBytes(str);
             byte[] codeBytes = new byte[strBytes.Length];

@@ -19,7 +19,7 @@ namespace DAL
         /// <returns></returns>
         public DataTable SelPriceByMaName(string Ma_Name)
         {
-            string sql = string.Format("select top 5 '330A59182E3F583F' as 价格类型,Sell_DiscountAPrice as 价格,Sell_Discount as 折扣率 from T_SellDetail where Sell_MaName='{0}'", XYEEncoding.strCodeHex(Ma_Name));
+            string sql = string.Format("select top 5 '330A59182E3F583F' as 价格类型,Sell_DiscountAPrice as 价格,Sell_Discount as 折扣率 from T_SellDetail where Sell_MaName='{0}' order by Sell_Lineno desc", XYEEncoding.strCodeHex(Ma_Name));
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);
             DataSet ds = new DataSet();
             adapter.Fill(ds, "T_SellDetail");

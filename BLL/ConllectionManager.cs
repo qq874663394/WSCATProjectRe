@@ -15,5 +15,12 @@ namespace BLL
         {
             return cs.InsConllection(conll);
         }
+        /// <summary>
+        /// 是否存在该记录
+        /// </summary>
+        public bool Exists(string C_No)
+        {
+            return cs.Exists(C_No);
+        }
     }
 }

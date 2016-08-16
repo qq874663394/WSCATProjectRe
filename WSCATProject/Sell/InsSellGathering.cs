@@ -25,6 +25,7 @@ namespace WSCATProject.Sell
         CodingHelper ch = new CodingHelper();
         Conllection conll = new Conllection();
         SellManager sm = new SellManager();
+        ConllectionManager conllm = new ConllectionManager();
         public string pbName;//根据图片Name对应相应的datagridview
 
         public InsSellGathering()
@@ -156,15 +157,20 @@ namespace WSCATProject.Sell
             gc.Name = "Remark";
             gc.HeaderText = "备注";
             superGridControl1.PrimaryGrid.Columns.Add(gc);
-            
+
             superGridControl1.PrimaryGrid.DataSource = sdm.GetList(string.Format("Sell_Code='{0}'", XYEEncoding.strCodeHex(Sell_Code)));
 
             #endregion
 
-            ltxt_salecode.Text = Sell_Code; ;
-            ltxt_kehu.Text = C_ClientName;
-            ltxt_AccountName.Text = C_AccountName;
-            ltxt_yingshou.Text = C_AmountPay;
+            //ltxt_salecode.Text = Sell_Code; ;
+            //ltxt_kehu.Text = C_ClientName;
+            //ltxt_AccountName.Text = C_AccountName;
+            //ltxt_yingshou.Text = C_AmountPay;
+
+            ltxt_shishou.Text = "0";
+            ltxt_weishou.Text = "0";
+            ltxt_shoukuan.Text = "0";
+            ltxt_yingshou.Text = "0";
 
             Model.Sell sell = sm.SelSellGatheringBySellCode(ltxt_salecode.Text.Trim());
             if (sell != null)
@@ -172,7 +178,7 @@ namespace WSCATProject.Sell
                 ltxt_kehu.Text = sell.Sell_ClientName;
                 ltxt_AccountName.Text = sell.Sell_AccountCode;
                 ltxt_yingshou.ReadOnly = true;
-                ltxt_yingshou.Text = sell.Sell_OddMoney;
+                ltxt_yingshou.Text = Convert.ToDecimal(sell.Sell_OddMoney).ToString("0.00");
                 ltxt_saleman.Text = sell.Sell_Salesman;
                 ltxt_operation.Text = sell.Sell_Operation;
                 ltxt_remark.Text = sell.Sell_Remark;
@@ -182,12 +188,9 @@ namespace WSCATProject.Sell
                 textBoxOddNumbers.Text = BuildCode.ModuleCode("AC");
                 conll.C_No = textBoxOddNumbers.Text;//资金收款编号
             }
-            //ltxt_salecode.Text   
+            ltxt_weishou.Text = sell.Sell_OddMoney;
+            //ltxt_salecode.Text
             //textBoxX1.Text = "0";
-            ltxt_shishou.Text = "0";
-            ltxt_weishou.Text = "0";
-            ltxt_shoukuan.Text = "0";
-            ltxt_yingshou.Text = "0";
             //制单人
             LoginInfomation l = LoginInfomation.getInstance();
             l.UserName = "sss";
@@ -323,194 +326,8 @@ namespace WSCATProject.Sell
         }
         #endregion
 
-        //保存
-        private void buttonSave_Click(object sender, EventArgs e)
-        {
-            ConllectionManager cm = new ConllectionManager();
-            conll.C_Operation = ltxt_operation.Text.Trim();
-            conll.C_Remark = ltxt_remark.Text.Trim();
-            conll.C_AmountPay = ltxt_yingshou.Text.Trim();
-            conll.C_AccountPaid = ltxt_shishou.Text.Trim();
-            conll.C_MoneyOwed = ltxt_weishou.Text.Trim();
-            conll.C_SellCode = ltxt_salecode.Text.Trim();
-            conll.C_AuditMan = "";
-            conll.C_Date = dateTimePicker1.Value;
-            conll.C_AuditStatus = 0;
-            conll.C_Clear = 1;
-            conll.C_Status = 0;
-            conll.C_SellCode = ltxt_salecode.Text;
-            int result = cm.InsConllection(conll);
-            if (result > 0)
-            {
-                MessageBox.Show("保存成功！");
-            }
-            else
-            {
-                MessageBox.Show("保存失败！");
-            }
-        }
-
-        #region 退出
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            Close();
-            Dispose();
-        }
-        #endregion
-
         #region 验证金额
-        /// <summary>
-        /// 验证应收金额
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ltxt_yingshou_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // 只允许输入数字和Del
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
-            {
-                e.Handled = true;
-            }
-            if (ltxt_yingshou.MaxLength < 11)
-            {
-                e.Handled = true;
-            }
-        }
 
-        private string skipComma(string str)
-        {
-            string[] ss = null;
-            string strnew = "";
-            if (str == "")
-            {
-                strnew = "0";
-            }
-            else
-            {
-                ss = str.Split(',');
-                for (int i = 0; i < ss.Length; i++)
-                {
-                    strnew += ss[i];
-                }
-            }
-            return strnew;
-        }
-
-        /// <summary>
-        /// 验证收款金额
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ltxt_shoukuan_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = false;
-            // 只允许输入数字、小数和Del
-            if (!(((e.KeyChar >= '0') && (e.KeyChar <= '9')) || e.KeyChar <= 31))
-            {
-                if (e.KeyChar == '.')
-                {
-                    if (((TextBox)sender).Text.Trim().IndexOf('.') > -1)
-                        e.Handled = true;
-                }
-                else
-                    e.Handled = true;
-            }
-            else
-            {
-                if (e.KeyChar <= 31)
-                {
-                    e.Handled = false;
-                }
-                else if (((TextBox)sender).Text.Trim().IndexOf('.') > -1)
-                {
-                    //小数位最多只能输入2位
-                    if (((TextBox)sender).Text.Trim().Substring(((TextBox)sender).Text.Trim().IndexOf('.') + 1).Length >= 2)
-                        e.Handled = true;
-                }
-            }
-        }
-
-        private void ltxt_shoukuan_TextChanged(object sender, EventArgs e)
-        {
-            //实收金额赋值
-            ltxt_shishou.Text = ltxt_shoukuan.Text;
-            if (ltxt_yingshou.Text == "")
-            {
-                ltxt_yingshou.Text = "0";
-            }
-            if (Convert.ToDecimal(ltxt_shoukuan.Text) > Convert.ToDecimal(ltxt_yingshou.Text))
-            {
-                ltxt_shoukuan.Text = ltxt_yingshou.Text;
-                MessageBox.Show("【收款金额】不能大于应付金额！");
-            }
-            //未收金额计算
-            ltxt_weishou.Text = (Convert.ToDecimal(ltxt_yingshou.Text) - Convert.ToDecimal(ltxt_shishou.Text)).ToString();
-        }
-
-        /// <summary>
-        /// 验证实收金额
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ltxt_shishou_KeyPress(object sender, KeyPressEventArgs e)
-        {
-        }
-
-        private void ltxt_shishou_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        /// <summary>
-        /// 验证未收金额
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ltxt_weishou_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // 只允许输入数字和Del
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
-            {
-                e.Handled = true;
-            }
-            if (ltxt_weishou.MaxLength < 12)
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void ltxt_weishou_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(ltxt_weishou.Text))
-                return;
-
-            // 按千分位逗号格式显示！
-            decimal d = Convert.ToDecimal(skipComma(ltxt_weishou.Text));
-            ltxt_weishou.Text = string.Format("{0:N0}", d);
-
-            // 确保输入光标在最右侧
-            ltxt_weishou.Select(ltxt_weishou.Text.Length, 0);
-        }
-
-
-        private void ltxt_shoukuan_Validated(object sender, EventArgs e)
-        {
-
-            if (ltxt_shoukuan.Text == "" || ltxt_shishou.Text == "" || ltxt_weishou.Text == "")
-            {
-                return;
-            }
-            decimal shoukuan = Convert.ToDecimal(ltxt_shoukuan.Text.Trim());
-            decimal ying = Convert.ToDecimal(ltxt_yingshou.Text);
-            if (shoukuan > ying)
-            {
-                MessageBox.Show("收款金额不能大于应收金额！");
-                ltxt_shoukuan.Clear();
-                return;
-            }
-            ltxt_shishou.Text = shoukuan.ToString();
-            ltxt_weishou.Text = (Convert.ToDecimal(ltxt_yingshou.Text.Trim()) - Convert.ToDecimal(ltxt_shishou.Text.Trim())).ToString();//未收金额
-
-        }
         #endregion
 
         #region 非空验证
@@ -552,7 +369,7 @@ namespace WSCATProject.Sell
                 string shishou = ltxt_shishou.Text.Trim();
                 string weishou = ltxt_weishou.Text.Trim();
                 //yingshou.Text = yingshou.ToString();
-                ltxt_shishou.Text = yingshou.ToString();
+                ltxt_shishou.Text = Convert.ToDecimal(yingshou).ToString("0.00");
                 if (this.button1.Text == "√")
                 {
                     string weishouTemp = Convert.ToString((Convert.ToDecimal(ltxt_yingshou.Text.Trim()) - Convert.ToDecimal(ltxt_shishou.Text.Trim())));
@@ -564,12 +381,13 @@ namespace WSCATProject.Sell
                     {
                         ltxt_weishou.Text = weishouTemp;
                     }
+                    ltxt_shoukuan.Text = yingshou;
                     this.button1.Text = "×";
                     return;
                 }
                 if (this.button1.Text == "×")
                 {
-                    //textBoxX1.Text = "0";
+                    ltxt_shoukuan.Text = "0";
                     ltxt_shishou.Text = "0";
                     ltxt_weishou.Text = ltxt_yingshou.Text;
                     this.button1.Text = "√";
@@ -589,6 +407,151 @@ namespace WSCATProject.Sell
             DataView dv = dt.DefaultView;
             dv.RowFilter = "Cli_Name ='" + ltxt_kehu.Text.Trim().ToString() + "'";
             dt = dv.ToTable();
+        }
+
+        //保存
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (conllm.Exists(textBoxOddNumbers.Text.Trim()))
+            {
+                MessageBox.Show("记录已存在！");
+                return;
+            }
+            if (conll.C_ClientName == null)
+            {
+                conll.C_ClientName = ltxt_kehu.Text.Trim();
+            }
+            if (conll.C_AccountName == null)
+            {
+                conll.C_AccountName = ltxt_AccountName.Text.Trim();
+            }
+            if (conll.C_SalesMan == null)
+            {
+                conll.C_SalesMan = ltxt_saleman.Text.Trim();
+            }
+            conll.C_Operation = ltxt_operation.Text.Trim();
+            conll.C_Remark = ltxt_remark.Text.Trim();
+            conll.C_AmountPay = ltxt_yingshou.Text.Trim();
+            conll.C_AccountPaid = ltxt_shishou.Text.Trim();
+            conll.C_MoneyOwed = ltxt_weishou.Text.Trim();
+            conll.C_SellCode = ltxt_salecode.Text.Trim();
+            conll.C_AuditMan = "";
+            conll.C_Date = dateTimePicker1.Value;
+            conll.C_AuditStatus = 0;
+            conll.C_Clear = 1;
+            conll.C_Status = 0;
+            int result = conllm.InsConllection(conll);
+            if (result > 0)
+            {
+                MessageBox.Show("保存成功！");
+            }
+            else
+            {
+                MessageBox.Show("保存失败！");
+            }
+        }
+
+        #region 退出
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Close();
+            Dispose();
+        }
+        #endregion
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (conllm.Exists(textBoxOddNumbers.Text.Trim()))
+            {
+                MessageBox.Show("记录已存在！");
+                return;
+            }
+            if (conll.C_ClientName == null)
+            {
+                conll.C_ClientName = ltxt_kehu.Text.Trim();
+            }
+            if (conll.C_AccountName == null)
+            {
+                conll.C_AccountName = ltxt_AccountName.Text.Trim();
+            }
+            if (conll.C_SalesMan == null)
+            {
+                conll.C_SalesMan = ltxt_saleman.Text.Trim();
+            }
+            conll.C_Operation = ltxt_operation.Text.Trim();
+            conll.C_Remark = ltxt_remark.Text.Trim();
+            conll.C_AmountPay = ltxt_yingshou.Text.Trim();
+            conll.C_AccountPaid = ltxt_shishou.Text.Trim();
+            conll.C_MoneyOwed = ltxt_weishou.Text.Trim();
+            conll.C_SellCode = ltxt_salecode.Text.Trim();
+            conll.C_AuditMan = "";
+            conll.C_Date = dateTimePicker1.Value;
+            conll.C_AuditStatus = 1;
+            conll.C_Clear = 1;
+            conll.C_Status = 0;
+            int result = conllm.InsConllection(conll);
+            if (result > 0)
+            {
+                MessageBox.Show("保存成功！");
+            }
+            else
+            {
+                MessageBox.Show("保存失败！");
+            }
+        }
+
+        private void ltxt_shoukuan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(((e.KeyChar >= '0') && (e.KeyChar <= '9')) || e.KeyChar <= 31))
+            {
+                if (e.KeyChar == '.')
+                {
+                    if (((TextBox)sender).Text.Trim().IndexOf('.') > -1)
+                        e.Handled = true;
+                }
+                else
+                    e.Handled = true;
+            }
+            else
+            {
+                if (e.KeyChar <= 31)
+                {
+                    e.Handled = false;
+                }
+                else if (((TextBox)sender).Text.Trim().IndexOf('.') > -1)
+                {
+                    if (((TextBox)sender).Text.Trim().Substring(((TextBox)sender).Text.Trim().IndexOf('.') + 1).Length >= 2)
+                        e.Handled = true;
+                }
+            }
+            if (e.KeyChar=='\b')
+            {
+                if (string.IsNullOrWhiteSpace(ltxt_shoukuan.Text) == true)
+                {
+                    ltxt_shishou.Text = "0.00";
+                }
+            }
+        }
+
+        private void ltxt_shoukuan_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(((TextBox)sender).Text) == true || string.IsNullOrWhiteSpace(ltxt_yingshou.Text))
+            {
+                return;
+            }
+
+            if (Convert.ToDecimal(((TextBox)sender).Text) > Convert.ToDecimal(ltxt_yingshou.Text))
+            {
+                MessageBox.Show("【收款金额】不能大于应付金额");
+                ((TextBox)sender).Text = Convert.ToDecimal(ltxt_yingshou.Text).ToString("0.00");
+            }
+            ltxt_shishou.Text = Convert.ToDecimal(ltxt_shoukuan.Text).ToString("0.00");
+            ltxt_weishou.Text = (Convert.ToDecimal(ltxt_yingshou.Text) - Convert.ToDecimal(ltxt_shoukuan.Text)).ToString("0.00");
+        }
+
+        private void ltxt_shoukuan_Leave(object sender, EventArgs e)
+        {
+            ltxt_shoukuan.Text = Convert.ToDecimal(ltxt_shoukuan.Text).ToString("0.00");
         }
     }
 }
