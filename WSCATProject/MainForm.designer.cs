@@ -104,14 +104,6 @@
             this.labelItem1 = new DevComponents.DotNetBar.LabelItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.superTabControl1 = new DevComponents.DotNetBar.SuperTabControl();
-            this.superTabControlPanel1 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.maintainControlBottomPanel = new System.Windows.Forms.Panel();
-            this.btnMaintainYear = new System.Windows.Forms.Button();
-            this.btnMaintainMonth = new System.Windows.Forms.Button();
-            this.btnMaintainWeek = new System.Windows.Forms.Button();
-            this.btnMaintainToday = new System.Windows.Forms.Button();
-            this.btnMaintainAll = new System.Windows.Forms.Button();
-            this.superTabItemRe = new DevComponents.DotNetBar.SuperTabItem();
             this.superTabControlPanel2 = new DevComponents.DotNetBar.SuperTabControlPanel();
             this.inContorlAllPannel = new System.Windows.Forms.Panel();
             this.pictureBox23 = new System.Windows.Forms.PictureBox();
@@ -132,6 +124,14 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.superTabItemIn = new DevComponents.DotNetBar.SuperTabItem();
+            this.superTabControlPanel1 = new DevComponents.DotNetBar.SuperTabControlPanel();
+            this.maintainControlBottomPanel = new System.Windows.Forms.Panel();
+            this.btnMaintainYear = new System.Windows.Forms.Button();
+            this.btnMaintainMonth = new System.Windows.Forms.Button();
+            this.btnMaintainWeek = new System.Windows.Forms.Button();
+            this.btnMaintainToday = new System.Windows.Forms.Button();
+            this.btnMaintainAll = new System.Windows.Forms.Button();
+            this.superTabItemRe = new DevComponents.DotNetBar.SuperTabItem();
             this.superTabControlPanel3 = new DevComponents.DotNetBar.SuperTabControlPanel();
             this.outContorlAllPannel = new System.Windows.Forms.Panel();
             this.pbMarketWarehome = new System.Windows.Forms.PictureBox();
@@ -310,6 +310,12 @@
             this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
+            this.superTabItem1 = new DevComponents.DotNetBar.SuperTabItem();
+            this.superTabControlPanel8 = new DevComponents.DotNetBar.SuperTabControlPanel();
+            this.sideBarPanelItem1 = new DevComponents.DotNetBar.SideBarPanelItem();
+            this.listViewEPend = new DevComponents.DotNetBar.Controls.ListViewEx();
+            this.expandablePanel1 = new DevComponents.DotNetBar.ExpandablePanel();
+            this.expandablePanel2 = new DevComponents.DotNetBar.ExpandablePanel();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel2.SuspendLayout();
@@ -317,8 +323,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.superTabControl1)).BeginInit();
             this.superTabControl1.SuspendLayout();
-            this.superTabControlPanel1.SuspendLayout();
-            this.maintainControlBottomPanel.SuspendLayout();
             this.superTabControlPanel2.SuspendLayout();
             this.inContorlAllPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
@@ -331,6 +335,8 @@
             this.inContorlBottomPannel.SuspendLayout();
             this.inContorlRightPannel.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.superTabControlPanel1.SuspendLayout();
+            this.maintainControlBottomPanel.SuspendLayout();
             this.superTabControlPanel3.SuspendLayout();
             this.outContorlAllPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMarketWarehome)).BeginInit();
@@ -388,6 +394,7 @@
             this.panel13.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.superTabControlPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // 菜单1ToolStripMenuItem
@@ -1309,13 +1316,14 @@
             this.superTabControl1.ControlBox.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.superTabControl1.ControlBox.MenuBox,
             this.superTabControl1.ControlBox.CloseBox});
-            this.superTabControl1.Controls.Add(this.superTabControlPanel2);
+            this.superTabControl1.Controls.Add(this.superTabControlPanel8);
             this.superTabControl1.Controls.Add(this.superTabControlPanel1);
-            this.superTabControl1.Controls.Add(this.superTabControlPanel3);
-            this.superTabControl1.Controls.Add(this.superTabControlPanel4);
-            this.superTabControl1.Controls.Add(this.superTabControlPanel5);
-            this.superTabControl1.Controls.Add(this.superTabControlPanel6);
+            this.superTabControl1.Controls.Add(this.superTabControlPanel2);
             this.superTabControl1.Controls.Add(this.superTabControlPanel7);
+            this.superTabControl1.Controls.Add(this.superTabControlPanel6);
+            this.superTabControl1.Controls.Add(this.superTabControlPanel5);
+            this.superTabControl1.Controls.Add(this.superTabControlPanel4);
+            this.superTabControl1.Controls.Add(this.superTabControlPanel3);
             this.superTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.superTabControl1.Location = new System.Drawing.Point(0, 0);
             this.superTabControl1.Name = "superTabControl1";
@@ -1326,6 +1334,7 @@
             this.superTabControl1.TabFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.superTabControl1.TabIndex = 2;
             this.superTabControl1.Tabs.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.superTabItem1,
             this.superTabItemRe,
             this.superTabItemIn,
             this.superTabItemOut,
@@ -1335,102 +1344,6 @@
             this.superTabItemSys});
             this.superTabControl1.TabStyle = DevComponents.DotNetBar.eSuperTabStyle.WinMediaPlayer12;
             this.superTabControl1.Text = "superTabControl1";
-            // 
-            // superTabControlPanel1
-            // 
-            this.superTabControlPanel1.Controls.Add(this.maintainControlBottomPanel);
-            this.superTabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel1.Location = new System.Drawing.Point(0, 26);
-            this.superTabControlPanel1.Name = "superTabControlPanel1";
-            this.superTabControlPanel1.Size = new System.Drawing.Size(870, 470);
-            this.superTabControlPanel1.TabIndex = 1;
-            this.superTabControlPanel1.TabItem = this.superTabItemRe;
-            // 
-            // maintainControlBottomPanel
-            // 
-            this.maintainControlBottomPanel.BackColor = System.Drawing.Color.MintCream;
-            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainYear);
-            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainMonth);
-            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainWeek);
-            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainToday);
-            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainAll);
-            this.maintainControlBottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.maintainControlBottomPanel.Location = new System.Drawing.Point(0, 383);
-            this.maintainControlBottomPanel.Name = "maintainControlBottomPanel";
-            this.maintainControlBottomPanel.Size = new System.Drawing.Size(870, 87);
-            this.maintainControlBottomPanel.TabIndex = 10;
-            // 
-            // btnMaintainYear
-            // 
-            this.btnMaintainYear.FlatAppearance.BorderSize = 0;
-            this.btnMaintainYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintainYear.Image = global::WSCATProject.Properties.Resources.maintainToTheYear;
-            this.btnMaintainYear.Location = new System.Drawing.Point(629, 10);
-            this.btnMaintainYear.Name = "btnMaintainYear";
-            this.btnMaintainYear.Size = new System.Drawing.Size(80, 73);
-            this.btnMaintainYear.TabIndex = 19;
-            this.btnMaintainYear.Text = "列出本年";
-            this.btnMaintainYear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnMaintainYear.UseVisualStyleBackColor = true;
-            // 
-            // btnMaintainMonth
-            // 
-            this.btnMaintainMonth.FlatAppearance.BorderSize = 0;
-            this.btnMaintainMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintainMonth.Image = global::WSCATProject.Properties.Resources.maintainToTheMonth;
-            this.btnMaintainMonth.Location = new System.Drawing.Point(482, 10);
-            this.btnMaintainMonth.Name = "btnMaintainMonth";
-            this.btnMaintainMonth.Size = new System.Drawing.Size(80, 73);
-            this.btnMaintainMonth.TabIndex = 18;
-            this.btnMaintainMonth.Text = "列出本月";
-            this.btnMaintainMonth.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnMaintainMonth.UseVisualStyleBackColor = true;
-            // 
-            // btnMaintainWeek
-            // 
-            this.btnMaintainWeek.FlatAppearance.BorderSize = 0;
-            this.btnMaintainWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintainWeek.Image = global::WSCATProject.Properties.Resources.maintainToTheWeek;
-            this.btnMaintainWeek.Location = new System.Drawing.Point(335, 10);
-            this.btnMaintainWeek.Name = "btnMaintainWeek";
-            this.btnMaintainWeek.Size = new System.Drawing.Size(80, 73);
-            this.btnMaintainWeek.TabIndex = 17;
-            this.btnMaintainWeek.Text = "列出本周";
-            this.btnMaintainWeek.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnMaintainWeek.UseVisualStyleBackColor = true;
-            // 
-            // btnMaintainToday
-            // 
-            this.btnMaintainToday.FlatAppearance.BorderSize = 0;
-            this.btnMaintainToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintainToday.Image = global::WSCATProject.Properties.Resources.maintainToTheDay;
-            this.btnMaintainToday.Location = new System.Drawing.Point(188, 10);
-            this.btnMaintainToday.Name = "btnMaintainToday";
-            this.btnMaintainToday.Size = new System.Drawing.Size(80, 73);
-            this.btnMaintainToday.TabIndex = 16;
-            this.btnMaintainToday.Text = "列出今天";
-            this.btnMaintainToday.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnMaintainToday.UseVisualStyleBackColor = true;
-            // 
-            // btnMaintainAll
-            // 
-            this.btnMaintainAll.FlatAppearance.BorderSize = 0;
-            this.btnMaintainAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintainAll.Image = global::WSCATProject.Properties.Resources.maintainAll;
-            this.btnMaintainAll.Location = new System.Drawing.Point(41, 10);
-            this.btnMaintainAll.Name = "btnMaintainAll";
-            this.btnMaintainAll.Size = new System.Drawing.Size(80, 73);
-            this.btnMaintainAll.TabIndex = 15;
-            this.btnMaintainAll.Text = "列出全部";
-            this.btnMaintainAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnMaintainAll.UseVisualStyleBackColor = true;
-            // 
-            // superTabItemRe
-            // 
-            this.superTabItemRe.AttachedControl = this.superTabControlPanel1;
-            this.superTabItemRe.GlobalItem = false;
-            this.superTabItemRe.Name = "superTabItemRe";
-            this.superTabItemRe.Text = "售后系统";
             // 
             // superTabControlPanel2
             // 
@@ -1665,6 +1578,102 @@
             this.superTabItemIn.GlobalItem = false;
             this.superTabItemIn.Name = "superTabItemIn";
             this.superTabItemIn.Text = "采购系统";
+            // 
+            // superTabControlPanel1
+            // 
+            this.superTabControlPanel1.Controls.Add(this.maintainControlBottomPanel);
+            this.superTabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.superTabControlPanel1.Location = new System.Drawing.Point(0, 26);
+            this.superTabControlPanel1.Name = "superTabControlPanel1";
+            this.superTabControlPanel1.Size = new System.Drawing.Size(870, 470);
+            this.superTabControlPanel1.TabIndex = 1;
+            this.superTabControlPanel1.TabItem = this.superTabItemRe;
+            // 
+            // maintainControlBottomPanel
+            // 
+            this.maintainControlBottomPanel.BackColor = System.Drawing.Color.MintCream;
+            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainYear);
+            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainMonth);
+            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainWeek);
+            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainToday);
+            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainAll);
+            this.maintainControlBottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.maintainControlBottomPanel.Location = new System.Drawing.Point(0, 383);
+            this.maintainControlBottomPanel.Name = "maintainControlBottomPanel";
+            this.maintainControlBottomPanel.Size = new System.Drawing.Size(870, 87);
+            this.maintainControlBottomPanel.TabIndex = 10;
+            // 
+            // btnMaintainYear
+            // 
+            this.btnMaintainYear.FlatAppearance.BorderSize = 0;
+            this.btnMaintainYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintainYear.Image = global::WSCATProject.Properties.Resources.maintainToTheYear;
+            this.btnMaintainYear.Location = new System.Drawing.Point(629, 10);
+            this.btnMaintainYear.Name = "btnMaintainYear";
+            this.btnMaintainYear.Size = new System.Drawing.Size(80, 73);
+            this.btnMaintainYear.TabIndex = 19;
+            this.btnMaintainYear.Text = "列出本年";
+            this.btnMaintainYear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnMaintainYear.UseVisualStyleBackColor = true;
+            // 
+            // btnMaintainMonth
+            // 
+            this.btnMaintainMonth.FlatAppearance.BorderSize = 0;
+            this.btnMaintainMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintainMonth.Image = global::WSCATProject.Properties.Resources.maintainToTheMonth;
+            this.btnMaintainMonth.Location = new System.Drawing.Point(482, 10);
+            this.btnMaintainMonth.Name = "btnMaintainMonth";
+            this.btnMaintainMonth.Size = new System.Drawing.Size(80, 73);
+            this.btnMaintainMonth.TabIndex = 18;
+            this.btnMaintainMonth.Text = "列出本月";
+            this.btnMaintainMonth.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnMaintainMonth.UseVisualStyleBackColor = true;
+            // 
+            // btnMaintainWeek
+            // 
+            this.btnMaintainWeek.FlatAppearance.BorderSize = 0;
+            this.btnMaintainWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintainWeek.Image = global::WSCATProject.Properties.Resources.maintainToTheWeek;
+            this.btnMaintainWeek.Location = new System.Drawing.Point(335, 10);
+            this.btnMaintainWeek.Name = "btnMaintainWeek";
+            this.btnMaintainWeek.Size = new System.Drawing.Size(80, 73);
+            this.btnMaintainWeek.TabIndex = 17;
+            this.btnMaintainWeek.Text = "列出本周";
+            this.btnMaintainWeek.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnMaintainWeek.UseVisualStyleBackColor = true;
+            // 
+            // btnMaintainToday
+            // 
+            this.btnMaintainToday.FlatAppearance.BorderSize = 0;
+            this.btnMaintainToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintainToday.Image = global::WSCATProject.Properties.Resources.maintainToTheDay;
+            this.btnMaintainToday.Location = new System.Drawing.Point(188, 10);
+            this.btnMaintainToday.Name = "btnMaintainToday";
+            this.btnMaintainToday.Size = new System.Drawing.Size(80, 73);
+            this.btnMaintainToday.TabIndex = 16;
+            this.btnMaintainToday.Text = "列出今天";
+            this.btnMaintainToday.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnMaintainToday.UseVisualStyleBackColor = true;
+            // 
+            // btnMaintainAll
+            // 
+            this.btnMaintainAll.FlatAppearance.BorderSize = 0;
+            this.btnMaintainAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintainAll.Image = global::WSCATProject.Properties.Resources.maintainAll;
+            this.btnMaintainAll.Location = new System.Drawing.Point(41, 10);
+            this.btnMaintainAll.Name = "btnMaintainAll";
+            this.btnMaintainAll.Size = new System.Drawing.Size(80, 73);
+            this.btnMaintainAll.TabIndex = 15;
+            this.btnMaintainAll.Text = "列出全部";
+            this.btnMaintainAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnMaintainAll.UseVisualStyleBackColor = true;
+            // 
+            // superTabItemRe
+            // 
+            this.superTabItemRe.AttachedControl = this.superTabControlPanel1;
+            this.superTabItemRe.GlobalItem = false;
+            this.superTabItemRe.Name = "superTabItemRe";
+            this.superTabItemRe.Text = "售后系统";
             // 
             // superTabControlPanel3
             // 
@@ -2920,10 +2929,11 @@
             this.sideBar1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
             this.sideBar1.BorderStyle = DevComponents.DotNetBar.eBorderType.None;
             this.sideBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sideBar1.ExpandedPanel = this.sideBarPanelItemSys;
+            this.sideBar1.ExpandedPanel = this.sideBarPanelItemRe;
             this.sideBar1.Location = new System.Drawing.Point(0, 0);
             this.sideBar1.Name = "sideBar1";
             this.sideBar1.Panels.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.sideBarPanelItem1,
             this.sideBarPanelItemRe,
             this.sideBarPanelItemIn,
             this.sideBarPanelItemOut,
@@ -3537,6 +3547,97 @@
             this.toolStripButton15.Size = new System.Drawing.Size(23, 37);
             this.toolStripButton15.Text = "toolStripButton15";
             // 
+            // superTabItem1
+            // 
+            this.superTabItem1.AttachedControl = this.superTabControlPanel8;
+            this.superTabItem1.GlobalItem = false;
+            this.superTabItem1.Name = "superTabItem1";
+            this.superTabItem1.Text = "工作日志";
+            // 
+            // superTabControlPanel8
+            // 
+            this.superTabControlPanel8.Controls.Add(this.expandablePanel2);
+            this.superTabControlPanel8.Controls.Add(this.expandablePanel1);
+            this.superTabControlPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.superTabControlPanel8.Location = new System.Drawing.Point(0, 26);
+            this.superTabControlPanel8.Name = "superTabControlPanel8";
+            this.superTabControlPanel8.Size = new System.Drawing.Size(870, 470);
+            this.superTabControlPanel8.TabIndex = 0;
+            this.superTabControlPanel8.TabItem = this.superTabItem1;
+            // 
+            // sideBarPanelItem1
+            // 
+            this.sideBarPanelItem1.FontBold = true;
+            this.sideBarPanelItem1.Name = "sideBarPanelItem1";
+            this.sideBarPanelItem1.Text = "工作日志";
+            this.sideBarPanelItem1.Click += new System.EventHandler(this.sideBarPanelItem1_Click);
+            // 
+            // listViewEPend
+            // 
+            // 
+            // 
+            // 
+            this.listViewEPend.Border.Class = "ListViewBorder";
+            this.listViewEPend.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.listViewEPend.DisabledBackColor = System.Drawing.Color.Empty;
+            this.listViewEPend.Location = new System.Drawing.Point(3, 238);
+            this.listViewEPend.Name = "listViewEPend";
+            this.listViewEPend.Size = new System.Drawing.Size(118, 97);
+            this.listViewEPend.TabIndex = 0;
+            this.listViewEPend.UseCompatibleStateImageBehavior = false;
+            // 
+            // expandablePanel1
+            // 
+            this.expandablePanel1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.expandablePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.expandablePanel1.DisabledBackColor = System.Drawing.Color.Empty;
+            this.expandablePanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.expandablePanel1.HideControlsWhenCollapsed = true;
+            this.expandablePanel1.Location = new System.Drawing.Point(0, 0);
+            this.expandablePanel1.Name = "expandablePanel1";
+            this.expandablePanel1.Size = new System.Drawing.Size(870, 334);
+            this.expandablePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.expandablePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.expandablePanel1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.expandablePanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.expandablePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.expandablePanel1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.expandablePanel1.Style.GradientAngle = 90;
+            this.expandablePanel1.TabIndex = 0;
+            this.expandablePanel1.TitleStyle.Alignment = System.Drawing.StringAlignment.Center;
+            this.expandablePanel1.TitleStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.expandablePanel1.TitleStyle.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.expandablePanel1.TitleStyle.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.expandablePanel1.TitleStyle.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.expandablePanel1.TitleStyle.GradientAngle = 90;
+            this.expandablePanel1.TitleText = "Title Bar";
+            // 
+            // expandablePanel2
+            // 
+            this.expandablePanel2.CanvasColor = System.Drawing.SystemColors.Control;
+            this.expandablePanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.expandablePanel2.DisabledBackColor = System.Drawing.Color.Empty;
+            this.expandablePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.expandablePanel2.HideControlsWhenCollapsed = true;
+            this.expandablePanel2.Location = new System.Drawing.Point(0, 334);
+            this.expandablePanel2.Name = "expandablePanel2";
+            this.expandablePanel2.Size = new System.Drawing.Size(870, 136);
+            this.expandablePanel2.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.expandablePanel2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.expandablePanel2.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.expandablePanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.expandablePanel2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.expandablePanel2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.expandablePanel2.Style.GradientAngle = 90;
+            this.expandablePanel2.TabIndex = 4;
+            this.expandablePanel2.TitleStyle.Alignment = System.Drawing.StringAlignment.Center;
+            this.expandablePanel2.TitleStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.expandablePanel2.TitleStyle.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.expandablePanel2.TitleStyle.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.expandablePanel2.TitleStyle.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.expandablePanel2.TitleStyle.GradientAngle = 90;
+            this.expandablePanel2.TitleText = "Title Bar";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3561,8 +3662,6 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.superTabControl1)).EndInit();
             this.superTabControl1.ResumeLayout(false);
-            this.superTabControlPanel1.ResumeLayout(false);
-            this.maintainControlBottomPanel.ResumeLayout(false);
             this.superTabControlPanel2.ResumeLayout(false);
             this.inContorlAllPannel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
@@ -3576,6 +3675,8 @@
             this.inContorlRightPannel.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.superTabControlPanel1.ResumeLayout(false);
+            this.maintainControlBottomPanel.ResumeLayout(false);
             this.superTabControlPanel3.ResumeLayout(false);
             this.outContorlAllPannel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbMarketWarehome)).EndInit();
@@ -3639,6 +3740,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.superTabControlPanel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3924,6 +4026,12 @@
         private DevComponents.DotNetBar.ButtonItem buttonItem22;
         private DevComponents.DotNetBar.Controls.CircularProgress circularProgressItem8;
         private DevComponents.DotNetBar.LabelItem labelItem1;
+        private DevComponents.DotNetBar.SuperTabControlPanel superTabControlPanel8;
+        private DevComponents.DotNetBar.SuperTabItem superTabItem1;
+        private DevComponents.DotNetBar.SideBarPanelItem sideBarPanelItem1;
+        private DevComponents.DotNetBar.Controls.ListViewEx listViewEPend;
+        private DevComponents.DotNetBar.ExpandablePanel expandablePanel2;
+        private DevComponents.DotNetBar.ExpandablePanel expandablePanel1;
     }
 }
 

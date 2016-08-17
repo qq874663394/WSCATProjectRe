@@ -812,5 +812,10 @@ namespace WSCATProject
             PayBuySelect mbas = new PayBuySelect();
             mbas.ShowDialog();
         }
+
+        private void sideBarPanelItem1_Click(object sender, EventArgs e)
+        {
+            superTabControl1.SelectedTab = superTabItem1;
+        }
     }
 }
