@@ -1435,7 +1435,8 @@ namespace WSCATProject.Sell
         //根据文本框的值，模糊查询 未写
         private void labtextboxTop2_TextChanged(object sender, EventArgs e)
         {
-            //SellManager.a(,)
+            //SellManager sm = new SellManager();
+            
         }
 
         //获取客户焦点事件
@@ -1472,8 +1473,6 @@ namespace WSCATProject.Sell
         {
             resizablePanel1.Visible = false;
         }
-
-
         private void superGridControl1_CellDoubleClick(object sender, GridCellDoubleClickEventArgs e)
         {
             if (e.GridCell.GridRow.Cells[7].Value == null || e.GridCell.GridRow.Cells[9].Value == null || e.GridCell.GridRow.Cells[8].Value == null)
@@ -1544,6 +1543,15 @@ namespace WSCATProject.Sell
             grow["gridColumnNumber"].Value = Xushu.ToString();
             grow["gridColumnMoney"].Value = Jine.ToString();
 
+        }
+
+        //模糊检索,更改数据
+        private void superGridControl1_EditorValueChanged(object sender, GridEditEventArgs e)
+        {
+            SellManager sellManager = new SellManager();
+            DataTable tempDT = sellManager.
+                searchMaterialByzhujimaAndNameAndModel(_AllMaterial.Tables[0], e.GridCell.FormattedValue);
+            dataGridView1.DataSource = tempDT;
         }
     }
 }
