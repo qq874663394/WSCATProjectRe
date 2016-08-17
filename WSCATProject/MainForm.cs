@@ -35,6 +35,7 @@ namespace WSCATProject
         private bool ClientNameFormOpen = false;
         private bool OptNameFormOpen = false;
 
+
         //维护天数的枚举列表 
         enum maintainDateTime
         {
@@ -56,6 +57,7 @@ namespace WSCATProject
             superTabItemFin.Click += SuperTabItemRe_Click;
             superTabItemSta.Click += SuperTabItemRe_Click;
             superTabItemSys.Click += SuperTabItemRe_Click;
+            BLL.StockManager s = new BLL.StockManager();
         }
 
         private void SuperTabItemRe_Click(object sender, EventArgs e)
@@ -89,7 +91,7 @@ namespace WSCATProject
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            superTabControl1.SelectedTab = superTabItemRe;
+            superTabControl1.SelectedTab = superTabItem1;
             //LoginForm lf = new LoginForm();
             //lf.ShowDialog();
             //var off = new officeTool();
@@ -895,7 +897,7 @@ namespace WSCATProject
             PayBuySelect mbas = new PayBuySelect();
             mbas.ShowDialog();
         }
-
+        //工作日志
    
     }
 }
