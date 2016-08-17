@@ -127,6 +127,9 @@
   <data name="maintainToTheDay" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maintainToTheDay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="售后大" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\售后大.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="financeBank" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\financeBank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,11 +157,11 @@
   <data name="outUpdate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\outUpdate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="renshiguanli" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\renshiguanli.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="帐套选项" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\帐套选项.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="warehomeGet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warehomeGet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btn_None" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btn_None.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,6 +172,9 @@
   <data name="warehomeShift" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\warehomeShift.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cangkuxinxi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cangkuxinxi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="locationBannel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\locationBannel.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -178,8 +184,11 @@
   <data name="caiwuxitong" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\caiwuxitong.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="systemOpenAccount" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\systemOpenAccount.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="outSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\outSelect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="销售小" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\销售小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="资料导入" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\资料导入.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,6 +217,9 @@
   <data name="payment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\payment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="systemOpenAccount" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\systemOpenAccount.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="systemOperator" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\systemOperator.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -220,8 +232,8 @@
   <data name="staffSetting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\staffSetting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cangkuxinxi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cangkuxinxi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="采购小" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\采购小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="godDownOut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\godDownOut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -250,17 +262,14 @@
   <data name="inUpdate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\inUpdate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="outSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\outSelect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="financeIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\financeIn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="deliverManager" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\deliverManager.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="arrowsUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowsUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -285,6 +294,9 @@
   </data>
   <data name="undo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\undo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="financeOtherIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\financeOtherIn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="backgroup2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backgroup2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -313,8 +325,8 @@
   <data name="checkMore" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checkMore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="financeOtherIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\financeOtherIn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="仓库小" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\仓库小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="inSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\inSelect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -349,20 +361,26 @@
   <data name="diquziliao" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\diquziliao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="systemOpeChange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\systemOpeChange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="stock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arrowsUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowsUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="售后小" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\售后小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="support" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\support.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="财务小" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\财务小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btn_enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btn_enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="warehomeGet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\warehomeGet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="renshiguanli" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\renshiguanli.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="人事小" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\人事小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="yuangongyonghu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\yuangongyonghu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -382,8 +400,14 @@
   <data name="cangkuxitong" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cangkuxitong.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="systemOpeChange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\systemOpeChange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="staffUpdata" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\staffUpdata.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="系统小" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\系统小.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="systemAccountClear" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\systemAccountClear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -421,10 +445,34 @@
   <data name="outInsert" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\outInsert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="stock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\stock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="deliverManager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deliverManager.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="maintainToTheMonth" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maintainToTheMonth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="日志大" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\日志大1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="日志小" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\日志小1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="采购大" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\采购大.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="人事大" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\人事大.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="仓库大" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\仓库大.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="系统大" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\系统大.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="财务大" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\财务大.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="销售大" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\销售大.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

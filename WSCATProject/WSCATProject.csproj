@@ -1096,6 +1096,42 @@
   <ItemGroup>
     <None Include="Resources\xitongweihu.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\采购小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\财务小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\仓库小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\人事小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\售后小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\系统小.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\销售小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\售后大.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\人事大.png" />
+    <None Include="Resources\财务大.png" />
+    <None Include="Resources\销售大.png" />
+    <None Include="Resources\系统大.png" />
+    <None Include="Resources\仓库大.png" />
+    <Content Include="Resources\日志大.png" />
+    <None Include="Resources\采购大.png" />
+    <None Include="Resources\日志小1.png" />
+    <None Include="Resources\日志大1.png" />
+    <Content Include="Resources\日志小.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
