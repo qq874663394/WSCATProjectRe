@@ -41,12 +41,12 @@ namespace WSCATProject.Sell
         //立即补货按钮
         private void buttonX1_Click(object sender, EventArgs e)
         {
-
+            BuyInForm buy = new WSCATProject.BuyInForm();
+            buy.Show();
         }
 
         private void SelectStockForm_Load(object sender, EventArgs e)
         {
-            
             this.superGridControl1.PrimaryGrid.DataSource = _dt;
         }
     }

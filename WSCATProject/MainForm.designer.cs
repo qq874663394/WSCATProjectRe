@@ -104,14 +104,6 @@
             this.labelItem1 = new DevComponents.DotNetBar.LabelItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.superTabControl1 = new DevComponents.DotNetBar.SuperTabControl();
-            this.superTabControlPanel1 = new DevComponents.DotNetBar.SuperTabControlPanel();
-            this.maintainControlBottomPanel = new System.Windows.Forms.Panel();
-            this.btnMaintainYear = new System.Windows.Forms.Button();
-            this.btnMaintainMonth = new System.Windows.Forms.Button();
-            this.btnMaintainWeek = new System.Windows.Forms.Button();
-            this.btnMaintainToday = new System.Windows.Forms.Button();
-            this.btnMaintainAll = new System.Windows.Forms.Button();
-            this.superTabItemRe = new DevComponents.DotNetBar.SuperTabItem();
             this.superTabControlPanel2 = new DevComponents.DotNetBar.SuperTabControlPanel();
             this.inContorlAllPannel = new System.Windows.Forms.Panel();
             this.pictureBox23 = new System.Windows.Forms.PictureBox();
@@ -132,6 +124,14 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.superTabItemIn = new DevComponents.DotNetBar.SuperTabItem();
+            this.superTabControlPanel1 = new DevComponents.DotNetBar.SuperTabControlPanel();
+            this.maintainControlBottomPanel = new System.Windows.Forms.Panel();
+            this.btnMaintainYear = new System.Windows.Forms.Button();
+            this.btnMaintainMonth = new System.Windows.Forms.Button();
+            this.btnMaintainWeek = new System.Windows.Forms.Button();
+            this.btnMaintainToday = new System.Windows.Forms.Button();
+            this.btnMaintainAll = new System.Windows.Forms.Button();
+            this.superTabItemRe = new DevComponents.DotNetBar.SuperTabItem();
             this.superTabControlPanel3 = new DevComponents.DotNetBar.SuperTabControlPanel();
             this.outContorlAllPannel = new System.Windows.Forms.Panel();
             this.pbMarketWarehome = new System.Windows.Forms.PictureBox();
@@ -242,16 +242,24 @@
             this.superTabItemSys = new DevComponents.DotNetBar.SuperTabItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.sideBar1 = new DevComponents.DotNetBar.SideBar();
-            this.sideBarPanelItemIn = new DevComponents.DotNetBar.SideBarPanelItem();
-            this.buttonItem19 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem20 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem21 = new DevComponents.DotNetBar.ButtonItem();
+            this.sideBarPanelItemSys = new DevComponents.DotNetBar.SideBarPanelItem();
+            this.buttonItemBackup = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem45 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem46 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem47 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem48 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem49 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem50 = new DevComponents.DotNetBar.ButtonItem();
             this.sideBarPanelItemRe = new DevComponents.DotNetBar.SideBarPanelItem();
             this.buttonItem14 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem15 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem16 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem17 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem18 = new DevComponents.DotNetBar.ButtonItem();
+            this.sideBarPanelItemIn = new DevComponents.DotNetBar.SideBarPanelItem();
+            this.buttonItem19 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem20 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem21 = new DevComponents.DotNetBar.ButtonItem();
             this.sideBarPanelItemOut = new DevComponents.DotNetBar.SideBarPanelItem();
             this.buttonItem23 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem24 = new DevComponents.DotNetBar.ButtonItem();
@@ -276,14 +284,6 @@
             this.buttonItem41 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem42 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem43 = new DevComponents.DotNetBar.ButtonItem();
-            this.sideBarPanelItemSys = new DevComponents.DotNetBar.SideBarPanelItem();
-            this.buttonItemBackup = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem45 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem46 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem47 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem48 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem49 = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem50 = new DevComponents.DotNetBar.ButtonItem();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
@@ -310,6 +310,12 @@
             this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
+            this.superTabItem1 = new DevComponents.DotNetBar.SuperTabItem();
+            this.superTabControlPanel8 = new DevComponents.DotNetBar.SuperTabControlPanel();
+            this.sideBarPanelItem1 = new DevComponents.DotNetBar.SideBarPanelItem();
+            this.listViewEPend = new DevComponents.DotNetBar.Controls.ListViewEx();
+            this.expandablePanel1 = new DevComponents.DotNetBar.ExpandablePanel();
+            this.expandablePanel2 = new DevComponents.DotNetBar.ExpandablePanel();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel2.SuspendLayout();
@@ -317,8 +323,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.superTabControl1)).BeginInit();
             this.superTabControl1.SuspendLayout();
-            this.superTabControlPanel1.SuspendLayout();
-            this.maintainControlBottomPanel.SuspendLayout();
             this.superTabControlPanel2.SuspendLayout();
             this.inContorlAllPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
@@ -331,6 +335,8 @@
             this.inContorlBottomPannel.SuspendLayout();
             this.inContorlRightPannel.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.superTabControlPanel1.SuspendLayout();
+            this.maintainControlBottomPanel.SuspendLayout();
             this.superTabControlPanel3.SuspendLayout();
             this.outContorlAllPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMarketWarehome)).BeginInit();
@@ -388,6 +394,7 @@
             this.panel13.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.superTabControlPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // 菜单1ToolStripMenuItem
@@ -496,10 +503,10 @@
             this.ribbonPanel1.Controls.Add(this.ribbonBar1);
             this.ribbonPanel1.Controls.Add(this.ribbonBarBase);
             this.ribbonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel1.Location = new System.Drawing.Point(0, 53);
+            this.ribbonPanel1.Location = new System.Drawing.Point(0, 58);
             this.ribbonPanel1.Name = "ribbonPanel1";
             this.ribbonPanel1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel1.Size = new System.Drawing.Size(994, 122);
+            this.ribbonPanel1.Size = new System.Drawing.Size(994, 117);
             // 
             // 
             // 
@@ -532,7 +539,7 @@
             this.buttonItemBank});
             this.ribbonBar1.Location = new System.Drawing.Point(396, 0);
             this.ribbonBar1.Name = "ribbonBar1";
-            this.ribbonBar1.Size = new System.Drawing.Size(72, 119);
+            this.ribbonBar1.Size = new System.Drawing.Size(72, 114);
             this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar1.TabIndex = 1;
             this.ribbonBar1.Text = "资金账户";
@@ -548,6 +555,7 @@
             // buttonItemBank
             // 
             this.buttonItemBank.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItemBank.Image = global::WSCATProject.Properties.Resources.zijinzhanghu;
             this.buttonItemBank.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.buttonItemBank.Name = "buttonItemBank";
             this.buttonItemBank.SubItemsExpandWidth = 14;
@@ -577,7 +585,7 @@
             this.buttonItemCity});
             this.ribbonBarBase.Location = new System.Drawing.Point(3, 0);
             this.ribbonBarBase.Name = "ribbonBarBase";
-            this.ribbonBarBase.Size = new System.Drawing.Size(393, 119);
+            this.ribbonBarBase.Size = new System.Drawing.Size(393, 114);
             this.ribbonBarBase.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBarBase.TabIndex = 0;
             this.ribbonBarBase.Text = "基础资料";
@@ -594,6 +602,7 @@
             // 
             this.buttonItemwanglai.AutoExpandOnClick = true;
             this.buttonItemwanglai.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItemwanglai.Image = global::WSCATProject.Properties.Resources.wanglaidanwei;
             this.buttonItemwanglai.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.buttonItemwanglai.Name = "buttonItemwanglai";
             this.buttonItemwanglai.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -618,6 +627,7 @@
             // 
             this.buttonItemMaterial.AutoExpandOnClick = true;
             this.buttonItemMaterial.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItemMaterial.Image = global::WSCATProject.Properties.Resources.huopinziliao;
             this.buttonItemMaterial.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.buttonItemMaterial.Name = "buttonItemMaterial";
             this.buttonItemMaterial.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -648,6 +658,7 @@
             // 
             this.buttonItemStorage.AutoExpandOnClick = true;
             this.buttonItemStorage.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItemStorage.Image = global::WSCATProject.Properties.Resources.cangkuxinxi;
             this.buttonItemStorage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.buttonItemStorage.Name = "buttonItemStorage";
             this.buttonItemStorage.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -665,6 +676,7 @@
             // 
             this.buttonItem55.AutoExpandOnClick = true;
             this.buttonItem55.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItem55.Image = global::WSCATProject.Properties.Resources.yuangongyonghu;
             this.buttonItem55.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.buttonItem55.Name = "buttonItem55";
             this.buttonItem55.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -681,6 +693,7 @@
             // buttonItemCarry
             // 
             this.buttonItemCarry.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItemCarry.Image = global::WSCATProject.Properties.Resources.wuliuxinxi;
             this.buttonItemCarry.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.buttonItemCarry.Name = "buttonItemCarry";
             this.buttonItemCarry.SubItemsExpandWidth = 14;
@@ -690,6 +703,7 @@
             // buttonItemCity
             // 
             this.buttonItemCity.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItemCity.Image = global::WSCATProject.Properties.Resources.diquziliao;
             this.buttonItemCity.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.buttonItemCity.Name = "buttonItemCity";
             this.buttonItemCity.SubItemsExpandWidth = 14;
@@ -1206,6 +1220,7 @@
             // buttonItem57
             // 
             this.buttonItem57.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItem57.Image = global::WSCATProject.Properties.Resources.guanyu;
             this.buttonItem57.ItemAlignment = DevComponents.DotNetBar.eItemAlignment.Far;
             this.buttonItem57.Name = "buttonItem57";
             this.buttonItem57.Text = "关于";
@@ -1301,13 +1316,14 @@
             this.superTabControl1.ControlBox.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.superTabControl1.ControlBox.MenuBox,
             this.superTabControl1.ControlBox.CloseBox});
+            this.superTabControl1.Controls.Add(this.superTabControlPanel8);
             this.superTabControl1.Controls.Add(this.superTabControlPanel1);
             this.superTabControl1.Controls.Add(this.superTabControlPanel2);
-            this.superTabControl1.Controls.Add(this.superTabControlPanel3);
-            this.superTabControl1.Controls.Add(this.superTabControlPanel4);
-            this.superTabControl1.Controls.Add(this.superTabControlPanel5);
-            this.superTabControl1.Controls.Add(this.superTabControlPanel6);
             this.superTabControl1.Controls.Add(this.superTabControlPanel7);
+            this.superTabControl1.Controls.Add(this.superTabControlPanel6);
+            this.superTabControl1.Controls.Add(this.superTabControlPanel5);
+            this.superTabControl1.Controls.Add(this.superTabControlPanel4);
+            this.superTabControl1.Controls.Add(this.superTabControlPanel3);
             this.superTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.superTabControl1.Location = new System.Drawing.Point(0, 0);
             this.superTabControl1.Name = "superTabControl1";
@@ -1318,6 +1334,7 @@
             this.superTabControl1.TabFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.superTabControl1.TabIndex = 2;
             this.superTabControl1.Tabs.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.superTabItem1,
             this.superTabItemRe,
             this.superTabItemIn,
             this.superTabItemOut,
@@ -1327,97 +1344,6 @@
             this.superTabItemSys});
             this.superTabControl1.TabStyle = DevComponents.DotNetBar.eSuperTabStyle.WinMediaPlayer12;
             this.superTabControl1.Text = "superTabControl1";
-            // 
-            // superTabControlPanel1
-            // 
-            this.superTabControlPanel1.Controls.Add(this.maintainControlBottomPanel);
-            this.superTabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.superTabControlPanel1.Location = new System.Drawing.Point(0, 26);
-            this.superTabControlPanel1.Name = "superTabControlPanel1";
-            this.superTabControlPanel1.Size = new System.Drawing.Size(870, 470);
-            this.superTabControlPanel1.TabIndex = 1;
-            this.superTabControlPanel1.TabItem = this.superTabItemRe;
-            // 
-            // maintainControlBottomPanel
-            // 
-            this.maintainControlBottomPanel.BackColor = System.Drawing.Color.MintCream;
-            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainYear);
-            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainMonth);
-            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainWeek);
-            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainToday);
-            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainAll);
-            this.maintainControlBottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.maintainControlBottomPanel.Location = new System.Drawing.Point(0, 383);
-            this.maintainControlBottomPanel.Name = "maintainControlBottomPanel";
-            this.maintainControlBottomPanel.Size = new System.Drawing.Size(870, 87);
-            this.maintainControlBottomPanel.TabIndex = 10;
-            // 
-            // btnMaintainYear
-            // 
-            this.btnMaintainYear.FlatAppearance.BorderSize = 0;
-            this.btnMaintainYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintainYear.Location = new System.Drawing.Point(629, 10);
-            this.btnMaintainYear.Name = "btnMaintainYear";
-            this.btnMaintainYear.Size = new System.Drawing.Size(80, 73);
-            this.btnMaintainYear.TabIndex = 19;
-            this.btnMaintainYear.Text = "列出本年";
-            this.btnMaintainYear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnMaintainYear.UseVisualStyleBackColor = true;
-            // 
-            // btnMaintainMonth
-            // 
-            this.btnMaintainMonth.FlatAppearance.BorderSize = 0;
-            this.btnMaintainMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintainMonth.Location = new System.Drawing.Point(482, 10);
-            this.btnMaintainMonth.Name = "btnMaintainMonth";
-            this.btnMaintainMonth.Size = new System.Drawing.Size(80, 73);
-            this.btnMaintainMonth.TabIndex = 18;
-            this.btnMaintainMonth.Text = "列出本月";
-            this.btnMaintainMonth.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnMaintainMonth.UseVisualStyleBackColor = true;
-            // 
-            // btnMaintainWeek
-            // 
-            this.btnMaintainWeek.FlatAppearance.BorderSize = 0;
-            this.btnMaintainWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintainWeek.Location = new System.Drawing.Point(335, 10);
-            this.btnMaintainWeek.Name = "btnMaintainWeek";
-            this.btnMaintainWeek.Size = new System.Drawing.Size(80, 73);
-            this.btnMaintainWeek.TabIndex = 17;
-            this.btnMaintainWeek.Text = "列出本周";
-            this.btnMaintainWeek.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnMaintainWeek.UseVisualStyleBackColor = true;
-            // 
-            // btnMaintainToday
-            // 
-            this.btnMaintainToday.FlatAppearance.BorderSize = 0;
-            this.btnMaintainToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintainToday.Location = new System.Drawing.Point(188, 10);
-            this.btnMaintainToday.Name = "btnMaintainToday";
-            this.btnMaintainToday.Size = new System.Drawing.Size(80, 73);
-            this.btnMaintainToday.TabIndex = 16;
-            this.btnMaintainToday.Text = "列出今天";
-            this.btnMaintainToday.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnMaintainToday.UseVisualStyleBackColor = true;
-            // 
-            // btnMaintainAll
-            // 
-            this.btnMaintainAll.FlatAppearance.BorderSize = 0;
-            this.btnMaintainAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintainAll.Location = new System.Drawing.Point(41, 10);
-            this.btnMaintainAll.Name = "btnMaintainAll";
-            this.btnMaintainAll.Size = new System.Drawing.Size(80, 73);
-            this.btnMaintainAll.TabIndex = 15;
-            this.btnMaintainAll.Text = "列出全部";
-            this.btnMaintainAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnMaintainAll.UseVisualStyleBackColor = true;
-            // 
-            // superTabItemRe
-            // 
-            this.superTabItemRe.AttachedControl = this.superTabControlPanel1;
-            this.superTabItemRe.GlobalItem = false;
-            this.superTabItemRe.Name = "superTabItemRe";
-            this.superTabItemRe.Text = "售后系统";
             // 
             // superTabControlPanel2
             // 
@@ -1449,6 +1375,7 @@
             // 
             // pictureBox23
             // 
+            this.pictureBox23.Image = global::WSCATProject.Properties.Resources.arrows;
             this.pictureBox23.Location = new System.Drawing.Point(230, 217);
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.Size = new System.Drawing.Size(112, 24);
@@ -1458,6 +1385,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackgroundImage = global::WSCATProject.Properties.Resources.godDownOut;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Location = new System.Drawing.Point(561, 87);
             this.pictureBox2.Name = "pictureBox2";
@@ -1467,6 +1395,7 @@
             // 
             // picbox_inSelect
             // 
+            this.picbox_inSelect.BackgroundImage = global::WSCATProject.Properties.Resources.godDownIn;
             this.picbox_inSelect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picbox_inSelect.Location = new System.Drawing.Point(146, 186);
             this.picbox_inSelect.Name = "picbox_inSelect";
@@ -1477,6 +1406,7 @@
             // 
             // picbox_inInsert
             // 
+            this.picbox_inInsert.BackgroundImage = global::WSCATProject.Properties.Resources.payment;
             this.picbox_inInsert.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picbox_inInsert.Location = new System.Drawing.Point(561, 287);
             this.picbox_inInsert.Name = "picbox_inInsert";
@@ -1487,6 +1417,7 @@
             // 
             // pbWarehome
             // 
+            this.pbWarehome.BackgroundImage = global::WSCATProject.Properties.Resources.stock;
             this.pbWarehome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbWarehome.Location = new System.Drawing.Point(353, 186);
             this.pbWarehome.Name = "pbWarehome";
@@ -1496,6 +1427,7 @@
             // 
             // pictureBox24
             // 
+            this.pictureBox24.Image = global::WSCATProject.Properties.Resources.arrowsUp;
             this.pictureBox24.Location = new System.Drawing.Point(413, 98);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.Size = new System.Drawing.Size(155, 116);
@@ -1505,6 +1437,7 @@
             // 
             // pictureBox25
             // 
+            this.pictureBox25.Image = global::WSCATProject.Properties.Resources.arrowsDown;
             this.pictureBox25.Location = new System.Drawing.Point(413, 239);
             this.pictureBox25.Name = "pictureBox25";
             this.pictureBox25.Size = new System.Drawing.Size(155, 116);
@@ -1530,6 +1463,7 @@
             // 
             this.buttonInBusiness.FlatAppearance.BorderSize = 0;
             this.buttonInBusiness.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInBusiness.Image = global::WSCATProject.Properties.Resources.businessQuery;
             this.buttonInBusiness.Location = new System.Drawing.Point(473, 11);
             this.buttonInBusiness.Name = "buttonInBusiness";
             this.buttonInBusiness.Size = new System.Drawing.Size(80, 73);
@@ -1543,6 +1477,7 @@
             // 
             this.buttonInOrder.FlatAppearance.BorderSize = 0;
             this.buttonInOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInOrder.Image = global::WSCATProject.Properties.Resources.goodsData;
             this.buttonInOrder.Location = new System.Drawing.Point(340, 11);
             this.buttonInOrder.Name = "buttonInOrder";
             this.buttonInOrder.Size = new System.Drawing.Size(80, 73);
@@ -1555,6 +1490,7 @@
             // 
             this.buttonInDistributo.FlatAppearance.BorderSize = 0;
             this.buttonInDistributo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInDistributo.Image = global::WSCATProject.Properties.Resources.supplierData;
             this.buttonInDistributo.Location = new System.Drawing.Point(205, 11);
             this.buttonInDistributo.Name = "buttonInDistributo";
             this.buttonInDistributo.Size = new System.Drawing.Size(80, 73);
@@ -1568,6 +1504,7 @@
             this.buttonInRegion.FlatAppearance.BorderSize = 0;
             this.buttonInRegion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInRegion.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonInRegion.Image = global::WSCATProject.Properties.Resources.regionData;
             this.buttonInRegion.Location = new System.Drawing.Point(66, 11);
             this.buttonInRegion.Name = "buttonInRegion";
             this.buttonInRegion.Size = new System.Drawing.Size(80, 73);
@@ -1642,6 +1579,102 @@
             this.superTabItemIn.Name = "superTabItemIn";
             this.superTabItemIn.Text = "采购系统";
             // 
+            // superTabControlPanel1
+            // 
+            this.superTabControlPanel1.Controls.Add(this.maintainControlBottomPanel);
+            this.superTabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.superTabControlPanel1.Location = new System.Drawing.Point(0, 26);
+            this.superTabControlPanel1.Name = "superTabControlPanel1";
+            this.superTabControlPanel1.Size = new System.Drawing.Size(870, 470);
+            this.superTabControlPanel1.TabIndex = 1;
+            this.superTabControlPanel1.TabItem = this.superTabItemRe;
+            // 
+            // maintainControlBottomPanel
+            // 
+            this.maintainControlBottomPanel.BackColor = System.Drawing.Color.MintCream;
+            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainYear);
+            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainMonth);
+            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainWeek);
+            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainToday);
+            this.maintainControlBottomPanel.Controls.Add(this.btnMaintainAll);
+            this.maintainControlBottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.maintainControlBottomPanel.Location = new System.Drawing.Point(0, 383);
+            this.maintainControlBottomPanel.Name = "maintainControlBottomPanel";
+            this.maintainControlBottomPanel.Size = new System.Drawing.Size(870, 87);
+            this.maintainControlBottomPanel.TabIndex = 10;
+            // 
+            // btnMaintainYear
+            // 
+            this.btnMaintainYear.FlatAppearance.BorderSize = 0;
+            this.btnMaintainYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintainYear.Image = global::WSCATProject.Properties.Resources.maintainToTheYear;
+            this.btnMaintainYear.Location = new System.Drawing.Point(629, 10);
+            this.btnMaintainYear.Name = "btnMaintainYear";
+            this.btnMaintainYear.Size = new System.Drawing.Size(80, 73);
+            this.btnMaintainYear.TabIndex = 19;
+            this.btnMaintainYear.Text = "列出本年";
+            this.btnMaintainYear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnMaintainYear.UseVisualStyleBackColor = true;
+            // 
+            // btnMaintainMonth
+            // 
+            this.btnMaintainMonth.FlatAppearance.BorderSize = 0;
+            this.btnMaintainMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintainMonth.Image = global::WSCATProject.Properties.Resources.maintainToTheMonth;
+            this.btnMaintainMonth.Location = new System.Drawing.Point(482, 10);
+            this.btnMaintainMonth.Name = "btnMaintainMonth";
+            this.btnMaintainMonth.Size = new System.Drawing.Size(80, 73);
+            this.btnMaintainMonth.TabIndex = 18;
+            this.btnMaintainMonth.Text = "列出本月";
+            this.btnMaintainMonth.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnMaintainMonth.UseVisualStyleBackColor = true;
+            // 
+            // btnMaintainWeek
+            // 
+            this.btnMaintainWeek.FlatAppearance.BorderSize = 0;
+            this.btnMaintainWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintainWeek.Image = global::WSCATProject.Properties.Resources.maintainToTheWeek;
+            this.btnMaintainWeek.Location = new System.Drawing.Point(335, 10);
+            this.btnMaintainWeek.Name = "btnMaintainWeek";
+            this.btnMaintainWeek.Size = new System.Drawing.Size(80, 73);
+            this.btnMaintainWeek.TabIndex = 17;
+            this.btnMaintainWeek.Text = "列出本周";
+            this.btnMaintainWeek.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnMaintainWeek.UseVisualStyleBackColor = true;
+            // 
+            // btnMaintainToday
+            // 
+            this.btnMaintainToday.FlatAppearance.BorderSize = 0;
+            this.btnMaintainToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintainToday.Image = global::WSCATProject.Properties.Resources.maintainToTheDay;
+            this.btnMaintainToday.Location = new System.Drawing.Point(188, 10);
+            this.btnMaintainToday.Name = "btnMaintainToday";
+            this.btnMaintainToday.Size = new System.Drawing.Size(80, 73);
+            this.btnMaintainToday.TabIndex = 16;
+            this.btnMaintainToday.Text = "列出今天";
+            this.btnMaintainToday.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnMaintainToday.UseVisualStyleBackColor = true;
+            // 
+            // btnMaintainAll
+            // 
+            this.btnMaintainAll.FlatAppearance.BorderSize = 0;
+            this.btnMaintainAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintainAll.Image = global::WSCATProject.Properties.Resources.maintainAll;
+            this.btnMaintainAll.Location = new System.Drawing.Point(41, 10);
+            this.btnMaintainAll.Name = "btnMaintainAll";
+            this.btnMaintainAll.Size = new System.Drawing.Size(80, 73);
+            this.btnMaintainAll.TabIndex = 15;
+            this.btnMaintainAll.Text = "列出全部";
+            this.btnMaintainAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnMaintainAll.UseVisualStyleBackColor = true;
+            // 
+            // superTabItemRe
+            // 
+            this.superTabItemRe.AttachedControl = this.superTabControlPanel1;
+            this.superTabItemRe.GlobalItem = false;
+            this.superTabItemRe.Name = "superTabItemRe";
+            this.superTabItemRe.Text = "售后系统";
+            // 
             // superTabControlPanel3
             // 
             this.superTabControlPanel3.Controls.Add(this.outContorlAllPannel);
@@ -1672,6 +1705,7 @@
             // 
             // pbMarketWarehome
             // 
+            this.pbMarketWarehome.BackgroundImage = global::WSCATProject.Properties.Resources.stock;
             this.pbMarketWarehome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbMarketWarehome.Location = new System.Drawing.Point(366, 187);
             this.pbMarketWarehome.Name = "pbMarketWarehome";
@@ -1681,6 +1715,7 @@
             // 
             // pbMarketGet
             // 
+            this.pbMarketGet.BackgroundImage = global::WSCATProject.Properties.Resources.marketGet;
             this.pbMarketGet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbMarketGet.Location = new System.Drawing.Point(585, 309);
             this.pbMarketGet.Name = "pbMarketGet";
@@ -1690,6 +1725,7 @@
             // 
             // pbMarketReceipts
             // 
+            this.pbMarketReceipts.BackgroundImage = global::WSCATProject.Properties.Resources.marketReceipts;
             this.pbMarketReceipts.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbMarketReceipts.Location = new System.Drawing.Point(145, 187);
             this.pbMarketReceipts.Name = "pbMarketReceipts";
@@ -1709,6 +1745,7 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Image = global::WSCATProject.Properties.Resources.arrowsUp;
             this.pictureBox3.Location = new System.Drawing.Point(423, 104);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(168, 119);
@@ -1718,6 +1755,7 @@
             // 
             // pictureBox4
             // 
+            this.pictureBox4.Image = global::WSCATProject.Properties.Resources.arrowsDown;
             this.pictureBox4.Location = new System.Drawing.Point(421, 235);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(170, 130);
@@ -1727,6 +1765,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::WSCATProject.Properties.Resources.arrows;
             this.pictureBox1.Location = new System.Drawing.Point(227, 226);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(133, 24);
@@ -1752,6 +1791,7 @@
             // 
             this.buttonMarketOrder.FlatAppearance.BorderSize = 0;
             this.buttonMarketOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMarketOrder.Image = global::WSCATProject.Properties.Resources.goodsData;
             this.buttonMarketOrder.Location = new System.Drawing.Point(340, 11);
             this.buttonMarketOrder.Name = "buttonMarketOrder";
             this.buttonMarketOrder.Size = new System.Drawing.Size(80, 73);
@@ -1764,6 +1804,7 @@
             // 
             this.buttonMarketBusiness.FlatAppearance.BorderSize = 0;
             this.buttonMarketBusiness.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMarketBusiness.Image = global::WSCATProject.Properties.Resources.businessQuery;
             this.buttonMarketBusiness.Location = new System.Drawing.Point(477, 11);
             this.buttonMarketBusiness.Name = "buttonMarketBusiness";
             this.buttonMarketBusiness.Size = new System.Drawing.Size(80, 73);
@@ -1776,6 +1817,7 @@
             // 
             this.buttonMarketClient.FlatAppearance.BorderSize = 0;
             this.buttonMarketClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMarketClient.Image = global::WSCATProject.Properties.Resources.clientData;
             this.buttonMarketClient.Location = new System.Drawing.Point(203, 11);
             this.buttonMarketClient.Name = "buttonMarketClient";
             this.buttonMarketClient.Size = new System.Drawing.Size(80, 73);
@@ -1788,6 +1830,7 @@
             // 
             this.buttonMarketRegion.FlatAppearance.BorderSize = 0;
             this.buttonMarketRegion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMarketRegion.Image = global::WSCATProject.Properties.Resources.regionData;
             this.buttonMarketRegion.Location = new System.Drawing.Point(66, 11);
             this.buttonMarketRegion.Name = "buttonMarketRegion";
             this.buttonMarketRegion.Size = new System.Drawing.Size(80, 73);
@@ -1926,6 +1969,7 @@
             // 
             // pbWarehomeIn
             // 
+            this.pbWarehomeIn.BackgroundImage = global::WSCATProject.Properties.Resources.warehomeIn;
             this.pbWarehomeIn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbWarehomeIn.Location = new System.Drawing.Point(281, 66);
             this.pbWarehomeIn.Name = "pbWarehomeIn";
@@ -1935,6 +1979,7 @@
             // 
             // pbWarehomeOut
             // 
+            this.pbWarehomeOut.BackgroundImage = global::WSCATProject.Properties.Resources.warehomeOut;
             this.pbWarehomeOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbWarehomeOut.Location = new System.Drawing.Point(444, 66);
             this.pbWarehomeOut.Name = "pbWarehomeOut";
@@ -1944,6 +1989,7 @@
             // 
             // pbWarehomeDamage
             // 
+            this.pbWarehomeDamage.BackgroundImage = global::WSCATProject.Properties.Resources.warehomeDamage;
             this.pbWarehomeDamage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbWarehomeDamage.Location = new System.Drawing.Point(509, 287);
             this.pbWarehomeDamage.Name = "pbWarehomeDamage";
@@ -1953,6 +1999,7 @@
             // 
             // pbWarehomeAdjust
             // 
+            this.pbWarehomeAdjust.BackgroundImage = global::WSCATProject.Properties.Resources.warehomeAdjust;
             this.pbWarehomeAdjust.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbWarehomeAdjust.Location = new System.Drawing.Point(365, 322);
             this.pbWarehomeAdjust.Name = "pbWarehomeAdjust";
@@ -1962,6 +2009,7 @@
             // 
             // pbWarehomeGetMaterial
             // 
+            this.pbWarehomeGetMaterial.BackgroundImage = global::WSCATProject.Properties.Resources.warehomeGet;
             this.pbWarehomeGetMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbWarehomeGetMaterial.Location = new System.Drawing.Point(111, 162);
             this.pbWarehomeGetMaterial.Name = "pbWarehomeGetMaterial";
@@ -1971,6 +2019,7 @@
             // 
             // pbWarehomeClearing
             // 
+            this.pbWarehomeClearing.BackgroundImage = global::WSCATProject.Properties.Resources.warehomeClearing;
             this.pbWarehomeClearing.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbWarehomeClearing.Location = new System.Drawing.Point(600, 162);
             this.pbWarehomeClearing.Name = "pbWarehomeClearing";
@@ -1980,6 +2029,7 @@
             // 
             // pbWarehomeChange
             // 
+            this.pbWarehomeChange.BackgroundImage = global::WSCATProject.Properties.Resources.warehomeShift;
             this.pbWarehomeChange.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbWarehomeChange.Location = new System.Drawing.Point(199, 287);
             this.pbWarehomeChange.Name = "pbWarehomeChange";
@@ -2004,6 +2054,7 @@
             // 
             this.btnWarehomeBusiness.FlatAppearance.BorderSize = 0;
             this.btnWarehomeBusiness.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWarehomeBusiness.Image = global::WSCATProject.Properties.Resources.businessQuery;
             this.btnWarehomeBusiness.Location = new System.Drawing.Point(397, 12);
             this.btnWarehomeBusiness.Name = "btnWarehomeBusiness";
             this.btnWarehomeBusiness.Size = new System.Drawing.Size(80, 73);
@@ -2016,6 +2067,7 @@
             // 
             this.btnWarehomeGoodsData.FlatAppearance.BorderSize = 0;
             this.btnWarehomeGoodsData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWarehomeGoodsData.Image = global::WSCATProject.Properties.Resources.goodsData;
             this.btnWarehomeGoodsData.Location = new System.Drawing.Point(246, 12);
             this.btnWarehomeGoodsData.Name = "btnWarehomeGoodsData";
             this.btnWarehomeGoodsData.Size = new System.Drawing.Size(80, 73);
@@ -2028,6 +2080,7 @@
             // 
             this.btnWarehomeData.FlatAppearance.BorderSize = 0;
             this.btnWarehomeData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWarehomeData.Image = global::WSCATProject.Properties.Resources.stockData;
             this.btnWarehomeData.Location = new System.Drawing.Point(87, 12);
             this.btnWarehomeData.Name = "btnWarehomeData";
             this.btnWarehomeData.Size = new System.Drawing.Size(80, 73);
@@ -2189,6 +2242,7 @@
             // 
             // pbFinancePay
             // 
+            this.pbFinancePay.BackgroundImage = global::WSCATProject.Properties.Resources.financePay;
             this.pbFinancePay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbFinancePay.Location = new System.Drawing.Point(260, 57);
             this.pbFinancePay.Name = "pbFinancePay";
@@ -2198,6 +2252,7 @@
             // 
             // pbFinanceBorrow
             // 
+            this.pbFinanceBorrow.BackgroundImage = global::WSCATProject.Properties.Resources.financeBorrow;
             this.pbFinanceBorrow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbFinanceBorrow.Location = new System.Drawing.Point(433, 57);
             this.pbFinanceBorrow.Name = "pbFinanceBorrow";
@@ -2207,6 +2262,7 @@
             // 
             // pbFinanceBank
             // 
+            this.pbFinanceBank.BackgroundImage = global::WSCATProject.Properties.Resources.financeBank;
             this.pbFinanceBank.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbFinanceBank.Location = new System.Drawing.Point(561, 174);
             this.pbFinanceBank.Name = "pbFinanceBank";
@@ -2216,6 +2272,7 @@
             // 
             // pbFinanceOtherOut
             // 
+            this.pbFinanceOtherOut.BackgroundImage = global::WSCATProject.Properties.Resources.financeOut;
             this.pbFinanceOtherOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbFinanceOtherOut.Location = new System.Drawing.Point(433, 306);
             this.pbFinanceOtherOut.Name = "pbFinanceOtherOut";
@@ -2226,6 +2283,7 @@
             // 
             // pbFinanceOtherIn
             // 
+            this.pbFinanceOtherIn.BackgroundImage = global::WSCATProject.Properties.Resources.financeIn;
             this.pbFinanceOtherIn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbFinanceOtherIn.Location = new System.Drawing.Point(258, 306);
             this.pbFinanceOtherIn.Name = "pbFinanceOtherIn";
@@ -2236,6 +2294,7 @@
             // 
             // pbFinanceGet
             // 
+            this.pbFinanceGet.BackgroundImage = global::WSCATProject.Properties.Resources.marketGet;
             this.pbFinanceGet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbFinanceGet.Location = new System.Drawing.Point(129, 174);
             this.pbFinanceGet.Name = "pbFinanceGet";
@@ -2261,6 +2320,7 @@
             // 
             this.btnFinanceBusinessQuery.FlatAppearance.BorderSize = 0;
             this.btnFinanceBusinessQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinanceBusinessQuery.Image = global::WSCATProject.Properties.Resources.businessQuery;
             this.btnFinanceBusinessQuery.Location = new System.Drawing.Point(485, 14);
             this.btnFinanceBusinessQuery.Name = "btnFinanceBusinessQuery";
             this.btnFinanceBusinessQuery.Size = new System.Drawing.Size(85, 73);
@@ -2273,6 +2333,7 @@
             // 
             this.btnFinanceOtherOut.FlatAppearance.BorderSize = 0;
             this.btnFinanceOtherOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinanceOtherOut.Image = global::WSCATProject.Properties.Resources.financeOtherOut;
             this.btnFinanceOtherOut.Location = new System.Drawing.Point(341, 14);
             this.btnFinanceOtherOut.Name = "btnFinanceOtherOut";
             this.btnFinanceOtherOut.Size = new System.Drawing.Size(85, 73);
@@ -2285,6 +2346,7 @@
             // 
             this.btnFinanceOtherIn.FlatAppearance.BorderSize = 0;
             this.btnFinanceOtherIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinanceOtherIn.Image = global::WSCATProject.Properties.Resources.financeOtherIn;
             this.btnFinanceOtherIn.Location = new System.Drawing.Point(197, 14);
             this.btnFinanceOtherIn.Name = "btnFinanceOtherIn";
             this.btnFinanceOtherIn.Size = new System.Drawing.Size(85, 73);
@@ -2298,6 +2360,7 @@
             // 
             this.btnFinanceAccount.FlatAppearance.BorderSize = 0;
             this.btnFinanceAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinanceAccount.Image = global::WSCATProject.Properties.Resources.financeBill;
             this.btnFinanceAccount.Location = new System.Drawing.Point(53, 14);
             this.btnFinanceAccount.Name = "btnFinanceAccount";
             this.btnFinanceAccount.Size = new System.Drawing.Size(85, 73);
@@ -2506,6 +2569,7 @@
             // pictureBox9
             // 
             this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox9.Image = global::WSCATProject.Properties.Resources.staffUpdata;
             this.pictureBox9.Location = new System.Drawing.Point(576, 326);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(74, 85);
@@ -2515,6 +2579,7 @@
             // pictureBox11
             // 
             this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox11.Image = global::WSCATProject.Properties.Resources.staffUpdata;
             this.pictureBox11.Location = new System.Drawing.Point(223, 326);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(74, 85);
@@ -2524,6 +2589,7 @@
             // pbStaffSign
             // 
             this.pbStaffSign.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbStaffSign.Image = global::WSCATProject.Properties.Resources.staffSign;
             this.pbStaffSign.Location = new System.Drawing.Point(576, 97);
             this.pbStaffSign.Name = "pbStaffSign";
             this.pbStaffSign.Size = new System.Drawing.Size(74, 85);
@@ -2533,6 +2599,7 @@
             // pictureBox10
             // 
             this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox10.Image = global::WSCATProject.Properties.Resources.staffData;
             this.pictureBox10.Location = new System.Drawing.Point(223, 97);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(74, 85);
@@ -2578,6 +2645,7 @@
             // 
             // pictureBox21
             // 
+            this.pictureBox21.BackgroundImage = global::WSCATProject.Properties.Resources.changePassword;
             this.pictureBox21.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox21.Location = new System.Drawing.Point(543, 59);
             this.pictureBox21.Name = "pictureBox21";
@@ -2587,6 +2655,7 @@
             // 
             // pictureBox20
             // 
+            this.pictureBox20.BackgroundImage = global::WSCATProject.Properties.Resources.systemDataRecovery;
             this.pictureBox20.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox20.Location = new System.Drawing.Point(365, 59);
             this.pictureBox20.Name = "pictureBox20";
@@ -2703,6 +2772,7 @@
             // 
             // pictureBox19
             // 
+            this.pictureBox19.BackgroundImage = global::WSCATProject.Properties.Resources.systemLog;
             this.pictureBox19.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox19.Location = new System.Drawing.Point(365, 299);
             this.pictureBox19.Name = "pictureBox19";
@@ -2712,6 +2782,7 @@
             // 
             // pictureBox18
             // 
+            this.pictureBox18.BackgroundImage = global::WSCATProject.Properties.Resources.systemOpeChange;
             this.pictureBox18.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox18.Location = new System.Drawing.Point(365, 181);
             this.pictureBox18.Name = "pictureBox18";
@@ -2721,6 +2792,7 @@
             // 
             // pictureBox17
             // 
+            this.pictureBox17.BackgroundImage = global::WSCATProject.Properties.Resources.systemDataBackup;
             this.pictureBox17.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox17.Location = new System.Drawing.Point(187, 59);
             this.pictureBox17.Name = "pictureBox17";
@@ -2740,6 +2812,7 @@
             // 
             // pictureBox15
             // 
+            this.pictureBox15.BackgroundImage = global::WSCATProject.Properties.Resources.systemOperator;
             this.pictureBox15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox15.Location = new System.Drawing.Point(187, 181);
             this.pictureBox15.Name = "pictureBox15";
@@ -2764,6 +2837,7 @@
             // 
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Image = global::WSCATProject.Properties.Resources.帐套回收站;
             this.button5.Location = new System.Drawing.Point(474, 12);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(85, 73);
@@ -2776,6 +2850,7 @@
             // 
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Image = global::WSCATProject.Properties.Resources.资料导入;
             this.button6.Location = new System.Drawing.Point(264, 12);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(85, 73);
@@ -2788,6 +2863,7 @@
             // 
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Image = global::WSCATProject.Properties.Resources.帐套选项;
             this.button7.Location = new System.Drawing.Point(54, 12);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(85, 73);
@@ -2839,6 +2915,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.BackgroundImage = global::WSCATProject.Properties.Resources.backgroup2;
             this.panel2.Controls.Add(this.sideBar1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -2852,10 +2929,11 @@
             this.sideBar1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
             this.sideBar1.BorderStyle = DevComponents.DotNetBar.eBorderType.None;
             this.sideBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sideBar1.ExpandedPanel = this.sideBarPanelItemIn;
+            this.sideBar1.ExpandedPanel = this.sideBarPanelItemRe;
             this.sideBar1.Location = new System.Drawing.Point(0, 0);
             this.sideBar1.Name = "sideBar1";
             this.sideBar1.Panels.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.sideBarPanelItem1,
             this.sideBarPanelItemRe,
             this.sideBarPanelItemIn,
             this.sideBarPanelItemOut,
@@ -2869,37 +2947,69 @@
             this.sideBar1.Text = "sideBar1";
             this.sideBar1.Click += new System.EventHandler(this.superTabItemOut_Click);
             // 
-            // sideBarPanelItemIn
+            // sideBarPanelItemSys
             // 
-            this.sideBarPanelItemIn.FontBold = true;
-            this.sideBarPanelItemIn.Name = "sideBarPanelItemIn";
-            this.sideBarPanelItemIn.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem19,
-            this.buttonItem20,
-            this.buttonItem21});
-            this.sideBarPanelItemIn.Text = "采购系统";
-            this.sideBarPanelItemIn.Click += new System.EventHandler(this.sideBarPanelItemIn_Click);
+            this.sideBarPanelItemSys.FontBold = true;
+            this.sideBarPanelItemSys.Name = "sideBarPanelItemSys";
+            this.sideBarPanelItemSys.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItemBackup,
+            this.buttonItem45,
+            this.buttonItem46,
+            this.buttonItem47,
+            this.buttonItem48,
+            this.buttonItem49,
+            this.buttonItem50});
+            this.sideBarPanelItemSys.Text = "系统维护";
+            this.sideBarPanelItemSys.Click += new System.EventHandler(this.sideBarPanelItemSys_Click);
             // 
-            // buttonItem19
+            // buttonItemBackup
             // 
-            this.buttonItem19.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem19.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem19.Name = "buttonItem19";
-            this.buttonItem19.Text = "采购入库";
+            this.buttonItemBackup.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItemBackup.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItemBackup.Name = "buttonItemBackup";
+            this.buttonItemBackup.Text = "数据备份";
             // 
-            // buttonItem20
+            // buttonItem45
             // 
-            this.buttonItem20.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem20.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem20.Name = "buttonItem20";
-            this.buttonItem20.Text = "采购付款";
+            this.buttonItem45.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItem45.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem45.Name = "buttonItem45";
+            this.buttonItem45.Text = "数据恢复";
             // 
-            // buttonItem21
+            // buttonItem46
             // 
-            this.buttonItem21.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem21.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem21.Name = "buttonItem21";
-            this.buttonItem21.Text = "采购退货";
+            this.buttonItem46.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItem46.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem46.Name = "buttonItem46";
+            this.buttonItem46.Text = "操作员授权";
+            // 
+            // buttonItem47
+            // 
+            this.buttonItem47.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItem47.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem47.Name = "buttonItem47";
+            this.buttonItem47.Text = "更换操作员";
+            // 
+            // buttonItem48
+            // 
+            this.buttonItem48.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItem48.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem48.Name = "buttonItem48";
+            this.buttonItem48.Text = "帐套清理";
+            // 
+            // buttonItem49
+            // 
+            this.buttonItem49.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItem49.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem49.Name = "buttonItem49";
+            this.buttonItem49.Text = "系统日志";
+            // 
+            // buttonItem50
+            // 
+            this.buttonItem50.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItem50.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem50.Name = "buttonItem50";
+            this.buttonItem50.Text = "修改密码";
             // 
             // sideBarPanelItemRe
             // 
@@ -2947,6 +3057,38 @@
             this.buttonItem18.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.buttonItem18.Name = "buttonItem18";
             this.buttonItem18.Text = "今年需维护";
+            // 
+            // sideBarPanelItemIn
+            // 
+            this.sideBarPanelItemIn.FontBold = true;
+            this.sideBarPanelItemIn.Name = "sideBarPanelItemIn";
+            this.sideBarPanelItemIn.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem19,
+            this.buttonItem20,
+            this.buttonItem21});
+            this.sideBarPanelItemIn.Text = "采购系统";
+            this.sideBarPanelItemIn.Click += new System.EventHandler(this.sideBarPanelItemIn_Click);
+            // 
+            // buttonItem19
+            // 
+            this.buttonItem19.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItem19.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem19.Name = "buttonItem19";
+            this.buttonItem19.Text = "采购入库";
+            // 
+            // buttonItem20
+            // 
+            this.buttonItem20.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItem20.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem20.Name = "buttonItem20";
+            this.buttonItem20.Text = "采购付款";
+            // 
+            // buttonItem21
+            // 
+            this.buttonItem21.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.buttonItem21.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonItem21.Name = "buttonItem21";
+            this.buttonItem21.Text = "采购退货";
             // 
             // sideBarPanelItemOut
             // 
@@ -3142,70 +3284,6 @@
             this.buttonItem43.Name = "buttonItem43";
             this.buttonItem43.Text = "签到上传";
             // 
-            // sideBarPanelItemSys
-            // 
-            this.sideBarPanelItemSys.FontBold = true;
-            this.sideBarPanelItemSys.Name = "sideBarPanelItemSys";
-            this.sideBarPanelItemSys.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItemBackup,
-            this.buttonItem45,
-            this.buttonItem46,
-            this.buttonItem47,
-            this.buttonItem48,
-            this.buttonItem49,
-            this.buttonItem50});
-            this.sideBarPanelItemSys.Text = "系统维护";
-            this.sideBarPanelItemSys.Click += new System.EventHandler(this.sideBarPanelItemSys_Click);
-            // 
-            // buttonItemBackup
-            // 
-            this.buttonItemBackup.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItemBackup.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItemBackup.Name = "buttonItemBackup";
-            this.buttonItemBackup.Text = "数据备份";
-            // 
-            // buttonItem45
-            // 
-            this.buttonItem45.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem45.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem45.Name = "buttonItem45";
-            this.buttonItem45.Text = "数据恢复";
-            // 
-            // buttonItem46
-            // 
-            this.buttonItem46.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem46.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem46.Name = "buttonItem46";
-            this.buttonItem46.Text = "操作员授权";
-            // 
-            // buttonItem47
-            // 
-            this.buttonItem47.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem47.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem47.Name = "buttonItem47";
-            this.buttonItem47.Text = "更换操作员";
-            // 
-            // buttonItem48
-            // 
-            this.buttonItem48.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem48.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem48.Name = "buttonItem48";
-            this.buttonItem48.Text = "帐套清理";
-            // 
-            // buttonItem49
-            // 
-            this.buttonItem49.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem49.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem49.Name = "buttonItem49";
-            this.buttonItem49.Text = "系统日志";
-            // 
-            // buttonItem50
-            // 
-            this.buttonItem50.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.buttonItem50.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem50.Name = "buttonItem50";
-            this.buttonItem50.Text = "修改密码";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -3221,6 +3299,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox5.Image = global::WSCATProject.Properties.Resources.newBackImage1;
             this.pictureBox5.Location = new System.Drawing.Point(5, 179);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(994, 69);
@@ -3288,6 +3367,7 @@
             // 
             // toolbtn_ReportCount
             // 
+            this.toolbtn_ReportCount.Image = global::WSCATProject.Properties.Resources.countSelect;
             this.toolbtn_ReportCount.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolbtn_ReportCount.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolbtn_ReportCount.Name = "toolbtn_ReportCount";
@@ -3297,6 +3377,7 @@
             // 
             // toolbtn_ReportPreview
             // 
+            this.toolbtn_ReportPreview.Image = global::WSCATProject.Properties.Resources.countPreview;
             this.toolbtn_ReportPreview.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolbtn_ReportPreview.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolbtn_ReportPreview.Name = "toolbtn_ReportPreview";
@@ -3307,6 +3388,7 @@
             // 
             // toolbtn_ReportPrint
             // 
+            this.toolbtn_ReportPrint.Image = global::WSCATProject.Properties.Resources.countPrint;
             this.toolbtn_ReportPrint.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolbtn_ReportPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolbtn_ReportPrint.Name = "toolbtn_ReportPrint";
@@ -3317,6 +3399,7 @@
             // 
             // toolbtn_ReportExcel
             // 
+            this.toolbtn_ReportExcel.Image = global::WSCATProject.Properties.Resources.countExc;
             this.toolbtn_ReportExcel.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolbtn_ReportExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolbtn_ReportExcel.Name = "toolbtn_ReportExcel";
@@ -3327,6 +3410,7 @@
             // 
             // toolStripButton5
             // 
+            this.toolStripButton5.Image = global::WSCATProject.Properties.Resources.clientManager;
             this.toolStripButton5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
@@ -3396,6 +3480,7 @@
             // 
             // toolStripButton9
             // 
+            this.toolStripButton9.Image = global::WSCATProject.Properties.Resources.countSelect;
             this.toolStripButton9.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton9.Margin = new System.Windows.Forms.Padding(4, 1, 5, 2);
@@ -3406,6 +3491,7 @@
             // 
             // toolStripButton10
             // 
+            this.toolStripButton10.Image = global::WSCATProject.Properties.Resources.countPreview;
             this.toolStripButton10.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton10.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
@@ -3416,6 +3502,7 @@
             // 
             // toolStripButton11
             // 
+            this.toolStripButton11.Image = global::WSCATProject.Properties.Resources.countPrint;
             this.toolStripButton11.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton11.Name = "toolStripButton11";
@@ -3425,6 +3512,7 @@
             // 
             // toolStripButton12
             // 
+            this.toolStripButton12.Image = global::WSCATProject.Properties.Resources.countExc;
             this.toolStripButton12.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton12.Name = "toolStripButton12";
@@ -3459,6 +3547,97 @@
             this.toolStripButton15.Size = new System.Drawing.Size(23, 37);
             this.toolStripButton15.Text = "toolStripButton15";
             // 
+            // superTabItem1
+            // 
+            this.superTabItem1.AttachedControl = this.superTabControlPanel8;
+            this.superTabItem1.GlobalItem = false;
+            this.superTabItem1.Name = "superTabItem1";
+            this.superTabItem1.Text = "工作日志";
+            // 
+            // superTabControlPanel8
+            // 
+            this.superTabControlPanel8.Controls.Add(this.expandablePanel2);
+            this.superTabControlPanel8.Controls.Add(this.expandablePanel1);
+            this.superTabControlPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.superTabControlPanel8.Location = new System.Drawing.Point(0, 26);
+            this.superTabControlPanel8.Name = "superTabControlPanel8";
+            this.superTabControlPanel8.Size = new System.Drawing.Size(870, 470);
+            this.superTabControlPanel8.TabIndex = 0;
+            this.superTabControlPanel8.TabItem = this.superTabItem1;
+            // 
+            // sideBarPanelItem1
+            // 
+            this.sideBarPanelItem1.FontBold = true;
+            this.sideBarPanelItem1.Name = "sideBarPanelItem1";
+            this.sideBarPanelItem1.Text = "工作日志";
+            this.sideBarPanelItem1.Click += new System.EventHandler(this.sideBarPanelItem1_Click);
+            // 
+            // listViewEPend
+            // 
+            // 
+            // 
+            // 
+            this.listViewEPend.Border.Class = "ListViewBorder";
+            this.listViewEPend.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.listViewEPend.DisabledBackColor = System.Drawing.Color.Empty;
+            this.listViewEPend.Location = new System.Drawing.Point(3, 238);
+            this.listViewEPend.Name = "listViewEPend";
+            this.listViewEPend.Size = new System.Drawing.Size(118, 97);
+            this.listViewEPend.TabIndex = 0;
+            this.listViewEPend.UseCompatibleStateImageBehavior = false;
+            // 
+            // expandablePanel1
+            // 
+            this.expandablePanel1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.expandablePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.expandablePanel1.DisabledBackColor = System.Drawing.Color.Empty;
+            this.expandablePanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.expandablePanel1.HideControlsWhenCollapsed = true;
+            this.expandablePanel1.Location = new System.Drawing.Point(0, 0);
+            this.expandablePanel1.Name = "expandablePanel1";
+            this.expandablePanel1.Size = new System.Drawing.Size(870, 334);
+            this.expandablePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.expandablePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.expandablePanel1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.expandablePanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.expandablePanel1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.expandablePanel1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.expandablePanel1.Style.GradientAngle = 90;
+            this.expandablePanel1.TabIndex = 0;
+            this.expandablePanel1.TitleStyle.Alignment = System.Drawing.StringAlignment.Center;
+            this.expandablePanel1.TitleStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.expandablePanel1.TitleStyle.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.expandablePanel1.TitleStyle.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.expandablePanel1.TitleStyle.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.expandablePanel1.TitleStyle.GradientAngle = 90;
+            this.expandablePanel1.TitleText = "Title Bar";
+            // 
+            // expandablePanel2
+            // 
+            this.expandablePanel2.CanvasColor = System.Drawing.SystemColors.Control;
+            this.expandablePanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.expandablePanel2.DisabledBackColor = System.Drawing.Color.Empty;
+            this.expandablePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.expandablePanel2.HideControlsWhenCollapsed = true;
+            this.expandablePanel2.Location = new System.Drawing.Point(0, 334);
+            this.expandablePanel2.Name = "expandablePanel2";
+            this.expandablePanel2.Size = new System.Drawing.Size(870, 136);
+            this.expandablePanel2.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.expandablePanel2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.expandablePanel2.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.expandablePanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.expandablePanel2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.expandablePanel2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.expandablePanel2.Style.GradientAngle = 90;
+            this.expandablePanel2.TabIndex = 4;
+            this.expandablePanel2.TitleStyle.Alignment = System.Drawing.StringAlignment.Center;
+            this.expandablePanel2.TitleStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.expandablePanel2.TitleStyle.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.expandablePanel2.TitleStyle.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.expandablePanel2.TitleStyle.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.expandablePanel2.TitleStyle.GradientAngle = 90;
+            this.expandablePanel2.TitleText = "Title Bar";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3483,8 +3662,6 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.superTabControl1)).EndInit();
             this.superTabControl1.ResumeLayout(false);
-            this.superTabControlPanel1.ResumeLayout(false);
-            this.maintainControlBottomPanel.ResumeLayout(false);
             this.superTabControlPanel2.ResumeLayout(false);
             this.inContorlAllPannel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
@@ -3498,6 +3675,8 @@
             this.inContorlRightPannel.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.superTabControlPanel1.ResumeLayout(false);
+            this.maintainControlBottomPanel.ResumeLayout(false);
             this.superTabControlPanel3.ResumeLayout(false);
             this.outContorlAllPannel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbMarketWarehome)).EndInit();
@@ -3561,6 +3740,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.superTabControlPanel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3846,6 +4026,12 @@
         private DevComponents.DotNetBar.ButtonItem buttonItem22;
         private DevComponents.DotNetBar.Controls.CircularProgress circularProgressItem8;
         private DevComponents.DotNetBar.LabelItem labelItem1;
+        private DevComponents.DotNetBar.SuperTabControlPanel superTabControlPanel8;
+        private DevComponents.DotNetBar.SuperTabItem superTabItem1;
+        private DevComponents.DotNetBar.SideBarPanelItem sideBarPanelItem1;
+        private DevComponents.DotNetBar.Controls.ListViewEx listViewEPend;
+        private DevComponents.DotNetBar.ExpandablePanel expandablePanel2;
+        private DevComponents.DotNetBar.ExpandablePanel expandablePanel1;
     }
 }
 
