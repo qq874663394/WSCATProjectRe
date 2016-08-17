@@ -32,6 +32,7 @@ namespace WSCATProject.Sell
         {
             InitializeComponent();
         }
+        #region 接受从另一窗体传过来的值
         //销售单号
         private string _sellcode;
         public string Sell_Code
@@ -48,32 +49,62 @@ namespace WSCATProject.Sell
         }
         //结算账户
         private string _AccountName;
-        public string C_AccountName
+        public string A_AccountName
         {
             get { return _AccountName; }
             set { _AccountName = value; }
         }
         
         //应收金额
-        private string _AccountPay;
-        public string C_AmountPay
+        private string _OddMoney;
+        public string Sell_OddMoney
         {
-            get { return _AccountPay; }
-            set { _AccountPay = value; }
+            get { return _OddMoney; }
+            set { _OddMoney = value; }
         }
         //收款金额
-        //剩余尾款
-        //收款方式
-        //业务员
-        private string _SalesMan;
-        public string C_SalesMan
+        private string _InMoney;
+        public string Sell_InMoney
         {
-            get { return _SalesMan; }
-            set { _SalesMan = value; }
+            get { return _InMoney; }
+            set { _InMoney = value; }
+        }
+        //剩余尾款
+        private string _LastMoney;
+        public string Sell_LastMoney
+        {
+            get { return _LastMoney; }
+            set { _LastMoney = value; }
+        }
+        //收款方式
+        private string _fukuanfangshi;
+        public string Sell_fukuanfangshi
+        {
+            get { return _fukuanfangshi; }
+            set { _fukuanfangshi = value; }
+        }
+        //业务员
+        private string _Salesman;
+        public string Sell_Salesman
+        {
+            get { return _Salesman; }
+            set { _Salesman = value; }
         }
         //制单人
+        private string Operation;
+        public string Sell_Operation
+        {
+            get { return Operation; }
+            set { Operation = value; }
+        }
         //摘要
-
+        private string _Remark;
+        public string Sell_Remark
+        {
+            get { return _Remark; }
+            set { _Remark = value; }
+        }
+        #endregion
 
         private void InsSellGathering_Load(object sender, EventArgs e)
         {
@@ -178,23 +209,32 @@ namespace WSCATProject.Sell
             ltxt_shoukuan.Text = "0";
             ltxt_yingshou.Text = "0";
 
+           
            // ltxt_salecode.Text = _sellcode;
             Model.Sell sell = sm.SelSellGatheringBySellCode(ltxt_salecode.Text.Trim());
-            if (sell != null)
-            {
-                ltxt_salecode.Text = _sellcode;
-                ltxt_kehu.Text = sell.Sell_ClientName;
-                ltxt_AccountName.Text = sell.Sell_AccountCode;
-                ltxt_yingshou.ReadOnly = true;
-                ltxt_yingshou.Text = Convert.ToDecimal(sell.Sell_OddMoney).ToString("0.00");
-                ltxt_shoukuan.Text = Convert.ToDecimal(sell.Sell_InMoney).ToString("0.00");
-                ltxt_weishou.Text = Convert.ToDecimal(sell.Sell_LastMoney).ToString("0.00");
-                ltxt_method.Text = sell.Sell_fukuanfangshi;
-                ltxt_saleman.Text = sell.Sell_Salesman;
-                ltxt_operation.Text = sell.Sell_Operation;
-                ltxt_remark.Text = sell.Sell_Remark;
-                ltxt_weishou.Text = sell.Sell_OddMoney;
-            }
+            ltxt_salecode.Text = _sellcode;
+            ltxt_kehu.Text = _Sell_ClientName;
+            ltxt_yingshou.Text = Convert.ToDecimal( _OddMoney).ToString("0.00");
+            ltxt_shoukuan.Text = Convert.ToDecimal(_InMoney).ToString("0.00");
+            ltxt_weishou.Text = Convert.ToDecimal(_LastMoney).ToString("0.00");
+            ltxt_method.Text = _fukuanfangshi;
+            ltxt_saleman.Text = _Salesman;
+            ltxt_remark.Text = _Remark;
+            //if (sell != null)
+            //{
+            //    ltxt_salecode.Text = _sellcode;
+            //    ltxt_kehu.Text = sell.Sell_ClientName;
+            //    ltxt_AccountName.Text = sell.Sell_AccountCode;
+            //    ltxt_yingshou.ReadOnly = true;
+            //    ltxt_yingshou.Text = Convert.ToDecimal(sell.Sell_OddMoney).ToString("0.00");
+            //    ltxt_shoukuan.Text = Convert.ToDecimal(sell.Sell_InMoney).ToString("0.00");
+            //    ltxt_weishou.Text = Convert.ToDecimal(sell.Sell_LastMoney).ToString("0.00");
+            //    ltxt_method.Text = sell.Sell_fukuanfangshi;
+            //    ltxt_saleman.Text = sell.Sell_Salesman;
+            //    ltxt_operation.Text = sell.Sell_Operation;
+            //    ltxt_remark.Text = sell.Sell_Remark;
+            //    ltxt_weishou.Text = sell.Sell_OddMoney;
+            //}
 
             if (string.IsNullOrWhiteSpace(textBoxOddNumbers.Text))
             {

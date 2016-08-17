@@ -1395,15 +1395,20 @@ namespace WSCATProject.Buys
                     if (col.Count > 0)
                     {
                         GridRow row = col[0] as GridRow;
-                            InsSellGathering isg = new InsSellGathering();
-                            isg.Sell_Code = row.Cells["ColumnsSellCode"].Value.ToString();
-                            // isg.C_ClientName = row.Cells["ColumnsClientName"].Value.ToString();
-                            //isg.C_AccountName = row.Cells["ColumnsAccountCode"].Value.ToString();
-                            //isg.C_AmountPay = row.Cells["ColumnsAmountPay"].Value.ToString();
-                            //isg.C_SalesMan = row.Cells["ColumnsSalesMan"].Value.ToString();
-                            isg.ShowDialog();
-                            superGridControl1.PrimaryGrid.DataSource = dt;
-                            return;
+                        InsSellGathering isg = new InsSellGathering();
+                        isg.Sell_Code = row.Cells["ColumnsSellCode"].Value.ToString();
+                        isg.Sell_ClientName = row.Cells["ColumnsClientName"].Value.ToString();
+                        // isg.A_AccountName = row.Cells["ColumnsAccountCode"].Value.ToString();
+                        isg.Sell_OddMoney = row.Cells["ColumnsSell_OddMoney"].Value.ToString();
+                        isg.Sell_InMoney = row.Cells["ColumnsSell_InMoney"].Value.ToString();
+                        isg.Sell_LastMoney = row.Cells["ColumnsSell_LastMoney"].Value.ToString();
+                        isg.Sell_fukuanfangshi = row.Cells["Columnsfukuanfangshi"].Value.ToString();
+                        isg.Sell_Salesman = row.Cells["ColumnsSalesMan"].Value.ToString();
+                        isg.Sell_Operation = row.Cells["ColumnsSell_Operation"].Value.ToString();
+                        isg.Sell_Remark = row.Cells["ColumnsRemark"].Value.ToString();
+                        isg.ShowDialog();
+                        superGridControl1.PrimaryGrid.DataSource = dt;
+                        return;
                     }
                     else
                     {
