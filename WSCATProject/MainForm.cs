@@ -35,7 +35,6 @@ namespace WSCATProject
         private bool ClientNameFormOpen = false;
         private bool OptNameFormOpen = false;
 
-        protected 
 
         //维护天数的枚举列表 
         enum maintainDateTime
@@ -725,34 +724,117 @@ namespace WSCATProject
             superTabControl1.SelectedTab = superTabItemRe;
         }
 
+        //采购系统
         private void sideBarPanelItemIn_Click(object sender, EventArgs e)
         {
             superTabControl1.SelectedTab = superTabItemIn;
+            this.sideBarPanelItemIn.Image = Properties.Resources.采购大;
+            this.sideBarPanelItemRe.Image = Properties.Resources.售后小;
+            this.sideBarPanelItem1.Image = Properties.Resources.日志小;       
+            this.sideBarPanelItemOut.Image = Properties.Resources.销售小;
+            this.sideBarPanelItemSto.Image = Properties.Resources.仓库小;
+            this.sideBarPanelItemFin.Image = Properties.Resources.财务小;
+            this.sideBarPanelItemSta.Image = Properties.Resources.人事小;
+            this.sideBarPanelItemSys.Image = Properties.Resources.系统小;
         }
 
+        //销售系统
         private void sideBarPanelItemOut_Click(object sender, EventArgs e)
         {
             superTabControl1.SelectedTab = superTabItemOut;
+            this.sideBarPanelItemOut.Image = Properties.Resources.销售大;
+            this.sideBarPanelItemIn.Image = Properties.Resources.采购小;
+            this.sideBarPanelItemRe.Image = Properties.Resources.售后小;
+            this.sideBarPanelItem1.Image = Properties.Resources.日志小;       
+            this.sideBarPanelItemSto.Image = Properties.Resources.仓库小;
+            this.sideBarPanelItemFin.Image = Properties.Resources.财务小;
+            this.sideBarPanelItemSta.Image = Properties.Resources.人事小;
+            this.sideBarPanelItemSys.Image = Properties.Resources.系统小;
         }
-
+        //仓库系统
         private void sideBarPanelItemSto_Click(object sender, EventArgs e)
         {
             superTabControl1.SelectedTab = superTabItemStock;
+            this.sideBarPanelItemSto.Image = Properties.Resources.仓库大;
+            this.sideBarPanelItemOut.Image = Properties.Resources.销售小;
+            this.sideBarPanelItemIn.Image = Properties.Resources.采购小;
+            this.sideBarPanelItemRe.Image = Properties.Resources.售后小;
+            this.sideBarPanelItem1.Image = Properties.Resources.日志小;
+            this.sideBarPanelItemFin.Image = Properties.Resources.财务小;
+            this.sideBarPanelItemSta.Image = Properties.Resources.人事小;
+            this.sideBarPanelItemSys.Image = Properties.Resources.系统小;
         }
 
+        //财务系统
         private void sideBarPanelItemFin_Click(object sender, EventArgs e)
         {
             superTabControl1.SelectedTab = superTabItemFin;
+            this.sideBarPanelItemFin.Image = Properties.Resources.财务大;
+            this.sideBarPanelItemSto.Image = Properties.Resources.仓库小;
+            this.sideBarPanelItemOut.Image = Properties.Resources.销售小;
+            this.sideBarPanelItemIn.Image = Properties.Resources.采购小;
+            this.sideBarPanelItemRe.Image = Properties.Resources.售后小;
+            this.sideBarPanelItem1.Image = Properties.Resources.日志小;
+            this.sideBarPanelItemSta.Image = Properties.Resources.人事小;
+            this.sideBarPanelItemSys.Image = Properties.Resources.系统小;
         }
 
+        //人事系统
         private void sideBarPanelItemSta_Click(object sender, EventArgs e)
         {
             superTabControl1.SelectedTab = superTabItemSta;
+            this.sideBarPanelItemSta.Image = Properties.Resources.人事大;
+            this.sideBarPanelItemFin.Image = Properties.Resources.财务小;
+            this.sideBarPanelItemSto.Image = Properties.Resources.仓库小;
+            this.sideBarPanelItemOut.Image = Properties.Resources.销售小;
+            this.sideBarPanelItemIn.Image = Properties.Resources.采购小;
+            this.sideBarPanelItemRe.Image = Properties.Resources.售后小;
+            this.sideBarPanelItem1.Image = Properties.Resources.日志小;
+            this.sideBarPanelItemFin.Image = Properties.Resources.财务小;
+            this.sideBarPanelItemSys.Image = Properties.Resources.系统小;
         }
 
+        //系统维护
         private void sideBarPanelItemSys_Click(object sender, EventArgs e)
         {
             superTabControl1.SelectedTab = superTabItemSys;
+            this.sideBarPanelItemSys.Image = Properties.Resources.系统大;
+            this.sideBarPanelItemSta.Image = Properties.Resources.人事小;
+            this.sideBarPanelItemFin.Image = Properties.Resources.财务小;
+            this.sideBarPanelItemSto.Image = Properties.Resources.仓库小;
+            this.sideBarPanelItemOut.Image = Properties.Resources.销售小;
+            this.sideBarPanelItemIn.Image = Properties.Resources.采购小;
+            this.sideBarPanelItemRe.Image = Properties.Resources.售后小;
+            this.sideBarPanelItem1.Image = Properties.Resources.日志小;
+            this.sideBarPanelItemFin.Image = Properties.Resources.财务小;
+            this.sideBarPanelItemSta.Image = Properties.Resources.人事小;
+        }
+
+        //工作日志
+        private void sideBarPanelItem1_Click(object sender, EventArgs e)
+        {
+            superTabControl1.SelectedTab = superTabItem1;
+            this.sideBarPanelItem1.Image = Properties.Resources.日志大;
+            this.sideBarPanelItemRe.Image = Properties.Resources.售后小;
+            this.sideBarPanelItemIn.Image = Properties.Resources.采购小;
+            this.sideBarPanelItemOut.Image = Properties.Resources.销售小;
+            this.sideBarPanelItemSto.Image = Properties.Resources.仓库小;
+            this.sideBarPanelItemFin.Image = Properties.Resources.财务小;
+            this.sideBarPanelItemSta.Image = Properties.Resources.人事小;
+            this.sideBarPanelItemSys.Image = Properties.Resources.系统小;
+        }
+
+        //售后服务
+        private void sideBarPanelItemRe_Click(object sender, EventArgs e)
+        {
+            this.sideBarPanelItemRe.Image = Properties.Resources.售后大;
+            this.sideBarPanelItem1.Image = Properties.Resources.日志小;
+            this.sideBarPanelItemIn.Image = Properties.Resources.采购小;
+            this.sideBarPanelItemOut.Image = Properties.Resources.销售小;
+            this.sideBarPanelItemSto.Image = Properties.Resources.仓库小;
+            this.sideBarPanelItemFin.Image = Properties.Resources.财务小;
+            this.sideBarPanelItemSta.Image = Properties.Resources.人事小;
+            this.sideBarPanelItemSys.Image = Properties.Resources.系统小;
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
@@ -816,9 +898,6 @@ namespace WSCATProject
             mbas.ShowDialog();
         }
         //工作日志
-        private void sideBarPanelItem1_Click(object sender, EventArgs e)
-        {
-            superTabControl1.SelectedTab = superTabItem1;
-        }
+   
     }
 }

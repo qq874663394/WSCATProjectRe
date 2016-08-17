@@ -65,27 +65,32 @@ namespace DAL
         /// </summary>
         public DataTable GetList()
         {
-            string strsql = (@" select C_No ,   (case 
-               when C_Status=1 then '36352E315B0A'
-               else '2A502E315B0A' end
-               ) as C_Status ,
-               C_SellCode,
+            string strsql = (@" select Sell_ID ,  
                (case 
-               when C_AuditStatus=1 then '36352D175E2F'
+               when Sell_IsPay=0 then '2A502E315B0A'
+               when Sell_IsPay=1 then '565B53322E315B0A'
+               when Sell_IsPay=2 then '36352E315B0A'
+               end
+               ) as Sell_IsPay ,
+               Sell_Code,
+               (case 
+               when Sell_Review=1 then '36352D175E2F'
                else '2A502D175E2F' end
-               ) as C_AuditStatus ,
-               C_Date ,       
-               C_ClientName ,
-               C_AccountName ,
-               C_AmountPay ,
-               C_AccountPaid ,
-               C_MoneyOwed ,
-               C_SalesMan ,
-               C_Remark 
-                from T_Conllection");
+               ) as Sell_Review ,
+               Sell_Date ,       
+               Sell_fukuanfangshi ,
+               Sell_OddMoney,
+               Sell_InMoney,
+               Sell_LastMoney,
+               Sell_Operation ,
+               Sell_Auditman ,
+               Sell_Remark ,
+               Sell_ClientName ,
+               Sell_Salesman
+                from T_Sell where Sell_Review=1 and (Sell_IsPay=0 or Sell_IsPay=1) ");
             SqlDataAdapter adapter = new SqlDataAdapter(strsql, DbHelperSQL.connectionString);
             DataSet ds = new DataSet();
-            adapter.Fill(ds, "T_Conllection");
+            adapter.Fill(ds, "T_Sell");
             return ch.DataTableReCoding(ds.Tables[0]);
         }
 
