@@ -16,10 +16,11 @@ namespace Model
 		private string _ed_money;
 		private string _ed_remark;
 		private string _ed_satetyone;
-		/// <summary>
-		/// 自增ID
-		/// </summary>
-		public int ED_ID
+        private DateTime _ed_updatedate;
+        /// <summary>
+        /// 自增ID
+        /// </summary>
+        public int ED_ID
 		{
 			set{ _ed_id=value;}
 			get{return _ed_id;}
@@ -64,8 +65,16 @@ namespace Model
 			set{ _ed_satetyone=value;}
 			get{return _ed_satetyone;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime ED_UpdateDate
+        {
+            set { _ed_updatedate = value; }
+            get { return _ed_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

@@ -24,10 +24,11 @@ namespace Model
 		private int? _come_clear;
 		private string _come_barcode;
 		private string _come_rfid;
-		/// <summary>
-		/// 入库单号
-		/// </summary>
-		public string Come_ID
+        private DateTime _come_updatedate;
+        /// <summary>
+        /// 入库单号
+        /// </summary>
+        public string Come_ID
 		{
 			set{ _come_id=value;}
 			get{return _come_id;}
@@ -136,8 +137,16 @@ namespace Model
 			set{ _come_rfid=value;}
 			get{return _come_rfid;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime Come_UpdateDate
+        {
+            set { _come_updatedate = value; }
+            get { return _come_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

@@ -44,6 +44,7 @@ namespace Model
         private int? _sell_jiajiState;
         private DateTime? _sell_zuiwanshijian;
         private string _sell_fukuanfangshi;
+        private DateTime _sell_updatedate;
 
         /// <summary>
         /// 
@@ -461,6 +462,14 @@ namespace Model
             {
                 _sell_fukuanfangshi = value;
             }
+        }
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime Sel_UpdateDate
+        {
+            set { _sell_updatedate = value; }
+            get { return _sell_updatedate; }
         }
         #endregion Model
 

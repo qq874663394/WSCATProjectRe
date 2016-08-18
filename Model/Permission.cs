@@ -19,6 +19,7 @@ namespace Model
         private int per_Clear = 1;
         private string per_Type;
         private string per_RoleCode;
+        private DateTime _per_updatedate;
 
         public int Per_ID
         {
@@ -154,7 +155,14 @@ namespace Model
                 per_RoleCode = value;
             }
         }
-
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime Per_UpdateDate
+        {
+            set { _per_updatedate = value; }
+            get { return _per_updatedate; }
+        }
 
         #endregion
     }

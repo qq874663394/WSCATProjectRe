@@ -24,10 +24,11 @@ namespace Model
 		private int? _out_clear;
 		private string _out_barcode;
 		private string _out_rfid;
-		/// <summary>
-		/// 出库编号
-		/// </summary>
-		public string Out_ID
+        private DateTime _out_updatedate;
+        /// <summary>
+        /// 出库编号
+        /// </summary>
+        public string Out_ID
 		{
 			set{ _out_id=value;}
 			get{return _out_id;}
@@ -136,8 +137,16 @@ namespace Model
 			set{ _out_rfid=value;}
 			get{return _out_rfid;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime Out_UpdateDate
+        {
+            set { _out_updatedate = value; }
+            get { return _out_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

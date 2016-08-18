@@ -897,7 +897,6 @@ namespace WSCATProject
             PayBuySelect mbas = new PayBuySelect();
             mbas.ShowDialog();
         }
-        //工作日志
    
     }
 }

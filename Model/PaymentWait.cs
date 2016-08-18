@@ -25,10 +25,11 @@ namespace Model
 		private string _pw_satetyone;
 		private string _pw_satetytwo;
 		private int? _pw_clear=1;
-		/// <summary>
-		/// 自增ID
-		/// </summary>
-		public int PW_ID
+        private DateTime _pw_updatedate;
+        /// <summary>
+        /// 自增ID
+        /// </summary>
+        public int PW_ID
 		{
 			set{ _pw_id=value;}
 			get{return _pw_id;}
@@ -145,8 +146,16 @@ namespace Model
 			set{ _pw_clear=value;}
 			get{return _pw_clear;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime PW_UpdateDate
+        {
+            set { _pw_updatedate = value; }
+            get { return _pw_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

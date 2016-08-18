@@ -24,10 +24,11 @@ namespace Model
 		private string _ca_satetyone;
 		private string _ca_satetytwo;
 		private int? _ca_clear=1;
-		/// <summary>
-		/// 自增ID
-		/// </summary>
-		public int Ca_ID
+        private DateTime _ca_updatedate;
+        /// <summary>
+        /// 自增ID
+        /// </summary>
+        public int Ca_ID
 		{
 			set{ _ca_id=value;}
 			get{return _ca_id;}
@@ -136,8 +137,16 @@ namespace Model
 			set{ _ca_clear=value;}
 			get{return _ca_clear;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime Ca_UpdateDate
+        {
+            set { _ca_updatedate = value; }
+            get { return _ca_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

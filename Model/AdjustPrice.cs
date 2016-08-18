@@ -21,10 +21,11 @@ namespace Model
 		private string _adj_satetyone;
 		private string _adj_satetytwo;
 		private int? _adj_clear=1;
-		/// <summary>
-		/// 自增ID
-		/// </summary>
-		public int Adj_ID
+        private DateTime _jp_updatedate;
+        /// <summary>
+        /// 自增ID
+        /// </summary>
+        public int Adj_ID
 		{
 			set{ _adj_id=value;}
 			get{return _adj_id;}
@@ -109,8 +110,16 @@ namespace Model
 			set{ _adj_clear=value;}
 			get{return _adj_clear;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime Jp_UpdateData
+        {
+            set { _jp_updatedate = value; }
+            get { return _jp_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

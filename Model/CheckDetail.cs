@@ -26,10 +26,11 @@ namespace Model
 		private string _che_safetyone;
 		private string _che_safetytwo;
 		private string _che_remark;
-		/// <summary>
-		/// 盘点编号
-		/// </summary>
-		public string Che_ID
+        private DateTime _ched_updatedate;
+        /// <summary>
+        /// 盘点编号
+        /// </summary>
+        public string Che_ID
 		{
 			set{ _che_id=value;}
 			get{return _che_id;}
@@ -154,8 +155,16 @@ namespace Model
 			set{ _che_remark=value;}
 			get{return _che_remark;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime CheD_UpdateDate
+        {
+            set { _ched_updatedate = value; }
+            get { return _ched_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

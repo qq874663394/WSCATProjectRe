@@ -26,10 +26,11 @@ namespace Model
 		private string _sto_remark;
 		private string _sto_safetyone;
 		private string _sto_safetytwo;
-		/// <summary>
-		/// 自增ID
-		/// </summary>
-		public int Sto_ID
+        private DateTime _sto_updatedate;
+        /// <summary>
+        /// 自增ID
+        /// </summary>
+        public int Sto_ID
 		{
 			set{ _sto_id=value;}
 			get{return _sto_id;}
@@ -154,8 +155,16 @@ namespace Model
 			set{ _sto_safetytwo=value;}
 			get{return _sto_safetytwo;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime Sto_UpdateDate
+        {
+            set { _sto_updatedate = value; }
+            get { return _sto_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

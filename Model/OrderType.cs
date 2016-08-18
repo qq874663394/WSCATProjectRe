@@ -13,10 +13,11 @@ namespace Model
 		private int _ot_id;
 		private string _ot_name;
 		private string _ot_code;
-		/// <summary>
-		/// 类型ID
-		/// </summary>
-		public int Ot_ID
+        private DateTime _ot_updatedate;
+        /// <summary>
+        /// 类型ID
+        /// </summary>
+        public int Ot_ID
 		{
 			set{ _ot_id=value;}
 			get{return _ot_id;}
@@ -37,8 +38,16 @@ namespace Model
 			set{ _ot_code=value;}
 			get{return _ot_code;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime Ot_UpdateDate
+        {
+            set { _ot_updatedate = value; }
+            get { return _ot_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 
