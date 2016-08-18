@@ -1,6 +1,7 @@
 ﻿using BLL;
 using HelperUtility;
 using HelperUtility.Encrypt;
+using Model;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace WSCATProject.Base
         EmpolyeeManager em = new EmpolyeeManager();
         DepartmentManager dm = new DepartmentManager();
         RoleManager role = new RoleManager();
+        UserManager um = new UserManager();
         public string area;
         public InsEmpolyee()
         {
@@ -97,6 +99,7 @@ namespace WSCATProject.Base
         private void button1_Click(object sender, EventArgs e)
         {
             EmpolyeeForm empM = (EmpolyeeForm)Owner;
+            
             if (InsTextIsNull() == false)
             {
                 return;
@@ -107,6 +110,23 @@ namespace WSCATProject.Base
                 if (result > 0)
                 {
                     empM.isflag = true;
+                    if (checkBoxLogin.Checked)
+                    {
+                        //保存user表
+                        User u = new User();
+                        u.User_CardCode = "";
+                        u.User_code = BuildCode.ModuleCode("US");
+                        u.User_Manager = 0;
+                        u.User_Name = textBox1.Text.Trim();
+                        u.User_Password = "654321";
+                        u.User_Role = cbe_juese.SelectedValue.ToString();
+                        u.User_zhiwen = "";
+                        int uresult = um.Add(u);
+                        if(uresult < 1)
+                        {
+                            MessageBox.Show("在给该成员分配登录权限时失败,请尝试使用新增登录用户功能添加");
+                        }
+                    }
                     MessageBox.Show("保存成功");
                     Close();
                     Dispose();

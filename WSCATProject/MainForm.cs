@@ -17,7 +17,7 @@ using WSCATProject.StockForm;
 using WSCATProject.StockSystemForm;
 using DevComponents.DotNetBar;
 using WSCATProject.Base;
-using HelperUtility.ExUI;
+using HelperUtility;
 using WSCATProject.Buys;
 
 namespace WSCATProject
@@ -48,7 +48,7 @@ namespace WSCATProject
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
-            getIPAddress();
+            //getIPAddress();
             superTabItemRe.Click += SuperTabItemRe_Click;
             superTabItemIn.Click += SuperTabItemRe_Click;
             superTabItemOut.Click += SuperTabItemRe_Click;
@@ -56,6 +56,7 @@ namespace WSCATProject
             superTabItemFin.Click += SuperTabItemRe_Click;
             superTabItemSta.Click += SuperTabItemRe_Click;
             superTabItemSys.Click += SuperTabItemRe_Click;
+            
         }
 
         private void SuperTabItemRe_Click(object sender, EventArgs e)
@@ -89,6 +90,13 @@ namespace WSCATProject
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            LoginForm lf = new LoginForm();
+            lf.ShowDialog();
+            LoginInfomation loginInf = LoginInfomation.getInstance();
+            if (string.IsNullOrWhiteSpace(loginInf.UserName))
+            {
+                Close();
+            }
             superTabControl1.SelectedTab = superTabItemRe;
             //LoginForm lf = new LoginForm();
             //lf.ShowDialog();

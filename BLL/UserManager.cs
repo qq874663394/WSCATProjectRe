@@ -192,7 +192,6 @@ namespace BLL
             //查询后解密返回
             return ch.DataTableReCoding(dal.GetUserAndRoleModel(XYEEncoding.strCodeHex(name),
                 XYEEncoding.strCodeHex(password)));
-              
         }
 
         #endregion  ExtensionMethod
