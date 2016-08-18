@@ -17,23 +17,7 @@ namespace DAL
         /// <returns></returns>
         public int InsDepartment(Department department)
         {
-            string sql = @"INSERT INTO T_Department
-           (Dt_Code
-           , Dt_RoleCode
-           , Dt_Name
-           , Dt_Clear)
-     VALUES
-           (@Dt_Code,
-           , @Dt_RoleCode,
-           , @Dt_Name,
-           , @Dt_Clear";
-            SqlParameter[] sps =
-            {
-                new SqlParameter("@Dt_Code",XYEEncoding.strCodeHex(department.Dt_Code)),
-                new SqlParameter("@Dt_RoleCode",XYEEncoding.strCodeHex(department.Dt_RoleCode)),
-                new SqlParameter("@Dt_Name",XYEEncoding.strCodeHex(department.Dt_Name)),
-                new SqlParameter("@Dt_Clear",department.Dt_Clear)
-            };
+            string sql = string.Format("insert into T_Department values('{0}','{1}','{2}','{3}')",department.Dt_Code,department.Dt_RoleCode,department.Dt_Name,department.Dt_Clear);
             return DbHelperSQL.ExecuteSql(sql);
         }
         #endregion
@@ -46,7 +30,7 @@ namespace DAL
         /// <returns></returns>
         public int FalseDelClear(string Dt_Code)
         {
-            string sql = string.Format("update T_Department set Dt_Clear=0 where Dt_Clear=1 and Dt_Code={0}", XYEEncoding.strCodeHex(Dt_Code));
+            string sql = string.Format("update T_Department set Dt_Clear=0 where Dt_Clear=1 and Dt_Code='{0}'", XYEEncoding.strCodeHex(Dt_Code));
             return DbHelperSQL.ExecuteSql(sql);
         }
         #endregion
@@ -103,5 +87,43 @@ namespace DAL
             return null;
         }
         #endregion
+
+        #region 查询信息
+        /// <summary>
+        /// 查询部门全部信息
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetListDep()
+        {
+            string sql = "select * from T_Department td,T_Role tr where td.Dt_RoleCode=tr.Role_Code and td.Dt_Clear=1";
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds, "T_Department");
+            return ch.DataTableReCoding(ds.Tables[0]);
+        }
+        #endregion
+
+        #region 修改信息
+        /// <summary>
+        /// 根据编号修改信息
+        /// </summary>
+        /// <param name="empolyee"></param>
+        /// <returns></returns>
+        public int UpdateDepartment(Department dep)
+        {
+            string sql = @"update T_Department set 
+             Dt_RoleCode=@Dt_RoleCode
+            ,Dt_Name=@Dt_Name
+             where Dt_Code=@Dt_Code";
+            SqlParameter[] sps =
+            {
+                new SqlParameter("@Dt_RoleCode",XYEEncoding.strCodeHex(dep.Dt_RoleCode)),
+                new SqlParameter("@Dt_Name",XYEEncoding.strCodeHex(dep.Dt_Name)),
+                new SqlParameter("@Dt_Code",XYEEncoding.strCodeHex(dep.Dt_Code)),
+            };
+            return DbHelperSQL.ExecuteSql(sql, sps);
+            #endregion
+
+        }
     }
 }

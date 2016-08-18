@@ -1550,7 +1550,8 @@ namespace WSCATProject.Sell
         {
             SellManager sellManager = new SellManager();
             DataTable tempDT = sellManager.
-                searchMaterialByzhujimaAndNameAndModel(_AllMaterial.Tables[0], e.GridCell.FormattedValue);
+                searchMaterialByzhujimaAndNameAndModel(
+                _AllMaterial.Tables[0], e.GridCell.FormattedValue);
             dataGridView1.DataSource = tempDT;
         }
     }

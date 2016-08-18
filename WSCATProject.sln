@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperUtility", "HelperUtil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{008A4223-547C-4361-91E2-DCCEDD523630}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddleManager", "MiddleManager\MiddleManager.csproj", "{C499C830-F610-4D2D-B998-7B266AE2AC9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PadDataDispose", "PadDataDispose\PadDataDispose.csproj", "{A20545D7-8027-4698-97E6-C1D5ACBFB325}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{008A4223-547C-4361-91E2-DCCEDD523630}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{008A4223-547C-4361-91E2-DCCEDD523630}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{008A4223-547C-4361-91E2-DCCEDD523630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C499C830-F610-4D2D-B998-7B266AE2AC9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C499C830-F610-4D2D-B998-7B266AE2AC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C499C830-F610-4D2D-B998-7B266AE2AC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C499C830-F610-4D2D-B998-7B266AE2AC9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A20545D7-8027-4698-97E6-C1D5ACBFB325}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A20545D7-8027-4698-97E6-C1D5ACBFB325}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A20545D7-8027-4698-97E6-C1D5ACBFB325}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A20545D7-8027-4698-97E6-C1D5ACBFB325}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

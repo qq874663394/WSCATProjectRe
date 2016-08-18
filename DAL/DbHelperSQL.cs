@@ -168,6 +168,7 @@ namespace DAL
                     {
                         connection.Close();
                         throw e;
+                        
                     }
                 }
             }

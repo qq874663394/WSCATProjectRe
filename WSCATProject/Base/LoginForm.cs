@@ -31,10 +31,14 @@ namespace WSCATProject.Base
             if (string.IsNullOrWhiteSpace(name))
             {
                 labelName.Visible = true;
+                labelNull.Text = "请输入用户名";
+                labelNull.Visible = true;
             }
             else if (string.IsNullOrWhiteSpace(password))
             {
                 labelPW.Visible = true;
+                labelNull.Text = "请输入密码";
+                labelNull.Visible = true;
             }
             else
             {
@@ -44,7 +48,6 @@ namespace WSCATProject.Base
                     labelPW.Visible = false;
                     labelNull.Text = "用户名不存在";
                     labelNull.Visible = true;
-
                     return;
 
                 }
@@ -54,7 +57,8 @@ namespace WSCATProject.Base
                     LoginInfomation information = LoginInfomation.getInstance();
                     information.UserName = user.Rows[0]["User_Name"].ToString();
                     information.UserRole = user.Rows[0]["Role_Name"].ToString();
-                    //根据角色里的权限编码查询所拥有的权限信息
+                    information.UserCode = user.Rows[0]["User_Code"].ToString();
+                    //根据角色里的权限编码查询所拥有的权限信息 
                     DataSet permission = pm.GetList("Per_Code = '" + 
                         XYEEncoding.strCodeHex(user.Rows[0]["Role_Modules"].ToString()) + "'");
                     getPermissionList(permission);
