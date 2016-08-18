@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.基本信息 = new DevComponents.DotNetBar.TabControl();
             this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
+            this.checkBoxLogin = new System.Windows.Forms.CheckBox();
             this.cbe_juese = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.label20 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -153,6 +154,7 @@
             // 
             // tabControlPanel1
             // 
+            this.tabControlPanel1.Controls.Add(this.checkBoxLogin);
             this.tabControlPanel1.Controls.Add(this.cbe_juese);
             this.tabControlPanel1.Controls.Add(this.label20);
             this.tabControlPanel1.Controls.Add(this.textBox4);
@@ -205,6 +207,20 @@
             this.tabControlPanel1.Style.GradientAngle = 90;
             this.tabControlPanel1.TabIndex = 1;
             this.tabControlPanel1.TabItem = this.tabItem1;
+            // 
+            // checkBoxLogin
+            // 
+            this.checkBoxLogin.AutoSize = true;
+            this.checkBoxLogin.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxLogin.Checked = true;
+            this.checkBoxLogin.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxLogin.ForeColor = System.Drawing.Color.Black;
+            this.checkBoxLogin.Location = new System.Drawing.Point(212, 312);
+            this.checkBoxLogin.Name = "checkBoxLogin";
+            this.checkBoxLogin.Size = new System.Drawing.Size(84, 16);
+            this.checkBoxLogin.TabIndex = 36;
+            this.checkBoxLogin.Text = "可用于登录";
+            this.checkBoxLogin.UseVisualStyleBackColor = false;
             // 
             // cbe_juese
             // 
@@ -727,7 +743,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(411, 428);
+            this.button3.Location = new System.Drawing.Point(411, 427);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 4;
@@ -749,7 +765,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "InsEmpolyee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "InsEmpolyee";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.InsEmpolyee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.基本信息)).EndInit();
             this.基本信息.ResumeLayout(false);
@@ -826,5 +842,6 @@
         private System.Windows.Forms.TextBox tb_sheng;
         private System.Windows.Forms.Label label15;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbe_juese;
+        private System.Windows.Forms.CheckBox checkBoxLogin;
     }
 }

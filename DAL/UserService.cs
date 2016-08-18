@@ -455,14 +455,8 @@ namespace DAL
 
             User model = new User();
             DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                return ds.Tables[0];
-            }
-            else
-            {
-                return null;
-            }
+
+            return ds.Tables[0];
         }
         #endregion  ExtensionMethod
     }

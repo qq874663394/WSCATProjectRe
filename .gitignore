@@ -18,3 +18,5 @@
 /WSCATProject/obj
 /BLL/obj/Release
 /.vs
+/PadDataDispose/obj
+/MiddleManager/obj

@@ -1144,6 +1144,16 @@
     <None Include="Resources\销售大.png" />
     <None Include="Resources\系统大.png" />
     <None Include="Resources\仓库大.png" />
+    <None Include="Resources\caigou.PNG" />
+    <None Include="Resources\fukuan.png" />
+    <None Include="Resources\month.png" />
+    <None Include="Resources\out.PNG" />
+    <None Include="Resources\pandian.PNG" />
+    <None Include="Resources\shoukuan.png" />
+    <None Include="Resources\today.PNG" />
+    <None Include="Resources\xiaoshou.png" />
+    <None Include="Resources\add.PNG" />
+    <None Include="Resources\renshi.PNG" />
     <Content Include="Resources\日志大.png" />
     <None Include="Resources\采购大.png" />
     <None Include="Resources\日志小1.png" />

@@ -16,6 +16,10 @@ namespace HelperUtility.Encrypt
         /// <returns>解密的datatable</returns>
         public DataTable DataTableReCoding(DataTable dt)
         {
+            if (dt == null)
+            {
+                return dt;
+            }
             DataTable TempDT = dt.Clone();
             if (dt.Rows.Count > 0)
             {
@@ -47,6 +51,10 @@ namespace HelperUtility.Encrypt
         /// <returns>解密的datatable</returns>
         public DataSet DataSetReCoding(DataSet ds)
         {
+            if(ds == null)
+            {
+                return ds;
+            }
             DataSet TempDS = ds.Clone();
             if(ds.Tables.Count > 0)
             {

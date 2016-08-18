@@ -62,6 +62,7 @@ namespace DAL
             }
             return null;
         }
+
         #region  BasicMethod
 
         /// <summary>
@@ -896,6 +897,12 @@ namespace DAL
             DbHelperSQL.ExecuteSqlTran(hashtable,moresqlstr,paraList);
 
         }
+
+        //public int UpdateSellAndSellDetail(Sell sell, List<SellDetail> sellDetail)
+        //{
+        //    StringBuilder strSql = new StringBuilder();
+        //    Hashtable hashtable = new Hashtable();
+        //}
 
         #endregion  ExtensionMethod
     }

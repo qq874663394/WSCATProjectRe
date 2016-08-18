@@ -24,6 +24,10 @@ namespace HelperUtility
         /// 登录的用户角色
         /// </summary>
         public string UserRole { get; set; }
+        /// <summary>
+        /// 登录的用户code
+        /// </summary>
+        public string UserCode { get; set; }
 
         private List<string> readpermission = new List<string>();
         /// <summary>
@@ -34,6 +38,7 @@ namespace HelperUtility
             get { return readpermission; }
             set { readpermission = value; }
         }
+
         /// <summary>
         /// 添加具有的读取权限模块名
         /// </summary>
