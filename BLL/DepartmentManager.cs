@@ -69,5 +69,24 @@ namespace BLL
             return ds.SelDepartmentByCode(Dt_Code);
         }
         #endregion
+
+        /// <summary>
+        /// 查询部门全部信息
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetListDep()
+        {
+            return ds.GetListDep();
+        }
+
+        /// <summary>
+        /// 根据编号修改信息
+        /// </summary>
+        /// <param name="empolyee"></param>
+        /// <returns></returns>
+        public int UpdateDepartment(Department dep)
+        {
+            return ds.UpdateDepartment(dep);
+        }
     }
 }

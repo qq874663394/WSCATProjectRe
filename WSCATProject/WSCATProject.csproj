@@ -125,6 +125,18 @@
     <Compile Include="Base\Client\CreateClientForm.Designer.cs">
       <DependentUpon>CreateClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Base\Department\DepartmentListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\Department\DepartmentListForm.Designer.cs">
+      <DependentUpon>DepartmentListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\Department\InDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\Department\InDepartment.Designer.cs">
+      <DependentUpon>InDepartment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Base\Empolyee\EmpolyeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -584,6 +596,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Base\Client\CreateClientForm.resx">
       <DependentUpon>CreateClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\Department\DepartmentListForm.resx">
+      <DependentUpon>DepartmentListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\Department\InDepartment.resx">
+      <DependentUpon>InDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Base\Empolyee\EmpolyeeForm.resx">
       <DependentUpon>EmpolyeeForm.cs</DependentUpon>

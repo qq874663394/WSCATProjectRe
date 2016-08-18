@@ -92,12 +92,14 @@ namespace WSCATProject
         private void MainForm_Load(object sender, EventArgs e)
         {
             superTabControl1.SelectedTab = superTabItem1;
+            this.sideBarPanelItem1.Image = Properties.Resources.日志大;
             //LoginForm lf = new LoginForm();
             //lf.ShowDialog();
             //var off = new officeTool();
             //off.initConnString();
             //clickbtn = imgbtn_maintain;
             //imgbtn_maintain.BackgroundImage = Properties.Resources.btn_enter;
+            
         }
 
         #region button触发切换tabpages的方法
