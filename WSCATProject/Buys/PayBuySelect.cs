@@ -542,61 +542,89 @@ namespace WSCATProject.Buys
                     {
                         #region 初始化资金收款列     
                         gc = new GridColumn();
-                        gc.DataPropertyName = "C_No";
-                        gc.Name = "ColumnsCode";
-                        gc.HeaderText = "资金收款编号";
-                        superGridControl1.PrimaryGrid.Columns.Add(gc);
-
-                        gc = new GridColumn();
-                        gc.DataPropertyName = "C_SellCode";
+                        gc.DataPropertyName = "Sell_Code";
                         gc.Name = "ColumnsSellCode";
-                        gc.HeaderText = "销售单单号";
+                        gc.HeaderText = "销售单号";
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
-                        gc.DataPropertyName = "C_ClientName";
+                        gc.DataPropertyName = "Sell_ClientName";
                         gc.Name = "ColumnsClientName";
                         gc.HeaderText = "客户";
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
-                        gc.DataPropertyName = "C_Date";
+                        gc.DataPropertyName = "Sell_Date";
                         gc.Name = "ColumnsDate";
                         gc.HeaderText = "单据日期";
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
-                        gc.DataPropertyName = "C_Status";
-                        gc.Name = "ColumnsPurchaseStatus";
-                        gc.HeaderText = "单据状态";
-                        superGridControl1.PrimaryGrid.Columns.Add(gc);
-
-                        gc = new GridColumn();
-                        gc.DataPropertyName = "C_AuditStatus";
-                        gc.Name = "ColumnsAuditStatus";
+                        gc.DataPropertyName = "Sell_Review";
+                        gc.Name = "ColumnsReview";
                         gc.HeaderText = "审核状态";
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
-                        gc.DataPropertyName = "C_AccountName";
-                        gc.Name = "ColumnsAccountName";
-                        gc.HeaderText = "结算账户";
+                        gc.DataPropertyName = "Sell_IsPay";
+                        gc.Name = "ColumnsIsPay";
+                        gc.HeaderText = "收款状态";
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
-                        gc.DataPropertyName = "C_AmountPay";
-                        gc.Name = "ColumnsAmountPay";
-                        gc.HeaderText = "总金额";
+                        gc.DataPropertyName = "Sell_fukuanfangshi";
+                        gc.Name = "Columnsfukuanfangshi";
+                        gc.HeaderText = "收款方式";
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
-                        gc.DataPropertyName = "C_SalesMan";
+                        gc.DataPropertyName = "Sell_AccountCode";
+                        gc.Name = "ColumnsAccountCode";
+                        gc.HeaderText = "收款账户";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_OddMoney";
+                        gc.Name = "ColumnsSell_OddMoney";
+                        gc.HeaderText = "本单总金额";
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_InMoney";
+                        gc.Name = "ColumnsSell_InMoney";
+                        gc.HeaderText = "本次收款";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_LastMoney";
+                        gc.Name = "ColumnsSell_LastMoney";
+                        gc.HeaderText = "剩余尾款";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Salesman";
                         gc.Name = "ColumnsSalesMan";
                         gc.HeaderText = "业务员";
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
 
                         gc = new GridColumn();
-                        gc.DataPropertyName = "C_Remark";
+                        gc.DataPropertyName = "Sell_Operation";
+                        gc.Name = "ColumnsSell_Operation";
+                        gc.HeaderText = "制单人";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Auditman";
+                        gc.Name = "ColumnsSell_Auditman";
+                        gc.HeaderText = "审核人";
+                        gc.Visible = false;
+                        superGridControl1.PrimaryGrid.Columns.Add(gc);
+
+                        gc = new GridColumn();
+                        gc.DataPropertyName = "Sell_Remark";
                         gc.Name = "ColumnsRemark";
                         gc.HeaderText = "摘要";
                         superGridControl1.PrimaryGrid.Columns.Add(gc);
@@ -1357,47 +1385,6 @@ namespace WSCATProject.Buys
             }
         }
 
-        private void 资金收款单ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (superGridControl1.PrimaryGrid.GetSelectedRows() != null)
-                {
-                    SelectedElementCollection col = superGridControl1.PrimaryGrid.GetSelectedRows();
-                    if (col.Count > 0)
-                    {
-                        GridRow row = col[0] as GridRow;
-                        string sheng = row.Cells["ColumnsAuditStatus"].Value.ToString();
-                        string danju = row.Cells["ColumnsStatus"].Value.ToString();
-                        if (sheng == "已审核" && danju == "未收款")
-                        {
-                            InsSellGathering isg = new InsSellGathering();
-                            isg.Sell_Code = row.Cells["ColumnsSellCode"].Value.ToString();
-                            // isg.C_ClientName = row.Cells["ColumnsClientName"].Value.ToString();
-                            isg.C_AccountName = row.Cells["ColumnsAccountName"].Value.ToString();
-                            //isg.C_AmountPay = row.Cells["ColumnsAmountPay"].Value.ToString();
-                            //isg.C_SalesMan = row.Cells["ColumnsSalesMan"].Value.ToString();
-                            isg.ShowDialog();
-                            superGridControl1.PrimaryGrid.DataSource = dt;
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("请先选择要操作的行！");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("请先选择要操作的行！");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("错误" + ex.Message);
-            }
-        }
-
         private void 资金收款单ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             try
@@ -1408,20 +1395,20 @@ namespace WSCATProject.Buys
                     if (col.Count > 0)
                     {
                         GridRow row = col[0] as GridRow;
-                        string sheng = row.Cells["ColumnsAuditStatus"].Value.ToString();
-                        string danju = row.Cells["ColumnsPurchaseStatus"].Value.ToString();
-                        if (sheng == "已审核" && danju == "未收款")
-                        {
-                            InsSellGathering isg = new InsSellGathering();
-                            isg.Sell_Code = row.Cells["ColumnsSellCode"].Value.ToString();
-                            // isg.C_ClientName = row.Cells["ColumnsClientName"].Value.ToString();
-                            isg.C_AccountName = row.Cells["ColumnsAccountName"].Value.ToString();
-                            //isg.C_AmountPay = row.Cells["ColumnsAmountPay"].Value.ToString();
-                            //isg.C_SalesMan = row.Cells["ColumnsSalesMan"].Value.ToString();
-                            isg.ShowDialog();
-                            superGridControl1.PrimaryGrid.DataSource = dt;
-                            return;
-                        }
+                        InsSellGathering isg = new InsSellGathering();
+                        isg.Sell_Code = row.Cells["ColumnsSellCode"].Value.ToString();
+                        isg.Sell_ClientName = row.Cells["ColumnsClientName"].Value.ToString();
+                        // isg.A_AccountName = row.Cells["ColumnsAccountCode"].Value.ToString();
+                        isg.Sell_OddMoney = row.Cells["ColumnsSell_OddMoney"].Value.ToString();
+                        isg.Sell_InMoney = row.Cells["ColumnsSell_InMoney"].Value.ToString();
+                        isg.Sell_LastMoney = row.Cells["ColumnsSell_LastMoney"].Value.ToString();
+                        isg.Sell_fukuanfangshi = row.Cells["Columnsfukuanfangshi"].Value.ToString();
+                        isg.Sell_Salesman = row.Cells["ColumnsSalesMan"].Value.ToString();
+                        isg.Sell_Operation = row.Cells["ColumnsSell_Operation"].Value.ToString();
+                        isg.Sell_Remark = row.Cells["ColumnsRemark"].Value.ToString();
+                        isg.ShowDialog();
+                        superGridControl1.PrimaryGrid.DataSource = dt;
+                        return;
                     }
                     else
                     {

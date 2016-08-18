@@ -340,13 +340,13 @@ namespace WSCATProject.Sell
             if (ge.Count > 0)
             {
                 GridCell gc = ge[0] as GridCell;
-                if (gc.GridRow.Cells[9].Value == null || gc.GridRow.Cells[8].Value == null)
+                if (gc.GridRow.Cells[10].Value == null || gc.GridRow.Cells[8].Value == null)
                 {
                     MessageBox.Show("请先选择商品信息");
                     return;
                 }
                 Sell_Clientname = labtextboxTop2.Text;
-                Sell_MaName = gc.GridRow.Cells[9].Value.ToString();
+                //Sell_MaName = gc.GridRow.Cells[9].Value.ToString();
                 Sell_Unit = gc.GridRow.Cells[11].Value.ToString();
                 Sell_CurNumber = gc.GridRow.Cells[12].Value.ToString();
                 Sell_Price = gc.GridRow.Cells[15].Value.ToString();
@@ -1031,6 +1031,10 @@ namespace WSCATProject.Sell
             GridRow grow = e.GridPanel.Rows[e.GridCell.RowIndex] as GridRow;
             if (grow["gridColumnStock"].Value.ToString() != "" && grow["gridColumnName"].Value.ToString() != "")
             {
+                if (_KuCun==0)
+                {
+                    return;
+                }
                 if (_KuCun < Convert.ToDouble(grow["gridColumnNumber"].FormattedValue))
                 {
 
@@ -1040,7 +1044,7 @@ namespace WSCATProject.Sell
                         _StorageCode,
                         grow["gridColumnMaCode"].Value.ToString());
 
-                    select.Show();
+                    select.ShowDialog();
                 }
             }
         }
@@ -1239,7 +1243,7 @@ namespace WSCATProject.Sell
                 MessageBox.Show("仓库不可为空,请选择仓库");
                 return;
             }
-            if (g.Cells["gridColumnStock"].Value != null && g.Cells["material"].Value == null)
+            if (g.Cells["gridColumnStock"].Value != null && g.Cells["gridColumnName"].Value == null)
             {
                 MessageBox.Show("商品不可为空，请选择商品！");
                 return;
@@ -1469,7 +1473,6 @@ namespace WSCATProject.Sell
         {
             resizablePanel1.Visible = false;
         }
-
         private void superGridControl1_CellDoubleClick(object sender, GridCellDoubleClickEventArgs e)
         {
             if (e.GridCell.GridRow.Cells[7].Value == null || e.GridCell.GridRow.Cells[9].Value == null || e.GridCell.GridRow.Cells[8].Value == null)
