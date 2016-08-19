@@ -564,6 +564,18 @@
     <Compile Include="WarehouseForm.Designer.cs">
       <DependentUpon>WarehouseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WareHouse\StockIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WareHouse\StockIn.Designer.cs">
+      <DependentUpon>StockIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WareHouse\StockOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WareHouse\StockOut.Designer.cs">
+      <DependentUpon>StockOut.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Base\BankAccount\BankAccountForm.resx">
       <DependentUpon>BankAccountForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -772,6 +784,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WarehouseForm.resx">
       <DependentUpon>WarehouseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WareHouse\StockIn.resx">
+      <DependentUpon>StockIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WareHouse\StockOut.resx">
+      <DependentUpon>StockOut.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -1144,22 +1162,23 @@
     <None Include="Resources\销售大.png" />
     <None Include="Resources\系统大.png" />
     <None Include="Resources\仓库大.png" />
-    <None Include="Resources\caigou.PNG" />
-    <None Include="Resources\fukuan.png" />
-    <None Include="Resources\month.png" />
-    <None Include="Resources\out.PNG" />
-    <None Include="Resources\pandian.PNG" />
-    <None Include="Resources\shoukuan.png" />
     <None Include="Resources\today.PNG" />
+    <None Include="Resources\month.png" />
+    <None Include="Resources\caigou.PNG" />
     <None Include="Resources\xiaoshou.png" />
     <None Include="Resources\add.PNG" />
+    <None Include="Resources\pandian.PNG" />
+    <None Include="Resources\out.PNG" />
+    <None Include="Resources\fukuan.png" />
     <None Include="Resources\renshi.PNG" />
+    <None Include="Resources\shoukuan.png" />
     <Content Include="Resources\日志大.png" />
     <None Include="Resources\采购大.png" />
     <None Include="Resources\日志小1.png" />
     <None Include="Resources\日志大1.png" />
     <Content Include="Resources\日志小.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

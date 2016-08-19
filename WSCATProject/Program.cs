@@ -20,7 +20,7 @@ namespace WSCATProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Base.Department.DepartmentListForm());
+            Application.Run(new WareHouse.StockIn());
         }
     }
 }

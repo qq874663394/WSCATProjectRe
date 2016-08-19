@@ -177,7 +177,6 @@ namespace WSCATProject.Sell
 
         private void InSellForm_Load(object sender, EventArgs e)
         {
-
             MaterialManager mm = new MaterialManager();//商品
             StorageManager sm = new StorageManager();//仓库
             ClientManager clien = new ClientManager();//客户
