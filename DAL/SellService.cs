@@ -805,7 +805,7 @@ namespace DAL
 
             //添加到列表中
             hashtable.Add(strSql.ToString(), parameters);
-            
+
             //销售明细表操作
             string moresqlstr = "";//该sql将插入多行
             List<SqlParameter[]> paraList = new List<SqlParameter[]>();//多行的值参数列表
@@ -894,7 +894,7 @@ namespace DAL
                 //入库单生成
             }
 
-            DbHelperSQL.ExecuteSqlTran(hashtable,moresqlstr,paraList);
+            DbHelperSQL.ExecuteSqlTran(hashtable, moresqlstr, paraList);
 
         }
 
@@ -903,7 +903,74 @@ namespace DAL
         //    StringBuilder strSql = new StringBuilder();
         //    Hashtable hashtable = new Hashtable();
         //}
-
+        /// <summary>
+        /// 查询更新进度的
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetJindu()
+        {
+            string sql = @"select 
+                Sell_Type as 单据类型,
+                Sell_Code as 销售编号,
+                Sell_ClientName as 客户姓名,
+                Sell_Date as 订单日期,
+                Sell_OddMoney as 本单总金额,
+                (case 
+                when Sell_IsPay=1 then '36305C525B0A'
+                else '2A505C525B0A' end
+                ) as 是否付款,
+                (case when Sell_Review=1 then '36352D175E2F'
+                 else '2A502D175E2F' end
+                ) as 审核状态,
+                (case when Sell_jiajiState=1 then '58375855'
+                 else '565F58375855' end
+                ) as 加急状态,
+                Sell_fukuanfangshi as 付款方式,
+                Sell_TransportType as 运送方式,
+                Sell_GetDate as 到货日期,
+                Sell_Address as 送货地址,
+                Sell_Operation as 操作人,
+                Sell_Auditman as 审核人
+                from T_Sell where Sell_OddStatus<>3 and Sell_Review=1";
+                SqlDataAdapter dapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);
+                DataSet ds = new DataSet();
+                dapter.Fill(ds, "T_Sell");
+                return ds.Tables[0];
+        }
+        /// <summary>
+        /// 查询待处理事项
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelDaiChuli()
+        {
+            string sql = @"select 
+            Sell_Type as 单据类型,
+            Sell_Code as 销售编号,
+            Sell_ClientName as 客户姓名,
+            Sell_Date as 订单日期,
+            Sell_OddMoney as 本单总金额,
+            (case 
+            when Sell_IsPay=1 then '36305C525B0A'
+            else '2A505C525B0A' end
+            ) as 是否付款,
+            (case when Sell_Review=1 then '36352D175E2F'
+             else '2A502D175E2F' end
+            ) as 审核状态,
+            (case when Sell_jiajiState=1 then '58375855'
+             else '565F58375855' end
+            ) as 加急状态,
+            Sell_fukuanfangshi as 付款方式,
+            Sell_TransportType as 运送方式,
+            Sell_GetDate as 到货日期,
+            Sell_Address as 送货地址,
+            Sell_Operation as 操作人,
+            Sell_Auditman as 审核人
+            from T_Sell where Sell_Review=0";
+            SqlDataAdapter dapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);
+            DataSet ds = new DataSet();
+            dapter.Fill(ds, "T_Sell");
+            return ds.Tables[0];
+        }
         #endregion  ExtensionMethod
     }
 }

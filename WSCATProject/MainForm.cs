@@ -19,6 +19,9 @@ using DevComponents.DotNetBar;
 using WSCATProject.Base;
 using HelperUtility;
 using WSCATProject.Buys;
+using DevComponents.DotNetBar.SuperGrid;
+using Model;
+using BLL;
 
 namespace WSCATProject
 {
@@ -35,7 +38,11 @@ namespace WSCATProject
         private bool ClientNameFormOpen = false;
         private bool OptNameFormOpen = false;
 
+        SellManager sellm = new SellManager();
+        BuyManager buym = new BuyManager();
 
+        private int _Jindushu;//进度条数
+        private int _Daichuli;//待处理的条数
         //维护天数的枚举列表 
         enum maintainDateTime
         {
@@ -58,6 +65,7 @@ namespace WSCATProject
             superTabItemSta.Click += SuperTabItemRe_Click;
             superTabItemSys.Click += SuperTabItemRe_Click;
             BLL.StockManager s = new BLL.StockManager();
+          
         }
 
         private void SuperTabItemRe_Click(object sender, EventArgs e)
@@ -91,23 +99,36 @@ namespace WSCATProject
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-			superTabControl1.SelectedTab = superTabItem1;
+
             LoginForm lf = new LoginForm();
             lf.ShowDialog();
             LoginInfomation loginInf = LoginInfomation.getInstance();
+            List<string> Writ = new List<string>();
+            //写入权限
+            foreach (var writ in loginInf.WritePermission)
+            {
+                Writ.Add(writ);
+            }
+            this.comboBoxEx1.DataSource = Writ;
+
             if (string.IsNullOrWhiteSpace(loginInf.UserName))
             {
                 Close();
             }
-            superTabControl1.SelectedTab = superTabItemRe;
+            superTabControl1.SelectedTab = superTabItem1;
             this.sideBarPanelItem1.Image = Properties.Resources.日志大;
+            this.labelX1.Text = "跟进进度总数:" + _Jindushu + "";
+            this.labelX2.Text = "待处理事项总数:" + _Daichuli + "";
+
+
+
             //LoginForm lf = new LoginForm();
             //lf.ShowDialog();
             //var off = new officeTool();
             //off.initConnString();
             //clickbtn = imgbtn_maintain;
             //imgbtn_maintain.BackgroundImage = Properties.Resources.btn_enter;
-            
+
         }
 
         #region button触发切换tabpages的方法
@@ -675,6 +696,7 @@ namespace WSCATProject
         }
         #endregion
 
+        #region 选项卡的操作
         //基础按钮-客户按钮
         private void buttonItemClient_Click(object sender, EventArgs e)
         {
@@ -740,7 +762,7 @@ namespace WSCATProject
             superTabControl1.SelectedTab = superTabItemIn;
             this.sideBarPanelItemIn.Image = Properties.Resources.采购大;
             this.sideBarPanelItemRe.Image = Properties.Resources.售后小;
-            this.sideBarPanelItem1.Image = Properties.Resources.日志小;       
+            this.sideBarPanelItem1.Image = Properties.Resources.日志小;
             this.sideBarPanelItemOut.Image = Properties.Resources.销售小;
             this.sideBarPanelItemSto.Image = Properties.Resources.仓库小;
             this.sideBarPanelItemFin.Image = Properties.Resources.财务小;
@@ -755,7 +777,7 @@ namespace WSCATProject
             this.sideBarPanelItemOut.Image = Properties.Resources.销售大;
             this.sideBarPanelItemIn.Image = Properties.Resources.采购小;
             this.sideBarPanelItemRe.Image = Properties.Resources.售后小;
-            this.sideBarPanelItem1.Image = Properties.Resources.日志小;       
+            this.sideBarPanelItem1.Image = Properties.Resources.日志小;
             this.sideBarPanelItemSto.Image = Properties.Resources.仓库小;
             this.sideBarPanelItemFin.Image = Properties.Resources.财务小;
             this.sideBarPanelItemSta.Image = Properties.Resources.人事小;
@@ -898,7 +920,7 @@ namespace WSCATProject
 
         private void picbox_inInsert_Click_2(object sender, EventArgs e)
         {
-            BuyPayment bp = new BuyPayment();
+            Buys.BuyPayment bp = new Buys.BuyPayment();
             bp.ShowDialog();
         }
 
@@ -908,6 +930,551 @@ namespace WSCATProject
             mbas.ShowDialog();
         }
         //工作日志
-   
+        #endregion
+        //销售两个表格的绑定
+        private void BDSupGridView()
+        {
+            #region 跟进进度列
+            GridColumn gc = null;
+            gc = new GridColumn();
+            gc.DataPropertyName = "单据类型";
+            gc.Name = "Sell_Type";
+            gc.HeaderText = "单据类型";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "销售编号";
+            gc.Name = "Sell_Code";
+            gc.HeaderText = "销售编号";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "客户姓名";
+            gc.Name = "Sell_ClientName";
+            gc.HeaderText = "客户姓名";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "订单日期";
+            gc.Name = "Sell_Date";
+            gc.HeaderText = "订单日期";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "本单总金额";
+            gc.Name = "Sell_OddMoney";
+            gc.HeaderText = "本单总金额";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "审核状态";
+            gc.Name = "Sell_Review";
+            gc.HeaderText = "审核状态";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "是否付款";
+            gc.Name = "Sell_IsPay";
+            gc.HeaderText = "是否付款";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "加急状态";
+            gc.Name = "Sell_jiajiState";
+            gc.HeaderText = "加急状态";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "付款方式";
+            gc.Name = "Sell_fukuanfangshi";
+            gc.HeaderText = "付款方式";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "运送方式";
+            gc.Name = "Sell_TransportType";
+            gc.HeaderText = "运送方式";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "到货日期";
+            gc.Name = "Sell_GetDate";
+            gc.HeaderText = "到货日期";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "Sell_PayMathod";
+            gc.Name = "Sell_PayMathod";
+            gc.HeaderText = "预收百分百";
+            gc.Visible = false;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "送货地址";
+            gc.Name = "Sell_Address";
+            gc.HeaderText = "送货地址";
+            gc.Visible = false;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "操作人";
+            gc.Name = "Sell_Operation";
+            gc.HeaderText = "操作人";
+            gc.Visible = false;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "审核人";
+            gc.Name = "Sell_Auditman";
+            gc.HeaderText = "审核人";
+            gc.Visible = false;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            superGridControlSetback.PrimaryGrid.DataSource = sellm.GetJindu();
+            superGridControlSetback.PrimaryGrid.EnsureVisible();
+            GridItemsCollection cols = superGridControlSetback.PrimaryGrid.Rows;
+            foreach (GridRow item in cols)
+            {
+                if (item.Cells["Sell_Code"].Value != null || item.Cells["Sell_Code"].Value.ToString() != "")
+                {
+                    if (item.Cells["Sell_jiajiState"].Value.ToString() == "加急")
+                    {
+                        Font f = new Font("微软雅黑", 9, FontStyle.Bold);
+                        item.Cells["Sell_jiajiState"].CellStyles.Default.Font = f;
+                        item.Cells["Sell_jiajiState"].CellStyles.Default.TextColor = Color.Red;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("无数据！");
+                }
+                //获取进度的行数
+                _Jindushu++;
+            }
+
+            #endregion
+
+            #region 待处理事的列
+            GridColumn gc1 = null;
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "单据类型";
+            gc1.Name = "Sell_Type";
+            gc1.HeaderText = "单据类型";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "销售编号";
+            gc1.Name = "Sell_Code";
+            gc1.HeaderText = "销售编号";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "客户姓名";
+            gc1.Name = "Sell_ClientName";
+            gc1.HeaderText = "客户姓名";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "订单日期";
+            gc1.Name = "Sell_Date";
+            gc1.HeaderText = "订单日期";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "本单总金额";
+            gc1.Name = "Sell_OddMoney";
+            gc1.HeaderText = "本单总金额";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "审核状态";
+            gc1.Name = "Sell_Review";
+            gc1.HeaderText = "审核状态";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "是否付款";
+            gc1.Name = "Sell_IsPay";
+            gc1.HeaderText = "是否付款";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "加急状态";
+            gc1.Name = "Sell_jiajiState";
+            gc1.HeaderText = "加急状态";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "付款方式";
+            gc1.Name = "Sell_fukuanfangshi";
+            gc1.HeaderText = "付款方式";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "运送方式";
+            gc1.Name = "Sell_TransportType";
+            gc1.HeaderText = "运送方式";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "到货日期";
+            gc1.Name = "Sell_GetDate";
+            gc1.HeaderText = "到货日期";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "Sell_PayMathod";
+            gc1.Name = "Sell_PayMathod";
+            gc1.HeaderText = "预收百分百";
+            gc1.Visible = false;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "送货地址";
+            gc1.Name = "Sell_Address";
+            gc1.HeaderText = "送货地址";
+            gc1.Visible = false;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "操作人";
+            gc1.Name = "Sell_Operation";
+            gc1.HeaderText = "操作人";
+            gc1.Visible = false;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "审核人";
+            gc1.Name = "Sell_Auditman";
+            gc1.HeaderText = "审核人";
+            gc1.Visible = false;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            superGridControlhandl.PrimaryGrid.DataSource = sellm.SelDaiChuli();
+            superGridControlhandl.PrimaryGrid.EnsureVisible();
+            GridItemsCollection col = superGridControlhandl.PrimaryGrid.Rows;
+            foreach (GridRow item in col)
+            {
+                if (item.Cells["Sell_Code"].Value != null || item.Cells["Sell_Code"].Value.ToString() != "")
+                {
+                    if (item.Cells["Sell_jiajiState"].Value.ToString() == "加急")
+                    {
+                        Font f = new Font("微软雅黑", 9, FontStyle.Bold);
+                        item.Cells["Sell_jiajiState"].CellStyles.Default.Font = f;
+                        item.Cells["Sell_jiajiState"].CellStyles.Default.TextColor = Color.Red;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("无数据！");
+                }
+                //获取进度的行数
+                _Daichuli++;
+            }
+
+            #endregion
+
+        }
+
+        //采购两个表格的绑定
+        private void BDBuySupGridView()
+        {
+            #region 跟进进度列
+            GridColumn gc = null;
+            gc = new GridColumn();
+            gc.DataPropertyName = "单据类型";
+            gc.Name = "Buy_Class";
+            gc.HeaderText = "单据类型";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "采购编号";
+            gc.Name = "Buy_Code";
+            gc.HeaderText = "采购编号";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "供应商";
+            gc.Name = "Buy_SupplierName";
+            gc.HeaderText = "供应商";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "是否付款";
+            gc.Name = "Buy_IsPay";
+            gc.HeaderText = "是否付款";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "审核状态";
+            gc.Name = "Buy_AuditStatus";
+            gc.HeaderText = "审核状态";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "加急状态";
+            gc.Name = "Buy_jiajiState";
+            gc.HeaderText = "加急状态";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "物流";
+            gc.Name = "Buy_Logistics";
+            gc.HeaderText = "物流";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "快递电话";
+            gc.Name = "Buy_LogPhone";
+            gc.HeaderText = "快递电话";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "到货日期";
+            gc.Name = "Buy_GetDate";
+            gc.HeaderText = "到货日期";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "操作人";
+            gc.Name = "Buy_Operation";
+            gc.HeaderText = "操作人";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            gc = new GridColumn();
+            gc.DataPropertyName = "审核人";
+            gc.Name = "Buy_Auditman";
+            gc.HeaderText = "审核人";
+            gc.Visible = true;
+            superGridControlSetback.PrimaryGrid.Columns.Add(gc);
+
+            superGridControlSetback.PrimaryGrid.DataSource = buym.SelBuyJindu();
+            superGridControlSetback.PrimaryGrid.EnsureVisible();
+            GridItemsCollection cols = superGridControlSetback.PrimaryGrid.Rows;
+            foreach (GridRow item in cols)
+            {
+                if (item.Cells["Buy_Code"].Value != null || item.Cells["Buy_Code"].Value.ToString() != "")
+                {
+                    if (item.Cells["Buy_jiajiState"].Value.ToString() == "加急")
+                    {
+                        Font f = new Font("微软雅黑", 9, FontStyle.Bold);
+                        item.Cells["Buy_jiajiState"].CellStyles.Default.Font = f;
+                        item.Cells["Buy_jiajiState"].CellStyles.Default.TextColor = Color.Red;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("无数据！");
+                }
+                //获取进度的行数
+                _Jindushu++;
+            }
+
+            #endregion
+
+            #region 待处理事的列
+            GridColumn gc1 = null;
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "单据类型";
+            gc1.Name = "Buy_Class";
+            gc1.HeaderText = "单据类型";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "采购编号";
+            gc1.Name = "Buy_Code";
+            gc1.HeaderText = "采购编号";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "供应商";
+            gc1.Name = "Buy_SupplierName";
+            gc1.HeaderText = "供应商";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "是否付款";
+            gc1.Name = "Buy_IsPay";
+            gc1.HeaderText = "是否付款";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "审核状态";
+            gc1.Name = "Buy_AuditStatus";
+            gc1.HeaderText = "审核状态";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "加急状态";
+            gc1.Name = "Buy_jiajiState";
+            gc1.HeaderText = "加急状态";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "物流";
+            gc1.Name = "Buy_Logistics";
+            gc1.HeaderText = "物流";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "快递电话";
+            gc1.Name = "Buy_LogPhone";
+            gc1.HeaderText = "快递电话";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "到货日期";
+            gc1.Name = "Buy_GetDate";
+            gc1.HeaderText = "到货日期";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "操作人";
+            gc1.Name = "Buy_Operation";
+            gc1.HeaderText = "操作人";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            gc1 = new GridColumn();
+            gc1.DataPropertyName = "审核人";
+            gc1.Name = "Buy_Auditman";
+            gc1.HeaderText = "审核人";
+            gc1.Visible = true;
+            superGridControlhandl.PrimaryGrid.Columns.Add(gc1);
+
+            superGridControlhandl.PrimaryGrid.DataSource =buym.SelBuyDaiChuli();
+            superGridControlhandl.PrimaryGrid.EnsureVisible();
+            GridItemsCollection col = superGridControlhandl.PrimaryGrid.Rows;
+            foreach (GridRow item in col)
+            {
+                if (item.Cells["Buy_Code"].Value != null || item.Cells["Buy_Code"].Value.ToString() != "")
+                {
+                    if (item.Cells["Buy_jiajiState"].Value.ToString() == "加急")
+                    {
+                        Font f = new Font("微软雅黑", 9, FontStyle.Bold);
+                        item.Cells["Buy_jiajiState"].CellStyles.Default.Font = f;
+                        item.Cells["Buy_jiajiState"].CellStyles.Default.TextColor = Color.Red;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("无数据！");
+                }
+                //获取进度的行数
+                _Daichuli++;
+            }
+
+            #endregion
+        }
+        /// <summary>
+        /// 下拉框选中改变事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBoxEx1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string Writddl = this.comboBoxEx1.Text;
+                switch (Writddl)
+                {
+                    case "用户资料":
+                        break;
+                    case "权限分配":
+                        break;
+                    case "仓库资料":
+                        break;
+                    case "货品资料":
+                        break;
+                    case "供应商资料":
+                        break;
+                    case "物料信息":
+                        break;
+                    case "仓库系统":
+                        break;
+                    case "销售系统":
+                        Clear();
+                        BDSupGridView();
+                        break;
+                    case "售后系统":
+                        break;
+                    case "采购系统":
+                        Clear(); 
+                        BDBuySupGridView();
+                        break;
+                    case "财务系统":
+                        break;
+                    case "考勤系统":
+                        break;
+                    default:
+                        break;
+                }
+                this.labelX1.Text = "跟进进度总数:" + _Jindushu + "";
+                this.labelX2.Text = "待处理事项总数:" + _Daichuli + "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误：" + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 清空数据和表格的方法
+        /// </summary>
+        private void Clear()
+        {
+            _Daichuli = 0;
+            _Jindushu = 0;
+            superGridControlSetback.PrimaryGrid.DataSource = null;
+            superGridControlSetback.PrimaryGrid.Columns.Clear();
+            superGridControlhandl.PrimaryGrid.DataSource = null;
+            superGridControlhandl.PrimaryGrid.Columns.Clear();
+        }
+
+        private void buttonItem39_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

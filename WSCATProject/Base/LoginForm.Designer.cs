@@ -144,7 +144,7 @@
             this.labelPW.TabIndex = 8;
             this.labelPW.Text = "*";
             // 
-            // Form1
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -161,7 +161,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "Form1";
+            this.Name = "LoginForm";
             this.Text = "用户登录";
             this.ResumeLayout(false);
             this.PerformLayout();

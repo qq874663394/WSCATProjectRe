@@ -17,6 +17,7 @@ namespace BLL
         {
             return dal.SelSellGatheringBySellCode(Sell_Code);
         }
+        CodingHelper ch = new CodingHelper();
         #region  BasicMethod
 
         /// <summary>
@@ -198,7 +199,7 @@ namespace BLL
         /// <returns>数据列表</returns>
         public DataTable GetList(string strWhere)
         {
-            CodingHelper ch = new CodingHelper();
+           
             return ch.DataTableReCoding(dal.GetList(strWhere).Tables[0]);
         }
 
@@ -245,7 +246,22 @@ namespace BLL
             }
             return resultDT;
         }
-
-        #endregion  ExtensionMethod
-    }
+        /// <summary>
+        /// 查询更新进度的
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetJindu()
+        {
+            return ch.DataTableReCoding(dal.GetJindu());
+        }
+        /// <summary>
+        /// 查询待处理事项
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelDaiChuli()
+        {
+            return ch.DataTableReCoding(dal.SelDaiChuli());
+        }
+            #endregion  ExtensionMethod
+        }
 }

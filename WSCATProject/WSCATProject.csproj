@@ -1154,6 +1154,8 @@
     <None Include="Resources\xiaoshou.png" />
     <None Include="Resources\add.PNG" />
     <None Include="Resources\renshi.PNG" />
+    <None Include="Resources\jindutiaotubiao_4253210.png" />
+    <None Include="Resources\Redocn_2012040703034492.png" />
     <Content Include="Resources\日志大.png" />
     <None Include="Resources\采购大.png" />
     <None Include="Resources\日志小1.png" />

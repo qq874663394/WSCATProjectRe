@@ -12,6 +12,7 @@ namespace BLL
     public class BuyManager
     {
         BuyService bs = new BuyService();
+
         public DataTable SelBuyDataTableToCheck()
         {
             return bs.SelBuyDataTableToCheck();
@@ -92,6 +93,24 @@ namespace BLL
         public int AddBatch(Buy buy, List<BuyDetail> buyDetail)
         {
             return bs.AddBatch(buy, buyDetail);
+        }
+
+        /// <summary>
+        /// 查询采购的进度
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelBuyJindu()
+        {
+            return bs.SelBuyJindu();
+        }
+
+        /// <summary>
+        /// 查询采购待处理事项
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelBuyDaiChuli()
+        {
+            return bs.SelBuyDaiChuli();
         }
     }
 }

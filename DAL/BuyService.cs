@@ -116,9 +116,9 @@ namespace DAL
             }
             return null;
         }
-        public int UpdateBuyByCode(int purchaseStatus,int auditStatus,string code)
+        public int UpdateBuyByCode(int purchaseStatus, int auditStatus, string code)
         {
-            string sql = string.Format("update T_Buy set Buy_PurchaseStatus={0},Buy_AuditStatus={1} where Buy_Code='{2}'",purchaseStatus,auditStatus, XYEEncoding.strCodeHex(code));
+            string sql = string.Format("update T_Buy set Buy_PurchaseStatus={0},Buy_AuditStatus={1} where Buy_Code='{2}'", purchaseStatus, auditStatus, XYEEncoding.strCodeHex(code));
             return DbHelperSQL.ExecuteSql(sql);
         }
         /// <summary>
@@ -165,7 +165,7 @@ namespace DAL
         public DataTable GetYinFuList()
         {
             string strsql = (@" select Buy_Class as 单据类型 ,Buy_Code as 单据编号,   (case 
-               when Buy_Zhuangtai=1 then '36355C525B0A'
+               when Buy_Zhuangtai=1 then '36305C525B0A'
                else '2A505C525B0A' end
                ) as 是否付款,
               (case when Buy_States=1 then '36352D175E2F'
@@ -294,6 +294,72 @@ namespace DAL
 
                 throw;
             }
+        }
+
+        /// <summary>
+        /// 查询采购的进度
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelBuyJindu()
+        {
+            string sql = @"select 
+                Buy_Class as 单据类型,
+                Buy_Code as 采购编号,
+            Buy_SupplierName as 供应商,
+                Buy_Date as 订单日期,
+                (case 
+                when Buy_IsPay=1 then '36305C525B0A'
+                else '2A505C525B0A' end
+                ) as 是否付款,
+                (case when Buy_AuditStatus=1 then '36352D175E2F'
+                 else '2A502D175E2F' end
+                ) as 审核状态,
+                (case when Buy_jiajiState=1 then '58375855'
+                 else '565F58375855' end
+                ) as 加急状态,
+                Buy_Logistics as 物流,
+                Buy_LogPhone as 快递电话,
+                Buy_GetDate as 到货日期,
+               Buy_Operation as 操作人,
+                Buy_Auditman as 审核人
+                from T_Buy where Buy_PurchaseStatus=1 and Buy_AuditStatus=1";
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds, "T_Buy");
+            return ch.DataTableReCoding(ds.Tables[0]);
+        }
+
+        /// <summary>
+        /// 查询采购待处理事项
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelBuyDaiChuli()
+        {
+            string sql = @"select 
+                Buy_Class as 单据类型,
+                Buy_Code as 采购编号,
+            Buy_SupplierName as 供应商,
+                Buy_Date as 订单日期,
+                (case 
+                when Buy_IsPay=1 then '36305C525B0A'
+                else '2A505C525B0A' end
+                ) as 是否付款,
+                (case when Buy_AuditStatus=1 then '36352D175E2F'
+                 else '2A502D175E2F' end
+                ) as 审核状态,
+                (case when Buy_jiajiState=1 then '58375855'
+                 else '565F58375855' end
+                ) as 加急状态,
+                Buy_Logistics as 物流,
+                Buy_LogPhone as 快递电话,
+                Buy_GetDate as 到货日期,
+               Buy_Operation as 操作人,
+                Buy_Auditman as 审核人
+                from T_Buy where Buy_PurchaseStatus=0 and Buy_AuditStatus=0";
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, DbHelperSQL.connectionString);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds, "T_Buy");
+            return ch.DataTableReCoding(ds.Tables[0]);
         }
     }
 }

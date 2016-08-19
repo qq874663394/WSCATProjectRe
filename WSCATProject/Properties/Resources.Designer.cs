@@ -533,6 +533,16 @@ namespace WSCATProject.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        public static System.Drawing.Bitmap jindutiaotubiao_4253210 {
+            get {
+                object obj = ResourceManager.GetObject("jindutiaotubiao_4253210", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         public static System.Drawing.Bitmap loadedtruck {
             get {
                 object obj = ResourceManager.GetObject("loadedtruck", resourceCulture);
@@ -736,6 +746,16 @@ namespace WSCATProject.Properties {
         public static System.Drawing.Bitmap payment {
             get {
                 object obj = ResourceManager.GetObject("payment", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Bitmap Redocn_2012040703034492 {
+            get {
+                object obj = ResourceManager.GetObject("Redocn_2012040703034492", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
