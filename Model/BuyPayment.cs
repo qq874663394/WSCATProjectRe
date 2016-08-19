@@ -34,6 +34,7 @@ namespace Model
         private string _buy_actmoney;
         private int? _buy_zhuangtai;
         private string _buy_Class;
+        private DateTime _buyp_updatedate;
         /// <summary>
         /// 自增ID
         /// </summary>
@@ -245,6 +246,14 @@ namespace Model
             {
                 _buy_Class = value;
             }
+        }
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime BuyP_UpdateDate
+        {
+            set { _buyp_updatedate = value; }
+            get { return _buyp_updatedate; }
         }
         #endregion Model
 

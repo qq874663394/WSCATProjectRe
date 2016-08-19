@@ -16,6 +16,7 @@ namespace Model
         private string _pic_parentid;
         private int? _pic_enable;
         private int? _pic_clear;
+        private DateTime _pic_updatedate;
         /// <summary>
         /// 自增ID
         /// </summary>
@@ -64,7 +65,14 @@ namespace Model
             set { _pic_clear = value; }
             get { return _pic_clear; }
         }
-
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime PIC_UpdateDate
+        {
+            set { _pic_updatedate = value; }
+            get { return _pic_updatedate; }
+        }
         #endregion Model
 
     }

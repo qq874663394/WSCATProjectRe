@@ -16,10 +16,11 @@ namespace Model
         private int _city_enable = 1;
         private int _city_clear = 1;
         private string _city_code;
-		/// <summary>
-		/// 
-		/// </summary>
-		public int City_ID
+        private DateTime _city_updatedate;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int City_ID
 		{
 			set{ _city_id=value;}
 			get{return _city_id;}
@@ -78,6 +79,15 @@ namespace Model
             {
                 _city_code = value;
             }
+        }
+
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime City_UpdateDate
+        {
+            set { _city_updatedate = value; }
+            get { return _city_updatedate; }
         }
         #endregion Model
 

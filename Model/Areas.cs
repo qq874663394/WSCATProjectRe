@@ -17,10 +17,11 @@ namespace Model
 		private string _areas_threeproject;
 		private string _areas_fourproject;
 		private string _areas_fiveproject;
-		/// <summary>
-		/// 
-		/// </summary>
-		public int Areas_ID
+        private DateTime _areas_updatedate;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Areas_ID
 		{
 			set{ _areas_id=value;}
 			get{return _areas_id;}
@@ -73,8 +74,16 @@ namespace Model
 			set{ _areas_fiveproject=value;}
 			get{return _areas_fiveproject;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime Areas_UpdateDate
+        {
+            set { _areas_updatedate = value; }
+            get { return _areas_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

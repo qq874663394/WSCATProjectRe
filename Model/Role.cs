@@ -14,10 +14,11 @@ namespace Model
 		private string _role_code;
 		private string _role_name;
 		private string _role_modules;
-		/// <summary>
-		/// 
-		/// </summary>
-		public int Role_ID
+        private DateTime _role_updatedate;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Role_ID
 		{
 			set{ _role_id=value;}
 			get{return _role_id;}
@@ -46,8 +47,16 @@ namespace Model
 			set{ _role_modules=value;}
 			get{return _role_modules;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime Role_UpdateDate
+        {
+            set { _role_updatedate = value; }
+            get { return _role_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

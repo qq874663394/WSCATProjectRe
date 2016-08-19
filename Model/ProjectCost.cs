@@ -16,6 +16,7 @@ namespace Model
         private string _pc_parentid;
         private int? _pc_enable;
         private int? _pc_clear;
+        private DateTime _pc_updatedate;
         /// <summary>
         /// 自增ID
         /// </summary>
@@ -64,7 +65,14 @@ namespace Model
             set { _pc_clear = value; }
             get { return _pc_clear; }
         }
-
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime PC_UpdateDate
+        {
+            set { _pc_updatedate = value; }
+            get { return _pc_updatedate; }
+        }
         #endregion Model
 
     }

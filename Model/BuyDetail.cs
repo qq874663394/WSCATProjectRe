@@ -28,6 +28,7 @@ namespace Model
         private string _buy_safetytwo;
         private string _buy_remark;
         private string _buy_linecode;
+        private DateTime _buyd_updatedate;
 
         /// <summary>
         /// 栏号自增
@@ -190,6 +191,14 @@ namespace Model
             {
                 _buy_code = value;
             }
+        }
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime BuyD_UpdateDate
+        {
+            set { _buyd_updatedate = value; }
+            get { return _buyd_updatedate; }
         }
         #endregion Model
 

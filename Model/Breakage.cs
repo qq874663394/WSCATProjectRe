@@ -21,10 +21,11 @@ namespace Model
 		private string _bre_satetyone;
 		private string _bre_satetytwo;
 		private int? _bre_clear=1;
-		/// <summary>
-		/// 
-		/// </summary>
-		public int Bre_ID
+        private DateTime _bre_updatedate;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Bre_ID
 		{
 			set{ _bre_id=value;}
 			get{return _bre_id;}
@@ -109,8 +110,16 @@ namespace Model
 			set{ _bre_clear=value;}
 			get{return _bre_clear;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime Bre_UpdateDate
+        {
+            set { _bre_updatedate = value; }
+            get { return _bre_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

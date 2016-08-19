@@ -35,6 +35,7 @@ namespace Model
         private string _buy_logistics;
         private string _buy_logphone;
         private string _buy_logcode;
+        private DateTime _buy_updatedate;
         /// <summary>
         /// 自增ID
         /// </summary>
@@ -234,6 +235,14 @@ namespace Model
         {
             set { _buy_logcode = value; }
             get { return _buy_logcode; }
+        }
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime Buy_UpdateDate
+        {
+            set { _buy_updatedate = value; }
+            get { return _buy_updatedate; }
         }
         #endregion Model
 

@@ -20,10 +20,11 @@ namespace Model
 		private int? _dis_clear=1;
 		private string _dis_remark;
 		private string _dis_code;
-		/// <summary>
-		/// 
-		/// </summary>
-		public int Dis_ID
+        private DateTime _dis_updatedate;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Dis_ID
 		{
 			set{ _dis_id=value;}
 			get{return _dis_id;}
@@ -100,8 +101,16 @@ namespace Model
 			set{ _dis_code=value;}
 			get{return _dis_code;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime Dis_UpdatDate
+        {
+            set { _dis_updatedate = value; }
+            get { return _dis_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

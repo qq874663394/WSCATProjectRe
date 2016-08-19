@@ -20,10 +20,11 @@ namespace Model
 		private string _out_satetyone;
 		private string _out_satetytwo;
 		private int? _out_clear;
-		/// <summary>
-		/// 自增ID
-		/// </summary>
-		public int Out_ID
+        private DateTime _outsto_updatedate;
+        /// <summary>
+        /// 自增ID
+        /// </summary>
+        public int Out_ID
 		{
 			set{ _out_id=value;}
 			get{return _out_id;}
@@ -100,8 +101,16 @@ namespace Model
 			set{ _out_clear=value;}
 			get{return _out_clear;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime OutSto_UpdateDate
+        {
+            set { _outsto_updatedate = value; }
+            get { return _outsto_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 

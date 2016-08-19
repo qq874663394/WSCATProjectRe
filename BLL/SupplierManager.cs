@@ -1,4 +1,5 @@
 ﻿using DAL;
+using HelperUtility.Encrypt;
 using Model;
 using System.Collections.Generic;
 using System.Data;
@@ -132,5 +133,6 @@ namespace BLL
         {
             return ss.SelSupplierTable2();
         }
+
     }
 }

@@ -25,10 +25,11 @@ namespace Model
 		private string _cw_satetyone;
 		private string _cw_satetytwo;
 		private int? _cw_clear;
-		/// <summary>
-		/// 自增ID
-		/// </summary>
-		public int CW_ID
+        private DateTime _cw_updatedate;
+        /// <summary>
+        /// 自增ID
+        /// </summary>
+        public int CW_ID
 		{
 			set{ _cw_id=value;}
 			get{return _cw_id;}
@@ -145,8 +146,16 @@ namespace Model
 			set{ _cw_clear=value;}
 			get{return _cw_clear;}
 		}
-		#endregion Model
+        /// <summary>
+        /// 更改时间
+        /// </summary>
+        public DateTime CW_UpdatDate
+        {
+            set { _cw_updatedate = value; }
+            get { return _cw_updatedate; }
+        }
+        #endregion Model
 
-	}
+    }
 }
 
