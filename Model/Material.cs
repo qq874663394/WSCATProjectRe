@@ -38,11 +38,10 @@ namespace Model
 		private int? _ma_clear=1;
 		private string _ma_safeyone;
 		private string _ma_safetytwo;
-        private DateTime _ma_updatedate;
-        /// <summary>
-        /// 
-        /// </summary>
-        public int Ma_ID
+		/// <summary>
+		/// 
+		/// </summary>
+		public int Ma_ID
 		{
 			set{ _ma_id=value;}
 			get{return _ma_id;}
@@ -267,14 +266,6 @@ namespace Model
             {
                 _ma_outprice = value;
             }
-        }
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime Ma_UpdateDate
-        {
-            set { _ma_updatedate = value; }
-            get { return _ma_updatedate; }
         }
         #endregion Model
 

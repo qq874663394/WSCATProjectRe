@@ -18,11 +18,10 @@ namespace Model
 		private string _user_password;
 		private string _user_role;
 		private int? _user_manager=0;
-        private DateTime _user_updatedate;
-        /// <summary>
-        /// 
-        /// </summary>
-        public int User_ID
+		/// <summary>
+		/// 
+		/// </summary>
+		public int User_ID
 		{
 			set{ _user_id=value;}
 			get{return _user_id;}
@@ -90,14 +89,6 @@ namespace Model
             {
                 _user_code = value;
             }
-        }
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime User_UpdateDate
-        {
-            set { _user_updatedate = value; }
-            get { return _user_updatedate; }
         }
         #endregion Model
 

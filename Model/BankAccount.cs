@@ -19,11 +19,10 @@ namespace Model
 		private string _ba_availableprice;
 		private int? _ba_enable=1;
 		private int? _ba_clear=1;
-        private DateTime _ba_updatedate;
-        /// <summary>
-        /// 
-        /// </summary>
-        public int Ba_ID
+		/// <summary>
+		/// 
+		/// </summary>
+		public int Ba_ID
 		{
 			set{ _ba_id=value;}
 			get{return _ba_id;}
@@ -92,16 +91,8 @@ namespace Model
 			set{ _ba_clear=value;}
 			get{return _ba_clear;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime Ba_UpdateDate
-        {
-            set { _ba_updatedate = value; }
-            get { return _ba_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

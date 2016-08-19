@@ -80,14 +80,5 @@ namespace Model
             get { return bp_clear; }
             set { bp_clear = value; }
         }
-        private DateTime _bp_updatedate;
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime Bp_UpdateDate
-        {
-            set { _bp_updatedate = value; }
-            get { return _bp_updatedate; }
-        }
     }
 }

@@ -25,11 +25,10 @@ namespace Model
 		private string _adj_safetyone;
 		private string _adj_safetytwo;
 		private string _adj_remark;
-        private DateTime _pd_updatedate;
-        /// <summary>
-        /// 调价编号
-        /// </summary>
-        public string Adj_ID
+		/// <summary>
+		/// 调价编号
+		/// </summary>
+		public string Adj_ID
 		{
 			set{ _adj_id=value;}
 			get{return _adj_id;}
@@ -146,16 +145,8 @@ namespace Model
 			set{ _adj_remark=value;}
 			get{return _adj_remark;}
 		}
-        /// <summary>
-		/// 更改时间
-		/// </summary>
-		public DateTime Pd_UpdateData
-        {
-            set { _pd_updatedate = value; }
-            get { return _pd_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

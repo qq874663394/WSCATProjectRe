@@ -15,11 +15,10 @@ namespace Model
 		private string _dt_rolecode;
 		private string _dt_name;
 		private int? _dt_clear=1;
-        private DateTime _dt_updatedate;
-        /// <summary>
-        /// 
-        /// </summary>
-        public int Dt_ID
+		/// <summary>
+		/// 
+		/// </summary>
+		public int Dt_ID
 		{
 			set{ _dt_id=value;}
 			get{return _dt_id;}
@@ -56,16 +55,8 @@ namespace Model
 			set{ _dt_clear=value;}
 			get{return _dt_clear;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime Dt_UpdateDate
-        {
-            set { _dt_updatedate = value; }
-            get { return _dt_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

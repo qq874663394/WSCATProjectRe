@@ -15,13 +15,12 @@ namespace Model
         private string _mt_name;
         private string _mt_parentid;
         private int? _mt_enable=1;
-        private int? _mt_clear = 1;
-        private DateTime _mt_updatedate;
-
-        /// <summary>
-        /// 自增
-        /// </summary>
-        public int MT_ID
+		private int? _mt_clear=1;
+		
+		/// <summary>
+		/// 自增
+		/// </summary>
+		public int MT_ID
 		{
 			set{ _mt_id=value;}
 			get{return _mt_id;}
@@ -66,16 +65,9 @@ namespace Model
 			set{ _mt_clear=value;}
 			get{return _mt_clear;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime MT_UpdateDate
-        {
-            set { _mt_updatedate = value; }
-            get { return _mt_updatedate; }
-        }
-        #endregion Model
+		
+		#endregion Model
 
-    }
+	}
 }
 

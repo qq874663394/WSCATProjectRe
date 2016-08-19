@@ -17,11 +17,10 @@ namespace Model
 		private DateTime? _wk_allowlatedate;
 		private DateTime? _wk_allowleavedate;
 		private string _wk_rest;
-        private DateTime _wk_updatedate;
-        /// <summary>
-        /// 
-        /// </summary>
-        public int Wk_ID
+		/// <summary>
+		/// 
+		/// </summary>
+		public int Wk_ID
 		{
 			set{ _wk_id=value;}
 			get{return _wk_id;}
@@ -74,16 +73,8 @@ namespace Model
 			set{ _wk_rest=value;}
 			get{return _wk_rest;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime Wk_UpdateDate
-        {
-            set { _wk_updatedate = value; }
-            get { return _wk_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

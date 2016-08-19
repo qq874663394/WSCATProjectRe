@@ -17,11 +17,10 @@ namespace Model
 		private string _oicd_abstracts;
 		private string _oicd_remark;
 		private string _oicd_satetyone;
-        private DateTime _oicd_updatedate;
-        /// <summary>
-        /// 自增ID
-        /// </summary>
-        public int OICD_ID
+		/// <summary>
+		/// 自增ID
+		/// </summary>
+		public int OICD_ID
 		{
 			set{ _oicd_id=value;}
 			get{return _oicd_id;}
@@ -74,16 +73,8 @@ namespace Model
 			set{ _oicd_satetyone=value;}
 			get{return _oicd_satetyone;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime OICD_UpdateDate
-        {
-            set { _oicd_updatedate = value; }
-            get { return _oicd_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

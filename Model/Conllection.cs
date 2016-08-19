@@ -31,11 +31,10 @@ namespace Model
 		private string _c_satetytwo;
 		private int? _c_clear=1;
 		private int? _c_status=0;
-        private DateTime _c_updatedate;
-        /// <summary>
-        /// 自增ID
-        /// </summary>
-        public int C_ID
+		/// <summary>
+		/// 自增ID
+		/// </summary>
+		public int C_ID
 		{
 			set{ _c_id=value;}
 			get{return _c_id;}
@@ -200,16 +199,8 @@ namespace Model
 			set{ _c_status=value;}
 			get{return _c_status;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime C_UpdateDate
-        {
-            set { _c_updatedate = value; }
-            get { return _c_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

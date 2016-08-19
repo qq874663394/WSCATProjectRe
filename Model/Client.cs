@@ -43,11 +43,10 @@ namespace Model
 		private string _cli_safetone;
 		private string _cli_safettwo;
 		private int? _cli_enable=1;
-        private DateTime _cli_updatedate;
-        /// <summary>
-        /// 
-        /// </summary>
-        public int Cli_ID
+		/// <summary>
+		/// 
+		/// </summary>
+		public int Cli_ID
 		{
 			set{ _cli_id=value;}
 			get{return _cli_id;}
@@ -328,15 +327,6 @@ namespace Model
             {
                 _cli_typename = value;
             }
-        }
-
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime Cli_UpdateDate
-        {
-            set { _cli_updatedate = value; }
-            get { return _cli_updatedate; }
         }
         #endregion Model
 

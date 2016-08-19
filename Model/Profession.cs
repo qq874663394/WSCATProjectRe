@@ -16,12 +16,11 @@ namespace Model
 		private string _st_parentID;
 		private int? _st_enable=1;
 		private int? _st_clear=1;
-        private DateTime _st_updatedate;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int ST_ID
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		public int ST_ID
 		{
 			set{ _st_id=value;}
 			get{return _st_id;}
@@ -66,16 +65,8 @@ namespace Model
 			set{ _st_parentID = value;}
 			get{return _st_parentID; }
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime ST_UpdatDate
-        {
-            set { _st_updatedate = value; }
-            get { return _st_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

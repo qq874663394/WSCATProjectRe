@@ -25,11 +25,10 @@ namespace Model
 		private string _ca_safetyone;
 		private string _ca_safetytwo;
 		private string _ca_remark;
-        private DateTime _cad_updatedate;
-        /// <summary>
-        /// 栏号(自增)
-        /// </summary>
-        public int Ca_Lineno
+		/// <summary>
+		/// 栏号(自增)
+		/// </summary>
+		public int Ca_Lineno
 		{
 			set{ _ca_lineno=value;}
 			get{return _ca_lineno;}
@@ -146,16 +145,8 @@ namespace Model
 			set{ _ca_remark=value;}
 			get{return _ca_remark;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime CaD_UpdateDate
-        {
-            set { _cad_updatedate = value; }
-            get { return _cad_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

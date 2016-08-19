@@ -20,11 +20,10 @@ namespace Model
 		private string _come_safetyone;
 		private string _come_safetytwo;
 		private int? _come_clear;
-        private DateTime _comesto_updatedate;
-        /// <summary>
-        /// 自增ID
-        /// </summary>
-        public int Come_ID
+		/// <summary>
+		/// 自增ID
+		/// </summary>
+		public int Come_ID
 		{
 			set{ _come_id=value;}
 			get{return _come_id;}
@@ -101,16 +100,8 @@ namespace Model
 			set{ _come_clear=value;}
 			get{return _come_clear;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime ComeSto_UpdateDate
-        {
-            set { _comesto_updatedate = value; }
-            get { return _comesto_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

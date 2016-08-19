@@ -17,11 +17,10 @@ namespace Model
 		private string _ct_safetyone;
 		private string _ct_safetytwo;
 		private int? _ct_enable=1;
-        private DateTime _ct_updatedate;
-        /// <summary>
-        /// 
-        /// </summary>
-        public int CT_ID
+		/// <summary>
+		/// 
+		/// </summary>
+		public int CT_ID
 		{
 			set{ _ct_id=value;}
 			get{return _ct_id;}
@@ -74,16 +73,8 @@ namespace Model
 			set{ _ct_enable=value;}
 			get{return _ct_enable;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime CT_UpdateDate
-        {
-            set { _ct_updatedate = value; }
-            get { return _ct_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

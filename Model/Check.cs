@@ -21,11 +21,10 @@ namespace Model
 		private string _che_satetyone;
 		private string _che_satetytwo;
 		private int? _che_clear;
-        private DateTime _che_updatedate;
-        /// <summary>
-        /// 自增ID
-        /// </summary>
-        public int Che_ID
+		/// <summary>
+		/// 自增ID
+		/// </summary>
+		public int Che_ID
 		{
 			set{ _che_id=value;}
 			get{return _che_id;}
@@ -110,16 +109,8 @@ namespace Model
 			set{ _che_clear=value;}
 			get{return _che_clear;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime Che_UpdateDate
-        {
-            set { _che_updatedate = value; }
-            get { return _che_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

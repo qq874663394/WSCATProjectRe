@@ -21,11 +21,10 @@ namespace Model
 		private string _st_safetyone;
 		private string _st_safetytwo;
 		private string _st_code;
-        private DateTime _st_updatedate;
-        /// <summary>
-        /// 
-        /// </summary>
-        public int St_ID
+		/// <summary>
+		/// 
+		/// </summary>
+		public int St_ID
 		{
 			set{ _st_id=value;}
 			get{return _st_id;}
@@ -110,16 +109,8 @@ namespace Model
 			set{ _st_code=value;}
 			get{return _st_code;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime St_UpdateDate
-        {
-            set { _st_updatedate = value; }
-            get { return _st_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

@@ -23,11 +23,10 @@ namespace Model
 		private string _move_safetyone;
 		private string _move_safetytwo;
 		private string _move_remark;
-        private DateTime _move_updatedate;
-        /// <summary>
-        /// 调价编号
-        /// </summary>
-        public string Move_ID
+		/// <summary>
+		/// 调价编号
+		/// </summary>
+		public string Move_ID
 		{
 			set{ _move_id=value;}
 			get{return _move_id;}
@@ -128,16 +127,8 @@ namespace Model
 			set{ _move_remark=value;}
 			get{return _move_remark;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime Move_UpdateDate
-        {
-            set { _move_updatedate = value; }
-            get { return _move_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

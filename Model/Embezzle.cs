@@ -27,11 +27,10 @@ namespace Model
 		private string _e_satetyone;
 		private string _e_satetytwo;
 		private int? _e_clear=1;
-        private DateTime _e_updatedate;
-        /// <summary>
-        /// 自增ID
-        /// </summary>
-        public int E_ID
+		/// <summary>
+		/// 自增ID
+		/// </summary>
+		public int E_ID
 		{
 			set{ _e_id=value;}
 			get{return _e_id;}
@@ -164,16 +163,8 @@ namespace Model
 			set{ _e_clear=value;}
 			get{return _e_clear;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime E_UpdateDate
-        {
-            set { _e_updatedate = value; }
-            get { return _e_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

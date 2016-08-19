@@ -34,11 +34,10 @@ namespace Model
 		private string _su_code;
 		private string _su_area;
         private string _su_enableStr;
-        private DateTime _su_updatedate;
-        /// <summary>
-        /// 
-        /// </summary>
-        public int Su_ID
+		/// <summary>
+		/// 
+		/// </summary>
+		public int Su_ID
 		{
 			set{ _su_id=value;}
 			get{return _su_id;}
@@ -231,14 +230,6 @@ namespace Model
             {
                 _su_enableStr = value;
             }
-        }
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime Su_UpdateDate
-        {
-            set { _su_updatedate = value; }
-            get { return _su_updatedate; }
         }
         #endregion Model
 

@@ -16,7 +16,6 @@ namespace Model
         private string _sp_Ope;
         private string _sp_Remark;
         private int? _sp_Clear;
-        private DateTime _sp_updatedate;
 
         /// <summary>
         /// 自增id
@@ -144,14 +143,6 @@ namespace Model
             {
                 _sp_Clear = value;
             }
-        }
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime SP_UpdateDate
-        {
-            set { _sp_updatedate = value; }
-            get { return _sp_updatedate; }
         }
     }
 }

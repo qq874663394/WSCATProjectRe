@@ -38,7 +38,6 @@ namespace Model
         private string _emp_area;
         private Role roles;
         private Department departments;
-        private DateTime _emp_updatedate;
         /// <summary>
         /// 
         /// </summary>
@@ -256,14 +255,6 @@ namespace Model
             {
                 departments = value;
             }
-        }
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime Emp_UpdateDate
-        {
-            set { _emp_updatedate = value; }
-            get { return _emp_updatedate; }
         }
         #endregion Model
 

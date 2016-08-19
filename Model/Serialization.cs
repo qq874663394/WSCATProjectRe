@@ -19,11 +19,10 @@ namespace Model
 		private DateTime? _ser_currentdate= DateTime.Now;
 		private int? _ser_segno;
 		private int? _ser_clear=1;
-        private DateTime _ser_updatedate;
-        /// <summary>
-        /// 单据编号
-        /// </summary>
-        public int Ser_ID
+		/// <summary>
+		/// 单据编号
+		/// </summary>
+		public int Ser_ID
 		{
 			set{ _ser_id=value;}
 			get{return _ser_id;}
@@ -92,16 +91,8 @@ namespace Model
 			set{ _ser_clear=value;}
 			get{return _ser_clear;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime Ser_UpdateDate
-        {
-            set { _ser_updatedate = value; }
-            get { return _ser_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

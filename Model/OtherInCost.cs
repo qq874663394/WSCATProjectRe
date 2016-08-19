@@ -23,11 +23,10 @@ namespace Model
 		private string _oic_auditman;
 		private string _oic_abstracts;
 		private int? _oic_clear=1;
-        private DateTime _oic_updatedate;
-        /// <summary>
-        /// 自增ID
-        /// </summary>
-        public int OIC_ID
+		/// <summary>
+		/// 自增ID
+		/// </summary>
+		public int OIC_ID
 		{
 			set{ _oic_id=value;}
 			get{return _oic_id;}
@@ -128,16 +127,8 @@ namespace Model
 			set{ _oic_clear=value;}
 			get{return _oic_clear;}
 		}
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime OIC_UpdateDate
-        {
-            set { _oic_updatedate = value; }
-            get { return _oic_updatedate; }
-        }
-        #endregion Model
+		#endregion Model
 
-    }
+	}
 }
 

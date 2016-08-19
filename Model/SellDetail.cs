@@ -30,12 +30,11 @@ namespace Model
 		private string _sell_safetyone;
 		private string _sell_safetytwo;
 		private string _sell_remark;
-        private DateTime _sellde_updatedate;
 
-        /// <summary>
-        /// 销售订单编号
-        /// </summary>
-        public string Sell_Code
+		/// <summary>
+		/// 销售订单编号
+		/// </summary>
+		public string Sell_Code
 		{
 			set{ _sell_code=value;}
 			get{return _sell_code;}
@@ -242,14 +241,6 @@ namespace Model
             {
                 _sell_lostnumber = value;
             }
-        }
-        /// <summary>
-        /// 更改时间
-        /// </summary>
-        public DateTime SellDe_UpdateDate
-        {
-            set { _sellde_updatedate = value; }
-            get { return _sellde_updatedate; }
         }
 
         #endregion Model
