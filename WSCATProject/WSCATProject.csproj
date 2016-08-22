@@ -561,8 +561,20 @@
     <Compile Include="WarehouseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WarehouseForm.Designer.cs">
+    <Compile Include="WarehouseForm.designer.cs">
       <DependentUpon>WarehouseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WareHouse\StockIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WareHouse\StockIn.Designer.cs">
+      <DependentUpon>StockIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WareHouse\StockOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WareHouse\StockOut.Designer.cs">
+      <DependentUpon>StockOut.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Base\BankAccount\BankAccountForm.resx">
       <DependentUpon>BankAccountForm.cs</DependentUpon>
@@ -772,6 +784,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WarehouseForm.resx">
       <DependentUpon>WarehouseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WareHouse\StockIn.resx">
+      <DependentUpon>StockIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WareHouse\StockOut.resx">
+      <DependentUpon>StockOut.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
